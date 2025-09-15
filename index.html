@@ -111,6 +111,35 @@
       justify-content: center;
       gap: 20px;
     }
+
+    /* About Us Section */
+    #about {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 40px;
+      flex-wrap: wrap;
+      gap: 50px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    #about h2 {
+      font-size: 48px;
+      color: #C92828;
+      margin-bottom: 20px;
+    }
+
+    #about p {
+      font-size: 20px;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    #about img {
+      max-width: 250px;
+    }
   </style>
 </head>
 <body>
@@ -123,6 +152,7 @@
     </div>
     <nav>
       <a href="#home">Home</a>
+      <a href="#about">About Us</a>
       <a href="#partners">Partners</a>
       <a href="#teams">Teams</a>
       <a href="#news">News</a>
@@ -134,6 +164,27 @@
   <section id="home" class="hero">
     <h1>Ronin Gaming</h1>
     <p>Sharpening the Future of Gaming</p>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about">
+    <!-- Text Box -->
+    <div style="flex: 1; min-width: 300px; color: #fff;">
+      <h2>About Us</h2>
+      <p>
+        Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. 
+        Our mission is to create a sustainable, professional organization that bridges competitive gaming, 
+        content development, and brand innovation. We provide players with professional representation 
+        to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, 
+        streamlined method to connect with engaged gaming audiences.
+      </p>
+    </div>
+
+    <!-- Logo -->
+    <div style="flex: 1; min-width: 200px; text-align: center;">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" 
+           alt="Ronin Logo">
+    </div>
   </section>
 
   <!-- Partners Section -->
@@ -178,5 +229,7 @@
     </div>
   </section>
 
+</body>
+</html>
 </body>
 </html>
