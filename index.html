@@ -1,9 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <!-- Existing meta tags -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=The+Last+Shuriken&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official website of Ronin Gaming esports organization. Teams, partners, news, and shop coming soon!">
+  <title>Ronin Gaming</title>
+
   <style>
+    /* Custom Font */
+    @font-face {
+      font-family: 'The Last Shuriken';
+      src: url('TheLastShuriken.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
       margin: 0;
       font-family: 'The Last Shuriken', Arial, sans-serif;
@@ -12,7 +23,7 @@
       scroll-behavior: smooth;
     }
 
-    /* Header with logo + RONIN text + nav */
+    /* Header */
     header {
       position: sticky;
       top: 0;
@@ -55,9 +66,79 @@
     nav a:hover {
       color: #C92828;
     }
+
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    section:nth-child(even) {
+      background: #111;
+    }
+
+    h1, h2 {
+      margin: 0 0 20px 0;
+    }
+
+    p {
+      color: #ccc;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+    }
+
+    /* Grid Layout for Partners/Teams */
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      text-align: center;
+      max-width: 180px;
+    }
+
+    .card img {
+      width: 150px;
+      border-radius: 10px;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px 0;
+      color: #fff;
+    }
+
+    .card p {
+      color: #ccc;
+      margin: 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: #ccc;
+      padding: 30px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 5px;
+      transition: color 0.2s ease-in-out;
+    }
+
+    footer a:hover {
+      color: #C92828;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <div class="logo-container">
       <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
@@ -71,3 +152,54 @@
       <a href="#shop">Shop</a>
     </nav>
   </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Gaming Logo" style="width:180px; margin-bottom:20px;">
+    <h1>Welcome to Ronin Gaming</h1>
+    <p>Official esports organization. Teams, partners, news, and exclusive merch coming soon!</p>
+  </section>
+
+  <!-- Partners Section -->
+  <section id="partners">
+    <h2>Our Partners</h2>
+    <div class="grid">
+      <div class="card"><img src="partner1.png" alt="Partner 1"><h3>Partner 1</h3></div>
+      <div class="card"><img src="partner2.png" alt="Partner 2"><h3>Partner 2</h3></div>
+      <!-- Add more partners -->
+    </div>
+  </section>
+
+  <!-- Teams Section -->
+  <section id="teams">
+    <h2>Our Teams</h2>
+    <div class="grid">
+      <div class="card"><img src="player1.jpg" alt="Player 1"><h3>Player 1</h3><p>Role</p></div>
+      <div class="card"><img src="player2.jpg" alt="Player 2"><h3>Player 2</h3><p>Role</p></div>
+      <!-- Add more players -->
+    </div>
+  </section>
+
+  <!-- News Section -->
+  <section id="news">
+    <h2>Latest News</h2>
+    <p>Stay tuned for updates on matches, events, and announcements from Ronin Gaming.</p>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop">
+    <h2>Shop</h2>
+    <p>Exclusive Ronin Gaming merch coming soon! Hoodies, jerseys, and more.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Ronin Gaming | Follow us on 
+      <a href="#">Twitch</a>, 
+      <a href="#">Twitter</a>, 
+      <a href="#">Instagram</a>
+    </p>
+  </footer>
+
+</body>
+</html>
