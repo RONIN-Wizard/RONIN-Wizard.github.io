@@ -3,61 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Official website of Ronin Gaming esports organization. Team pages, sponsors, and merch coming soon!">
   <title>Ronin Gaming</title>
-
   <style>
-  body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  background: #000; /* black background */
-  overflow: hidden; /* hides scroll while logo shows */
-  font-family: Arial, sans-serif;
-  color: white;
-  text-align: center;
-}
-
-#logo {
-  width: 180px;
-  display: block;
-  margin: 100px auto 50px auto;
-  animation: fadeInOut 2s ease-in-out;
-}
-
-@keyframes fadeInOut {
-  0% {opacity: 0;}
-  30% {opacity: 1;}
-  70% {opacity: 1;}
-  100% {opacity: 0;}
-}
-
-#site-content {
-  display: none; /* hidden until logo disappears */
-  padding: 50px;
-}
-
+    body {
+      margin: 0;
+      padding: 50px;
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    img {
+      width: 180px;
+      display: block;
+      margin: 50px auto;
+    }
   </style>
 </head>
 <body>
-
-<div id="preloader">
- <img id="logo" src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Gaming Logo">
-</div>
-
-<div id="site-content">
+  <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Gaming Logo">
+  
   <h1>Welcome to Ronin Gaming</h1>
   <p>Official Esports Organization</p>
   <p>Team pages, sponsors, merch coming soon!</p>
-</div>
-
-<script>
-  window.addEventListener("load", function(){
-    document.getElementById("preloader").style.display = "none";
-    document.getElementById("site-content").style.display = "block";
-    document.body.style.overflow = "auto";
-  });
-</script>
-
 </body>
 </html>
-
