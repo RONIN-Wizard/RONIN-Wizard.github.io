@@ -21,7 +21,6 @@
       color: white;
     }
 
-    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
@@ -36,10 +35,9 @@
     .logo {
       display: flex;
       align-items: center;
-      text-decoration: none;
     }
     .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration: none; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
     nav a {
       color: white;
       text-decoration: none;
@@ -49,7 +47,6 @@
     }
     nav a:hover, nav a.active { color: #C92828; }
 
-    /* PAGE HEADER */
     .page-header {
       padding: 80px 20px;
       text-align: center;
@@ -64,36 +61,57 @@
       font-size: 20px;
     }
 
-    /* TEAM SECTIONS */
-    .team-section {
+    .team-container {
       padding: 40px 50px;
-      border-top: 2px solid #C92828;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
     }
-    .team-member {
+
+    .player {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      margin-bottom: 60px;
-      gap: 20px;
+      gap: 30px;
       background: #111;
       padding: 30px;
       border-radius: 10px;
       border: 2px solid #C92828;
+      transition: transform 0.3s;
     }
-    .team-member img {
-      max-width: 250px;
-      border-radius: 10px;
+    .player:hover { transform: translateY(-5px); }
+    .player img {
+      width: 200px;
+      height: 200px;
       object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #C92828;
     }
-    .team-info {
-      flex: 1;
+    .player-bio {
+      flex: 1 1 300px;
+    }
+    .player-bio h2 {
+      font-size: 28px;
+      color: #C92828;
+      margin-bottom: 10px;
+    }
+    .player-bio h3 {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .player-bio p {
+      color: #ccc;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .player-bio .socials a {
+      margin-right: 15px;
       color: white;
+      text-decoration: none;
+      font-size: 18px;
     }
-    .team-info h2 { color: #C92828; font-size: 32px; margin-bottom: 10px; }
-    .team-info h3 { color: #fff; font-size: 20px; margin-bottom: 15px; font-weight: normal; }
-    .team-info p { font-size: 16px; line-height: 1.6; margin-bottom: 10px; }
-    .team-info a { color: #C92828; text-decoration: none; margin-right: 15px; }
-    .team-info a:hover { text-decoration: underline; }
+    .player-bio .socials a:hover { color: #C92828; }
 
     /* FOOTER */
     footer {
@@ -116,14 +134,14 @@
     .footer-socials a:hover { color:#C92828; }
     .footer-legal { font-size:14px; color:#aaa; }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .team-member {
+    /* MOBILE RESPONSIVE */
+    @media screen and (max-width: 768px) {
+      .player {
         flex-direction: column;
         text-align: center;
       }
-      .team-member img { margin-bottom: 20px; }
-      .team-info a { display: inline-block; margin: 5px; }
+      .player img { width: 150px; height: 150px; }
+      .player-bio { flex: 1 1 100%; }
     }
   </style>
 </head>
@@ -132,12 +150,12 @@
   <!-- HEADER -->
   <header>
     <a href="index.html" class="logo">
-      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Ronin Logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
       <span>RONIN</span>
     </a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="partners.html">partners</a>
+      <a href="partners.html">Partners</a>
       <a href="team.html" class="active">Team</a>
       <a href="news.html">News</a>
       <a href="shop.html">Shop</a>
@@ -148,81 +166,66 @@
   <!-- PAGE HEADER -->
   <div class="page-header">
     <h1>Our Team</h1>
-    <p>Meet the people behind Ronin Gaming — from founders to pro players and content creators.</p>
+    <p>Meet the people behind Ronin Gaming, from our leadership to our pro players and content creators.</p>
   </div>
 
-  <!-- OWNERSHIP -->
-  <section class="team-section">
-    <h2>Ownership</h2>
+  <!-- TEAM MEMBERS -->
+  <div class="team-container">
 
-    <div class="team-member">
-      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Antonio Alcantar">
-      <div class="team-info">
+    <!-- OWNER 1 -->
+    <div class="player">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/refs/heads/main/Antonio%20Alcantar.jpg" alt="Antonio Alcantar">
+      <div class="player-bio">
         <h2>Antonio Alcantar</h2>
         <h3>Founder & CEO</h3>
-        <p>Antonio Alcantar is the founder and CEO of Ronin Gaming, leading the organization’s vision for esports, content, and brand innovation.</p>
+        <p>Antonio Alcantar is the founder and CEO of Ronin Gaming, driving the vision and strategy behind the organization.</p>
+        <div class="socials">
+          <!-- Add socials if needed -->
+        </div>
       </div>
     </div>
 
-    <div class="team-member">
-      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/David%20Eze.jpg" alt="David Eze">
-      <div class="team-info">
+    <!-- OWNER 2 -->
+    <div class="player">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/refs/heads/main/David%20Eze.jpg" alt="David Eze">
+      <div class="player-bio">
         <h2>David Eze</h2>
         <h3>Founder & Co-CEO</h3>
-        <p>David Eze is the co-founder and co-CEO, helping drive operations and strategy for Ronin Gaming’s competitive and content initiatives.</p>
+        <p>David Eze is the co-founder and co-CEO of Ronin Gaming, responsible for operations and growth strategy.</p>
+        <div class="socials">
+          <!-- Add socials if needed -->
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- PLAYERS -->
-  <section class="team-section">
-    <h2>Players</h2>
-
-    <!-- Player 1 -->
-    <div class="team-member">
-      <img src="https://via.placeholder.com/250x250?text=Coming+Soon" alt="Player Coming Soon">
-      <div class="team-info">
-        <h2>Coming Soon</h2>
+    <!-- PLAYER 1 (Coming Soon) -->
+    <div class="player">
+      <img src="https://via.placeholder.com/200x200?text=Coming+Soon" alt="Player Coming Soon">
+      <div class="player-bio">
+        <h2>Player Name</h2>
         <h3>Pro / Content Creator</h3>
-        <p>Details about this player will be added soon. Stay tuned for bios, achievements, and social links.</p>
-        <p>Follow on socials: 
-          <a href="#" target="_blank">Twitter</a>
-          <a href="#" target="_blank">YouTube</a>
-          <a href="#" target="_blank">TikTok</a>
-          <a href="#" target="_blank">Twitch</a>
-        </p>
+        <p>Details coming soon. Stay tuned for updates on our roster of professional players and content creators.</p>
+        <div class="socials">
+          <!-- Add socials later -->
+        </div>
       </div>
     </div>
 
-    <!-- Player 2 -->
-    <div class="team-member">
-      <img src="https://via.placeholder.com/250x250?text=Coming+Soon" alt="Player Coming Soon">
-      <div class="team-info">
-        <h2>Coming Soon</h2>
-        <h3>Pro / Content Creator</h3>
-        <p>Details about this player will be added soon. Stay tuned for bios, achievements, and social links.</p>
-        <p>Follow on socials: 
-          <a href="#" target="_blank">Twitter</a>
-          <a href="#" target="_blank">YouTube</a>
-          <a href="#" target="_blank">TikTok</a>
-          <a href="#" target="_blank">Twitch</a>
-        </p>
-      </div>
-    </div>
+  </div>
 
-    <!-- Player 3 -->
-    <div class="team-member">
-      < <div class="team-member">
-      <img src="https://via.placeholder.com/250x250?text=Coming+Soon" alt="Player Coming Soon">
-      <div class="team-info">
-        <h2>Coming Soon</h2>
-        <h3>Pro / Content Creator</h3>
-        <p>Details about this player will be added soon. Stay tuned for bios, achievements, and social links.</p>
-        <p>Follow on socials: 
-          <a href="#" target="_blank">Twitter</a>
-          <a href="#" target="_blank">YouTube</a>
-          <a href="#" target="_blank">TikTok</a>
-          <a href="#" target="_blank">Twitch</a>
-        </p>
-      </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-socials">
+      <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank">TikTok</a>
+      <a href="https://www.twitch.tv/roningaminggg" target="_blank">Twitch</a>
     </div>
+    <div class="footer-legal">
+      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
