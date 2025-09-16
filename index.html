@@ -84,50 +84,36 @@
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
-    /* RONIN APPAREL HORIZONTAL SLIDESHOW */
+    /* RONIN APPAREL SLIDESHOW */
     #merch {
       padding: 80px 50px;
       background:#111;
       text-align:center;
       border-top:2px solid #C92828;
+      position: relative;
     }
     #merch h2 { color:#C92828; margin-bottom:40px; }
-
-    .slide-container {
+    .slideshow-container {
       position: relative;
-      max-width: 1000px;
-      height: 250px;
-      margin: 0 auto;
+      max-width: 800px;
+      margin: auto;
       overflow: hidden;
-      border: 2px solid #C92828;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #000;
+      border:2px solid #C92828;
+      border-radius:10px;
+      background:#000;
+      height: 400px;
     }
-
     .slide {
-      min-width: 100%;
+      display: none;
       height: 100%;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    .slide.active { opacity: 1; }
-
-    .slide-text {
-      color: white;
       font-size: 36px;
-      text-align: center;
+      color: black;
+      background:white;
     }
-
     .prev, .next {
       cursor: pointer;
       position: absolute;
@@ -138,101 +124,94 @@
       color: #C92828;
       font-weight: bold;
       font-size: 24px;
-      transition: 0.3s;
+      border-radius: 0 3px 3px 0;
       user-select: none;
-      border-radius: 3px;
+      background: rgba(0,0,0,0.3);
+      transition: 0.3s;
     }
-
-    .prev:hover, .next:hover { background-color: rgba(201,40,40,0.3); }
-
-    .prev { left: 10px; }
-    .next { right: 10px; }
+    .next { right: 0; border-radius: 3px 0 0 3px; }
+    .prev:hover, .next:hover { background-color: rgba(201,40,40,0.8); }
 
     /* FOOTER */
     footer {
-      background: #111;
-      color: #ccc;
-      padding: 40px 50px;
-      text-align: center;
-      border-top: 2px solid #C92828;
+      background:#111;
+      color:white;
+      text-align:center;
+      padding:30px 20px;
+      border-top:2px solid #C92828;
+      font-size:14px;
     }
-    footer a { color: #C92828; text-decoration: none; margin: 0 10px; }
-    footer a:hover { text-decoration: underline; }
+    footer a { color:#C92828; text-decoration:none; margin:0 10px; }
+    footer a:hover { text-decoration:underline; }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">
-    <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
-    <span>RONIN</span>
-  </div>
-  <nav>
-    <a href="#hero" class="active">Home</a>
-    <a href="#about">About</a>
-    <a href="#merch">Shop</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+      <span>RONIN</span>
+    </div>
+    <nav>
+      <a href="#hero" class="active">Home</a>
+      <a href="#partners">Partners</a>
+      <a href="#teams">Teams</a>
+      <a href="#news">News</a>
+      <a href="#shop">Shop</a>
+    </nav>
+  </header>
 
-<section id="hero">
-  <h1>Ronin Gaming</h1>
-  <p>Sharpening the Future of Gaming</p>
-</section>
+  <!-- HERO -->
+  <section id="hero">
+    <h1>Ronin Gaming</h1>
+    <p>Sharpening the Future of Gaming</p>
+  </section>
 
-<section id="about">
-  <div class="about-text">
-    <h2>About Us</h2>
-    <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
-  </div>
-  <div class="about-logo">
-    <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
-  </div>
-</section>
+  <!-- ABOUT (still part of home page) -->
+  <section id="about">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
+    </div>
+    <div class="about-logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+    </div>
+  </section>
 
-<section id="merch">
-  <h2>Ronin Apparel</h2>
-  <div class="slide-container">
-    <div class="slide active"><div class="slide-text">COMING SOON</div></div>
-    <div class="slide"><div class="slide-text">COMING SOON</div></div>
-    <div class="slide"><div class="slide-text">COMING SOON</div></div>
-    <div class="prev">&#10094;</div>
-    <div class="next">&#10095;</div>
-  </div>
-</section>
+  <!-- RONIN APPAREL -->
+  <section id="merch">
+    <h2>Ronin Apparel</h2>
+    <div class="slideshow-container">
+      <div class="slide">COMING SOON</div>
+      <div class="slide">COMING SOON</div>
+      <div class="slide">COMING SOON</div>
 
-<footer>
-  <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
-  <p>
-    <a href="https://x.com/Roninggs" target="_blank">Twitter</a> |
-    <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a> |
-    <a href="https://www.tiktok.com/@roninggs?_t=ZP-8zlMVz8U4p5&_r=1" target="_blank">TikTok</a> |
-    <a href="https://www.twitch.tv/roningamingggs" target="_blank">Twitch</a>
-  </p>
-</footer>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+  </section>
 
-<script>
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.slide');
-  const totalSlides = slides.length;
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    <p>
+      <a href="https://x.com/Roninggs">Twitter</a> | 
+      <a href="https://www.youtube.com/@RoninGGss">YouTube</a> | 
+      <a href="https://www.tiktok.com/@roninggs?_t=ZP-8zlMVz8U4p5&_r=1">TikTok</a> | 
+      <a href="https://www.twitch.tv/roningamingggs">Twitch</a>
+    </p>
+  </footer>
 
-  function showSlide(index) {
-    slides.forEach((s,i) => { s.classList.remove('active'); });
-    slides[index].classList.add('active');
-  }
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
 
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    showSlide(currentSlide);
-  }
-
-  function prevSlide() {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    showSlide(currentSlide);
-  }
-
-  document.querySelector('.next').addEventListener('click', nextSlide);
-  document.querySelector('.prev').addEventListener('click', prevSlide);
-
-  setInterval(nextSlide, 10000);
-
-  showSlide(current
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "flex";
+      setTimeout(showSlides, 10000); // Change slide every 10 seconds
