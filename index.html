@@ -201,8 +201,19 @@
     // HERO & PRELOADER
     window.addEventListener("load", function() {
       const preloader = document.getElementById("preloader");
-      preloader.style.opacity = "0";
-      setTimeout(() => preloader.style.display = "none", 600);
+      const minTime = 1500; // Minimum time in ms
+      const startTime = Date.now();
+
+      function hidePreloader() {
+        const elapsed = Date.now() - startTime;
+        const remaining = minTime - elapsed;
+        setTimeout(() => {
+          preloader.style.opacity = "0";
+          setTimeout(() => preloader.style.display = "none", 600);
+        }, remaining > 0 ? remaining : 0);
+      }
+
+      hidePreloader();
     });
   </script>
 
