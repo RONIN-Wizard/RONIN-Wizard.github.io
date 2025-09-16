@@ -21,7 +21,6 @@
       color: white;
     }
 
-    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
@@ -49,81 +48,45 @@
     }
     nav a:hover, nav a.active { color: #C92828; }
 
-    /* PAGE HEADER */
     .page-header {
       padding: 80px 20px;
       text-align: center;
     }
     .page-header h1 { font-size: 48px; color: #C92828; }
-    .page-header p { margin-top: 20px; color: #ccc; font-size: 20px; max-width: 800px; margin-left:auto;margin-right:auto;}
+    .page-header p { margin-top: 20px; color: #ccc; font-size: 20px; }
 
-    /* OWNERSHIP SECTION */
-    .ownership-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
-      padding: 40px 50px;
-      justify-content: center;
-    }
-    .owner-card {
-      background:#111;
-      border:2px solid #333;
-      border-radius:10px;
-      padding:30px;
-      flex:0 0 300px;
-      text-align:center;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .owner-card:hover { transform: translateY(-10px); border-color:#C92828; }
-    .owner-card img { width:120px; height:120px; border-radius:50%; background:#222; margin-bottom:15px; display:inline-flex; justify-content:center; align-items:center; color:#888; font-size:14px; }
-    .owner-name { font-size:20px; color:#fff; font-weight:bold; margin-bottom:5px; }
-    .owner-role { font-size:16px; color:#C92828; margin-bottom:10px; }
-    .owner-bio { font-size:14px; color:#ccc; line-height:1.5; }
+    /* TEAM SECTIONS */
+    .team-section { padding: 50px; border-top: 2px solid #C92828; }
+    .team-section h2 { color: #C92828; margin-bottom: 40px; font-size: 36px; }
 
-    /* PLAYER BIO SECTION */
-    .player-bio-section {
-      padding: 60px 50px;
+    .member-card {
       display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
-    .player-bio-card {
-      display: flex;
-      flex-wrap: wrap;
       gap: 30px;
-      background: #111;
-      border: 2px solid #333;
-      border-radius: 10px;
-      padding: 30px;
-      transition: transform 0.3s, border-color 0.3s;
-    }
-    .player-bio-card:hover { transform: translateY(-10px); border-color: #C92828; }
-    .player-bio-headshot {
-      flex: 0 0 150px;
-      height: 150px;
-      background: #222;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
       align-items: center;
-      font-size: 14px;
-      color: #888;
     }
-    .player-bio-info { flex: 1 1 300px; }
-    .player-bio-name { font-size: 24px; color: #fff; font-weight: bold; margin-bottom: 5px; }
-    .player-bio-role { font-size: 18px; color: #C92828; margin-bottom: 15px; }
-    .player-bio-text { font-size: 16px; line-height: 1.6; color: #ccc; margin-bottom: 15px; }
-    .player-bio-socials a { margin-right: 15px; color: white; text-decoration: none; font-size: 16px; }
-    .player-bio-socials a:hover { color: #C92828; }
-
-    @media (max-width:768px) {
-      .player-bio-card { flex-direction: column; align-items: center; text-align: center; }
-      .player-bio-headshot { margin-bottom:20px; }
-      .player-bio-info { flex:1 1 100%; }
-      .ownership-section { flex-direction: column; align-items:center; }
+    .member-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #C92828;
     }
+    .member-info {
+      max-width: 800px;
+    }
+    .member-info h3 { font-size: 28px; color: #C92828; margin-bottom: 10px; }
+    .member-info p.role { font-size: 18px; color: #fff; font-weight: bold; margin-bottom: 10px; }
+    .member-info p.bio { font-size: 16px; color: #ccc; margin-bottom: 10px; }
+    .member-info .socials a {
+      margin-right: 15px;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .member-info .socials a:hover { color: #C92828; }
 
-    /* FOOTER */
     footer {
       background:#111;
       color:white;
@@ -134,7 +97,13 @@
       gap:20px;
       border-top:2px solid #C92828;
     }
-    .footer-socials a { margin-right:15px; color:white; text-decoration:none; font-size:20px; transition:color 0.3s;}
+    .footer-socials a {
+      margin-right:15px;
+      color:white;
+      text-decoration:none;
+      font-size:20px;
+      transition: color 0.3s;
+    }
     .footer-socials a:hover { color:#C92828; }
     .footer-legal { font-size:14px; color:#aaa; }
   </style>
@@ -160,43 +129,74 @@
   <!-- PAGE HEADER -->
   <div class="page-header">
     <h1>Our Team</h1>
-    <p>Meet the people driving Ronin Gaming forward — from leadership to professional players and content creators. Our team is focused on competitive excellence, content innovation, and building a sustainable esports organization.</p>
+    <p>Meet the people shaping the future of Ronin Gaming, from our ownership to pro players and content creators.</p>
   </div>
 
-  <!-- OWNERSHIP SECTION -->
-  <section class="ownership-section">
-    <div class="owner-card">
-      <div class="owner-headshot">Coming Soon</div>
-      <div class="owner-name">Antonio Alcantar</div>
-      <div class="owner-role">Founder & CEO</div>
-      <div class="owner-bio">Antonio Alcantar is the visionary behind Ronin Gaming, leading the organization’s growth and competitive strategy.</div>
-    </div>
-    <div class="owner-card">
-      <div class="owner-headshot">Coming Soon</div>
-      <div class="owner-name">David Eze</div>
-      <div class="owner-role">Co-Founder & Co-CEO</div>
-      <div class="owner-bio">David Eze oversees operations and content strategy, ensuring Ronin Gaming delivers high-quality esports experiences.</div>
-    </div>
-  </section>
+  <!-- OWNERSHIP -->
+  <section class="team-section" id="ownership">
+    <h2>Ownership</h2>
 
-  <!-- PLAYER SECTION -->
-  <section class="player-bio-section">
-    <div class="player-bio-card">
-      <div class="player-bio-headshot">Coming Soon</div>
-      <div class="player-bio-info">
-        <h2 class="player-bio-name">Player 1</h2>
-        <p class="player-bio-role">Pro</p>
-        <p class="player-bio-text">At 17, Player 1 is a rising star in Fortnite. They have demonstrated exceptional skill in competitive play and continue to grow as both a professional player and content creator. Stay tuned for their latest accomplishments and content.</p>
-        <div class="player-bio-socials">
+    <div class="member-card">
+      <img src="Antonio_Alcantar.jpg" alt="Antonio Alcantar">
+      <div class="member-info">
+        <h3>Antonio Alcantar</h3>
+        <p class="role">Founder & CEO</p>
+        <p class="bio">Antonio Alcantar is the visionary behind Ronin Gaming, leading our organization with a focus on professionalism, growth, and brand innovation.</p>
+        <div class="socials">
           <a href="#" target="_blank">Twitter</a>
           <a href="#" target="_blank">YouTube</a>
-          <a href="#" target="_blank">Twitch</a>
-          <a href="#" target="_blank">TikTok</a>
-
         </div>
       </div>
     </div>
-    <!-- Duplicate for more players -->
+
+    <div class="member-card">
+      <img src="David_Eze.jpg" alt="David Eze">
+      <div class="member-info">
+        <h3>David Eze</h3>
+        <p class="role">Co-Founder & Co-CEO</p>
+        <p class="bio">David Eze co-leads Ronin Gaming alongside Antonio, focusing on operational excellence and strategic growth in esports and content creation.</p>
+        <div class="socials">
+          <a href="#" target="_blank">Twitter</a>
+          <a href="#" target="_blank">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYERS -->
+  <section class="team-section" id="players">
+    <h2>Players</h2>
+
+    <!-- Example Player Card -->
+    <div class="member-card">
+      <img src="coming-soon.jpg" alt="Coming Soon">
+      <div class="member-info">
+        <h3>Coming Soon</h3>
+        <p class="role">Pro Player / Content Creator</p>
+        <p class="bio">This player will be joining our Fortnite team soon. Stay tuned for updates!</p>
+        <div class="socials">
+          <a href="#" target="_blank">Twitter</a>
+          <a href="#" target="_blank">YouTube</a>
+          <a href="#" target="_blank">TikTok</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more "Coming Soon" cards if desired -->
+    <div class="member-card">
+      <img src="coming-soon.jpg" alt="Coming Soon">
+      <div class="member-info">
+        <h3>Coming Soon</h3>
+        <p class="role">Pro Player / Content Creator</p>
+        <p class="bio">This player will be joining our Fortnite team soon. Stay tuned for updates!</p>
+        <div class="socials">
+          <a href="#" target="_blank">Twitter</a>
+          <a href="#" target="_blank">YouTube</a>
+          <a href="#" target="_blank">TikTok</a>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <!-- FOOTER -->
