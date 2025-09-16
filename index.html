@@ -40,8 +40,20 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+    .logo span {
+      font-size: 28px;
+      color: #C92828;
+      letter-spacing: 2px;
+      font-family: 'TheLastShuriken', sans-serif;
+    }
     nav a {
       color: white;
       text-decoration: none;
@@ -59,11 +71,11 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: black;
+      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
       padding: 0 20px;
     }
-    #hero h1 { font-size: 64px; color: #C92828; margin-bottom: 20px; }
-    #hero p { font-size: 24px; color: white; }
+    #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
+    #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
 
     /* ABOUT SECTION */
     #about {
@@ -73,6 +85,8 @@
       justify-content: space-between;
       padding: 100px 50px;
       gap: 40px;
+      background: #111; /* subtle dark contrast for section */
+      border-top: 2px solid #C92828;
     }
     .about-text {
       flex: 1 1 500px;
@@ -82,8 +96,28 @@
     .about-logo {
       flex: 1 1 300px;
       text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .about-logo img { max-width: 250px; }
+
+    /* BUTTON STYLE (optional) */
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      border: 2px solid #C92828;
+      color: #C92828;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #C92828;
+      color: black;
+    }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -91,6 +125,8 @@
       .about-text, .about-logo { flex: 1 1 100%; }
       header { flex-direction: column; gap: 10px; }
       nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+      #hero h1 { font-size: 56px; }
+      #hero p { font-size: 20px; }
     }
   </style>
 </head>
@@ -99,12 +135,11 @@
   <!-- HEADER / NAVBAR -->
   <header>
     <div class="logo">
-      <img src="roni.png" alt="Ronin Logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
       <span>RONIN</span>
     </div>
     <nav>
       <a href="#hero" class="active">Home</a>
-      <a href="#about">About Us</a>
       <a href="partners.html">Partners</a>
       <a href="teams.html">Teams</a>
       <a href="news.html">News</a>
@@ -116,6 +151,8 @@
   <section id="hero">
     <h1>Ronin Gaming</h1>
     <p>Sharpening the Future of Gaming</p>
+    <!-- optional button -->
+    <!-- <a href="#about" class="btn">Learn More</a> -->
   </section>
 
   <!-- ABOUT SECTION -->
@@ -131,7 +168,7 @@
       </p>
     </div>
     <div class="about-logo">
-      <img src="roni.png" alt="Ronin Logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
     </div>
   </section>
 
