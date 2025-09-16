@@ -74,6 +74,21 @@
       background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
       padding: 0 20px;
     }
+    /* HERO FADE-IN */
+    #hero h1, #hero p {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1.2s forwards;
+    }
+    #hero p { animation-delay: 0.4s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
     #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
 
@@ -93,6 +108,7 @@
       font-size: 18px;
       line-height: 1.8;
     }
+    #about h2 { color: #C92828; }
     .about-logo {
       flex: 1 1 300px;
       text-align: center;
@@ -114,10 +130,7 @@
       font-weight: bold;
       transition: 0.3s;
     }
-    .btn:hover {
-      background-color: #C92828;
-      color: black;
-    }
+    .btn:hover { background-color: #C92828; color: black; }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -151,8 +164,6 @@
   <section id="hero">
     <h1>Ronin Gaming</h1>
     <p>Sharpening the Future of Gaming</p>
-    <!-- optional button -->
-    <!-- <a href="#about" class="btn">Learn More</a> -->
   </section>
 
   <!-- ABOUT SECTION -->
