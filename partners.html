@@ -125,6 +125,25 @@
     }
     .footer-socials a:hover { color:#C92828; }
     .footer-legal { font-size:14px; color:#aaa; }
+
+    /* SCROLLBAR SLIM */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+
+    /* MOBILE RESPONSIVENESS */
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 15px; padding: 15px 20px; }
+      nav a { margin-left: 0; margin-right: 15px; margin-bottom: 5px; display: inline-block; }
+      .partners-grid { padding: 30px 20px; gap: 20px; }
+      .partner-card { padding: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .page-header h1 { font-size: 36px; }
+      .page-header p { font-size: 16px; }
+      .partner-card img { max-height: 80px; }
+    }
   </style>
 </head>
 <body>
