@@ -100,7 +100,7 @@
       justify-content: space-between;
       padding: 100px 50px;
       gap: 40px;
-      background: #111; /* subtle dark contrast for section */
+      background: #111;
       border-top: 2px solid #C92828;
     }
     .about-text {
@@ -118,19 +118,28 @@
     }
     .about-logo img { max-width: 250px; }
 
-    /* BUTTON STYLE (optional) */
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 30px;
-      border: 2px solid #C92828;
-      color: #C92828;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      transition: 0.3s;
+    /* PRELOADER */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
     }
-    .btn:hover { background-color: #C92828; color: black; }
+    #preloader img {
+      width: 180px;
+      animation: pulse 1.2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -144,6 +153,11 @@
   </style>
 </head>
 <body>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+  </div>
 
   <!-- HEADER / NAVBAR -->
   <header>
@@ -183,5 +197,15 @@
     </div>
   </section>
 
+  <script>
+    // HERO & PRELOADER
+    window.addEventListener("load", function() {
+      const preloader = document.getElementById("preloader");
+      preloader.style.opacity = "0";
+      setTimeout(() => preloader.style.display = "none", 600);
+    });
+  </script>
+
 </body>
 </html>
+
