@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ronin Gaming — Team</title>
-  
+
   <!-- TheLastShuriken Font -->
   <style>
     @font-face {
@@ -17,7 +17,7 @@
 
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-  
+
   <style>
     /* BASE */
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -59,14 +59,59 @@
     }
     .logo img { height: 50px; margin-right: 10px; }
     .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 25px;
       font-size: 18px;
       transition: color 0.3s;
     }
     nav a:hover, nav a.active { color: #C92828; }
+
+    /* Hamburger (mobile) */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active div:nth-child(1) { transform: rotate(45deg) translateY(8px); }
+    .hamburger.active div:nth-child(2) { opacity: 0; }
+    .hamburger.active div:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
+
+    /* MOBILE NAV */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #000;
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        border-left: 2px solid #C92828;
+        border-bottom: 2px solid #C92828;
+      }
+      nav.show { transform: translateX(0); }
+      nav a { margin: 10px 0; }
+      .hamburger { display: flex; }
+    }
 
     /* PAGE HEADER */
     .page-header {
@@ -110,11 +155,7 @@
       transform: translateY(30px);
     }
     .team-card.show { opacity: 1; transform: translateY(0); }
-
-    .team-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px #C92828;
-    }
+    .team-card:hover { transform: scale(1.03); box-shadow: 0 0 20px #C92828; }
 
     /* Team Image */
     .team-card img {
@@ -131,22 +172,9 @@
       flex-direction: column;
       justify-content: center;
     }
-
-    .team-info h3 {
-      font-size: 28px;
-      color: #C92828;
-      margin-bottom: 5px;
-    }
-    .team-info p.role {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .team-info p.bio {
-      font-size: 16px;
-      color: #ccc;
-      margin-bottom: 10px;
-    }
+    .team-info h3 { font-size: 28px; color: #C92828; margin-bottom: 5px; }
+    .team-info p.role { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+    .team-info p.bio { font-size: 16px; color: #ccc; margin-bottom: 10px; }
 
     /* Social icons */
     .team-info .socials a {
@@ -177,16 +205,11 @@
       transition: color 0.3s;
     }
     .footer-socials a:hover { color:#C92828; }
-
     .footer-legal { font-size:14px; color:#aaa; }
 
-    /* Mobile Responsiveness */
+    /* MOBILE RESPONSIVENESS */
     @media (max-width: 768px) {
-      .team-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+      .team-card { flex-direction: column; align-items: center; text-align: center; }
       .team-card img { width: 150px; height: 150px; }
       .team-info h3 { font-size: 24px; }
       .team-info p.role { font-size: 18px; }
@@ -195,8 +218,8 @@
     }
 
     @media (max-width: 500px) {
-      header { flex-direction: column; gap: 15px; padding: 15px 20px; }
-      nav a { margin-left: 0; margin-right: 15px; }
+      header { flex-direction: row; justify-content: space-between; padding: 15px 20px; }
+      nav { top: 65px; }
     }
   </style>
 </head>
@@ -208,7 +231,12 @@
       <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
       <span>RONIN</span>
     </a>
-    <nav>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav">
       <a href="index.html">Home</a>
       <a href="partners.html">Partners</a>
       <a href="team.html" class="active">Team</a>
@@ -324,8 +352,26 @@
         }
       });
     }, { threshold: 0.2 });
-
     teamCards.forEach(card => observer.observe(card));
+
+    // Hamburger menu functionality
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      nav.classList.toggle('show');
+    });
+
+    // Close menu when clicking a link
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        nav.classList.remove('show');
+      });
+    });
   </script>
+
 </body>
 </html>
+
