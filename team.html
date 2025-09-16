@@ -13,14 +13,24 @@
       font-style: normal;
     }
 
-    * { margin:0; padding:0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'TheLastShuriken', sans-serif;
-      background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+      background-color: #000;
       color: white;
     }
 
+    /* Scrollbar */
+    body {
+      scrollbar-width: thin;
+      scrollbar-color: #C92828 #000;
+    }
+    body::-webkit-scrollbar { width: 12px; }
+    body::-webkit-scrollbar-track { background: #000; }
+    body::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 6px; border: 3px solid #000; }
+
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
@@ -35,6 +45,7 @@
     .logo {
       display: flex;
       align-items: center;
+      cursor: pointer;
       text-decoration: none;
     }
     .logo img { height: 50px; margin-right: 10px; }
@@ -48,82 +59,96 @@
     }
     nav a:hover, nav a.active { color: #C92828; }
 
+    /* PAGE HEADER */
     .page-header {
       padding: 80px 20px;
       text-align: center;
     }
-    .page-header h1 {
-      font-size: 48px;
-      color: #C92828;
-    }
-    .page-header p {
-      margin-top: 20px;
-      color: #ccc;
-      font-size: 20px;
-    }
+    .page-header h1 { font-size: 48px; color: #C92828; margin-bottom: 10px; }
+    .page-header p { color: #ccc; font-size: 20px; }
 
-    h2.section-title {
+    /* TEAM SECTIONS */
+    .section-title {
       color: #C92828;
-      font-size: 36px;
-      margin: 60px 0 40px;
+      font-size: 32px;
       text-align: center;
+      margin: 60px 0 30px 0;
     }
 
-    .cards-container {
+    .founders, .players {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      padding: 0 50px 50px;
+      padding: 0 50px 50px 50px;
     }
 
-    .card {
+    .team-card {
       background: #111;
       border: 2px solid #C92828;
       border-radius: 15px;
-      width: 300px;
       padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(201,40,40,0.5);
-      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+      transition: transform 0.3s;
     }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(201,40,40,0.8);
-    }
+    .team-card:hover { transform: translateY(-5px); }
 
-    .card img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      border: 2px solid #C92828;
-      margin-bottom: 15px;
+    .team-card img {
+      width: 200px;
+      height: 200px;
       object-fit: cover;
+      border-radius: 10px;
     }
 
-    .card h3 {
-      font-size: 22px;
+    .team-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .team-info h3 {
+      font-size: 28px;
       color: #C92828;
+      margin-bottom: 5px;
+    }
+    .team-info p.role {
+      font-size: 20px;
+      font-weight: bold;
       margin-bottom: 10px;
     }
-    .card h4 {
-      font-size: 18px;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-    .card p {
+    .team-info p.bio {
       font-size: 16px;
       color: #ccc;
       margin-bottom: 10px;
     }
-    .card .socials a {
+    .team-info .socials a {
       color: white;
-      text-decoration: none;
-      margin: 0 8px;
+      margin-right: 15px;
       font-size: 18px;
+      text-decoration: none;
     }
-    .card .socials a:hover { color: #C92828; }
+    .team-info .socials a:hover { color: #C92828; }
 
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .team-card { flex-direction: column; align-items: center; text-align: center; }
+      .team-card img { width: 150px; height: 150px; }
+      .team-info h3 { font-size: 24px; }
+      .team-info p.role { font-size: 18px; }
+      .team-info p.bio { font-size: 14px; }
+    }
+
+    @media (max-width: 500px) {
+      header { flex-direction: column; gap: 15px; padding: 15px 20px; }
+      nav a { margin-left: 0; margin-right: 15px; }
+    }
+
+    /* FOOTER */
     footer {
       background:#111;
       color:white;
@@ -139,15 +164,9 @@
       color:white;
       text-decoration:none;
       font-size:20px;
-      transition: color 0.3s;
     }
     .footer-socials a:hover { color:#C92828; }
     .footer-legal { font-size:14px; color:#aaa; }
-
-    @media(max-width:900px){
-      .cards-container { padding:0 20px; gap:20px; }
-      .card { width:100%; max-width:400px; }
-    }
   </style>
 </head>
 <body>
@@ -171,80 +190,69 @@
   <!-- PAGE HEADER -->
   <div class="page-header">
     <h1>Our Team</h1>
-    <p>Meet the founders and professional players representing Ronin Gaming</p>
+    <p>Meet the visionaries, competitors, and creators behind Ronin Gaming.</p>
   </div>
 
-  <!-- FOUNDERS SECTION -->
-  <h2 class="section-title">Founders</h2>
-  <div class="cards-container">
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/refs/heads/main/Antonio%20Alcantar.jpg" alt="Antonio Alcantar">
-      <h3>Antonio Alcantar</h3>
-      <h4>Founder & CEO</h4>
-      <p>Antonio Alcantar is the founder and CEO of Ronin Gaming, leading the vision and strategy of the organization.</p>
-    </div>
-    <div class="card">
-      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/refs/heads/main/David%20Eze.jpg" alt="David Eze">
-      <h3>David Eze</h3>
-      <h4>Founder & Co-CEO</h4>
-      <p>David Eze is the co-founder and Co-CEO, overseeing operations and growth initiatives for Ronin Gaming.</p>
-    </div>
-  </div>
-
-  <!-- PLAYERS SECTION -->
-  <h2 class="section-title">Players</h2>
-  <div class="cards-container">
-    <div class="card">
-      <img src="https://via.placeholder.com/150?text=Coming+Soon" alt="Player 1">
-      <h3>Coming Soon</h3>
-      <h4>Pro</h4>
-      <p>Stay tuned for more details about our upcoming professional player.</p>
-      <div class="socials">
-        <a href="#">Twitter</a>
-        <a href="#">YouTube</a>
-        <a href="#">TikTok</a>
-        <a href="#">Twitch</a>
+  <!-- FOUNDERS -->
+  <div class="section-title">Founders</div>
+  <div class="founders">
+    <div class="team-card">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Antonio Alcantar">
+      <div class="team-info">
+        <h3>Antonio Alcantar</h3>
+        <p class="role">Founder & CEO</p>
+        <p class="bio">Antonio Alcantar is the founder and CEO of Ronin Gaming, leading the organization with a focus on competitive integrity and brand innovation.</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/150?text=Coming+Soon" alt="Player 2">
-      <h3>Coming Soon</h3>
-      <h4>Content Creator</h4>
-      <p>Stay tuned for more details about our upcoming content creator.</p>
-      <div class="socials">
-        <a href="#">Twitter</a>
-        <a href="#">YouTube</a>
-        <a href="#">TikTok</a>
-        <a href="#">Twitch</a>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/150?text=Coming+Soon" alt="Player 3">
-      <h3>Coming Soon</h3>
-      <h4>Pro</h4>
-      <p>Stay tuned for more details about our upcoming professional player.</p>
-      <div class="socials">
-        <a href="#">Twitter</a>
-        <a href="#">YouTube</a>
-        <a href="#">TikTok</a>
-        <a href="#">Twitch</a>
+    <div class="team-card">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/David%20Eze.jpg" alt="David Eze">
+      <div class="team-info">
+        <h3>David Eze</h3>
+        <p class="role">Founder & Co-CEO</p>
+        <p class="bio">David Eze is the co-founder and co-CEO, focusing on strategic growth and content development for Ronin Gaming.</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank">TikTok</a>
-      <a href="https://www.twitch.tv/roningaminggg" target="_blank">Twitch</a>
+  <!-- PLAYERS -->
+  <div class="section-title">Players</div>
+  <div class="players">
+    <div class="team-card">
+      <img src="https://via.placeholder.com/200x200?text=Coming+Soon" alt="Player 1">
+      <div class="team-info">
+        <h3>Player 1</h3>
+        <p class="role">Pro</p>
+        <p class="bio">Coming soon</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
     </div>
-    <div class="footer-legal">
-      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    <div class="team-card">
+      <img src="https://via.placeholder.com/200x200?text=Coming+Soon" alt="Player 2">
+      <div class="team-info">
+        <h3>Player 2</h3>
+        <p class="role">Content Creator</p>
+        <p class="bio">Coming soon</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+        </div>
+      </div>
     </div>
-  </footer>
-
-</body>
-</html>
+    <div class="team-card">
+      <
 
