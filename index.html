@@ -45,21 +45,10 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      text-decoration: none;
-    }
+    .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
     .logo img { height: 50px; margin-right: 10px; }
     .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
+    nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s; }
     nav a:hover, nav a.active { color: #C92828; }
 
     /* HERO */
@@ -92,6 +81,71 @@
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
+    /* WATCH LIVE BUTTON */
+    .watch-live-btn {
+      padding: 15px 35px;
+      background-color: #C92828;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 1;
+      margin: 50px auto 0;
+      display: inline-block;
+    }
+    .watch-live-btn::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+      border-radius: 15px;
+      box-shadow: 0 0 15px #C92828, 0 0 30px #C92828, 0 0 45px #C92828;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: -1;
+    }
+    .watch-live-btn:hover::after { opacity: 1; transform: scale(1.05); }
+    .watch-live-btn:hover { transform: translateY(-3px); }
+
+    /* LATEST NEWS SECTION */
+    #latest-news {
+      padding: 80px 50px;
+      background: #111;
+      border-top: 2px solid #C92828;
+    }
+    .news-title { text-align: center; font-size: 36px; color: #C92828; margin-bottom: 50px; }
+    .news-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .news-card {
+      background: #111;
+      border: 2px solid #C92828;
+      border-radius: 15px;
+      width: 300px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    }
+    .news-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #C92828, 0 0 40px #C92828, 0 0 60px #C92828;
+      border-color: #FF4C4C;
+    }
+    .news-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 15px; }
+    .news-card h3 { color: #C92828; font-size: 22px; margin-bottom: 10px; }
+    .news-card p { color: #ccc; font-size: 16px; }
+
     /* FOOTER */
     footer {
       background:#111;
@@ -105,30 +159,19 @@
     }
     .footer-socials a {
       margin-right:15px;
-      display: inline-block;
+      display:inline-block;
+      width:30px;
+      height:30px;
     }
-    .footer-socials a img {
-      width: 24px;
-      height: 24px;
-      filter: brightness(0) invert(1); /* makes icons white */
-      transition: filter 0.3s ease;
-    }
-    .footer-socials a:hover img {
-      filter: brightness(1.5) invert(1); /* hover glow */
-    }
+    .footer-socials a img { width: 100%; height: 100%; filter: brightness(0) invert(1); }
+    .footer-socials a:hover img { filter: drop-shadow(0 0 5px #C92828) brightness(1); }
     .footer-legal { font-size:14px; color:#aaa; }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
-      #about { flex-direction: column; padding: 80px 20px; }
-      .about-logo img { max-width: 200px; }
-      #hero h1 { font-size: 50px; }
-      #hero p { font-size: 20px; }
-      nav a { margin-left: 15px; font-size:16px; }
-    }
-    @media (max-width: 500px) {
-      header { flex-direction: column; gap: 15px; padding: 15px 20px; }
-      nav a { margin-left: 0; margin-right: 15px; }
+    @media (max-width: 900px) {
+      #about { flex-direction: column; padding: 50px 20px; }
+      .about-logo { margin-top: 40px; }
+      .news-container { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -154,6 +197,7 @@
   <section id="hero">
     <h1>Ronin Gaming</h1>
     <p>Sharpening the Future of Gaming</p>
+    <a href="https://www.twitch.tv/roningamingggs" target="_blank" class="watch-live-btn">Watch Live</a>
   </section>
 
   <!-- ABOUT -->
@@ -164,6 +208,28 @@
     </div>
     <div class="about-logo">
       <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="About Logo">
+    </div>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section id="latest-news">
+    <div class="news-title">Latest News</div>
+    <div class="news-container">
+      <div class="news-card">
+        <img src="https://via.placeholder.com/300x180?text=News+1" alt="News 1">
+        <h3>News Title 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vulputate justo nec orci tincidunt.</p>
+      </div>
+      <div class="news-card">
+        <img src="https://via.placeholder.com/300x180?text=News+2" alt="News 2">
+        <h3>News Title 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vulputate justo nec orci tincidunt.</p>
+      </div>
+      <div class="news-card">
+        <img src="https://via.placeholder.com/300x180?text=News+3" alt="News 3">
+        <h3>News Title 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vulputate justo nec orci tincidunt.</p>
+      </div>
     </div>
   </section>
 
