@@ -1,269 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ronin Gaming</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    @font-face {
-      font-family: 'TheLastShuriken';
-      src: url('TheLastShuriken-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
+<!-- MERCH -->
+<section id="merch">
+  <h2>Ronin Apparel</h2>
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'TheLastShuriken', sans-serif;
-      background-color: #000;
-      color: white;
-      transition: opacity 1s ease;
-    }
-
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
-
-    /* HEADER */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background-color: #000;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 2px solid #C92828;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-    nav a:hover, nav a.active { color: #C92828; }
-
-    /* HERO */
-    #hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
-      padding: 0 20px;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-    #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
-    #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
-
-    /* ABOUT */
-    #about {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 100px 50px;
-      gap: 40px;
-      background: #111;
-      border-top: 2px solid #C92828;
-    }
-    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
-    #about h2 { color: #C92828; }
-    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
-    .about-logo img { max-width: 250px; }
-
-    /* MERCH SLIDESHOW */
-    #merch {
-      padding: 80px 50px;
-      background:#111;
-      text-align:center;
-      border-top:2px solid #C92828;
-      position: relative;
-    }
-    #merch h2 { color:#C92828; margin-bottom:40px; }
-    .slide {
-      display: none;
-      position: relative;
-    }
-    .slide img {
-      width:100%;
-      max-width:600px;
-      border:2px solid #C92828;
-      border-radius:10px;
-    }
-    .slide-text {
-      position: absolute;
-      top:50%;
-      left:50%;
-      transform: translate(-50%, -50%);
-      font-size: 32px;
-      color:#000;
-      background:white;
-      padding: 15px 30px;
-      border-radius:10px;
-    }
-
-    /* FOOTER */
-    footer {
-      background:#000;
-      padding:50px 20px;
-      border-top:2px solid #C92828;
-      text-align:center;
-      color:white;
-      font-size:14px;
-    }
-    footer .socials a {
-      color:#C92828;
-      text-decoration:none;
-      margin: 0 10px;
-      font-size:20px;
-    }
-    footer .legal {
-      margin-top:20px;
-      font-size:12px;
-      color:white;
-      opacity:0.8;
-    }
-
-    /* PRELOADER */
-    #preloader {
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:#000;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-    }
-    #preloader img {
-      width: 180px;
-      animation: fadeInOut 2s ease-in-out infinite;
-    }
-    @keyframes fadeInOut {
-      0% {opacity: 0;}
-      30% {opacity: 1;}
-      70% {opacity: 1;}
-      100% {opacity: 0;}
-    }
-  </style>
-</head>
-<body>
-
-  <!-- PRELOADER -->
-  <div id="preloader">
-    <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+  <div class="slide">
+    <div class="merch-box">COMING SOON</div>
   </div>
+  <div class="slide">
+    <div class="merch-box">COMING SOON</div>
+  </div>
+  <div class="slide">
+    <div class="merch-box">COMING SOON</div>
+  </div>
+</section>
 
-  <!-- HEADER -->
-  <header>
-    <div class="logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
-      <span>RONIN</span>
-    </div>
-    <nav>
-      <a href="#hero" class="active">Home</a>
-      <a href="partners.html">Partners</a>
-      <a href="teams.html">Teams</a>
-      <a href="news.html">News</a>
-      <a href="shop.html">Shop</a>
-    </nav>
-  </header>
+<style>
+#merch {
+  padding: 80px 50px;
+  background:#111;
+  text-align:center;
+  border-top:2px solid #C92828;
+  position: relative;
+}
+#merch h2 { color:#C92828; margin-bottom:40px; }
 
-  <!-- HERO -->
-  <section id="hero">
-    <h1>Ronin Gaming</h1>
-    <p>Sharpening the Future of Gaming</p>
-  </section>
+.slide {
+  display: none;
+}
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-text">
-      <h2>About Us</h2>
-      <p>
-        Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.
-      </p>
-    </div>
-    <div class="about-logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
-    </div>
-  </section>
+.merch-box {
+  width: 600px;
+  height: 300px;
+  margin: 0 auto;
+  background: #fff;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  border: 2px solid #C92828;
+  border-radius: 10px;
+}
+</style>
 
-  <!-- MERCH -->
-  <section id="merch">
-    <h2>Ronin Apparel</h2>
-
-    <div class="slide">
-      <img src="https://via.placeholder.com/600x300/FFFFFF/000000?text=Coming+Soon" alt="Coming Soon">
-      <div class="slide-text">COMING SOON</div>
-    </div>
-    <div class="slide">
-      <img src="https://via.placeholder.com/600x300/FFFFFF/000000?text=Coming+Soon+2" alt="Coming Soon">
-      <div class="slide-text">COMING SOON</div>
-    </div>
-    <div class="slide">
-      <img src="https://via.placeholder.com/600x300/FFFFFF/000000?text=Coming+Soon+3" alt="Coming Soon">
-      <div class="slide-text">COMING SOON</div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="socials">
-      <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
-      <a href="https://www.tiktok.com/@roninggs?_t=ZP-8zlMVz8U4p5&_r=1" target="_blank">TikTok</a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank">Twitch</a>
-    </div>
-    <div class="legal">
-      &copy; 2025 Ronin Gaming. All Rights Reserved. Terms & Privacy.
-    </div>
-  </footer>
-
-  <script>
-    // PRELOADER
-    window.addEventListener("load", function(){
-      const preloader = document.getElementById('preloader');
-      const hero = document.getElementById('hero');
-      preloader.style.display = 'flex';
-      setTimeout(() => {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-          preloader.style.display = 'none';
-          hero.style.opacity = '1';
-        }, 1000);
-      }, 2000);
-    });
-
-    // MERCH SLIDESHOW
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if(slideIndex > slides.length) { slideIndex = 1; }
-      slides[slideIndex-1].style.display = "block";
-      setTimeout(showSlides, 3000); // Change slide every 3 seconds
-    }
-    showSlides();
-  </script>
-
-</body>
-</html>
-
+<script>
+// MERCH SLIDESHOW
+let merchIndex = 0;
+const merchSlides = document.querySelectorAll("#merch .slide");
+function showMerchSlides() {
+  merchSlides.forEach(slide => slide.style.display = "none");
+  merchIndex++;
+  if(merchIndex > merchSlides.length) merchIndex = 1;
+  merchSlides[merchIndex-1].style.display = "block";
+  setTimeout(showMerchSlides, 3000); // change every 3 seconds
+}
+showMerchSlides();
+</script>
