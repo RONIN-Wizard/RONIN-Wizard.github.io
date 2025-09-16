@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ronin Gaming — Partners</title>
-  <link rel="stylesheet" href="style.css">
+  
+  <!-- Font & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
@@ -13,20 +15,22 @@
       font-style: normal;
     }
 
+    /* BASE */
     * { margin:0; padding:0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-body {
-  font-family: 'TheLastShuriken', sans-serif;
-  background: repeating-linear-gradient(
-    45deg,
-    #000,
-    #000 20px,
-    #0a0a0a 20px,
-    #0a0a0a 40px
-  );
-  color: white;
-}
+    body {
+      font-family: 'TheLastShuriken', sans-serif;
+      background: repeating-linear-gradient(
+        45deg,
+        #000,
+        #000 20px,
+        #0a0a0a 20px,
+        #0a0a0a 40px
+      );
+      color: white;
+    }
 
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
@@ -41,14 +45,14 @@ body {
     .logo {
       display: flex;
       align-items: center;
-      text-decoration: none; /* remove underline */
+      text-decoration: none;
     }
     .logo img { height: 50px; margin-right: 10px; }
     .logo span {
       font-size: 28px;
       color: #C92828;
       letter-spacing: 2px;
-      text-decoration: none; /* extra safety */
+      text-decoration: none;
     }
     nav a {
       color: white;
@@ -59,6 +63,7 @@ body {
     }
     nav a:hover, nav a.active { color: #C92828; }
 
+    /* PAGE HEADER */
     .page-header {
       padding: 80px 20px;
       text-align: center;
@@ -73,6 +78,7 @@ body {
       font-size: 20px;
     }
 
+    /* PARTNERS GRID */
     .partners-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -131,11 +137,10 @@ body {
     </a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="Partners.html" class="active">Partners</a>
+      <a href="partners.html" class="active">Partners</a>
       <a href="team.html">Team</a>
       <a href="news.html">News</a>
       <a href="shop.html">Shop</a>
-      <a href="contact.html">Contact Us</a>
     </nav>
   </header>
 
@@ -160,20 +165,18 @@ body {
     </div>
   </div>
 
-   <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+      <a href="https://x.com/Roninggs" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><i class="fab fa-twitch"></i></a>
     </div>
     <div class="footer-legal">
       <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
     </div>
   </footer>
 
-</body>
-</html>
 </body>
 </html>
