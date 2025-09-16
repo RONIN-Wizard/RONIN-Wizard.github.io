@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ronin Gaming — Team</title>
 
-  <!-- Font Awesome for social icons -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-4bZ2+3Tg6XKxP4mUqkMwbBRV7AxA3N4M4wbbfO+zlE8pA8BQkR9hIupHqKJ0xN1H5vY1RmV7I/0x6eYpY3rdmg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
   />
 
   <style>
@@ -55,7 +52,7 @@
     }
     .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
     .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration: none; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
     nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s; }
     nav a:hover, nav a.active { color: #C92828; }
 
@@ -65,13 +62,13 @@
     .page-header p { color: #ccc; font-size: 20px; }
 
     /* TEAM SECTIONS */
-    .section-title { color: #C92828; font-size: 32px; text-align: center; margin: 60px 0 30px 0; }
+    .section-title { color: #C92828; font-size: 32px; text-align: center; margin: 60px 0 30px; }
 
     /* Leadership and Players Containers */
     .Leadership, .Players {
       display: flex;
       flex-direction: column;
-      align-items: center; /* centers cards horizontally */
+      align-items: center;
       gap: 40px;
       padding: 0 50px 50px 50px;
     }
@@ -85,10 +82,10 @@
       display: flex;
       flex-direction: row;
       gap: 20px;
-      max-width: 1000px; /* wide cards */
+      max-width: 1000px;
       width: auto;
-      margin: 0 auto; /* centers card */
-      transition: all 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin: 0 auto;
     }
     .team-card:hover {
       transform: translateY(-5px);
@@ -96,25 +93,13 @@
     }
 
     /* Team Image */
-    .team-card img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+    .team-card img { width: 200px; height: 200px; object-fit: cover; border-radius: 10px; }
 
     /* Team Info */
-    .team-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
+    .team-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
     .team-info h3 { font-size: 28px; color: #C92828; margin-bottom: 5px; }
     .team-info p.role { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
     .team-info p.bio { font-size: 16px; color: #ccc; margin-bottom: 10px; }
-
     .team-info .socials a {
       color: white;
       margin-right: 15px;
@@ -132,7 +117,6 @@
       .team-info p.bio { font-size: 14px; }
       .team-info .socials a { font-size: 16px; }
     }
-
     @media (max-width: 500px) {
       header { flex-direction: column; gap: 15px; padding: 15px 20px; }
       nav a { margin-left: 0; margin-right: 15px; }
@@ -152,8 +136,8 @@
     .footer-socials a {
       margin-right:15px;
       color:white;
-      text-decoration:none;
-      font-size:20px;
+      font-size: 20px;
+      text-decoration: none;
     }
     .footer-socials a:hover { color:#C92828; }
     .footer-legal { font-size:14px; color:#aaa; }
@@ -224,7 +208,7 @@
       <div class="team-info">
         <h3>Player 1</h3>
         <p class="role">Pro</p>
-        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula.</p>
         <div class="socials">
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a>
@@ -238,7 +222,7 @@
       <div class="team-info">
         <h3>Player 2</h3>
         <p class="role">Content Creator</p>
-        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula.</p>
         <div class="socials">
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a>
@@ -252,7 +236,7 @@
       <div class="team-info">
         <h3>Player 3</h3>
         <p class="role">Pro</p>
-        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula.</p>
         <div class="socials">
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a>
@@ -277,5 +261,3 @@
 
 </body>
 </html>
-
-
