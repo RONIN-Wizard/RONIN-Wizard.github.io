@@ -80,11 +80,11 @@
       border-top: 2px solid #C92828;
     }
     .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
-    #about h2 { color: #C92828; margin-bottom: 20px; }
+    #about h2 { color: #C92828; }
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
-    /* MERCH SLIDESHOW */
+    /* RONIN APPAREL / Slideshow */
     #merch {
       padding: 80px 50px;
       background:#111;
@@ -93,37 +93,52 @@
       position: relative;
     }
     #merch h2 { color:#C92828; margin-bottom:40px; }
-    .slide { display: none; }
-    .merch-box {
-      width: 600px;
-      height: 300px;
-      margin: 0 auto;
-      background: #fff;
-      color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 32px;
-      border: 2px solid #C92828;
-      border-radius: 10px;
+    .slide {
+      display: none;
+      background:#222;
+      border:2px solid #C92828;
+      border-radius:10px;
+      width:80%;
+      height:300px;
+      margin:0 auto;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:36px;
+      color:white;
+      position: relative;
+    }
+    .slide.active { display:flex; }
+    .slide-text {
+      position: absolute;
+      text-align: center;
     }
 
     /* FOOTER */
     footer {
-      background: #111;
-      color: #fff;
-      padding: 40px 50px;
-      text-align: center;
-      border-top: 2px solid #C92828;
+      background:#111;
+      color:white;
+      border-top:2px solid #C92828;
+      padding:50px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:20px;
     }
-    footer a { color: #C92828; margin: 0 10px; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    footer p { margin-top: 15px; font-size: 14px; color: #ccc; }
+    .socials a {
+      margin: 0 10px;
+      color:white;
+      text-decoration:none;
+      font-size:20px;
+      transition: color 0.3s;
+    }
+    .socials a:hover { color:#C92828; }
+    .legal { font-size:14px; color:#aaa; text-align:center; }
+
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <div class="logo">
       <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
@@ -131,19 +146,17 @@
     </div>
     <nav>
       <a href="#hero" class="active">Home</a>
-      <a href="#merch">Shop</a>
       <a href="#about">About</a>
+      <a href="#merch">Ronin Apparel</a>
       <a href="#footer">Contact</a>
     </nav>
   </header>
 
-  <!-- HERO -->
   <section id="hero">
     <h1>Ronin Gaming</h1>
     <p>Sharpening the Future of Gaming</p>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
@@ -154,44 +167,46 @@
     </div>
   </section>
 
-  <!-- MERCH -->
   <section id="merch">
     <h2>Ronin Apparel</h2>
-
-    <div class="slide">
-      <div class="merch-box">COMING SOON</div>
+    <div class="slide active">
+      <div class="slide-text">COMING SOON</div>
     </div>
     <div class="slide">
-      <div class="merch-box">COMING SOON</div>
+      <div class="slide-text">COMING SOON</div>
     </div>
     <div class="slide">
-      <div class="merch-box">COMING SOON</div>
+      <div class="slide-text">COMING SOON</div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer id="footer">
     <div class="socials">
-      <a href="https://x.com/Roninggs" target="_blank">Twitter</a> |
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a> |
-      <a href="https://www.tiktok.com/@roninggs?_t=ZP-8zlMVz8U4p5&_r=1" target="_blank">TikTok</a> |
+      <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@roninggs?_t=ZP-8zlMVz8U4p5&_r=1" target="_blank">TikTok</a>
       <a href="https://www.twitch.tv/roningamingggs" target="_blank">Twitch</a>
     </div>
-    <p>&copy; 2025 Ronin Gaming. All rights reserved. Legal notices and trademarks apply.</p>
+    <div class="legal">
+      &copy; 2025 Ronin Gaming. All rights reserved. <br>
+      Terms & Conditions | Privacy Policy
+    </div>
   </footer>
 
   <script>
-    // MERCH SLIDESHOW
-    let merchIndex = 0;
-    const merchSlides = document.querySelectorAll("#merch .slide");
-    function showMerchSlides() {
-      merchSlides.forEach(slide => slide.style.display = "none");
-      merchIndex++;
-      if(merchIndex > merchSlides.length) merchIndex = 1;
-      merchSlides[merchIndex-1].style.display = "block";
-      setTimeout(showMerchSlides, 3000); // change every 3 seconds
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlides() {
+      slides.forEach(s => s.classList.remove('active'));
+      slideIndex++;
+      if(slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex-1].classList.add('active');
+      setTimeout(showSlides, 3000); // Change slide every 3s
     }
-    showMerchSlides();
+    showSlides();
   </script>
+
 </body>
 </html>
