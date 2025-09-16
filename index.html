@@ -4,161 +4,177 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ronin Gaming</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="TheLastShuriken-Regular.woff">
   <style>
-    @font-face {
-      font-family: 'TheLastShuriken';
-      src: url('TheLastShuriken-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'TheLastShuriken', sans-serif;
-      background-color: #000;
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'The Last Shuriken', sans-serif;
+      background: #000;
       color: white;
-      transition: opacity 1s ease;
+      scroll-behavior: smooth;
     }
 
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+    a { text-decoration: none; color: inherit; }
 
     /* HEADER */
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       padding: 20px 50px;
-      background-color: #000;
+      background: #111;
+      border-bottom: 2px solid #C92828;
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 2px solid #C92828;
     }
-    .logo {
+
+    .logo-container {
       display: flex;
       align-items: center;
     }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; }
+
+    .logo-container img {
+      height: 50px;
+      margin-right: 15px;
+    }
+
     nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
+      margin: 0 15px;
       font-size: 18px;
       transition: color 0.3s;
     }
-    nav a:hover, nav a.active { color: #C92828; }
+
+    nav a:hover { color: #C92828; }
 
     /* HERO */
     #hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      padding: 150px 50px;
       text-align: center;
-      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
-      padding: 0 20px;
     }
-    #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
-    #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
+
+    #hero h1 {
+      font-size: 64px;
+      margin-bottom: 20px;
+      color: #C92828;
+    }
+
+    #hero p {
+      font-size: 24px;
+      color: white;
+    }
 
     /* ABOUT */
     #about {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 100px 50px;
-      gap: 40px;
-      background: #111;
-      border-top: 2px solid #C92828;
-    }
-    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
-    #about h2 { color: #C92828; }
-    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
-    .about-logo img { max-width: 250px; }
-
-    /* MINI MERCH */
-    #merch {
-      padding: 80px 50px;
       background:#111;
+      gap:50px;
+    }
+
+    #about-text {
+      flex: 1;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    #about-logo img {
+      height: 250px;
+    }
+
+    /* RONIN APPAREL */
+    #merch {
+      padding:100px 50px;
       text-align:center;
       border-top:2px solid #C92828;
+      background:#111;
     }
-    #merch h2 { color:#C92828; margin-bottom:40px; }
-    .merch-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
-    .merch-item {
+
+    #merch h2 {
+      color:#C92828;
+      margin-bottom:50px;
+      font-size:36px;
+    }
+
+    .merch-container {
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:30px;
+    }
+
+    .merch-card {
       background:#000;
       padding:20px;
       border:2px solid #C92828;
-      border-radius:10px;
-      width:180px;
-      transition: transform 0.3s;
+      border-radius:15px;
+      width:220px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .merch-item:hover { transform: translateY(-5px); }
-    .merch-item img { width:100%; border-radius:5px; }
-    .merch-item p { color:white; margin-top:10px; }
+
+    .merch-card img {
+      width:100%;
+      border-radius:10px;
+      margin-bottom:15px;
+    }
+
+    .merch-card button {
+      padding:10px 20px;
+      background:#C92828;
+      border:none;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+      transition: background 0.3s;
+    }
+
+    .merch-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(201,40,40,0.7);
+    }
+
+    .merch-card button:hover { background:#FF2B2B; }
 
     /* FOOTER */
     footer {
       background:#000;
-      padding:50px 20px;
+      padding:60px 20px;
       text-align:center;
       border-top:2px solid #C92828;
     }
-    footer a { margin:0 10px; color:#C92828; text-decoration:none; }
-    footer a:hover { text-decoration:underline; }
-    footer p { color:white; font-size:14px; margin-top:20px; }
 
-    /* PRELOADER */
-    #preloader {
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:#000;
-      display:flex; justify-content:center; align-items:center;
-      z-index:9999;
-      opacity:1;
-      transition: opacity 1s ease;
-    }
-    #preloader img { width: 180px; animation: pulse 1.2s infinite; }
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.8; }
+    .socials svg {
+      width:24px;
+      height:24px;
+      margin:0 15px;
+      fill:#C92828;
+      transition: transform 0.3s;
     }
 
-    @media (max-width: 900px) {
-      #about { flex-direction: column; text-align: center; }
-      .about-text, .about-logo { flex: 1 1 100%; }
-      header { flex-direction: column; gap: 10px; }
-      nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-      #hero h1 { font-size: 56px; }
-      #hero p { font-size: 20px; }
+    .socials svg:hover { transform: scale(1.3); }
+
+    .footer-links a {
+      margin:0 15px;
+      color:white;
+      font-size:16px;
     }
+
+    .footer-links a:hover { color:#C92828; }
   </style>
 </head>
 <body>
 
-  <!-- PRELOADER -->
-  <div id="preloader">
-    <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
-  </div>
-
   <!-- HEADER -->
   <header>
-    <div class="logo">
+    <div class="logo-container">
       <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
-      <span>RONIN</span>
+      <span style="font-size:32px; color:white;">RONIN</span>
     </div>
     <nav>
-      <a href="#hero" class="active">Home</a>
+      <a href="#hero">Home</a>
       <a href="partners.html">Partners</a>
       <a href="teams.html">Teams</a>
       <a href="news.html">News</a>
@@ -174,72 +190,68 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="about-text">
-      <h2>About Us</h2>
+    <div id="about-text">
+      <h2 style="color:#C92828;">About Us</h2>
       <p>
-        Ronin Gaming is an esports organization focused on Fortnite and competitive content creation.
-        Our mission is to create a sustainable, professional organization that bridges competitive gaming,
-        content development, and brand innovation. We provide players with professional representation
-        to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable,
-        streamlined method to connect with engaged gaming audiences.
+        Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.
       </p>
     </div>
-    <div class="about-logo">
+    <div id="about-logo">
       <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
     </div>
   </section>
 
-  <!-- MINI MERCH -->
+  <!-- RONIN APPAREL -->
   <section id="merch">
-    <h2>Merch Preview</h2>
+    <h2>Ronin Apparel</h2>
     <div class="merch-container">
-      <div class="merch-item">
-        <img src="https://via.placeholder.com/150" alt="Merch Item">
+      <div class="merch-card">
+        <img src="https://via.placeholder.com/200" alt="Ronin Hoodie">
         <p>Ronin Hoodie</p>
+        <button>Shop Now</button>
       </div>
-      <div class="merch-item">
-        <img src="https://via.placeholder.com/150" alt="Merch Item">
+      <div class="merch-card">
+        <img src="https://via.placeholder.com/200" alt="Ronin Cap">
         <p>Ronin Cap</p>
+        <button>Shop Now</button>
       </div>
-      <div class="merch-item">
-        <img src="https://via.placeholder.com/150" alt="Merch Item">
+      <div class="merch-card">
+        <img src="https://via.placeholder.com/200" alt="Ronin Tee">
         <p>Ronin Tee</p>
+        <button>Shop Now</button>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div>
-      <a href="https://twitter.com/" target="_blank">Twitter</a>
-      <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
-      <a href="https://www.youtube.com/" target="_blank">YouTube</a>
-      <a href="https://www.twitch.tv/" target="_blank">Twitch</a>
-      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <div class="socials">
+      <a href="https://x.com/Roninggs" target="_blank">
+        <!-- Twitter SVG -->
+        <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4 1s-4.1 1.5-6.3 4.6A12.94 12.94 0 0 1 1.67 2s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@roninggs?_t=ZP-8zlMVz8U4p5&_r=1" target="_blank">
+        <!-- TikTok SVG -->
+        <svg viewBox="0 0 24 24"><path d="M12 0v12.25a4.25 4.25 0 1 1-4.25-4.25H12V0z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank">
+        <!-- YouTube SVG -->
+        <svg viewBox="0 0 24 24"><path d="M23.5 6.2a2.7 2.7 0 0 0-1.9-1.9C19 4 12 4 12 4s-7 0-9.6.3a2.7 2.7 0 0 0-1.9 1.9A28.3 28.3 0 0 0 0 12a28.3 28.3 0 0 0 .5 5.8 2.7 2.7 0 0 0 1.9 1.9c2.6.3 9.6.3 9.6.3s7 0 9.6-.3a2.7 2.7 0 0 0 1.9-1.9A28.3 28.3 0 0 0 24 12a28.3 28.3 0 0 0-.5-5.8zM9.75 15.5V8.5l6 3.5-6 3.5z"/></svg>
+      </a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank">
+        <!-- Twitch SVG -->
+        <svg viewBox="0 0 24 24"><path d="M3 0l-3 4v16h6v4l4-4h5l5-5V0H3zm16 12l-2 2v-6l2 2h2v2h-2z"/></svg>
+      </a>
+    </div>
+    <div class="footer-links">
+      <a href="#hero">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="teams.html">Teams</a>
+      <a href="news.html">News</a>
+      <a href="shop.html">Shop</a>
     </div>
     <p>© 2025 Ronin Gaming. All rights reserved.</p>
   </footer>
-
-  <!-- PRELOADER SCRIPT -->
-  <script>
-    window.addEventListener("load", function() {
-      const preloader = document.getElementById("preloader");
-      const minTime = 1500; // Minimum display time
-      const startTime = Date.now();
-
-      function hidePreloader() {
-        const elapsed = Date.now() - startTime;
-        const remaining = minTime - elapsed;
-        setTimeout(() => {
-          preloader.style.opacity = "0";
-          setTimeout(() => preloader.style.display = "none", 1000);
-        }, remaining > 0 ? remaining : 0);
-      }
-
-      hidePreloader();
-    });
-  </script>
-
 </body>
 </html>
 
