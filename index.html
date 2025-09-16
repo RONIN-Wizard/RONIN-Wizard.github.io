@@ -188,26 +188,6 @@
     <h2 style="color:#C92828; text-align:center; padding:80px 0;">Partners coming soon</h2>
   </section>
 
-  <!-- TEAM placeholder -->
-  <section id="team">
-    <h2 style="color:#C92828; text-align:center; padding:80px 0;">Team coming soon</h2>
-  </section>
-
-  <!-- NEWS placeholder -->
-  <section id="news">
-    <h2 style="color:#C92828; text-align:center; padding:80px 0;">News coming soon</h2>
-  </section>
-
-  <!-- SHOP placeholder -->
-  <section id="shop">
-    <h2 style="color:#C92828; text-align:center; padding:80px 0;">Shop coming soon</h2>
-  </section>
-
-  <!-- CONTACT placeholder -->
-  <section id="contact">
-    <h2 style="color:#C92828; text-align:center; padding:80px 0;">Contact Us coming soon</h2>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
@@ -222,4 +202,26 @@
   </footer>
 
   <script>
-    let slide
+    let slideIndex = 0;
+    showSlides();
+
+    function plusSlides(n) {
+      slideIndex += n-1;
+      showSlides();
+    }
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}
+      slides[slideIndex-1].style.display = "flex";
+      setTimeout(showSlides, 10000); // Change slide every 10 seconds
+    }
+  </script>
+
+</body>
+</html>
