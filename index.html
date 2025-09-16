@@ -13,7 +13,7 @@
       font-style: normal;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'TheLastShuriken', sans-serif;
@@ -39,52 +39,47 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
+    .logo { display:flex; align-items:center; cursor:pointer; text-decoration:none; }
+    .logo img { height:50px; margin-right:10px; }
+    .logo span { font-size:28px; color:#C92828; letter-spacing:2px; text-decoration:none; }
     nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 18px;
+      color:white;
+      text-decoration:none;
+      margin-left:25px;
+      font-size:18px;
       transition: color 0.3s;
     }
-    nav a:hover, nav a.active { color: #C92828; }
+    nav a:hover, nav a.active { color:#C92828; }
 
     /* HERO */
     #hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
       background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
-      padding: 0 20px;
+      padding:0 20px;
     }
-    #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
-    #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
+    #hero h1 { font-size:72px; color:#C92828; margin-bottom:15px; text-shadow:2px 2px 5px black; }
+    #hero p { font-size:26px; color:white; max-width:800px; text-shadow:1px 1px 3px black; }
 
     /* ABOUT */
     #about {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 100px 50px;
-      gap: 40px;
-      background: #111;
-      border-top: 2px solid #C92828;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      padding:100px 50px;
+      gap:40px;
+      background:#111;
+      border-top:2px solid #C92828;
     }
-    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
-    #about h2 { color: #C92828; }
-    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
-    .about-logo img { max-width: 250px; }
+    .about-text { flex:1 1 500px; font-size:18px; line-height:1.8; }
+    #about h2 { color:#C92828; }
+    .about-logo { flex:1 1 300px; display:flex; justify-content:center; align-items:center; }
+    .about-logo img { max-width:250px; }
 
     /* WATCH LIVE */
     #watch-live {
@@ -183,6 +178,41 @@
     .footer-socials a img { filter: invert(100%); width:25px; height:25px; vertical-align:middle; }
     .footer-socials a:hover img { filter: invert(55%) sepia(95%) saturate(750%) hue-rotate(350deg); }
     .footer-legal { font-size:14px; color:#aaa; }
+
+    /* MOBILE RESPONSIVENESS */
+    @media (max-width: 1024px) {
+      header { flex-direction: column; gap: 15px; padding: 15px 20px; }
+      nav a { margin-left: 0; margin-right: 15px; margin-bottom: 5px; display: inline-block; }
+    }
+
+    @media (max-width: 768px) {
+      #hero h1 { font-size: 48px; }
+      #hero p { font-size: 20px; max-width: 90%; }
+      #about { flex-direction: column; padding: 60px 20px; gap: 30px; }
+      .about-text { font-size: 16px; }
+      .about-logo img { max-width: 200px; }
+      #watch-live h2 { font-size: 28px; }
+      #watch-live a { font-size: 18px; padding: 15px 30px; }
+      #news h2 { font-size: 28px; }
+      .news-card { width: 90%; }
+      #contact h2 { font-size: 28px; }
+      #contact p { font-size: 16px; }
+      #contact input, #contact textarea { font-size: 14px; padding: 12px; }
+      #contact button { font-size: 16px; padding: 12px; }
+      footer { flex-direction: column; padding: 30px 20px; gap: 15px; }
+    }
+
+    @media (max-width: 480px) {
+      #hero h1 { font-size: 36px; }
+      #hero p { font-size: 16px; }
+      .about-text { font-size: 14px; }
+      #watch-live a { font-size: 16px; padding: 12px 25px; }
+      #news h2, #contact h2 { font-size: 24px; }
+      .news-card { width: 100%; padding: 15px; }
+      #contact input, #contact textarea { font-size: 13px; padding: 10px; }
+      #contact button { font-size: 14px; padding: 10px; }
+      .footer-socials a img { width: 20px; height: 20px; }
+    }
   </style>
 </head>
 <body>
