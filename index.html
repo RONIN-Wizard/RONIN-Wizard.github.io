@@ -84,129 +84,23 @@
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
-    /* RONIN APPAREL / Slideshow */
+    /* MINI MERCH */
     #merch {
       padding: 80px 50px;
       background:#111;
       text-align:center;
       border-top:2px solid #C92828;
-      position: relative;
     }
     #merch h2 { color:#C92828; margin-bottom:40px; }
-    .slide {
-      display: none;
-      background:#222;
+    .merch-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+    .merch-item {
+      background:#000;
+      padding:20px;
       border:2px solid #C92828;
       border-radius:10px;
-      width:80%;
-      height:300px;
-      margin:0 auto;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-size:36px;
-      color:white;
-      position: relative;
+      width:180px;
+      transition: transform 0.3s;
     }
-    .slide.active { display:flex; }
-    .slide-text {
-      position: absolute;
-      text-align: center;
-    }
-
-    /* FOOTER */
-    footer {
-      background:#111;
-      color:white;
-      border-top:2px solid #C92828;
-      padding:50px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:20px;
-    }
-    .socials a {
-      margin: 0 10px;
-      color:white;
-      text-decoration:none;
-      font-size:20px;
-      transition: color 0.3s;
-    }
-    .socials a:hover { color:#C92828; }
-    .legal { font-size:14px; color:#aaa; text-align:center; }
-
-  </style>
-</head>
-<body>
-
-  <header>
-    <div class="logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
-      <span>RONIN</span>
-    </div>
-    <nav>
-      <a href="#hero" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#merch">Ronin Apparel</a>
-      <a href="#footer">Contact</a>
-    </nav>
-  </header>
-
-  <section id="hero">
-    <h1>Ronin Gaming</h1>
-    <p>Sharpening the Future of Gaming</p>
-  </section>
-
-  <section id="about">
-    <div class="about-text">
-      <h2>About Us</h2>
-      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
-    </div>
-    <div class="about-logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
-    </div>
-  </section>
-
-  <section id="merch">
-    <h2>Ronin Apparel</h2>
-    <div class="slide active">
-      <div class="slide-text">COMING SOON</div>
-    </div>
-    <div class="slide">
-      <div class="slide-text">COMING SOON</div>
-    </div>
-    <div class="slide">
-      <div class="slide-text">COMING SOON</div>
-    </div>
-  </section>
-
-  <footer id="footer">
-    <div class="socials">
-      <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
-      <a href="https://www.tiktok.com/@roninggs?_t=ZP-8zlMVz8U4p5&_r=1" target="_blank">TikTok</a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank">Twitch</a>
-    </div>
-    <div class="legal">
-      &copy; 2025 Ronin Gaming. All rights reserved. <br>
-      Terms & Conditions | Privacy Policy
-    </div>
-  </footer>
-
-  <script>
-    // Slideshow
-    let slideIndex = 0;
-    const slides = document.querySelectorAll('.slide');
-
-    function showSlides() {
-      slides.forEach(s => s.classList.remove('active'));
-      slideIndex++;
-      if(slideIndex > slides.length) { slideIndex = 1; }
-      slides[slideIndex-1].classList.add('active');
-      setTimeout(showSlides, 3000); // Change slide every 3s
-    }
-    showSlides();
-  </script>
-
-</body>
-</html>
+    .merch-item:hover { transform: translateY(-5px); }
+    .merch-item img { width:100%; border-radius:5px; }
+     
