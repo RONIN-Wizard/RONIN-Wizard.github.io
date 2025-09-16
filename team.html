@@ -30,10 +30,7 @@
     /* SCROLLBAR */
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb {
-      background-color: #C92828;
-      border-radius: 5px;
-    }
+    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
 
     /* HEADER */
     header {
@@ -47,44 +44,25 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      text-decoration: none;
-    }
+    .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
     .logo img { height: 50px; margin-right: 10px; }
     .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
+    nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s; }
     nav a:hover, nav a.active { color: #C92828; }
 
     /* PAGE HEADER */
-    .page-header {
-      padding: 80px 20px;
-      text-align: center;
-    }
+    .page-header { padding: 80px 20px; text-align: center; }
     .page-header h1 { font-size: 48px; color: #C92828; margin-bottom: 10px; }
     .page-header p { color: #ccc; font-size: 20px; }
 
     /* TEAM SECTIONS */
-    .section-title {
-      color: #C92828;
-      font-size: 32px;
-      text-align: center;
-      margin: 60px 0 30px 0;
-    }
+    .section-title { color: #C92828; font-size: 32px; text-align: center; margin: 60px 0 30px 0; }
 
     /* Leadership and Players Containers */
     .Leadership, .players {
       display: flex;
       flex-direction: column;
-      align-items: center; /* keeps cards centered */
+      align-items: center; /* centers cards horizontally */
       gap: 40px;
       padding: 0 50px 50px 50px;
     }
@@ -98,20 +76,15 @@
       display: flex;
       flex-direction: row;
       gap: 20px;
-      max-width: 1000px; /* limit max width */
-      width: auto; /* allow card to shrink/center */
-      transition: transform 0.3s;
+      max-width: 1000px;
+      width: auto;
       margin: 0 auto; /* centers the card */
+      transition: transform 0.3s;
     }
     .team-card:hover { transform: translateY(-5px); }
 
     /* Team Image */
-    .team-card img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
+    .team-card img { width: 200px; height: 200px; object-fit: cover; border-radius: 10px; }
 
     /* Team Info */
     .team-info {
@@ -121,36 +94,15 @@
       justify-content: center;
     }
 
-    .team-info h3 {
-      font-size: 28px;
-      color: #C92828;
-      margin-bottom: 5px;
-    }
-    .team-info p.role {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .team-info p.bio {
-      font-size: 16px;
-      color: #ccc;
-      margin-bottom: 10px;
-    }
-    .team-info .socials a {
-      color: white;
-      margin-right: 15px;
-      font-size: 18px;
-      text-decoration: none;
-    }
+    .team-info h3 { font-size: 28px; color: #C92828; margin-bottom: 5px; }
+    .team-info p.role { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+    .team-info p.bio { font-size: 16px; color: #ccc; margin-bottom: 10px; }
+    .team-info .socials a { color: white; margin-right: 15px; font-size: 18px; text-decoration: none; }
     .team-info .socials a:hover { color: #C92828; }
 
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
-      .team-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+      .team-card { flex-direction: column; align-items: center; text-align: center; }
       .team-card img { width: 150px; height: 150px; }
       .team-info h3 { font-size: 24px; }
       .team-info p.role { font-size: 18px; }
@@ -174,12 +126,7 @@
       gap:20px;
       border-top:2px solid #C92828;
     }
-    .footer-socials a {
-      margin-right:15px;
-      color:white;
-      text-decoration:none;
-      font-size:20px;
-    }
+    .footer-socials a { margin-right:15px; color:white; text-decoration:none; font-size:20px; }
     .footer-socials a:hover { color:#C92828; }
     .footer-legal { font-size:14px; color:#aaa; }
   </style>
@@ -243,9 +190,50 @@
   <!-- PLAYERS -->
   <div class="section-title">Players</div>
   <div class="players">
+    <!-- Player 1 -->
     <div class="team-card">
-      <img src="https://via.placeholder.com/200x200?text=Coming
- 
+      <img src="https://via.placeholder.com/200x200?text=Coming+Soon" alt="Player 1">
+      <div class="team-info">
+        <h3>Player 1</h3>
+        <p class="role">Pro</p>
+        <p class="bio">Coming soon</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">Twitch</a>
+        </div>
+      </div>
+    </div>
+    <!-- Player 2 -->
+    <div class="team-card">
+      <img src="https://via.placeholder.com/200x200?text=Coming+Soon" alt="Player 2">
+      <div class="team-info">
+        <h3>Player 2</h3>
+        <p class="role">Content Creator</p>
+        <p class="bio">Coming soon</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">Twitch</a>
+        </div>
+      </div>
+    </div>
+    <!-- Player 3 -->
+    <div class="team-card">
+      <img src="https://via.placeholder.com/200x200?text=Coming+Soon" alt="Player 3">
+      <div class="team-info">
+        <h3>Player 3</h3>
+        <p class="role">Pro</p>
+        <p class="bio">Coming soon</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">Twitch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
@@ -258,6 +246,5 @@
       <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
     </div>
   </footer>
-
 </body>
 </html>
