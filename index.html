@@ -1,221 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ronin Gaming</title>
-  <link rel="stylesheet" href="style.css">
   <style>
-    @font-face {
-      font-family: 'TheLastShuriken';
-      src: url('TheLastShuriken-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    /* Global Styles */
     body {
-      font-family: 'TheLastShuriken', sans-serif;
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
       background-color: #000;
-      color: white;
-      transition: opacity 1s ease;
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
-      background-color: #000;
-      position: sticky;
+      background: rgba(0, 0, 0, 0.85);
+      border-bottom: 2px solid #C92828;
+      position: fixed;
+      width: 100%;
       top: 0;
       z-index: 1000;
-      border-bottom: 2px solid #C92828;
     }
-    .logo {
+
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #C92828;
       display: flex;
       align-items: center;
       cursor: pointer;
-      text-decoration: none;
     }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 18px;
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      font-size: 1rem;
+      text-transform: uppercase;
       transition: color 0.3s;
     }
-    nav a:hover, nav a.active { color: #C92828; }
 
-    /* HERO */
-    #hero {
+    nav ul li a:hover {
+      color: #C92828;
+    }
+
+    /* Background Orbs Animation */
+    .background {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .orb {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #C92828 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 12s infinite ease-in-out;
+      filter: blur(100px);
+      opacity: 0.3;
+    }
+
+    .orb:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+    .orb:nth-child(2) { top: 60%; left: 70%; animation-delay: 3s; }
+    .orb:nth-child(3) { top: 30%; left: 50%; animation-delay: 6s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-40px) translateX(20px); }
+    }
+
+    /* Hero Section */
+    .hero {
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
       padding: 0 20px;
     }
-    #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
-    #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
 
-    /* ABOUT */
-    #about {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 100px 50px;
-      gap: 40px;
-      background: #111;
-      border-top: 2px solid #C92828;
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      color: #fff;
     }
-    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
-    #about h2 { color: #C92828; }
-    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
-    .about-logo img { max-width: 250px; }
 
-    /* APPAREL SLIDER VERTICAL IMAGE */
-    #merch {
-      padding: 80px 50px;
-      background:#111;
-      text-align:center;
-      border-top:2px solid #C92828;
-      position: relative;
-      height: 600px; /* taller vertical image */
-      overflow: hidden;
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      line-height: 1.6;
+      color: #ccc;
     }
-    #merch h2 { color:#C92828; margin-bottom:40px; }
-    .slide {
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:600px; /* vertical/tall */
-      width:100%;
-      background:#222;
-      color:white;
-      font-size:48px;
-      font-weight:bold;
-      position:absolute;
-      top:0;
-      left:0;
-      opacity:0;
-      transition: opacity 0.8s ease;
-    }
-    .slide.active { opacity:1; }
 
-    .arrow {
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      font-size:48px;
-      color:#C92828;
-      cursor:pointer;
-      user-select:none;
-      padding:0 20px;
-    }
-    .arrow-left { left:0; }
-    .arrow-right { right:0; }
-
-    /* FOOTER */
+    /* Footer */
     footer {
-      background:#111;
-      color:white;
-      padding:40px 50px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:20px;
-      border-top:2px solid #C92828;
+      text-align: center;
+      padding: 20px;
+      border-top: 2px solid #C92828;
+      background: rgba(0, 0, 0, 0.85);
     }
-    .footer-socials a {
-      margin-right:15px;
-      color:white;
-      text-decoration:none;
-      font-size:20px;
+
+    footer .socials {
+      margin: 10px 0;
     }
-    .footer-socials a:hover { color:#C92828; }
-    .footer-legal { font-size:14px; color:#aaa; }
+
+    footer .socials a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    footer .socials a:hover {
+      color: #C92828;
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- HEADER -->
+  <!-- Header -->
   <header>
-    <a href="#hero" class="logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Logo">
-      <span>RONIN</span>
-    </a>
+    <a href="#home" class="logo">Ronin Gaming</a>
     <nav>
-      <a href="#hero" class="active">Home</a>
-      <a href="#partners">Partners</a>
-      <a href="#team">Team</a>
-      <a href="#news">News</a>
-      <a href="#shop">Shop</a>
-      <a href="#contact">Contact Us</a>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#partners">Partners</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
     </nav>
   </header>
 
-  <!-- HERO -->
-  <section id="hero">
-    <h1>Ronin Gaming</h1>
-    <p>Sharpening the Future of Gaming</p>
+  <!-- Background Orbs -->
+  <div class="background">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <h1>Welcome to Ronin Gaming</h1>
+    <p>We are a samurai-inspired esports organization focused on building the next generation of competitive excellence. Our mission is to empower players and engage fans with a relentless spirit, discipline, and honor.</p>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-text">
-      <h2>About Us</h2>
-      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
-    </div>
-    <div class="about-logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="About Logo">
-    </div>
-  </section>
-
-  <!-- APPAREL SLIDER -->
-  <section id="merch">
-    <h2>Ronin Apparel</h2>
-    <div class="slide active">COMING SOON</div>
-    <div class="slide">COMING SOON</div>
-    <div class="slide">COMING SOON</div>
-    <span class="arrow arrow-left" onclick="plusSlides(-1)">&#10094;</span>
-    <span class="arrow arrow-right" onclick="plusSlides(1)">&#10095;</span>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
-    <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank">TikTok</a>
-      <a href="https://www.twitch.tv/roningaminggg" target="_blank">Twitch</a>
-    </div>
-    <div class="footer-legal">
-      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    <div class="socials">
+      <a href="https://twitter.com/roningaming" target="_blank">Twitter</a>
+      <a href="https://twitch.tv/roningaming" target="_blank">Twitch</a>
+      <a href="https://youtube.com/roningaming" target="_blank">YouTube</a>
     </div>
   </footer>
-
-  <script>
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].classList.remove('active');
-      }
-      slideIndex++;
-      if (slideIndex >= slides.length) { slideIndex = 0; }
-      slides[slideIndex].classList.add('active');
-      setTimeout(showSlides, 10000); // auto-slide every 10s
+</body>
+</html>
