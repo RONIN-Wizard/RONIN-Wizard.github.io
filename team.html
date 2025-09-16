@@ -30,7 +30,10 @@
     /* SCROLLBAR */
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+    ::-webkit-scrollbar-thumb {
+      background-color: #C92828;
+      border-radius: 5px;
+    }
 
     /* HEADER */
     header {
@@ -46,12 +49,15 @@
     }
     .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
     .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration: none; }
     nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s; }
     nav a:hover, nav a.active { color: #C92828; }
 
     /* PAGE HEADER */
-    .page-header { padding: 80px 20px; text-align: center; }
+    .page-header {
+      padding: 80px 20px;
+      text-align: center;
+    }
     .page-header h1 { font-size: 48px; color: #C92828; margin-bottom: 10px; }
     .page-header p { color: #ccc; font-size: 20px; }
 
@@ -59,11 +65,11 @@
     .section-title { color: #C92828; font-size: 32px; text-align: center; margin: 60px 0 30px 0; }
 
     /* Leadership and Players Containers */
-    .Leadership, .players {
+    .Leadership, .Players {
       display: flex;
       flex-direction: column;
       align-items: center; /* centers cards horizontally */
-      gap: 40px; /* spacing between cards, same as leadership*/
+      gap: 40px;
       padding: 0 50px 50px 50px;
     }
 
@@ -77,14 +83,19 @@
       flex-direction: row;
       gap: 20px;
       max-width: 1000px;
-      width: auto;
-      margin: 0 auto; /* centers the card */
+      width: 100%;
       transition: transform 0.3s;
+      margin: 0 auto; /* centers card */
     }
     .team-card:hover { transform: translateY(-5px); }
 
     /* Team Image */
-    .team-card img { width: 200px; height: 200px; object-fit: cover; border-radius: 10px; }
+    .team-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
     /* Team Info */
     .team-info {
@@ -93,7 +104,6 @@
       flex-direction: column;
       justify-content: center;
     }
-
     .team-info h3 { font-size: 28px; color: #C92828; margin-bottom: 5px; }
     .team-info p.role { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
     .team-info p.bio { font-size: 16px; color: #ccc; margin-bottom: 10px; }
@@ -102,7 +112,11 @@
 
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
-      .team-card { flex-direction: column; align-items: center; text-align: center; }
+      .team-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
       .team-card img { width: 150px; height: 150px; }
       .team-info h3 { font-size: 24px; }
       .team-info p.role { font-size: 18px; }
@@ -187,54 +201,54 @@
     </div>
   </div>
 
-<!-- PLAYERS -->
-<div class="section-title">Players</div>
-<div class="Players">
-  <!-- Player 1 -->
-  <div class="team-card">
-    <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Player 1">
-    <div class="team-info">
-      <h3>Player 1</h3>
-      <p class="role">Pro</p>
-      <p class="bio">Coming soon</p>
-      <div class="socials">
-        <a href="#">Twitter</a>
-        <a href="#">YouTube</a>
-        <a href="#">Twitch</a>
+  <!-- PLAYERS -->
+  <div class="section-title">Players</div>
+  <div class="Players">
+    <div class="team-card">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Player 1">
+      <div class="team-info">
+        <h3>Player 1</h3>
+        <p class="role">Pro</p>
+        <p class="bio">Coming soon</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+          <a href="#">Twitch</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Player 2 -->
-  <div class="team-card">
-    <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Player 2">
-    <div class="team-info">
-      <h3>Player 2</h3>
-      <p class="role">Content Creator</p>
-      <p class="bio">Coming soon</p>
-      <div class="socials">
-        <a href="#">Twitter</a>
-        <a href="#">YouTube</a>
-        <a href="#">Twitch</a>
+    <div class="team-card">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Player 2">
+      <div class="team-info">
+        <h3>Player 2</h3>
+        <p class="role">Content Creator</p>
+        <p class="bio">Coming soon</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+          <a href="#">Twitch</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Player 3 -->
-  <div class="team-card">
-    <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Player 3">
-    <div class="team-info">
-      <h3>Player 3</h3>
-      <p class="role">Pro</p>
-      <p class="bio">Coming soon</p>
-      <div class="socials">
-        <a href="#">Twitter</a>
-        <a href="#">YouTube</a>
-        <a href="#">Twitch</a>
+    <div class="team-card">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Player 3">
+      <div class="team-info">
+        <h3>Player 3</h3>
+        <p class="role">Pro</p>
+        <p class="bio">Coming soon</p>
+        <div class="socials">
+          <a href="#">Twitter</a>
+          <a href="#">YouTube</a>
+          <a href="#">TikTok</a>
+          <a href="#">Twitch</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <!-- FOOTER -->
   <footer>
@@ -248,5 +262,7 @@
       <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
     </div>
   </footer>
+
 </body>
 </html>
+
