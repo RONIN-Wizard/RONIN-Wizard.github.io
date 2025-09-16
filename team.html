@@ -90,7 +90,7 @@
 .Leadership, .Players {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* keeps cards centered */
   gap: 40px;
   padding: 0 50px 50px 50px;
 }
@@ -104,10 +104,17 @@
   display: flex;
   flex-direction: row;
   gap: 20px;
-  width: 80%;
+  width: 100%;
   max-width: 1000px;
-  transition: transform 0.3s;
+  
 }
+    
+/*CENTER THIS CARD IN THE PARENT CONTAINER */
+margin-left: auto;
+margin-right: auto;
+
+transition: transform 0.3s;
+}    
 .team-card:hover { transform: translateY(-5px); }
 
 /* Team Image */
