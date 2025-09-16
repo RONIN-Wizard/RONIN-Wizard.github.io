@@ -7,8 +7,6 @@
 
   <!-- Font & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-
-  <!-- Custom Font -->
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
@@ -32,7 +30,7 @@
       color: white;
     }
 
-    /* SCROLLBAR */
+    /* SCROLLBAR SLIM */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
@@ -55,7 +53,7 @@
       text-decoration: none;
     }
     .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration: none; }
 
     /* NAVIGATION */
     nav {
@@ -66,7 +64,7 @@
     nav a { color: white; text-decoration: none; font-size: 18px; transition: color 0.3s; }
     nav a:hover, nav a.active { color: #C92828; }
 
-    /* Hamburger */
+    /* Hamburger (mobile) */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -107,36 +105,19 @@
 
     /* PAGE HEADER */
     .page-header {
-      padding: 120px 20px 80px 20px;
+      padding: 80px 20px;
       text-align: center;
     }
-    .page-header h1 { font-size: 56px; color: #C92828; }
-    .page-header p { margin-top: 20px; color: #ccc; font-size: 22px; }
+    .page-header h1 { font-size: 48px; color: #C92828; }
+    .page-header p { margin-top: 20px; color: #ccc; font-size: 20px; }
 
-    /* FEATURED SECTIONS */
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      padding: 60px 50px;
-    }
-    .feature-card {
-      background: #111;
-      border: 2px solid #333;
-      border-radius: 15px;
-      padding: 40px 30px;
-      max-width: 300px;
+    /* HOME PAGE CONTENT EXAMPLE */
+    .home-section {
+      padding: 50px;
       text-align: center;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
     }
-    .feature-card:hover {
-      transform: translateY(-10px) scale(1.03);
-      border-color: #C92828;
-      box-shadow: 0 0 20px #C92828;
-    }
-    .feature-card h3 { font-size: 24px; color: #C92828; margin-bottom: 10px; }
-    .feature-card p { font-size: 16px; color: #ccc; }
+    .home-section h2 { font-size: 36px; color: #C92828; margin-bottom: 20px; }
+    .home-section p { font-size: 18px; color: #ccc; }
 
     /* FOOTER */
     footer {
@@ -155,7 +136,7 @@
 
     /* MOBILE RESPONSIVENESS */
     @media (max-width: 768px) {
-      .features { padding: 40px 20px; gap: 20px; }
+      .home-section { padding: 30px 20px; }
     }
     @media (max-width: 480px) {
       .page-header h1 { font-size: 36px; }
@@ -188,23 +169,13 @@
   <!-- PAGE HEADER -->
   <div class="page-header">
     <h1>Welcome to Ronin Gaming</h1>
-    <p>Where innovation, competition, and creativity converge.</p>
+    <p>Your gateway to competitive integrity and next-level gaming experiences.</p>
   </div>
 
-  <!-- FEATURED SECTIONS -->
-  <div class="features">
-    <div class="feature-card">
-      <h3>Competitive Gaming</h3>
-      <p>Join our pro players in tournaments and leagues around the world.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Content Creation</h3>
-      <p>Watch our creators produce epic content across multiple platforms.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Partnerships</h3>
-      <p>Collaborate with brands and sponsors to grow together.</p>
-    </div>
+  <!-- EXAMPLE HOME SECTION -->
+  <div class="home-section">
+    <h2>About Us</h2>
+    <p>Ronin Gaming is dedicated to fostering competitive gaming with a focus on professionalism and creativity.</p>
   </div>
 
   <!-- FOOTER -->
@@ -220,8 +191,8 @@
     </div>
   </footer>
 
-  <!-- Hamburger JS -->
   <script>
+    // Hamburger menu functionality
     const hamburger = document.getElementById('hamburger');
     const nav = document.getElementById('nav');
 
@@ -230,6 +201,7 @@
       nav.classList.toggle('show');
     });
 
+    // Close menu when clicking a link
     nav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         hamburger.classList.remove('active');
@@ -237,5 +209,6 @@
       });
     });
   </script>
+
 </body>
 </html>
