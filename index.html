@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ronin Gaming — Home</title>
-
-  <!-- Font & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <title>Ronin Gaming</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
@@ -15,22 +13,16 @@
       font-style: normal;
     }
 
-    /* BASE */
-    * { margin:0; padding:0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'TheLastShuriken', sans-serif;
-      background: repeating-linear-gradient(
-        45deg,
-        #000,
-        #000 20px,
-        #0a0a0a 20px,
-        #0a0a0a 40px
-      );
+      background-color: #000;
       color: white;
+      transition: opacity 1s ease;
     }
 
-    /* SCROLLBAR SLIM */
+    /* SCROLLBAR */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
@@ -50,74 +42,139 @@
     .logo {
       display: flex;
       align-items: center;
+      cursor: pointer;
       text-decoration: none;
     }
     .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration: none; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
 
-    /* NAVIGATION */
-    nav {
+    nav.nav-links {
       display: flex;
       align-items: center;
-      gap: 25px;
     }
-    nav a { color: white; text-decoration: none; font-size: 18px; transition: color 0.3s; }
-    nav a:hover, nav a.active { color: #C92828; }
+    nav.nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav.nav-links a:hover, nav.nav-links a.active { color: #C92828; }
 
-    /* Hamburger (mobile) */
-    .hamburger {
+    /* Hamburger menu */
+    .menu-toggle {
       display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 28px;
-      height: 22px;
+      font-size: 30px;
+      color: white;
       cursor: pointer;
     }
-    .hamburger div {
-      width: 100%;
-      height: 3px;
-      background-color: white;
-      transition: all 0.3s ease;
-    }
-    .hamburger.active div:nth-child(1) { transform: rotate(45deg) translateY(8px); }
-    .hamburger.active div:nth-child(2) { opacity: 0; }
-    .hamburger.active div:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
 
-    /* MOBILE NAV */
-    @media (max-width: 768px) {
-      nav {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: #000;
-        flex-direction: column;
-        width: 200px;
-        padding: 20px;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        border-left: 2px solid #C92828;
-        border-bottom: 2px solid #C92828;
-      }
-      nav.show { transform: translateX(0); }
-      nav a { margin: 10px 0; }
-      .hamburger { display: flex; }
-    }
-
-    /* PAGE HEADER */
-    .page-header {
-      padding: 80px 20px;
+    /* HERO */
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
+      padding: 0 20px;
     }
-    .page-header h1 { font-size: 48px; color: #C92828; }
-    .page-header p { margin-top: 20px; color: #ccc; font-size: 20px; }
+    #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
+    #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
 
-    /* HOME PAGE CONTENT EXAMPLE */
-    .home-section {
-      padding: 50px;
-      text-align: center;
+    /* ABOUT */
+    #about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 50px;
+      gap: 40px;
+      background: #111;
+      border-top: 2px solid #C92828;
     }
-    .home-section h2 { font-size: 36px; color: #C92828; margin-bottom: 20px; }
-    .home-section p { font-size: 18px; color: #ccc; }
+    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
+    #about h2 { color: #C92828; }
+    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
+    .about-logo img { max-width: 250px; }
+
+    /* WATCH LIVE */
+    #watch-live {
+      background:#111;
+      border-top:2px solid #C92828;
+      text-align:center;
+      padding:80px 50px;
+    }
+    #watch-live h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+    #watch-live a {
+      display:inline-block;
+      background:#C92828;
+      color:white;
+      padding:20px 40px;
+      font-size:20px;
+      font-weight:bold;
+      border-radius:10px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    #watch-live a:hover { background:#ff3a3a; }
+
+    /* LATEST NEWS */
+    #news {
+      background:#000;
+      padding:80px 50px;
+      border-top:2px solid #C92828;
+      color:white;
+      text-align:center;
+    }
+    #news h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+    .news-items { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+    .news-card {
+      background:#111;
+      border:2px solid #C92828;
+      border-radius:15px;
+      padding:20px;
+      width:300px;
+      transition: transform 0.3s;
+    }
+    .news-card:hover { transform: translateY(-5px); }
+    .news-card h3 { color:#C92828; margin-bottom:10px; }
+    .news-card p { color:#ccc; }
+
+    /* CONTACT US */
+    #contact {
+      background:#111; 
+      border-top:2px solid #C92828; 
+      padding:80px 50px; 
+      color:white; 
+      font-family:'TheLastShuriken', sans-serif;
+      text-align:center;
+    }
+    #contact h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+    #contact p { color:#ccc; margin-bottom:50px; font-size:18px; }
+    #contact form { max-width:700px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
+    #contact input, #contact textarea {
+      padding:15px;
+      border-radius:10px;
+      border:2px solid #C92828;
+      background:#111;
+      color:white;
+      font-size:16px;
+      outline:none;
+    }
+    #contact button {
+      padding:15px;
+      background:#C92828;
+      color:white;
+      font-size:18px;
+      font-weight:bold;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    #contact button:hover { background:#ff3a3a; }
 
     /* FOOTER */
     footer {
@@ -130,17 +187,31 @@
       gap:20px;
       border-top:2px solid #C92828;
     }
-    .footer-socials a { margin-right:15px; color:white; font-size:20px; text-decoration:none; transition: color 0.3s; }
-    .footer-socials a:hover { color:#C92828; }
+    .footer-socials a {
+      margin-right:15px;
+      color:white;
+      text-decoration:none;
+      font-size:20px;
+    }
+    .footer-socials a img { filter: invert(100%); width:25px; height:25px; vertical-align:middle; }
+    .footer-socials a:hover img { filter: invert(55%) sepia(95%) saturate(750%) hue-rotate(350deg); }
     .footer-legal { font-size:14px; color:#aaa; }
 
-    /* MOBILE RESPONSIVENESS */
+    /* MOBILE RESPONSIVE */
     @media (max-width: 768px) {
-      .home-section { padding: 30px 20px; }
-    }
-    @media (max-width: 480px) {
-      .page-header h1 { font-size: 36px; }
-      .page-header p { font-size: 16px; }
+      header { padding: 15px 20px; position: relative; }
+      nav.nav-links { display: none; flex-direction: column; width: 100%; background: #000; position: absolute; top: 80px; left: 0; border-top: 2px solid #C92828; }
+      nav.nav-links a { margin: 15px 0; padding: 15px 20px; border-bottom: 1px solid #C92828; }
+      nav.nav-links.active { display: flex; }
+      .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; }
+      #about { flex-direction: column; padding: 50px 20px; }
+      .about-text, .about-logo { flex: 1 1 100%; text-align: center; }
+      .about-logo img { max-width: 200px; }
+      #hero h1 { font-size: 50px; }
+      #hero p { font-size: 20px; }
+      #watch-live h2, #news h2, #contact h2 { font-size: 28px; }
+      #contact form { width: 90%; }
+      .news-items { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -149,15 +220,13 @@
   <!-- HEADER -->
   <header>
     <a href="index.html" class="logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Logo">
       <span>RONIN</span>
     </a>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <nav id="nav">
+
+    <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+
+    <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="partners.html">Partners</a>
       <a href="team.html">Team</a>
@@ -166,47 +235,82 @@
     </nav>
   </header>
 
-  <!-- PAGE HEADER -->
-  <div class="page-header">
-    <h1>Welcome to Ronin Gaming</h1>
-    <p>Your gateway to competitive integrity and next-level gaming experiences.</p>
-  </div>
+  <!-- HERO -->
+  <section id="hero">
+    <h1>Ronin Gaming</h1>
+    <p>Sharpening the Future of Gaming</p>
+  </section>
 
-  <!-- EXAMPLE HOME SECTION -->
-  <div class="home-section">
-    <h2>About Us</h2>
-    <p>Ronin Gaming is dedicated to fostering competitive gaming with a focus on professionalism and creativity.</p>
-  </div>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
+    </div>
+    <div class="about-logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="About Logo">
+    </div>
+  </section>
+
+  <!-- WATCH LIVE -->
+  <section id="watch-live">
+    <h2>Watch Live</h2>
+    <a href="https://www.twitch.tv/roningamingggs" target="_blank">Watch Our Twitch</a>
+  </section>
+
+  <!-- LATEST NEWS -->
+  <section id="news">
+    <h2>Latest News</h2>
+    <div class="news-items">
+      <div class="news-card">
+        <h3>New Player Signing</h3>
+        <p>Exciting new talent joins Ronin Gaming roster. Stay tuned for updates!</p>
+      </div>
+      <div class="news-card">
+        <h3>Upcoming Tournament</h3>
+        <p>Our pro team will compete in the Fortnite Championship Series this weekend.</p>
+      </div>
+      <div class="news-card">
+        <h3>Content Collab</h3>
+        <p>Collaborating with top creators to bring new content to our audience.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT US -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
+    <form action="https://formspree.io/f/inquiries@roningaming.org" method="POST">
+      <input type="text" name="_gotcha" style="display:none;">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required rows="6"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-top:20px; color:#aaa; font-size:14px;">We’ll respond as soon as possible. Your email will remain private.</p>
+  </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><i class="fab fa-twitch"></i></a>
+      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
     </div>
     <div class="footer-legal">
       <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- MOBILE MENU SCRIPT -->
   <script>
-    // Hamburger menu functionality
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav');
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('nav.nav-links');
 
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      nav.classList.toggle('show');
-    });
-
-    // Close menu when clicking a link
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        nav.classList.remove('show');
-      });
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
     });
   </script>
 
