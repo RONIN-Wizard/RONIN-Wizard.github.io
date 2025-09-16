@@ -4,25 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ronin Gaming — Team</title>
-
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  />
-
+  
+  <!-- Google Fonts or your custom font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
   <style>
-    @font-face {
-      font-family: 'TheLastShuriken';
-      src: url('TheLastShuriken-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-
+    /* BASE */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'TheLastShuriken', sans-serif;
+      font-family: 'Roboto', sans-serif;
       background: repeating-linear-gradient(
         45deg,
         #000,
@@ -50,19 +44,38 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-    .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
+    .logo {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
     .logo img { height: 50px; margin-right: 10px; }
     .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
-    nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
     nav a:hover, nav a.active { color: #C92828; }
 
     /* PAGE HEADER */
-    .page-header { padding: 80px 20px; text-align: center; }
+    .page-header {
+      padding: 80px 20px;
+      text-align: center;
+    }
     .page-header h1 { font-size: 48px; color: #C92828; margin-bottom: 10px; }
     .page-header p { color: #ccc; font-size: 20px; }
 
     /* TEAM SECTIONS */
-    .section-title { color: #C92828; font-size: 32px; text-align: center; margin: 60px 0 30px; }
+    .section-title {
+      color: #C92828;
+      font-size: 32px;
+      text-align: center;
+      margin: 60px 0 30px 0;
+    }
 
     /* Leadership and Players Containers */
     .Leadership, .Players {
@@ -83,44 +96,60 @@
       flex-direction: row;
       gap: 20px;
       max-width: 1000px;
-      width: auto;
+      width: 100%;
       transition: transform 0.3s, box-shadow 0.3s;
       margin: 0 auto;
+      opacity: 0;
+      transform: translateY(30px);
     }
+    .team-card.show { opacity: 1; transform: translateY(0); }
+
     .team-card:hover {
-      transform: translateY(-5px);
+      transform: scale(1.03);
       box-shadow: 0 0 20px #C92828;
     }
 
     /* Team Image */
-    .team-card img { width: 200px; height: 200px; object-fit: cover; border-radius: 10px; }
+    .team-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
 
     /* Team Info */
-    .team-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-    .team-info h3 { font-size: 28px; color: #C92828; margin-bottom: 5px; }
-    .team-info p.role { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
-    .team-info p.bio { font-size: 16px; color: #ccc; margin-bottom: 10px; }
+    .team-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .team-info h3 {
+      font-size: 28px;
+      color: #C92828;
+      margin-bottom: 5px;
+    }
+    .team-info p.role {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .team-info p.bio {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    /* Social icons */
     .team-info .socials a {
       color: white;
       margin-right: 15px;
       font-size: 20px;
       text-decoration: none;
+      transition: color 0.3s;
     }
     .team-info .socials a:hover { color: #C92828; }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-      .team-card { flex-direction: column; align-items: center; text-align: center; }
-      .team-card img { width: 150px; height: 150px; }
-      .team-info h3 { font-size: 24px; }
-      .team-info p.role { font-size: 18px; }
-      .team-info p.bio { font-size: 14px; }
-      .team-info .socials a { font-size: 16px; }
-    }
-    @media (max-width: 500px) {
-      header { flex-direction: column; gap: 15px; padding: 15px 20px; }
-      nav a { margin-left: 0; margin-right: 15px; }
-    }
 
     /* FOOTER */
     footer {
@@ -136,12 +165,32 @@
     .footer-socials a {
       margin-right:15px;
       color:white;
-      font-size: 20px;
-      text-decoration: none;
+      font-size:20px;
+      text-decoration:none;
+      transition: color 0.3s;
     }
     .footer-socials a:hover { color:#C92828; }
+
     .footer-legal { font-size:14px; color:#aaa; }
 
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .team-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .team-card img { width: 150px; height: 150px; }
+      .team-info h3 { font-size: 24px; }
+      .team-info p.role { font-size: 18px; }
+      .team-info p.bio { font-size: 14px; }
+      .team-info .socials a { font-size: 18px; }
+    }
+
+    @media (max-width: 500px) {
+      header { flex-direction: column; gap: 15px; padding: 15px 20px; }
+      nav a { margin-left: 0; margin-right: 15px; }
+    }
   </style>
 </head>
 <body>
@@ -208,7 +257,7 @@
       <div class="team-info">
         <h3>Player 1</h3>
         <p class="role">Pro</p>
-        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula.</p>
+        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <div class="socials">
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a>
@@ -222,7 +271,7 @@
       <div class="team-info">
         <h3>Player 2</h3>
         <p class="role">Content Creator</p>
-        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula.</p>
+        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <div class="socials">
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a>
@@ -236,7 +285,7 @@
       <div class="team-info">
         <h3>Player 3</h3>
         <p class="role">Pro</p>
-        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vehicula.</p>
+        <p class="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <div class="socials">
           <a href="#"><i class="fab fa-twitter"></i></a>
           <a href="#"><i class="fab fa-youtube"></i></a>
@@ -259,5 +308,18 @@
     </div>
   </footer>
 
+  <script>
+    // Scroll animation for team cards
+    const teamCards = document.querySelectorAll('.team-card');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    teamCards.forEach(card => observer.observe(card));
+  </script>
 </body>
 </html>
