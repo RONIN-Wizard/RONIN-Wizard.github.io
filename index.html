@@ -19,33 +19,13 @@
       font-family: 'TheLastShuriken', sans-serif;
       background-color: #000;
       color: white;
+      transition: opacity 1s ease;
     }
 
     /* SCROLLBAR */
     ::-webkit-scrollbar { width: 10px; }
     ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
-
-    /* LOADING SCREEN */
-    #loading {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      transition: opacity 0.8s ease;
-    }
-    #loading img {
-      height: 100px;
-      animation: pulse 1.5s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
 
     /* HEADER */
     header {
@@ -73,6 +53,24 @@
       transition: color 0.3s;
     }
     nav a:hover, nav a.active { color: #C92828; }
+
+    /* LOADING SCREEN */
+    #loading {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:#000;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
+      transition: opacity 0.8s ease;
+    }
+    #loading img { width:180px; animation: fadeInOut 2s ease-in-out infinite; }
+    @keyframes fadeInOut {
+      0%,100% {opacity:0;}
+      30%,70% {opacity:1;}
+    }
 
     /* HERO */
     #hero {
@@ -104,72 +102,61 @@
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
-    /* RONIN APPAREL SLIDESHOW */
+    /* APPAREL SLIDESHOW */
     #merch {
       padding: 80px 50px;
       background:#111;
       text-align:center;
       border-top:2px solid #C92828;
+      position: relative;
     }
     #merch h2 { color:#C92828; margin-bottom:40px; }
-    .slideshow-container {
+    .slide {
+      display:none;
       position: relative;
-      max-width: 1000px;
-      margin: auto;
-      overflow: hidden;
-      border:2px solid #C92828;
-      border-radius:10px;
-      height: 400px;
-      background:#000;
-      display:flex;
       justify-content:center;
       align-items:center;
+      height:400px;
+      background:#222;
+      color:white;
+      font-size:48px;
+      font-weight:bold;
     }
-    .slide {
-      display: none;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 48px;
-      color: #000;
-      background:white;
-      font-weight: bold;
+    .arrow {
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:48px;
+      color:#C92828;
+      cursor:pointer;
+      user-select:none;
+      padding:0 20px;
     }
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: #C92828;
-      font-weight: bold;
-      font-size: 24px;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-      background: rgba(0,0,0,0.3);
-      transition: 0.3s;
-    }
-    .next { right: 0; border-radius: 3px 0 0 3px; }
-    .prev:hover, .next:hover { background-color: rgba(201,40,40,0.8); }
+    .arrow-left { left:0; }
+    .arrow-right { right:0; }
 
     /* FOOTER */
     footer {
       background:#111;
       color:white;
-      text-align:center;
-      padding:30px 20px;
+      padding:40px 50px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:20px;
       border-top:2px solid #C92828;
-      font-size:14px;
     }
-    footer a { color:#C92828; text-decoration:none; margin:0 10px; }
-    footer a:hover { text-decoration:underline; }
+    .footer-socials a {
+      margin-right:15px;
+      color:white;
+      text-decoration:none;
+      font-size:20px;
+    }
+    .footer-socials a:hover { color:#C92828; }
+    .footer-legal { font-size:14px; color:#aaa; }
   </style>
 </head>
 <body>
-
   <!-- LOADING SCREEN -->
   <div id="loading">
     <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
@@ -178,13 +165,13 @@
   <!-- HEADER -->
   <header>
     <div class="logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Logo">
       <span>RONIN</span>
     </div>
     <nav>
       <a href="#hero" class="active">Home</a>
+      <a href="#merch">Ronin Apparel</a>
       <a href="#partners">Partners</a>
-      <a href="#teams">Teams</a>
       <a href="#news">News</a>
       <a href="#shop">Shop</a>
     </nav>
@@ -196,21 +183,38 @@
     <p>Sharpening the Future of Gaming</p>
   </section>
 
-  <!-- ABOUT -->
+  <!-- ABOUT (kept inside home) -->
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
       <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
     </div>
     <div class="about-logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="About Logo">
     </div>
   </section>
 
-  <!-- RONIN APPAREL -->
+  <!-- APPAREL SLIDESHOW -->
   <section id="merch">
     <h2>Ronin Apparel</h2>
-    <div class="slideshow-container">
-      <div class="slide">COMING SOON</div>
-      <div class="slide">COMING SOON</div>
+    <div class="slide">COMING SOON</div>
+    <div class="slide">COMING SOON</div>
+    <div class="slide">COMING SOON</div>
+    <span class="arrow arrow-left" onclick="plusSlides(-1)">&#10094;</span>
+    <span class="arrow arrow-right" onclick="plusSlides(1)">&#10095;</span>
+  </section>
+
+  <!-- PARTNERS placeholder -->
+  <section id="partners">
+    <h2 style="color:#C92828; text-align:center; padding:80px 0;">Partners coming soon</h2>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-socials">
+      <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank">TikTok</a>
+      <a href="https://www.twitch.tv/roningaminggg
+
      
