@@ -35,9 +35,15 @@
     .logo {
       display: flex;
       align-items: center;
+      text-decoration: none; /* remove underline */
     }
     .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; }
+    .logo span {
+      font-size: 28px;
+      color: #C92828;
+      letter-spacing: 2px;
+      text-decoration: none; /* extra safety */
+    }
     nav a {
       color: white;
       text-decoration: none;
@@ -119,7 +125,7 @@
     </a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="partners.html" class="active">Partners</a>
+      <a href="Partners.html" class="active">Partners</a>
       <a href="team.html">Team</a>
       <a href="news.html">News</a>
       <a href="shop.html">Shop</a>
@@ -129,12 +135,12 @@
 
   <!-- PAGE HEADER -->
   <div class="page-header">
-    <h1>Meet Our Partners</h1>
+    <h1>Our Partners</h1>
+    <p>We’re proud to work with organizations who believe in our vision. Together, we push the limits of esports, content, and brand innovation.</p>
   </div>
 
   <!-- PARTNERS GRID -->
   <div class="partners-grid">
-    <!-- Example partner card -->
     <div class="partner-card">
       <img src="https://via.placeholder.com/200x100?text=Partner+Logo" alt="Partner Name">
     </div>
@@ -147,7 +153,6 @@
     <div class="partner-card">
       <img src="https://via.placeholder.com/200x100?text=Partner+Logo" alt="Partner Name">
     </div>
-    <!-- Add more as needed -->
   </div>
 
   <!-- FOOTER -->
