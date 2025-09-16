@@ -1,106 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ronin Gaming</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    @font-face {
-      font-family: 'TheLastShuriken';
-      src: url('TheLastShuriken-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
+<section id="merch">
+  <h2>Ronin Apparel</h2>
+  <div class="slide-container">
+    <div class="slide active">
+      <div class="slide-text">COMING SOON</div>
+    </div>
+    <div class="slide">
+      <div class="slide-text">COMING SOON</div>
+    </div>
+    <div class="slide">
+      <div class="slide-text">COMING SOON</div>
+    </div>
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'TheLastShuriken', sans-serif;
-      background-color: #000;
-      color: white;
-      transition: opacity 1s ease;
-    }
+    <!-- Arrows -->
+    <div class="prev">&#10094;</div>
+    <div class="next">&#10095;</div>
+  </div>
+</section>
 
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 10px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+<style>
+  /* SLIDESHOW */
+  .slide-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 2px solid #C92828;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 300px;
+    background: #000;
+  }
 
-    /* HEADER */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background-color: #000;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 2px solid #C92828;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-    nav a:hover, nav a.active { color: #C92828; }
+  .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 36px;
+    color: white;
+    position: absolute;
+    top: 0; left: 0;
+  }
 
-    /* HERO */
-    #hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
-      padding: 0 20px;
-    }
-    #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
-    #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
+  .slide.active { display: flex; }
 
-    /* ABOUT */
-    #about {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      padding: 100px 50px;
-      gap: 40px;
-      background: #111;
-      border-top: 2px solid #C92828;
-    }
-    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
-    #about h2 { color: #C92828; }
-    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
-    .about-logo img { max-width: 250px; }
+  .slide-text { text-align: center; }
 
-    /* MINI MERCH */
-    #merch {
-      padding: 80px 50px;
-      background:#111;
-      text-align:center;
-      border-top:2px solid #C92828;
-    }
-    #merch h2 { color:#C92828; margin-bottom:40px; }
-    .merch-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
-    .merch-item {
-      background:#000;
-      padding:20px;
-      border:2px solid #C92828;
-      border-radius:10px;
-      width:180px;
-      transition: transform 0.3s;
-    }
-    .merch-item:hover { transform: translateY(-5px); }
-    .merch-item img { width:100%; border-radius:5px; }
-     
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: #C92828;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s;
+    user-select: none;
+    border-radius: 3px;
+  }
+
+  .prev:hover, .next:hover { background-color: rgba(201,40,40,0.3); }
+
+  .prev { left: 10px; }
+  .next { right: 10px; }
+</style>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    slides.forEach((s,i) => s.classList.remove('active'));
+    slides[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  document.querySelector('.next').addEventListener('click', nextSlide);
+  document.querySelector('.prev').addEventListener('click', prevSlide);
+
+  // Auto slideshow every 10 seconds
+  setInterval(nextSlide, 10000);
+
+  // Show initial slide
+  showSlide(currentSlide);
+</script>
