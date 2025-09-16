@@ -1,23 +1,139 @@
-<section id="hero">
-  <h1>Ronin Gaming</h1>
-  <p>Sharpening the Future of Gaming</p>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ronin Gaming</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* FONT */
+    @font-face {
+      font-family: 'TheLastShuriken';
+      src: url('TheLastShuriken-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
 
-<section id="about">
-  <div class="about-text">
-    <h2>About Us</h2>
-    <p>
-      Ronin Gaming is an esports organization focused on Fortnite and competitive content creation.
-      Our mission is to create a sustainable, professional organization that bridges competitive gaming,
-      content development, and brand innovation. We provide players with professional representation
-      to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable,
-      streamlined method to connect with engaged gaming audiences.
-    </p>
-  </div>
-  <div class="about-logo">
-    <img src="roni.png" alt="Ronin Logo">
-  </div>
-</section>
+    /* RESET + BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'TheLastShuriken', sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #C92828;
+    }
+    .logo img { height: 50px; margin-right: 10px; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a.active { color: #C92828; }
+
+    /* HERO */
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: black;
+      padding: 0 20px;
+    }
+    #hero h1 { font-size: 64px; color: #C92828; margin-bottom: 20px; }
+    #hero p { font-size: 24px; color: white; }
+
+    /* ABOUT SECTION */
+    #about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 50px;
+      gap: 40px;
+    }
+    .about-text {
+      flex: 1 1 500px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .about-logo {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+    .about-logo img { max-width: 250px; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      #about { flex-direction: column; text-align: center; }
+      .about-text, .about-logo { flex: 1 1 100%; }
+      header { flex-direction: column; gap: 10px; }
+      nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER / NAVBAR -->
+  <header>
+    <div class="logo">
+      <img src="roni.png" alt="Ronin Logo">
+      <span>RONIN</span>
+    </div>
+    <nav>
+      <a href="#hero" class="active">Home</a>
+      <a href="#about">About Us</a>
+      <a href="partners.html">Partners</a>
+      <a href="teams.html">Teams</a>
+      <a href="news.html">News</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <h1>Ronin Gaming</h1>
+    <p>Sharpening the Future of Gaming</p>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>
+        Ronin Gaming is an esports organization focused on Fortnite and competitive content creation.
+        Our mission is to create a sustainable, professional organization that bridges competitive gaming,
+        content development, and brand innovation. We provide players with professional representation
+        to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable,
+        streamlined method to connect with engaged gaming audiences.
+      </p>
+    </div>
+    <div class="about-logo">
+      <img src="roni.png" alt="Ronin Logo">
+    </div>
+  </section>
 
 </body>
 </html>
