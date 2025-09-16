@@ -6,7 +6,6 @@
   <title>Ronin Gaming</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* FONT */
     @font-face {
       font-family: 'TheLastShuriken';
       src: url('TheLastShuriken-Regular.woff') format('woff');
@@ -14,14 +13,12 @@
       font-style: normal;
     }
 
-    /* RESET + BASE */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'TheLastShuriken', sans-serif;
       background-color: #000;
       color: white;
-      opacity: 0; /* Start invisible for fade-in */
       transition: opacity 1s ease;
     }
 
@@ -54,7 +51,6 @@
       font-size: 28px;
       color: #C92828;
       letter-spacing: 2px;
-      font-family: 'TheLastShuriken', sans-serif;
     }
     nav a {
       color: white;
@@ -76,25 +72,10 @@
       background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
       padding: 0 20px;
     }
-    /* HERO FADE-IN */
-    #hero h1, #hero p {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1.2s forwards;
-    }
-    #hero p { animation-delay: 0.4s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
     #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
 
-    /* ABOUT SECTION */
+    /* ABOUT */
     #about {
       display: flex;
       flex-wrap: wrap;
@@ -105,33 +86,20 @@
       background: #111;
       border-top: 2px solid #C92828;
     }
-    .about-text {
-      flex: 1 1 500px;
-      font-size: 18px;
-      line-height: 1.8;
-    }
+    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
     #about h2 { color: #C92828; }
-    .about-logo {
-      flex: 1 1 300px;
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
     /* PRELOADER */
     #preloader {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:#000;
+      display:flex; justify-content:center; align-items:center;
+      z-index:9999;
+      opacity:1;
       transition: opacity 1s ease;
     }
     #preloader img {
@@ -144,7 +112,6 @@
       100% { transform: scale(0.95); opacity: 0.8; }
     }
 
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       #about { flex-direction: column; text-align: center; }
       .about-text, .about-logo { flex: 1 1 100%; }
@@ -162,7 +129,7 @@
     <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
   </div>
 
-  <!-- HEADER / NAVBAR -->
+  <!-- HEADER -->
   <header>
     <div class="logo">
       <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
@@ -177,13 +144,13 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section id="hero">
     <h1>Ronin Gaming</h1>
     <p>Sharpening the Future of Gaming</p>
   </section>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
@@ -201,20 +168,17 @@
   </section>
 
   <script>
-    // SMOOTH PRELOADER FADE
     window.addEventListener("load", function() {
       const preloader = document.getElementById("preloader");
-      const body = document.body;
-      const minTime = 1500; // Minimum time in ms
+      const minTime = 1500; // Minimum display time
       const startTime = Date.now();
 
       function hidePreloader() {
         const elapsed = Date.now() - startTime;
         const remaining = minTime - elapsed;
         setTimeout(() => {
-          preloader.style.opacity = "0"; // fade out preloader
-          body.style.opacity = "1"; // fade in page content
-          setTimeout(() => preloader.style.display = "none", 1000); // remove preloader after fade
+          preloader.style.opacity = "0";
+          setTimeout(() => preloader.style.display = "none", 1000);
         }, remaining > 0 ? remaining : 0);
       }
 
