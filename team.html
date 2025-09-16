@@ -21,6 +21,7 @@
       color: white;
     }
 
+    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
@@ -38,7 +39,7 @@
       text-decoration: none;
     }
     .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration: none; }
     nav a {
       color: white;
       text-decoration: none;
@@ -48,45 +49,53 @@
     }
     nav a:hover, nav a.active { color: #C92828; }
 
+    /* PAGE HEADER */
     .page-header {
       padding: 80px 20px;
       text-align: center;
     }
-    .page-header h1 { font-size: 48px; color: #C92828; }
-    .page-header p { margin-top: 20px; color: #ccc; font-size: 20px; }
+    .page-header h1 {
+      font-size: 48px;
+      color: #C92828;
+    }
+    .page-header p {
+      margin-top: 20px;
+      color: #ccc;
+      font-size: 20px;
+    }
 
     /* TEAM SECTIONS */
-    .team-section { padding: 50px; border-top: 2px solid #C92828; }
-    .team-section h2 { color: #C92828; margin-bottom: 40px; font-size: 36px; }
-
-    .member-card {
+    .team-section {
+      padding: 40px 50px;
+      border-top: 2px solid #C92828;
+    }
+    .team-member {
       display: flex;
-      gap: 30px;
-      margin-bottom: 50px;
       flex-wrap: wrap;
       align-items: center;
-    }
-    .member-card img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
+      margin-bottom: 60px;
+      gap: 20px;
+      background: #111;
+      padding: 30px;
       border-radius: 10px;
       border: 2px solid #C92828;
     }
-    .member-info {
-      max-width: 800px;
+    .team-member img {
+      max-width: 250px;
+      border-radius: 10px;
+      object-fit: cover;
     }
-    .member-info h3 { font-size: 28px; color: #C92828; margin-bottom: 10px; }
-    .member-info p.role { font-size: 18px; color: #fff; font-weight: bold; margin-bottom: 10px; }
-    .member-info p.bio { font-size: 16px; color: #ccc; margin-bottom: 10px; }
-    .member-info .socials a {
-      margin-right: 15px;
+    .team-info {
+      flex: 1;
       color: white;
-      text-decoration: none;
-      font-size: 18px;
     }
-    .member-info .socials a:hover { color: #C92828; }
+    .team-info h2 { color: #C92828; font-size: 32px; margin-bottom: 10px; }
+    .team-info h3 { color: #fff; font-size: 20px; margin-bottom: 15px; font-weight: normal; }
+    .team-info p { font-size: 16px; line-height: 1.6; margin-bottom: 10px; }
+    .team-info a { color: #C92828; text-decoration: none; margin-right: 15px; }
+    .team-info a:hover { text-decoration: underline; }
 
+    /* FOOTER */
     footer {
       background:#111;
       color:white;
@@ -113,89 +122,69 @@
   <!-- HEADER -->
   <header>
     <a href="index.html" class="logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Ronin Logo">
       <span>RONIN</span>
     </a>
     <nav>
       <a href="index.html">Home</a>
       <a href="Partners.html">Partners</a>
-      <a href="Team.html" class="active">Team</a>
-      <a href="News.html">News</a>
-      <a href="Shop.html">Shop</a>
-      <a href="Contact.html">Contact Us</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="news.html">News</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact Us</a>
     </nav>
   </header>
 
   <!-- PAGE HEADER -->
   <div class="page-header">
     <h1>Our Team</h1>
-    <p>Meet the people shaping the future of Ronin Gaming, from our ownership to pro players and content creators.</p>
+    <p>Meet the people behind Ronin Gaming — from founders to pro players and content creators.</p>
   </div>
 
   <!-- OWNERSHIP -->
-  <section class="team-section" id="ownership">
+  <section class="team-section">
     <h2>Ownership</h2>
 
-    <div class="member-card">
-      <img src="Antonio_Alcantar.jpg" alt="Antonio Alcantar">
-      <div class="member-info">
-        <h3>Antonio Alcantar</h3>
-        <p class="role">Founder & CEO</p>
-        <p class="bio">Antonio Alcantar is the visionary behind Ronin Gaming, leading our organization with a focus on professionalism, growth, and brand innovation.</p>
-        <div class="socials">
-          <a href="#" target="_blank">Twitter</a>
-          <a href="#" target="_blank">YouTube</a>
-        </div>
+    <div class="team-member">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/Antonio%20Alcantar.jpg" alt="Antonio Alcantar">
+      <div class="team-info">
+        <h2>Antonio Alcantar</h2>
+        <h3>Founder & CEO</h3>
+        <p>Antonio Alcantar is the founder and CEO of Ronin Gaming, leading the organization’s vision for esports, content, and brand innovation.</p>
       </div>
     </div>
 
-    <div class="member-card">
-      <img src="David_Eze.jpg" alt="David Eze">
-      <div class="member-info">
-        <h3>David Eze</h3>
-        <p class="role">Co-Founder & Co-CEO</p>
-        <p class="bio">David Eze co-leads Ronin Gaming alongside Antonio, focusing on operational excellence and strategic growth in esports and content creation.</p>
-        <div class="socials">
-          <a href="#" target="_blank">Twitter</a>
-          <a href="#" target="_blank">YouTube</a>
-        </div>
+    <div class="team-member">
+      <img src="https://raw.githubusercontent.com/RONIN-Wizard/RONIN-Wizard.github.io/main/David%20Eze.jpg" alt="David Eze">
+      <div class="team-info">
+        <h2>David Eze</h2>
+        <h3>Founder & Co-CEO</h3>
+        <p>David Eze is the co-founder and co-CEO, helping drive operations and strategy for Ronin Gaming’s competitive and content initiatives.</p>
       </div>
     </div>
   </section>
 
   <!-- PLAYERS -->
-  <section class="team-section" id="players">
+  <section class="team-section">
     <h2>Players</h2>
 
-    <!-- Example Player Card -->
-    <div class="member-card">
-      <img src="coming-soon.jpg" alt="Coming Soon">
-      <div class="member-info">
-        <h3>Coming Soon</h3>
-        <p class="role">Pro Player / Content Creator</p>
-        <p class="bio">This player will be joining our Fortnite team soon. Stay tuned for updates!</p>
-        <div class="socials">
+    <!-- Example Player -->
+    <div class="team-member">
+      <img src="https://via.placeholder.com/250x250?text=Coming+Soon" alt="Player Coming Soon">
+      <div class="team-info">
+        <h2>Coming Soon</h2>
+        <h3>Pro / Content Creator</h3>
+        <p>Details about this player will be added soon. Stay tuned for bios, achievements, and social links.</p>
+        <p>Follow on socials: 
           <a href="#" target="_blank">Twitter</a>
           <a href="#" target="_blank">YouTube</a>
           <a href="#" target="_blank">TikTok</a>
-        </div>
+          <a href="#" target="_blank">Twitch</a>
+        </p>
       </div>
     </div>
 
-    <!-- Add more "Coming Soon" cards if desired -->
-    <div class="member-card">
-      <img src="coming-soon.jpg" alt="Coming Soon">
-      <div class="member-info">
-        <h3>Coming Soon</h3>
-        <p class="role">Pro Player / Content Creator</p>
-        <p class="bio">This player will be joining our Fortnite team soon. Stay tuned for updates!</p>
-        <div class="socials">
-          <a href="#" target="_blank">Twitter</a>
-          <a href="#" target="_blank">YouTube</a>
-          <a href="#" target="_blank">TikTok</a>
-        </div>
-      </div>
-    </div>
+    <!-- Duplicate the above block for more players if needed -->
 
   </section>
 
@@ -214,3 +203,4 @@
 
 </body>
 </html>
+
