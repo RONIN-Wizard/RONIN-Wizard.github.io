@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ronin Gaming | Team</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ronin Gaming — Team</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
@@ -12,190 +13,223 @@
       font-style: normal;
     }
 
+    * { margin:0; padding:0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
       font-family: 'TheLastShuriken', sans-serif;
       background-color: #000;
-      color: #fff;
+      color: white;
     }
 
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 20px 50px;
       background-color: #000;
-      border-bottom: 1px solid #111;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #C92828;
     }
-
-    .logo a {
-      font-size: 26px;
-      font-weight: 700;
-      color: #c92828;
-      text-decoration: none; /* remove underline */
-      letter-spacing: 1px;
-    }
-
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .logo {
       display: flex;
-      gap: 30px;
-    }
-
-    nav ul li a {
+      align-items: center;
       text-decoration: none;
+    }
+    .logo img { height: 50px; margin-right: 10px; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration: none; }
+    nav a {
       color: white;
-      font-weight: 600;
-      transition: color 0.3s ease;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
     }
+    nav a:hover, nav a.active { color: #C92828; }
 
-    nav ul li a:hover {
-      color: #c92828;
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: 70px auto;
-      padding: 0 20px;
-    }
-
-    .section h2 {
-      font-size: 34px;
-      margin-bottom: 25px;
-      border-left: 6px solid #c92828;
-      padding-left: 12px;
-      text-transform: uppercase;
-    }
-
-    .ownership {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
-
-    .owner-card {
-      background: #111;
-      padding: 25px;
-      border-radius: 12px;
+    .page-header {
+      padding: 80px 20px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
-
-    .owner-card h3 {
-      margin: 12px 0 6px;
-      color: #c92828;
+    .page-header h1 {
+      font-size: 48px;
+      color: #C92828;
+    }
+    .page-header p {
+      margin-top: 20px;
+      color: #ccc;
       font-size: 20px;
     }
 
-    .owner-card p {
-      margin: 0;
-      font-size: 14px;
-      color: #bbb;
-    }
-
-    .players {
+    /* PLAYER GRID */
+    .player-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      margin-top: 35px;
+      gap: 40px;
+      padding: 40px 50px;
     }
-
     .player-card {
       background: #111;
-      padding: 60px 20px;
-      border-radius: 12px;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 20px;
       text-align: center;
-      border: 2px dashed #c92828;
-      font-size: 18px;
-      font-weight: 600;
-      color: #777;
+      transition: transform 0.3s, border-color 0.3s;
+      position: relative;
+      overflow: hidden;
     }
-
-    footer {
-      background: #000;
-      padding: 35px;
-      text-align: center;
-      border-top: 1px solid #111;
-      margin-top: 60px;
+    .player-card:hover {
+      transform: translateY(-10px);
+      border-color: #C92828;
     }
-
-    .socials {
-      margin-bottom: 18px;
-    }
-
-    .socials a {
-      margin: 0 12px;
-      color: #c92828;
-      text-decoration: none;
-      font-weight: 700;
+    .player-headshot {
+      width: 120px;
+      height: 120px;
+      background: #222;
+      border-radius: 50%;
+      margin: 0 auto 15px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 14px;
-      transition: color 0.3s ease;
+      color: #888;
     }
+    .player-name { font-size: 20px; color: #fff; font-weight: bold; margin-bottom: 5px; }
+    .player-role { font-size: 16px; color: #C92828; }
 
-    .socials a:hover {
-      color: #fff;
+    /* OWNERSHIP SECTION */
+    .ownership {
+      padding: 60px 50px;
+      background: #111;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      border-top: 2px solid #C92828;
     }
+    .owner-card {
+      background: #000;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      width: 220px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .owner-card:hover { transform: translateY(-10px); border-color: #C92828; }
+    .owner-headshot {
+      width: 120px;
+      height: 120px;
+      background: #222;
+      border-radius: 50%;
+      margin: 0 auto 15px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #888;
+    }
+    .owner-name { font-size: 20px; color: #fff; font-weight: bold; margin-bottom: 5px; }
+    .owner-title { font-size: 16px; color: #C92828; }
 
-    footer p {
-      font-size: 12px;
-      color: #666;
-      margin: 0;
+    /* FOOTER */
+    footer {
+      background:#111;
+      color:white;
+      padding:40px 50px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:20px;
+      border-top:2px solid #C92828;
     }
+    .footer-socials a {
+      margin-right:15px;
+      color:white;
+      text-decoration:none;
+      font-size:20px;
+      transition: color 0.3s;
+    }
+    .footer-socials a:hover { color:#C92828; }
+    .footer-legal { font-size:14px; color:#aaa; }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
-    <div class="logo">
-      <a href="index.html">RONIN</a>
-    </div>
+    <a href="index.html" class="logo">
+      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+      <span>RONIN</span>
+    </a>
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-   <li><a href="partners.html">partners</a></li>
-        <li><a href="Team.html" class="active">Team</a></li>
-        <li><a href="News.html">News</a></li>
-        <li><a href="Shop.html">Shop</a></li>
-        <li><a href="Contact.html">Contact Us</a></li>
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="Partners.html">Partners</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="news.html">News</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html">Contact Us</a>
     </nav>
   </header>
 
-  <section class="section">
-    <h2>Ownership</h2>
-    <div class="ownership">
-      <div class="owner-card">
-        <h3>Antonio Alcantar</h3>
-        <p>Founder & CEO</p>
-      </div>
-      <div class="owner-card">
-        <h3>David Eze</h3>
-        <p>Founder & Co-CEO</p>
-      </div>
-    </div>
-  </section>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Our Team</h1>
+    <p>Meet the professionals and content creators who represent Ronin Gaming.</p>
+  </div>
 
-  <section class="section">
-    <h2>Players</h2>
-    <div class="players">
-      <div class="player-card">Coming Soon</div>
-      <div class="player-card">Coming Soon</div>
-      <div class="player-card">Coming Soon</div>
-      <div class="player-card">Coming Soon</div>
-      <div class="player-card">Coming Soon</div>
-      <div class="player-card">Coming Soon</div>
+  <!-- PLAYER GRID -->
+  <div class="player-grid">
+    <!-- Placeholder players -->
+    <div class="player-card">
+      <div class="player-headshot">Coming Soon</div>
+      <div class="player-name">Player 1</div>
+      <div class="player-role">Pro</div>
     </div>
-  </section>
+    <div class="player-card">
+      <div class="player-headshot">Coming Soon</div>
+      <div class="player-name">Player 2</div>
+      <div class="player-role">Content Creator</div>
+    </div>
+    <div class="player-card">
+      <div class="player-headshot">Coming Soon</div>
+      <div class="player-name">Player 3</div>
+      <div class="player-role">Pro</div>
+    </div>
+    <div class="player-card">
+      <div class="player-headshot">Coming Soon</div>
+      <div class="player-name">Player 4</div>
+      <div class="player-role">Content Creator</div>
+    </div>
+  </div>
 
+  <!-- OWNERSHIP SECTION -->
+  <div class="ownership">
+    <div class="owner-card">
+      <div class="owner-headshot">A.A.</div>
+      <div class="owner-name">Antonio Alcantar</div>
+      <div class="owner-title">Founder & CEO</div>
+    </div>
+    <div class="owner-card">
+      <div class="owner-headshot">D.E.</div>
+      <div class="owner-name">David Eze</div>
+      <div class="owner-title">Founder & Co-CEO</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="socials">
+    <div class="footer-socials">
       <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
       <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
       <a href="https://www.tiktok.com/@roninggs" target="_blank">TikTok</a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank">Twitch</a>
+      <a href="https://www.twitch.tv/roningaminggg" target="_blank">Twitch</a>
     </div>
-    <p>© 2025 Ronin Gaming. All rights reserved.</p>
+    <div class="footer-legal">
+      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    </div>
   </footer>
+
 </body>
 </html>
