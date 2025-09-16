@@ -82,29 +82,39 @@
       border-top: 2px solid #C92828;
     }
     .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
-    #about h2 { color: #C92828; } /* Updated color */
+    #about h2 { color: #C92828; }
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
-    /* MINI MERCH */
+    /* MERCH - single image */
     #merch {
       padding: 80px 50px;
       background:#111;
       text-align:center;
       border-top:2px solid #C92828;
     }
-    #merch h2 { color:#C92828; margin-bottom:40px; }
-    .merch-container { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
-    .merch-item {
-      background:#000;
-      padding:20px;
-      border:2px solid #C92828;
-      border-radius:10px;
-      width:180px;
-      transition: transform 0.3s;
+    #merch img {
+      max-width: 600px;
+      width: 100%;
+      border: 2px solid #C92828;
+      border-radius: 10px;
     }
-    .merch-item:hover { transform: translateY(-5px); }
-    .merch-item img { width:100%; border-radius:5px; }
+
+    /* FOOTER */
+    footer {
+      background:#000;
+      padding:50px;
+      border-top:2px solid #C92828;
+      text-align:center;
+      color:white;
+    }
+    footer a {
+      color:#C92828;
+      text-decoration:none;
+      margin: 0 10px;
+      font-size:20px;
+    }
+    footer p { margin-top:20px; font-size:14px; color:white; }
 
     /* PRELOADER */
     #preloader {
@@ -170,24 +180,22 @@
     </div>
   </section>
 
-  <!-- MINI MERCH -->
+  <!-- MERCH -->
   <section id="merch">
     <h2>Ronin Apparel</h2>
-    <div class="merch-container">
-      <div class="merch-item">
-        <img src="https://via.placeholder.com/200" alt="Hoodie">
-        <p>Ronin Hoodie</p>
-      </div>
-      <div class="merch-item">
-        <img src="https://via.placeholder.com/200" alt="Cap">
-        <p>Ronin Cap</p>
-      </div>
-      <div class="merch-item">
-        <img src="https://via.placeholder.com/200" alt="Tee">
-        <p>Ronin Tee</p>
-      </div>
-    </div>
+    <img src="https://via.placeholder.com/600x300/FFFFFF/000000?text=Coming+Soon" alt="Coming Soon">
   </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@roninggs?_t=ZP-8zlMVz8U4p5&_r=1" target="_blank">TikTok</a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank">Twitch</a>
+    </div>
+    <p>&copy; 2025 Ronin Gaming. All Rights Reserved. Legal info.</p>
+  </footer>
 
   <script>
     // PRELOADER
@@ -201,7 +209,7 @@
           preloader.style.display = 'none';
           hero.style.opacity = '1';
         }, 1000);
-      }, 2000); // logo shows for 2 seconds before fading
+      }, 2000);
     });
   </script>
 
