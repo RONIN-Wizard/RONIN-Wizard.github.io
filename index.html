@@ -86,35 +86,58 @@
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
-    /* MERCH - single image */
+    /* MERCH SLIDESHOW */
     #merch {
       padding: 80px 50px;
       background:#111;
       text-align:center;
       border-top:2px solid #C92828;
+      position: relative;
     }
-    #merch img {
-      max-width: 600px;
-      width: 100%;
-      border: 2px solid #C92828;
-      border-radius: 10px;
+    #merch h2 { color:#C92828; margin-bottom:40px; }
+    .slide {
+      display: none;
+      position: relative;
+    }
+    .slide img {
+      width:100%;
+      max-width:600px;
+      border:2px solid #C92828;
+      border-radius:10px;
+    }
+    .slide-text {
+      position: absolute;
+      top:50%;
+      left:50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px;
+      color:#000;
+      background:white;
+      padding: 15px 30px;
+      border-radius:10px;
     }
 
     /* FOOTER */
     footer {
       background:#000;
-      padding:50px;
+      padding:50px 20px;
       border-top:2px solid #C92828;
       text-align:center;
       color:white;
+      font-size:14px;
     }
-    footer a {
+    footer .socials a {
       color:#C92828;
       text-decoration:none;
       margin: 0 10px;
       font-size:20px;
     }
-    footer p { margin-top:20px; font-size:14px; color:white; }
+    footer .legal {
+      margin-top:20px;
+      font-size:12px;
+      color:white;
+      opacity:0.8;
+    }
 
     /* PRELOADER */
     #preloader {
@@ -183,18 +206,32 @@
   <!-- MERCH -->
   <section id="merch">
     <h2>Ronin Apparel</h2>
-    <img src="https://via.placeholder.com/600x300/FFFFFF/000000?text=Coming+Soon" alt="Coming Soon">
+
+    <div class="slide">
+      <img src="https://via.placeholder.com/600x300/FFFFFF/000000?text=Coming+Soon" alt="Coming Soon">
+      <div class="slide-text">COMING SOON</div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/600x300/FFFFFF/000000?text=Coming+Soon+2" alt="Coming Soon">
+      <div class="slide-text">COMING SOON</div>
+    </div>
+    <div class="slide">
+      <img src="https://via.placeholder.com/600x300/FFFFFF/000000?text=Coming+Soon+3" alt="Coming Soon">
+      <div class="slide-text">COMING SOON</div>
+    </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <div>
+    <div class="socials">
       <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
       <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
       <a href="https://www.tiktok.com/@roninggs?_t=ZP-8zlMVz8U4p5&_r=1" target="_blank">TikTok</a>
       <a href="https://www.twitch.tv/roningamingggs" target="_blank">Twitch</a>
     </div>
-    <p>&copy; 2025 Ronin Gaming. All Rights Reserved. Legal info.</p>
+    <div class="legal">
+      &copy; 2025 Ronin Gaming. All Rights Reserved. Terms & Privacy.
+    </div>
   </footer>
 
   <script>
@@ -211,6 +248,20 @@
         }, 1000);
       }, 2000);
     });
+
+    // MERCH SLIDESHOW
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if(slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex-1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change slide every 3 seconds
+    }
+    showSlides();
   </script>
 
 </body>
