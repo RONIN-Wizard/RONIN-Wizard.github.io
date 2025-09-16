@@ -17,19 +17,13 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'TheLastShuriken', sans-serif;
-      background: repeating-linear-gradient(
-        45deg,
-        #000,
-        #000 20px,
-        #0a0a0a 20px,
-        #0a0a0a 40px
-      );
+      background-color: #000;
       color: white;
       transition: opacity 1s ease;
     }
 
-    /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 10px; }
+    /* SCROLLBAR - slimmer */
+    ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
 
@@ -92,48 +86,48 @@
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
+    /* WATCH LIVE */
+    #watch-live {
+      background:#111;
+      border-top:2px solid #C92828;
+      text-align:center;
+      padding:80px 50px;
+    }
+    #watch-live h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+    #watch-live a {
+      display:inline-block;
+      background:#C92828;
+      color:white;
+      padding:20px 40px;
+      font-size:20px;
+      font-weight:bold;
+      border-radius:10px;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    #watch-live a:hover { background:#ff3a3a; }
+
     /* LATEST NEWS */
-    #latest-news {
+    #news {
       background:#000;
       padding:80px 50px;
       border-top:2px solid #C92828;
       color:white;
-      font-family:'TheLastShuriken',sans-serif;
+      text-align:center;
     }
-    #latest-news h2 { text-align:center; font-size:36px; color:#C92828; margin-bottom:40px; }
-    .news-container { display:flex; flex-wrap:wrap; gap:30px; justify-content:center; }
+    #news h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+    .news-items { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
     .news-card {
       background:#111;
       border:2px solid #C92828;
       border-radius:15px;
       padding:20px;
       width:300px;
-      transition:transform 0.3s;
+      transition: transform 0.3s;
     }
-    .news-card:hover { transform:translateY(-5px); }
-    .news-card img { width:100%; border-radius:10px; margin-bottom:15px; }
-    .news-card h3 { font-size:20px; color:#C92828; margin-bottom:10px; }
-    .news-card p { font-size:16px; color:#ccc; }
-
-    /* WATCH LIVE */
-    #watch-live {
-      background:#111;
-      padding:80px 50px;
-      text-align:center;
-      border-top:2px solid #C92828;
-    }
-    #watch-live h2 { font-size:36px; color:#C92828; margin-bottom:30px; }
-    #watch-live a {
-      display:inline-block;
-      padding:15px 30px;
-      background:#C92828;
-      color:white;
-      font-size:20px;
-      border-radius:10px;
-      text-decoration:none;
-      transition:0.3s;
-    }
-    #watch-live a:hover { background:#ff3a3a; }
+    .news-card:hover { transform: translateY(-5px); }
+    .news-card h3 { color:#C92828; margin-bottom:10px; }
+    .news-card p { color:#ccc; }
 
     /* CONTACT US */
     #contact {
@@ -142,9 +136,10 @@
       padding:80px 50px; 
       color:white; 
       font-family:'TheLastShuriken', sans-serif;
+      text-align:center;
     }
-    #contact h2 { text-align:center; font-size:36px; color:#C92828; margin-bottom:20px; }
-    #contact p { text-align:center; color:#ccc; margin-bottom:50px; font-size:18px; }
+    #contact h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+    #contact p { color:#ccc; margin-bottom:50px; font-size:18px; }
     #contact form { max-width:700px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
     #contact input, #contact textarea {
       padding:15px;
@@ -183,27 +178,11 @@
       margin-right:15px;
       color:white;
       text-decoration:none;
-      font-size:24px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      transition:0.3s;
+      font-size:20px;
     }
-    .footer-socials a:hover { color:#C92828; }
-    .footer-socials a img { filter:invert(1); width:24px; height:24px; }
-
+    .footer-socials a img { filter: invert(100%); width:25px; height:25px; vertical-align:middle; }
+    .footer-socials a:hover img { filter: invert(55%) sepia(95%) saturate(750%) hue-rotate(350deg); }
     .footer-legal { font-size:14px; color:#aaa; }
-
-    /* RESPONSIVE */
-    @media (max-width:900px) {
-      #about { flex-direction:column; text-align:center; }
-      .about-logo img { max-width:200px; margin-top:30px; }
-      .news-container { flex-direction:column; align-items:center; }
-    }
-    @media (max-width:500px) {
-      header { flex-direction:column; gap:15px; padding:15px 20px; }
-      nav a { margin-left:0; margin-right:15px; }
-    }
   </style>
 </head>
 <body>
@@ -220,7 +199,6 @@
       <a href="team.html">Team</a>
       <a href="news.html">News</a>
       <a href="shop.html">Shop</a>
-      <!-- Contact removed -->
     </nav>
   </header>
 
@@ -241,37 +219,35 @@
     </div>
   </section>
 
+  <!-- WATCH LIVE -->
+  <section id="watch-live">
+    <h2>Watch Live</h2>
+    <a href="https://www.twitch.tv/roningamingggs" target="_blank">Watch Our Twitch</a>
+  </section>
+
   <!-- LATEST NEWS -->
-  <section id="latest-news">
+  <section id="news">
     <h2>Latest News</h2>
-    <div class="news-container">
+    <div class="news-items">
       <div class="news-card">
-        <img src="https://via.placeholder.com/300x180?text=News+1" alt="News 1">
-        <h3>News Title 1</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel metus sit amet arcu.</p>
+        <h3>New Player Signing</h3>
+        <p>Exciting new talent joins Ronin Gaming roster. Stay tuned for updates!</p>
       </div>
       <div class="news-card">
-        <img src="https://via.placeholder.com/300x180?text=News+2" alt="News 2">
-        <h3>News Title 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel metus sit amet arcu.</p>
+        <h3>Upcoming Tournament</h3>
+        <p>Our pro team will compete in the Fortnite Championship Series this weekend.</p>
       </div>
       <div class="news-card">
-        <img src="https://via.placeholder.com/300x180?text=News+3" alt="News 3">
-        <h3>News Title 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel metus sit amet arcu.</p>
+        <h3>Content Collab</h3>
+        <p>Collaborating with top creators to bring new content to our audience.</p>
       </div>
     </div>
   </section>
 
-  <!-- WATCH LIVE -->
-  <section id="watch-live">
-    <h2>Watch Live on Twitch</h2>
-    <a href="https://www.twitch.tv/roningamingggs" target="_blank">Watch Live</a>
-  </section>
-
   <!-- CONTACT US -->
   <section id="contact">
-    <p>Have questions or inquiries? Send us a message and we'll get back to you.</p>
+    <h2>Contact Us</h2>
+    <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
     <form action="https://formspree.io/f/inquiries@roningaming.org" method="POST">
       <input type="text" name="_gotcha" style="display:none;">
       <input type="text" name="name" placeholder="Your Name" required>
@@ -279,7 +255,7 @@
       <textarea name="message" placeholder="Your Message" required rows="6"></textarea>
       <button type="submit">Send Message</button>
     </form>
-    <p style="text-align:center; margin-top:20px; color:#aaa; font-size:14px;">We’ll respond as soon as possible. Your email will remain private.</p>
+    <p style="margin-top:20px; color:#aaa; font-size:14px;">We’ll respond as soon as possible. Your email will remain private.</p>
   </section>
 
   <!-- FOOTER -->
