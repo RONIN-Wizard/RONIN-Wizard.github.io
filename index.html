@@ -45,10 +45,21 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-    .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
+    .logo {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
     .logo img { height: 50px; margin-right: 10px; }
     .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
-    nav a { color: white; text-decoration: none; margin-left: 25px; font-size: 18px; transition: color 0.3s; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
     nav a:hover, nav a.active { color: #C92828; }
 
     /* HERO */
@@ -94,23 +105,30 @@
     }
     .footer-socials a {
       margin-right:15px;
-      color:white;
-      text-decoration:none;
-      font-size:20px;
-      display: inline-flex;
-      align-items: center;
+      display: inline-block;
     }
-    .footer-socials a img { width: 24px; height: 24px; }
-    .footer-socials a:hover { filter: brightness(1.5); }
+    .footer-socials a img {
+      width: 24px;
+      height: 24px;
+      filter: brightness(0) invert(1); /* makes icons white */
+      transition: filter 0.3s ease;
+    }
+    .footer-socials a:hover img {
+      filter: brightness(1.5) invert(1); /* hover glow */
+    }
     .footer-legal { font-size:14px; color:#aaa; }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
+      #about { flex-direction: column; padding: 80px 20px; }
+      .about-logo img { max-width: 200px; }
+      #hero h1 { font-size: 50px; }
+      #hero p { font-size: 20px; }
+      nav a { margin-left: 15px; font-size:16px; }
+    }
+    @media (max-width: 500px) {
       header { flex-direction: column; gap: 15px; padding: 15px 20px; }
       nav a { margin-left: 0; margin-right: 15px; }
-      #hero h1 { font-size: 48px; }
-      #hero p { font-size: 20px; }
-      #about { padding: 50px 20px; flex-direction: column; }
     }
   </style>
 </head>
@@ -164,4 +182,3 @@
 
 </body>
 </html>
-
