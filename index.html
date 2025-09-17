@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,7 +39,12 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-    .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
+    .logo {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+    }
     .logo img { height: 50px; margin-right: 10px; }
     .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
 
@@ -58,7 +62,12 @@
     nav.nav-links a:hover, nav.nav-links a.active { color: #C92828; }
 
     /* Hamburger menu */
-    .menu-toggle { display: none; font-size: 30px; color: white; cursor: pointer; }
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
 
     /* HERO */
     #hero {
@@ -90,7 +99,7 @@
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
 
-    /* WATCH LIVE (Twitch Embed) */
+    /* WATCH LIVE (Twitch embed) */
     #watch-live {
       background:#111;
       border-top:2px solid #C92828;
@@ -100,8 +109,8 @@
     #watch-live h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
     #watch-live iframe {
       width: 100%;
-      max-width: 720px;
-      height: 405px;
+      max-width: 800px;
+      height: 450px;
       border: none;
       border-radius: 15px;
     }
@@ -117,7 +126,7 @@
     #news h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
     .news-carousel {
       position: relative;
-      max-width: 600px;
+      max-width: 800px;
       margin: 0 auto;
       overflow: hidden;
       border-radius: 15px;
@@ -131,11 +140,12 @@
     .news-card {
       flex: 0 0 100%;
       background:#111;
-      padding:20px;
+      padding:30px;
       box-sizing: border-box;
+      min-height: 250px;
     }
-    .news-card h3 { color:#C92828; margin-bottom:10px; }
-    .news-card p { color:#ccc; }
+    .news-card h3 { color:#C92828; margin-bottom:15px; font-size:22px; }
+    .news-card p { color:#ccc; font-size:16px; }
 
     /* CONTACT US */
     #contact {
@@ -143,6 +153,7 @@
       border-top:2px solid #C92828; 
       padding:80px 50px; 
       color:white; 
+      font-family:'TheLastShuriken', sans-serif;
       text-align:center;
     }
     #contact h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
@@ -205,6 +216,7 @@
       #hero p { font-size: 20px; }
       #watch-live h2, #news h2, #contact h2 { font-size: 28px; }
       #contact form { width: 90%; }
+      .news-carousel { max-width: 100%; }
     }
   </style>
 </head>
@@ -216,7 +228,9 @@
       <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Logo">
       <span>RONIN</span>
     </a>
+
     <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="partners.html">Partners</a>
@@ -300,12 +314,14 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
+  <!-- MOBILE MENU SCRIPT -->
   <script>
-    // Mobile menu
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('nav.nav-links');
-    menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
 
     // News carousel
     const newsItems = document.getElementById('newsItems');
@@ -314,7 +330,7 @@
     setInterval(() => {
       currentIndex = (currentIndex + 1) % totalNews;
       newsItems.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }, 7000); // 7 seconds per slide
+    }, 10000); // 10 seconds per slide
   </script>
 
 </body>
