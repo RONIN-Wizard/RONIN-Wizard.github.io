@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ronin Gaming — News</title>
+
+  <!-- Font & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    @font-face {
+      font-family: 'TheLastShuriken';
+      src: url('TheLastShuriken-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* BASE */
+    * { margin:0; padding:0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'TheLastShuriken', sans-serif;
+      background: repeating-linear-gradient(
+        45deg,
+        #000,
+        #000 20px,
+        #0a0a0a 20px,
+        #0a0a0a 40px
+      );
+      color: white;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #C92828;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .logo img { height: 50px; margin-right: 10px; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration: none; }
+
+    /* NAVIGATION */
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    nav a { color: white; text-decoration: none; font-size: 18px; transition: color 0.3s; }
+    nav a:hover, nav a.active { color: #C92828; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 22px;
+      cursor: pointer;
+    }
+    .hamburger div {
+      width: 100%;
+      height: 3px;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active div:nth-child(1) { transform: rotate(45deg) translateY(8px); }
+    .hamburger.active div:nth-child(2) { opacity: 0; }
+    .hamburger.active div:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
+
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: #000;
+        flex-direction: column;
+        width: 200px;
+        padding: 20px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        border-left: 2px solid #C92828;
+        border-bottom: 2px solid #C92828;
+      }
+      nav.show { transform: translateX(0); }
+      nav a { margin: 10px 0; }
+      .hamburger { display: flex; }
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    .page-header h1 { font-size: 48px; color: #C92828; }
+    .page-header p { margin-top: 20px; color: #ccc; font-size: 20px; }
+
+    /* NEWS GRID */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      padding: 40px 50px;
+    }
+    .news-card {
+      background: #111;
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .news-card:hover {
+      transform: translateY(-8px);
+      border-color: #C92828;
+    }
+    .news-card h2 { font-size: 22px; color: #C92828; }
+    .news-card p.date { font-size: 14px; color: #aaa; margin: 10px 0; }
+    .news-card p.summary { font-size: 16px; color: #ddd; margin-bottom: 15px; }
+    .news-card a {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #C92828;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .news-card a:hover { background: #a51f1f; }
+
+    /* FOOTER */
+    footer {
+      background:#111;
+      color:white;
+      padding:40px 50px;
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:20px;
+      border-top:2px solid #C92828;
+    }
+    .footer-socials a { margin-right:15px; color:white; font-size:20px; text-decoration:none; transition: color 0.3s; }
+    .footer-socials a:hover { color:#C92828; }
+    .footer-legal { font-size:14px; color:#aaa; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo">
+      <img src="roni.png" alt="Ronin Logo">
+      <span>RONIN</span>
+    </a>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <nav id="nav">
+      <a href="index.html">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="team.html">Team</a>
+      <a href="news.html" class="active">News</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Ronin News</h1>
+    <p>Stay up to date with the latest from Ronin Gaming</p>
+  </div>
+
+  <!-- NEWS GRID -->
+  <div class="news-grid">
+    <div class="news-card">
+      <h2>Ronin Gaming Announces New Roster</h2>
+      <p class="date">September 15, 2025</p>
+      <p class="summary">We’re excited to unveil our brand new roster ahead of the upcoming season. Here’s everything you need to know...</p>
+      <a href="news-1.html">Read More</a>
+    </div>
+    <div class="news-card">
+      <h2>Ronin Partners with XYZ Brand</h2>
+      <p class="date">September 12, 2025</p>
+      <p class="summary">Ronin Gaming is proud to announce our latest partnership with XYZ Brand to bring more value to our fans...</p>
+      <a href="news-2.html">Read More</a>
+    </div>
+    <div class="news-card">
+      <h2>Ronin Merch Drop Incoming</h2>
+      <p class="date">September 1, 2025</p>
+      <p class="summary">The long-awaited Ronin Gaming merch drop is almost here! Here’s a sneak peek at what’s coming...</p>
+      <a href="news-3.html">Read More</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-socials">
+      <a href="https://x.com/Roninggs" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><i class="fab fa-twitch"></i></a>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      nav.classList.toggle('show');
+    });
+
+    // Close menu on link click
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        nav.classList.remove('show');
+      });
+    });
+  </script>
+
+</body>
+</html>
