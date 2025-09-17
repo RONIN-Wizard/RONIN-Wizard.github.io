@@ -48,10 +48,7 @@
     .logo img { height: 50px; margin-right: 10px; }
     .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
 
-    nav.nav-links {
-      display: flex;
-      align-items: center;
-    }
+    nav.nav-links { display: flex; align-items: center; }
     nav.nav-links a {
       color: white;
       text-decoration: none;
@@ -120,27 +117,82 @@
     }
     #watch-live a:hover { background:#ff3a3a; }
 
-    /* LATEST NEWS */
+    /* LATEST NEWS - SLIDER */
     #news {
       background:#000;
-      padding:80px 50px;
+      padding:80px 20px;
       border-top:2px solid #C92828;
       color:white;
       text-align:center;
+      position:relative;
     }
-    #news h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
-    .news-items { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
-    .news-card {
-      background:#111;
-      border:2px solid #C92828;
-      border-radius:15px;
-      padding:20px;
-      width:300px;
-      transition: transform 0.3s;
+    #news h2 { font-size:36px; color:#C92828; margin-bottom:30px; }
+
+    .slider-container {
+      max-width: 1200px;
+      margin: auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(229, 9, 20, 0.7);
     }
-    .news-card:hover { transform: translateY(-5px); }
-    .news-card h3 { color:#C92828; margin-bottom:10px; }
-    .news-card p { color:#ccc; }
+    .slide {
+      display: none;
+      position: relative;
+    }
+    .slide img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .caption {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 800px;
+    }
+    .caption h3 {
+      margin: 0 0 10px;
+      font-size: 1.8rem;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(229, 9, 20, 0.9);
+    }
+    .caption p { margin: 0; font-size: 1rem; color: #ddd; }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 16px;
+      color: #fff;
+      font-weight: bold;
+      font-size: 24px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 50%;
+      transition: 0.3s;
+      user-select: none;
+      z-index: 2;
+    }
+    .next { right: 15px; }
+    .prev { left: 15px; }
+    .prev:hover, .next:hover { background: rgba(229, 9, 20, 0.7); }
+
+    .dots { text-align: center; margin-top: 20px; }
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background 0.6s ease;
+    }
+    .active, .dot:hover { background-color: #e50914; }
 
     /* CONTACT US */
     #contact {
@@ -187,12 +239,7 @@
       gap:20px;
       border-top:2px solid #C92828;
     }
-    .footer-socials a {
-      margin-right:15px;
-      color:white;
-      text-decoration:none;
-      font-size:20px;
-    }
+    .footer-socials a { margin-right:15px; color:white; text-decoration:none; font-size:20px; }
     .footer-socials a img { filter: invert(100%); width:25px; height:25px; vertical-align:middle; }
     .footer-socials a:hover img { filter: invert(55%) sepia(95%) saturate(750%) hue-rotate(350deg); }
     .footer-legal { font-size:14px; color:#aaa; }
@@ -211,7 +258,11 @@
       #hero p { font-size: 20px; }
       #watch-live h2, #news h2, #contact h2 { font-size: 28px; }
       #contact form { width: 90%; }
-      .news-items { flex-direction: column; align-items: center; }
+
+      /* Mobile slider */
+      .caption { width: 90%; font-size: 0.9rem; bottom: 15px; padding: 15px; }
+      .caption h3 { font-size: 1.2rem; }
+      .prev, .next { font-size: 18px; padding: 12px; top: 45%; }
     }
   </style>
 </head>
@@ -223,9 +274,7 @@
       <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Logo">
       <span>RONIN</span>
     </a>
-
     <div class="menu-toggle" id="mobile-menu">&#9776;</div>
-
     <nav class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="partners.html">Partners</a>
@@ -258,22 +307,38 @@
     <a href="https://www.twitch.tv/roningamingggs" target="_blank">Watch Our Twitch</a>
   </section>
 
-  <!-- LATEST NEWS -->
+  <!-- LATEST NEWS - SLIDER -->
   <section id="news">
     <h2>Latest News</h2>
-    <div class="news-items">
-      <div class="news-card">
-        <h3>New Player Signing</h3>
-        <p>Exciting new talent joins Ronin Gaming roster. Stay tuned for updates!</p>
+    <div class="slider-container">
+      <div class="slide fade">
+        <img src="https://via.placeholder.com/1200x500/222/fff?text=News+1" alt="News 1">
+        <div class="caption">
+          <h3>New Player Signing</h3>
+          <p>Exciting new talent joins Ronin Gaming roster. Stay tuned for updates!</p>
+        </div>
       </div>
-      <div class="news-card">
-        <h3>Upcoming Tournament</h3>
-        <p>Our pro team will compete in the Fortnite Championship Series this weekend.</p>
+      <div class="slide fade">
+        <img src="https://via.placeholder.com/1200x500/333/fff?text=News+2" alt="News 2">
+        <div class="caption">
+          <h3>Upcoming Tournament</h3>
+          <p>Our pro team will compete in the Fortnite Championship Series this weekend.</p>
+        </div>
       </div>
-      <div class="news-card">
-        <h3>Content Collab</h3>
-        <p>Collaborating with top creators to bring new content to our audience.</p>
+      <div class="slide fade">
+        <img src="https://via.placeholder.com/1200x500/444/fff?text=News+3" alt="News 3">
+        <div class="caption">
+          <h3>Content Collab</h3>
+          <p>Collaborating with top creators to bring new content to our audience.</p>
+        </div>
       </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
     </div>
   </section>
 
@@ -304,14 +369,37 @@
     </div>
   </footer>
 
-  <!-- MOBILE MENU SCRIPT -->
+  <!-- SCRIPTS -->
   <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('nav.nav-links');
-
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
+
+    // News Slider
+    let slideIndex = 0;
+    showSlides();
+
+    function plusSlides(n) {
+      slideIndex += n - 1; 
+      showSlides();
+    }
+    function currentSlide(n) {
+      slideIndex = n - 1;
+      showSlides();
+    }
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+      for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";  
+      slideIndex++;
+      if (slideIndex > slides.length) slideIndex = 1;    
+      for (let i = 0; i < dots.length; i++) dots[i].className = dots[i].className.replace(" active", "");
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 10000);
+    }
   </script>
 
 </body>
