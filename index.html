@@ -115,7 +115,7 @@
       border-radius: 15px;
     }
 
-    /* LATEST NEWS (Carousel) */
+    /* LATEST NEWS (Carousel with thumbnails) */
     #news {
       background:#000;
       padding:80px 50px;
@@ -125,28 +125,49 @@
       position: relative;
     }
     #news h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+
     .news-carousel {
       position: relative;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       overflow: hidden;
       border-radius: 15px;
       border: 2px solid #C92828;
     }
+
     .news-items {
       display: flex;
       transition: transform 0.7s ease-in-out;
-      width: 100%;
     }
+
     .news-card {
+      position: relative;
       flex: 0 0 100%;
-      background:#111;
-      padding:30px;
-      box-sizing: border-box;
-      min-height: 250px;
+      min-height: 400px;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #111;
     }
-    .news-card h3 { color:#C92828; margin-bottom:15px; font-size:22px; }
-    .news-card p { color:#ccc; font-size:16px; }
+
+    .news-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .news-text {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .news-text h3 { font-size: 24px; margin-bottom: 10px; color: #C92828; }
+    .news-text p { font-size: 16px; margin: 0; color: #ccc; }
 
     /* Carousel arrows */
     .carousel-btn {
@@ -159,7 +180,7 @@
       padding: 10px 15px;
       cursor: pointer;
       border-radius: 50%;
-      font-size: 20px;
+      font-size: 25px;
       z-index: 10;
       transition: background 0.3s;
     }
@@ -236,6 +257,9 @@
       #hero p { font-size: 20px; }
       #watch-live h2, #news h2, #contact h2 { font-size: 28px; }
       #contact form { width: 90%; }
+      .news-card { min-height: 300px; }
+      .news-text h3 { font-size: 20px; }
+      .news-text p { font-size: 14px; }
       .news-carousel { max-width: 100%; }
     }
   </style>
@@ -286,92 +310,12 @@
     </iframe>
   </section>
 
-  <!-- LATEST NEWS (Carousel) -->
+  <!-- LATEST NEWS (Carousel with thumbnails) -->
   <section id="news">
     <h2>Latest News</h2>
     <div class="news-carousel">
       <div class="news-items" id="newsItems">
         <div class="news-card">
-          <h3>New Player Signing</h3>
-          <p>Exciting new talent joins Ronin Gaming roster. Stay tuned for updates!</p>
-        </div>
-        <div class="news-card">
-          <h3>Upcoming Tournament</h3>
-          <p>Our pro team will compete in the Fortnite Championship Series this weekend.</p>
-        </div>
-        <div class="news-card">
-          <h3>Content Collab</h3>
-          <p>Collaborating with top creators to bring new content to our audience.</p>
-        </div>
-      </div>
-
-      <!-- Carousel Arrows -->
-      <button class="carousel-btn left" id="prevNews">&#10094;</button>
-      <button class="carousel-btn right" id="nextNews">&#10095;</button>
-    </div>
-  </section>
-
-  <!-- CONTACT US -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
-    <form action="https://formspree.io/f/inquiries@roningaming.org" method="POST">
-      <input type="text" name="_gotcha" style="display:none;">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required rows="6"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <p style="margin-top:20px; color:#aaa; font-size:14px;">We’ll respond as soon as possible. Your email will remain private.</p>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
-    </div>
-    <div class="footer-legal">
-      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- MOBILE MENU SCRIPT -->
-  <script>
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('nav.nav-links');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
-
-    // News carousel
-    const newsItems = document.getElementById('newsItems');
-    const totalNews = newsItems.children.length;
-    let currentIndex = 0;
-
-    function showNews(index) {
-      newsItems.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    // Arrow buttons
-    document.getElementById('prevNews').addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + totalNews) % totalNews;
-      showNews(currentIndex);
-    });
-    document.getElementById('nextNews').addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % totalNews;
-      showNews(currentIndex);
-    });
-
-    // Auto-scroll every 10 seconds
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalNews;
-      showNews(currentIndex);
-    }, 10000);
-  </script>
-
-</body>
-</html>
+          <img src="https://via.placeholder.com/900x400" alt="New Player Signing">
+          <div class="news-text">
+            <h3>New Player Signing
