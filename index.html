@@ -39,12 +39,7 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-    .logo {
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      text-decoration: none;
-    }
+    .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
     .logo img { height: 50px; margin-right: 10px; }
     .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
 
@@ -62,12 +57,7 @@
     nav.nav-links a:hover, nav.nav-links a.active { color: #C92828; }
 
     /* Hamburger menu */
-    .menu-toggle {
-      display: none;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
-    }
+    .menu-toggle { display: none; font-size: 30px; color: white; cursor: pointer; }
 
     /* HERO */
     #hero {
@@ -107,15 +97,9 @@
       padding:80px 50px;
     }
     #watch-live h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
-    #watch-live iframe {
-      width: 100%;
-      max-width: 800px;
-      height: 450px;
-      border: none;
-      border-radius: 15px;
-    }
+    #watch-live iframe { width: 100%; max-width: 800px; height: 450px; border: none; border-radius: 15px; }
 
-    /* LATEST NEWS (Carousel with thumbnails) */
+    /* LATEST NEWS (Carousel) */
     #news {
       background:#000;
       padding:80px 50px;
@@ -125,49 +109,54 @@
       position: relative;
     }
     #news h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
-
     .news-carousel {
       position: relative;
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
       overflow: hidden;
       border-radius: 15px;
       border: 2px solid #C92828;
     }
-
     .news-items {
       display: flex;
       transition: transform 0.7s ease-in-out;
+      width: 100%;
     }
-
     .news-card {
-      position: relative;
       flex: 0 0 100%;
-      min-height: 400px;
+      background:#111;
       border-radius: 15px;
       overflow: hidden;
-      background: #111;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      min-height: 350px;
+      display: flex;
+      flex-direction: column;
     }
-
     .news-card img {
       width: 100%;
-      height: 100%;
+      height: 200px;
       object-fit: cover;
-      display: block;
     }
-
-    .news-text {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
-      color: white;
+    .news-content {
       padding: 20px;
-      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      flex-grow: 1;
     }
-
-    .news-text h3 { font-size: 24px; margin-bottom: 10px; color: #C92828; }
-    .news-text p { font-size: 16px; margin: 0; color: #ccc; }
+    .news-content h3 { color:#C92828; margin-bottom:10px; font-size:22px; }
+    .news-content p { color:#ccc; font-size:16px; margin-bottom:15px; }
+    .news-content .read-more {
+      text-decoration: none;
+      color: #fff;
+      background: #C92828;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      width: fit-content;
+      transition: 0.3s;
+    }
+    .news-content .read-more:hover { background: #ff3a3a; }
 
     /* Carousel arrows */
     .carousel-btn {
@@ -180,7 +169,7 @@
       padding: 10px 15px;
       cursor: pointer;
       border-radius: 50%;
-      font-size: 25px;
+      font-size: 20px;
       z-index: 10;
       transition: background 0.3s;
     }
@@ -257,10 +246,8 @@
       #hero p { font-size: 20px; }
       #watch-live h2, #news h2, #contact h2 { font-size: 28px; }
       #contact form { width: 90%; }
-      .news-card { min-height: 300px; }
-      .news-text h3 { font-size: 20px; }
-      .news-text p { font-size: 14px; }
       .news-carousel { max-width: 100%; }
+      .news-card img { height: 180px; }
     }
   </style>
 </head>
@@ -310,12 +297,102 @@
     </iframe>
   </section>
 
-  <!-- LATEST NEWS (Carousel with thumbnails) -->
+  <!-- LATEST NEWS (Carousel) -->
   <section id="news">
     <h2>Latest News</h2>
     <div class="news-carousel">
       <div class="news-items" id="newsItems">
         <div class="news-card">
-          <img src="https://via.placeholder.com/900x400" alt="New Player Signing">
-          <div class="news-text">
-            <h3>New Player Signing
+          <img src="https://via.placeholder.com/800x400" alt="New Player Signing">
+          <div class="news-content">
+            <h3>New Player Signing</h3>
+            <p>Exciting new talent joins Ronin Gaming roster. Stay tuned for updates!</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://via.placeholder.com/800x400" alt="Upcoming Tournament">
+          <div class="news-content">
+            <h3>Upcoming Tournament</h3>
+            <p>Our pro team will compete in the Fortnite Championship Series this weekend.</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://via.placeholder.com/800x400" alt="Content Collab">
+          <div class="news-content">
+            <h3>Content Collab</h3>
+            <p>Collaborating with top creators to bring new content to our audience.</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Arrows -->
+      <button class="carousel-btn left" id="prevNews">&#10094;</button>
+      <button class="carousel-btn right" id="nextNews">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- CONTACT US -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
+    <form action="https://formspree.io/f/inquiries@roningaming.org" method="POST">
+      <input type="text" name="_gotcha" style="display:none;">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required rows="6"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-top:20px; color:#aaa; font-size:14px;">We’ll respond as soon as possible. Your email will remain private.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-socials">
+      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- MOBILE MENU & NEWS CAROUSEL SCRIPT -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('nav.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // News carousel
+    const newsItems = document.getElementById('newsItems');
+    const totalNews = newsItems.children.length;
+    let currentIndex = 0;
+
+    function showNews(index) {
+      newsItems.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.getElementById('prevNews').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalNews) % totalNews;
+      showNews(currentIndex);
+    });
+    document.getElementById('nextNews').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalNews;
+      showNews(currentIndex);
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalNews;
+      showNews(currentIndex);
+    }, 10000);
+  </script>
+
+</body>
+</html>
