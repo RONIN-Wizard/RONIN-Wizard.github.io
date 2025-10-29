@@ -15,31 +15,17 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
+    /* SCROLLBAR - slim */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #141414;
       color: white;
       transition: opacity 1s ease;
-    }
-
-    /* UNIVERSAL RED SCROLLBAR */
-    html {
-      scrollbar-width: thin;
-      scrollbar-color: #C92828 #141414;
-    }
-    body::-webkit-scrollbar {
-      width: 6px;
-    }
-    body::-webkit-scrollbar-track {
-      background: #141414;
-    }
-    body::-webkit-scrollbar-thumb {
-      background-color: #C92828;
-      border-radius: 10px;
-      border: 2px solid #141414;
-    }
-    body::-webkit-scrollbar-thumb:hover {
-      background-color: #a71e1e;
     }
 
     /* HEADER */
@@ -92,6 +78,7 @@
       transition: color 0.3s;
     }
     nav.nav-links a:hover { color: #000; }
+
     .menu-toggle {
       display: none;
       font-size: 30px;
@@ -99,7 +86,7 @@
       cursor: pointer;
     }
 
-    /* HERO */
+    /* HERO SECTION */
     #hero {
       display: flex;
       flex-wrap: wrap;
@@ -108,9 +95,9 @@
       padding: 0;
       height: 90vh;
       border-bottom: 2px solid #C92828;
-      background: url('DSC00017.JPG') center center / cover no-repeat;
+      background: rgba(0,0,0,0.65) url('DSC00017.JPG') center center / cover no-repeat;
+      background-blend-mode: multiply;
       position: relative;
-      opacity: 0.65;
     }
     #hero::after {
       content: "";
@@ -154,9 +141,10 @@
       border-radius: 8px;
       transition: background 0.3s;
     }
-    .read-more:hover { background: #a71e1e; }
+    .read-more:hover {
+      background: #a71e1e;
+    }
 
-    /* RIGHT SIDE (CAROUSEL) */
     .hero-right {
       position: relative;
       z-index: 2;
@@ -164,49 +152,42 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      gap: 20px;
-      padding: 60px;
       overflow: hidden;
+      padding: 60px;
     }
-
+    .carousel {
+      display: flex;
+      flex-direction: column;
+      animation: slideFade 8s ease-in-out infinite;
+    }
+    @keyframes slideFade {
+      0%, 10% { opacity: 1; transform: translateY(0); }
+      45%, 55% { opacity: 0; transform: translateY(-100%); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
     .news-card {
       background: #f9f9f9;
       border-left: 5px solid #C92828;
-      padding: 15px;
+      padding: 18px;
       border-radius: 10px;
       color: #141414;
       transition: all 0.3s ease;
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 90%;
-      transform: translateY(20px);
-      animation: fadeCarousel 32s infinite;
+      margin-bottom: 12px;
     }
-
     .news-card img {
       width: 100%;
-      height: auto;
-      border-radius: 8px;
+      border-radius: 10px 10px 0 0;
       margin-bottom: 10px;
     }
-
-    .news-card:nth-child(1) { animation-delay: 0s; }
-    .news-card:nth-child(2) { animation-delay: 8s; }
-    .news-card:nth-child(3) { animation-delay: 16s; }
-    .news-card:nth-child(4) { animation-delay: 24s; }
-
-    @keyframes fadeCarousel {
-      0%, 20% { opacity: 1; transform: translateY(0); }
-      25%, 100% { opacity: 0; transform: translateY(20px); }
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(201,40,40,0.2);
     }
-
     .news-card h3 {
       font-family: 'TheLastShuriken';
-      font-size: 20px;
+      font-size: 22px;
       color: #C92828;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .news-card p {
       font-family: 'Montserrat';
@@ -241,7 +222,9 @@
       justify-content: center;
       align-items: center;
     }
-    .about-logo img { max-width: 280px; }
+    .about-logo img {
+      max-width: 280px;
+    }
 
     /* WATCH LIVE */
     #watch-live {
@@ -292,7 +275,6 @@
       color: #C92828;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 950px) {
       #hero { flex-direction: column; height: auto; }
       .hero-left, .hero-right { flex: 1 1 100%; padding: 40px 30px; }
@@ -308,7 +290,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <a href="/" class="logo">
       <img src="RONIN_Logo.png" alt="Logo">
@@ -325,55 +306,38 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <section id="hero">
     <div class="hero-left">
       <h1>A New Ronin</h1>
       <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
       <a href="#" class="read-more">Read More</a>
     </div>
+
     <div class="hero-right">
-      <div class="news-card">
-        <img src="DSC00017.JPG" alt="News">
-        <h3>Event Recap</h3>
-        <p>Catch the highlights from Ronin’s latest Fortnite tournament.</p>
-      </div>
-      <div class="news-card">
-        <img src="DSC00017.JPG" alt="News">
-        <h3>New Signing</h3>
-        <p>Welcome the latest competitor joining Ronin’s elite roster.</p>
-      </div>
-      <div class="news-card">
-        <img src="DSC00017.JPG" alt="News">
-        <h3>Brand Collab</h3>
-        <p>Ronin partners with upcoming tech brand for exclusive launches.</p>
-      </div>
-      <div class="news-card">
-        <img src="DSC00017.JPG" alt="News">
-        <h3>Behind The Blade</h3>
-        <p>Go behind the scenes with the Ronin roster as they prepare for next season.</p>
+      <div class="carousel">
+        <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>New Signing</h3><p>Welcome the latest competitor joining Ronin’s elite roster.</p></div>
+        <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Brand Collab</h3><p>Ronin partners with upcoming tech brand for exclusive launches.</p></div>
+        <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Esports Expansion</h3><p>Ronin broadens its reach into new competitive scenes.</p></div>
+        <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>New Partnership</h3><p>Collaboration with high-end apparel brand unveiled soon.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
-      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
+      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation.</p>
     </div>
     <div class="about-logo">
       <img src="RONIN_Logo.png" alt="About Logo">
     </div>
   </section>
 
-  <!-- WATCH LIVE -->
   <section id="watch-live">
     <h2>Watch Live</h2>
     <iframe src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org" allowfullscreen></iframe>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
       <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
