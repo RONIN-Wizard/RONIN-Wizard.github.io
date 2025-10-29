@@ -48,7 +48,6 @@
       overflow: hidden;
     }
 
-    /* Brush overlay on header */
     header::before {
       content: "";
       position: absolute;
@@ -67,7 +66,7 @@
     }
 
     .logo img {
-      height: 55px;
+      height: 45px; /* smaller logo */
       width: auto;
       margin-right: 4px;
     }
@@ -198,7 +197,7 @@
 
     .news-carousel {
       position: relative;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       overflow: hidden;
       border-radius: 15px;
@@ -225,6 +224,7 @@
       flex-direction: column;
       justify-content: flex-end;
       flex-grow: 1;
+      font-family: 'Montserrat', sans-serif;
     }
 
     .news-content h3 { color: #C92828; margin-bottom: 10px; font-size: 22px; }
@@ -242,6 +242,26 @@
     }
 
     .news-content .read-more:hover { background: #ff3a3a; }
+
+    /* Carousel arrows (side positioning) */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(201,40,40,0.8);
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      font-size: 20px;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+
+    .carousel-btn:hover { background: #ff3a3a; }
+    .carousel-btn.left { left: -50px; }
+    .carousel-btn.right { right: -50px; }
 
     /* CONTACT */
     #contact {
@@ -296,7 +316,6 @@
       overflow: hidden;
     }
 
-    /* Brush overlay on footer */
     footer::before {
       content: "";
       position: absolute;
@@ -326,15 +345,6 @@
     .footer-socials a:hover img { opacity: 0.7; }
     .footer-legal { font-size: 14px; color: #C92828; position: relative; z-index: 1; }
 
-    @media (max-width: 768px) {
-      header { padding: 15px 20px; }
-      nav.nav-links { display: none; flex-direction: column; width: 100%; background: #eeeeee; position: absolute; top: 80px; left: 0; border-top: 2px solid #C92828; }
-      nav.nav-links a { margin: 15px 0; padding: 15px 20px; border-bottom: 1px solid #C92828; }
-      nav.nav-links.active { display: flex; }
-      .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; }
-      #about { grid-template-columns: 1fr; padding: 50px 20px; }
-      .about-logo img { max-width: 220px; }
-    }
   </style>
 </head>
 <body>
@@ -389,7 +399,7 @@
     <div class="news-carousel">
       <div class="news-items" id="newsItems">
         <div class="news-card">
-          <img src="https://via.placeholder.com/800x400" alt="New Player Signing">
+          <img src="Antonio Alcantar.jpg" alt="New Player Signing">
           <div class="news-content">
             <h3>New Player Signing</h3>
             <p>Exciting new talent joins Ronin Gaming roster. Stay tuned for updates!</p>
@@ -397,7 +407,7 @@
           </div>
         </div>
         <div class="news-card">
-          <img src="https://via.placeholder.com/800x400" alt="Upcoming Tournament">
+          <img src="Antonio Alcantar.jpg" alt="Upcoming Tournament">
           <div class="news-content">
             <h3>Upcoming Tournament</h3>
             <p>Our pro team will compete in the Fortnite Championship Series this weekend.</p>
@@ -405,7 +415,7 @@
           </div>
         </div>
         <div class="news-card">
-          <img src="https://via.placeholder.com/800x400" alt="Content Collab">
+          <img src="Antonio Alcantar.jpg" alt="Content Collab">
           <div class="news-content">
             <h3>Content Collab</h3>
             <p>Collaborating with top creators to bring new content to our audience.</p>
