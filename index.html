@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RONIN</title>
-  <link rel="icon" type="RONINSamurai1.png" href="IMG_4219.PNG">
 
+  <!-- ✅ Favicon -->
+  <link rel="icon" type="image/png" href="RONIN_Logo.png">
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
@@ -44,17 +48,13 @@
       overflow: hidden;
     }
 
+    /* Brush overlay on header */
     header::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background-image: url('https://www.transparenttextures.com/patterns/japanese-paper.png');
-      background-size: 300px;
-      background-repeat: repeat;
-      opacity: 0.07;
+      opacity: 0.08;
       z-index: 0;
     }
 
@@ -131,14 +131,9 @@
     #about::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background-image: url('https://www.transparenttextures.com/patterns/japanese-paper.png');
-      background-size: 300px;
-      background-repeat: repeat;
-      opacity: 0.06;
+      opacity: 0.08;
       z-index: 0;
     }
 
@@ -180,26 +175,26 @@
 
     /* WATCH LIVE */
     #watch-live {
-      background:#141414;
-      border-top:2px solid #C92828;
-      text-align:center;
-      padding:80px 50px;
+      background: #141414;
+      border-top: 2px solid #C92828;
+      text-align: center;
+      padding: 80px 50px;
     }
 
-    #watch-live h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+    #watch-live h2 { font-size: 36px; color: #C92828; margin-bottom: 20px; }
     #watch-live iframe { width: 100%; max-width: 800px; height: 450px; border: none; border-radius: 15px; }
 
     /* NEWS */
     #news {
-      background:#141414;
-      padding:80px 50px;
-      border-top:2px solid #C92828;
-      color:white;
-      text-align:center;
+      background: #141414;
+      padding: 80px 50px;
+      border-top: 2px solid #C92828;
+      color: white;
+      text-align: center;
       position: relative;
     }
 
-    #news h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+    #news h2 { font-size: 36px; color: #C92828; margin-bottom: 20px; }
 
     .news-carousel {
       position: relative;
@@ -210,15 +205,10 @@
       border: 2px solid #C92828;
     }
 
-    .news-items {
-      display: flex;
-      transition: transform 0.7s ease-in-out;
-      width: 100%;
-    }
-
+    .news-items { display: flex; transition: transform 0.7s ease-in-out; width: 100%; }
     .news-card {
       flex: 0 0 100%;
-      background:#1b1b1b;
+      background: #1b1b1b;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
@@ -227,11 +217,7 @@
       flex-direction: column;
     }
 
-    .news-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+    .news-card img { width: 100%; height: 200px; object-fit: cover; }
 
     .news-content {
       padding: 20px;
@@ -241,8 +227,9 @@
       flex-grow: 1;
     }
 
-    .news-content h3 { color:#C92828; margin-bottom:10px; font-size:22px; }
-    .news-content p { color:#ccc; font-size:16px; margin-bottom:15px; }
+    .news-content h3 { color: #C92828; margin-bottom: 10px; font-size: 22px; }
+    .news-content p { color: #ccc; font-size: 16px; margin-bottom: 15px; }
+
     .news-content .read-more {
       text-decoration: none;
       color: #fff;
@@ -256,125 +243,111 @@
 
     .news-content .read-more:hover { background: #ff3a3a; }
 
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(201,40,40,0.8);
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-      border-radius: 50%;
-      font-size: 20px;
-      z-index: 10;
-      transition: background 0.3s;
-    }
-
-    .carousel-btn:hover { background: #ff3a3a; }
-    .carousel-btn.left { left: 10px; }
-    .carousel-btn.right { right: 10px; }
-
     /* CONTACT */
     #contact {
-      background:#141414; 
-      border-top:2px solid #C92828; 
-      padding:80px 50px; 
-      color:white; 
-      font-family:'TheLastShuriken', sans-serif;
-      text-align:center;
+      background: #141414; 
+      border-top: 2px solid #C92828; 
+      padding: 80px 50px; 
+      color: white; 
+      font-family: 'TheLastShuriken', sans-serif;
+      text-align: center;
     }
 
-    #contact h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
-    #contact p { color:#ccc; margin-bottom:50px; font-size:18px; }
+    #contact h2 { font-size: 36px; color: #C92828; margin-bottom: 20px; }
+    #contact p { color: #ccc; margin-bottom: 50px; font-size: 18px; }
 
-    #contact form { max-width:700px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
+    #contact form { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
 
     #contact input, #contact textarea {
-      padding:15px;
-      border-radius:10px;
-      border:2px solid #C92828;
-      background:#141414;
-      color:white;
-      font-size:16px;
-      outline:none;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #C92828;
+      background: #141414;
+      color: white;
+      font-size: 16px;
+      outline: none;
     }
 
     #contact button {
-      padding:15px;
-      background:#C92828;
-      color:white;
-      font-size:18px;
-      font-weight:bold;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-      transition:0.3s;
+      padding: 15px;
+      background: #C92828;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    #contact button:hover { background:#ff3a3a; }
+    #contact button:hover { background: #ff3a3a; }
 
     /* FOOTER */
     footer {
-      background:#eeeeee;
-      color:#C92828;
-      padding:40px 50px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:20px;
-      border-top:2px solid #C92828;
+      background: #eeeeee;
+      color: #C92828;
+      padding: 40px 50px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 2px solid #C92828;
       position: relative;
       overflow: hidden;
     }
 
+    /* Brush overlay on footer */
     footer::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      inset: 0;
       background-image: url('https://www.transparenttextures.com/patterns/japanese-paper.png');
-      background-size: 300px;
-      background-repeat: repeat;
-      opacity: 0.07;
+      opacity: 0.08;
       z-index: 0;
     }
 
-    .footer-socials, .footer-legal {
+    .footer-socials a {
+      margin-right: 15px;
+      color: #C92828;
+      text-decoration: none;
+      font-size: 20px;
       position: relative;
       z-index: 1;
     }
 
-    .footer-socials a {
-      margin-right:15px;
-      color:#C92828;
-      text-decoration:none;
-      font-size:20px;
-    }
-
     .footer-socials a img {
       filter: none;
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
       fill: #C92828;
-      width:25px;
-      height:25px;
-      vertical-align:middle;
     }
 
     .footer-socials a:hover img { opacity: 0.7; }
+    .footer-legal { font-size: 14px; color: #C92828; position: relative; z-index: 1; }
 
-    .footer-legal { font-size:14px; color:#C92828; }
-
+    @media (max-width: 768px) {
+      header { padding: 15px 20px; }
+      nav.nav-links { display: none; flex-direction: column; width: 100%; background: #eeeeee; position: absolute; top: 80px; left: 0; border-top: 2px solid #C92828; }
+      nav.nav-links a { margin: 15px 0; padding: 15px 20px; border-bottom: 1px solid #C92828; }
+      nav.nav-links.active { display: flex; }
+      .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; }
+      #about { grid-template-columns: 1fr; padding: 50px 20px; }
+      .about-logo img { max-width: 220px; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
     <a href="/" class="logo">
-      <img src="IMG_4219.PNG" alt="Logo">
+      <img src="RONIN_Logo.png" alt="Logo">
       <span>RONIN</span>
     </a>
+
     <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+
     <nav class="nav-links">
       <a href="/" class="active">Home</a>
       <a href="partners.html">Partners</a>
@@ -384,26 +357,33 @@
     </nav>
   </header>
 
+  <!-- HERO -->
   <section id="hero">
     <h1>Ronin Gaming</h1>
     <p>Own The Blade</p>
   </section>
 
+  <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
       <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
     </div>
     <div class="about-logo">
-      <img src="IMG_4219.PNG" alt="About Logo">
+      <img src="RONIN_Logo.png" alt="About Logo">
     </div>
   </section>
 
+  <!-- WATCH LIVE -->
   <section id="watch-live">
     <h2>Watch Live</h2>
-    <iframe src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org" allowfullscreen></iframe>
+    <iframe
+      src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org"
+      allowfullscreen>
+    </iframe>
   </section>
 
+  <!-- NEWS -->
   <section id="news">
     <h2>Latest News</h2>
     <div class="news-carousel">
@@ -433,11 +413,13 @@
           </div>
         </div>
       </div>
+
       <button class="carousel-btn left" id="prevNews">&#10094;</button>
       <button class="carousel-btn right" id="nextNews">&#10095;</button>
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
@@ -451,6 +433,7 @@
     <p style="margin-top:20px; color:#aaa; font-size:14px;">We’ll respond as soon as possible. Your email will remain private.</p>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
       <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
@@ -463,29 +446,20 @@
     </div>
   </footer>
 
+  <!-- SCRIPT -->
   <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('nav.nav-links');
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
     const newsItems = document.getElementById('newsItems');
     const totalNews = newsItems.children.length;
     let currentIndex = 0;
-    function showNews(index) {
-      newsItems.style.transform = `translateX(-${index * 100}%)`;
-    }
-    document.getElementById('prevNews').addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + totalNews) % totalNews;
-      showNews(currentIndex);
-    });
-    document.getElementById('nextNews').addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % totalNews;
-      showNews(currentIndex);
-    });
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalNews;
-      showNews(currentIndex);
-    }, 10000);
+    function showNews(index){ newsItems.style.transform = `translateX(-${index * 100}%)`; }
+    document.getElementById('prevNews').addEventListener('click', () => { currentIndex = (currentIndex - 1 + totalNews) % totalNews; showNews(currentIndex); });
+    document.getElementById('nextNews').addEventListener('click', () => { currentIndex = (currentIndex + 1) % totalNews; showNews(currentIndex); });
+    setInterval(() => { currentIndex = (currentIndex + 1) % totalNews; showNews(currentIndex); }, 10000);
   </script>
+
 </body>
 </html>
