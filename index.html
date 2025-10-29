@@ -88,12 +88,23 @@
       position: relative;
     }
 
+    /* dark overlay for opacity */
     #hero::before {
       content: "";
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.4);
       z-index: 1;
+    }
+
+    /* red glow rising from bottom */
+    #hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(201, 40, 40, 0.45) 0%, rgba(201, 40, 40, 0.1) 50%, rgba(201, 40, 40, 0) 100%);
+      z-index: 2;
+      pointer-events: none;
     }
 
     .hero-left {
@@ -432,7 +443,7 @@
     function startAutoCycle() {
       interval = setInterval(() => {
         cycleNews();
-      }, 5000);
+      }, 9000); // 5s visible + 4s fade pause
     }
 
     startAutoCycle();
