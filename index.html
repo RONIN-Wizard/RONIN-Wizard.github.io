@@ -70,7 +70,7 @@
       letter-spacing: 2px;
     }
 
-    /* CENTERED HEADER TEXT */
+    /* CENTER HEADER TEXT */
     .center-header-text {
       position: absolute;
       left: 50%;
@@ -105,16 +105,13 @@
     /* HERO SECTION */
     #hero {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: stretch;
-      padding: 0;
       height: 90vh;
       border-bottom: 2px solid #C92828;
       background: url('DSC00017.JPG') center center / cover no-repeat;
       position: relative;
     }
-
     #hero::after {
       content: "";
       position: absolute;
@@ -134,7 +131,6 @@
       color: white;
       text-shadow: 0 0 15px rgba(0,0,0,0.7);
     }
-
     .hero-left h1 {
       font-family: 'TheLastShuriken';
       font-size: 60px;
@@ -158,10 +154,9 @@
       border-radius: 8px;
       transition: background 0.3s;
     }
-    .read-more:hover {
-      background: #a71e1e;
-    }
+    .read-more:hover { background: #a71e1e; }
 
+    /* HERO RIGHT - NEWS CAROUSEL */
     .hero-right {
       position: relative;
       z-index: 2;
@@ -169,17 +164,40 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      gap: 15px;
       padding: 60px;
+      overflow: hidden;
     }
+
+    .news-group {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    .news-group.active { opacity: 1; position: relative; }
 
     .news-card {
       background: #f9f9f9;
       border-left: 5px solid #C92828;
-      padding: 20px; /* slightly smaller */
+      padding: 20px;
       border-radius: 10px;
       color: #141414;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .news-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 10px;
     }
     .news-card:hover {
       transform: translateY(-5px);
@@ -187,14 +205,15 @@
     }
     .news-card h3 {
       font-family: 'TheLastShuriken';
-      font-size: 21px;
+      font-size: 20px;
       color: #C92828;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .news-card p {
       font-family: 'Montserrat';
-      font-size: 15px;
+      font-size: 14px;
       color: #333;
+      text-align: center;
     }
 
     /* ABOUT */
@@ -224,9 +243,7 @@
       justify-content: center;
       align-items: center;
     }
-    .about-logo img {
-      max-width: 280px;
-    }
+    .about-logo img { max-width: 280px; }
 
     /* WATCH LIVE */
     #watch-live {
@@ -277,7 +294,6 @@
       color: #C92828;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 950px) {
       #hero { flex-direction: column; height: auto; }
       .hero-left, .hero-right { flex: 1 1 100%; padding: 40px 30px; }
@@ -299,11 +315,8 @@
       <img src="RONIN_Logo.png" alt="Logo">
       <span>RONIN</span>
     </a>
-
     <div class="center-header-text">#OwnTheBlade</div>
-
     <div class="menu-toggle" id="mobile-menu">&#9776;</div>
-
     <nav class="nav-links">
       <a href="/" class="active">Home</a>
       <a href="partners.html">Partners</a>
@@ -320,14 +333,32 @@
       <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
       <a href="#" class="read-more">Read More</a>
     </div>
+
     <div class="hero-right">
-      <div class="news-card">
-        <h3>New Signing</h3>
-        <p>Welcome the latest competitor joining Ronin’s elite roster.</p>
+      <div class="news-group active" id="group1">
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <h3>New Signing</h3>
+          <p>Welcome the latest competitor joining Ronin’s elite roster.</p>
+        </div>
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <h3>Brand Collab</h3>
+          <p>Ronin partners with upcoming tech brand for exclusive launches.</p>
+        </div>
       </div>
-      <div class="news-card">
-        <h3>Brand Collab</h3>
-        <p>Ronin partners with upcoming tech brand for exclusive launches.</p>
+
+      <div class="news-group" id="group2">
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <h3>Community Event</h3>
+          <p>Ronin hosts a fan event to celebrate our competitive milestones.</p>
+        </div>
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <h3>Ronin Expansion</h3>
+          <p>New divisions coming soon as we grow our esports presence.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -366,7 +397,15 @@
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('nav.nav-links');
     menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-  </script>
 
+    // News fade carousel
+    const groups = [document.getElementById('group1'), document.getElementById('group2')];
+    let current = 0;
+    setInterval(() => {
+      groups[current].classList.remove('active');
+      current = (current + 1) % groups.length;
+      groups[current].classList.add('active');
+    }, 9000);
+  </script>
 </body>
 </html>
