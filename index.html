@@ -38,35 +38,53 @@
       top: 0;
       z-index: 1000;
       border-bottom: 2px solid #C92828;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://www.transparenttextures.com/patterns/japanese-paper.png');
+      background-size: 300px;
+      background-repeat: repeat;
+      opacity: 0.07;
+      z-index: 0;
     }
 
     .logo {
       display: flex;
       align-items: center;
       text-decoration: none;
-      gap: 0;
+      position: relative;
+      z-index: 1;
     }
+
     .logo img {
-      height: 64px;
+      height: 55px;
       width: auto;
-      vertical-align: middle;
-      margin-right: 6px;
+      margin-right: 4px;
     }
+
     .logo span {
       font-family: 'TheLastShuriken', sans-serif;
-      font-size: 56px;
+      font-size: 32px;
       color: #C92828;
       letter-spacing: 1px;
-      text-decoration: none;
       line-height: 1;
-      vertical-align: middle;
-      margin-top: 3px;
     }
 
     nav.nav-links {
       display: flex;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
+
     nav.nav-links a {
       color: #C92828;
       text-decoration: none;
@@ -74,6 +92,7 @@
       font-size: 18px;
       transition: color 0.3s;
     }
+
     nav.nav-links a:hover { color: #000; }
     nav.nav-links a.active { color: #C92828; }
 
@@ -90,6 +109,7 @@
       background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(20,20,20,1) 100%);
       padding: 0 20px;
     }
+
     #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
     #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
 
@@ -106,7 +126,6 @@
       overflow: hidden;
     }
 
-    /* Brush stroke detail overlay */
     #about::before {
       content: "";
       position: absolute;
@@ -114,13 +133,10 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-image:
-        url('https://www.transparenttextures.com/patterns/japanese-paper.png'),
-        url('https://www.transparenttextures.com/patterns/white-brushed.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      opacity: 0.08;
+      background-image: url('https://www.transparenttextures.com/patterns/japanese-paper.png');
+      background-size: 300px;
+      background-repeat: repeat;
+      opacity: 0.06;
       z-index: 0;
     }
 
@@ -134,7 +150,6 @@
     }
 
     .about-text {
-      animation: fadeSlide 1s ease both;
       font-family: 'Montserrat', sans-serif;
       color: #000;
       position: relative;
@@ -151,7 +166,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      animation: fadeSlide 1s ease both;
       position: relative;
       z-index: 1;
     }
@@ -162,11 +176,6 @@
       height: auto;
     }
 
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     /* WATCH LIVE */
     #watch-live {
       background:#141414;
@@ -174,6 +183,7 @@
       text-align:center;
       padding:80px 50px;
     }
+
     #watch-live h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
     #watch-live iframe { width: 100%; max-width: 800px; height: 450px; border: none; border-radius: 15px; }
 
@@ -186,7 +196,9 @@
       text-align:center;
       position: relative;
     }
+
     #news h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
+
     .news-carousel {
       position: relative;
       max-width: 800px;
@@ -195,11 +207,13 @@
       border-radius: 15px;
       border: 2px solid #C92828;
     }
+
     .news-items {
       display: flex;
       transition: transform 0.7s ease-in-out;
       width: 100%;
     }
+
     .news-card {
       flex: 0 0 100%;
       background:#1b1b1b;
@@ -210,11 +224,13 @@
       display: flex;
       flex-direction: column;
     }
+
     .news-card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
     }
+
     .news-content {
       padding: 20px;
       display: flex;
@@ -222,6 +238,7 @@
       justify-content: flex-end;
       flex-grow: 1;
     }
+
     .news-content h3 { color:#C92828; margin-bottom:10px; font-size:22px; }
     .news-content p { color:#ccc; font-size:16px; margin-bottom:15px; }
     .news-content .read-more {
@@ -234,6 +251,7 @@
       width: fit-content;
       transition: 0.3s;
     }
+
     .news-content .read-more:hover { background: #ff3a3a; }
 
     .carousel-btn {
@@ -250,6 +268,7 @@
       z-index: 10;
       transition: background 0.3s;
     }
+
     .carousel-btn:hover { background: #ff3a3a; }
     .carousel-btn.left { left: 10px; }
     .carousel-btn.right { right: 10px; }
@@ -263,9 +282,12 @@
       font-family:'TheLastShuriken', sans-serif;
       text-align:center;
     }
+
     #contact h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
     #contact p { color:#ccc; margin-bottom:50px; font-size:18px; }
+
     #contact form { max-width:700px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
+
     #contact input, #contact textarea {
       padding:15px;
       border-radius:10px;
@@ -275,6 +297,7 @@
       font-size:16px;
       outline:none;
     }
+
     #contact button {
       padding:15px;
       background:#C92828;
@@ -286,6 +309,7 @@
       cursor:pointer;
       transition:0.3s;
     }
+
     #contact button:hover { background:#ff3a3a; }
 
     /* FOOTER */
@@ -298,13 +322,36 @@
       flex-wrap:wrap;
       gap:20px;
       border-top:2px solid #C92828;
+      position: relative;
+      overflow: hidden;
     }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://www.transparenttextures.com/patterns/japanese-paper.png');
+      background-size: 300px;
+      background-repeat: repeat;
+      opacity: 0.07;
+      z-index: 0;
+    }
+
+    .footer-socials, .footer-legal {
+      position: relative;
+      z-index: 1;
+    }
+
     .footer-socials a {
       margin-right:15px;
       color:#C92828;
       text-decoration:none;
       font-size:20px;
     }
+
     .footer-socials a img {
       filter: none;
       fill: #C92828;
@@ -312,10 +359,131 @@
       height:25px;
       vertical-align:middle;
     }
+
     .footer-socials a:hover img { opacity: 0.7; }
+
     .footer-legal { font-size:14px; color:#C92828; }
 
-    @media (max-width: 768px) {
-      header { flex-wrap: wrap; justify-content: center; }
-      .logo { justify-content: center; margin-bottom: 10px; }
-      .
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo">
+      <img src="IMG_4219.PNG" alt="Logo">
+      <span>RONIN</span>
+    </a>
+    <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+    <nav class="nav-links">
+      <a href="/" class="active">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="team.html">Team</a>
+      <a href="news.html">News</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <h1>Ronin Gaming</h1>
+    <p>Own The Blade</p>
+  </section>
+
+  <section id="about">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
+    </div>
+    <div class="about-logo">
+      <img src="IMG_4219.PNG" alt="About Logo">
+    </div>
+  </section>
+
+  <section id="watch-live">
+    <h2>Watch Live</h2>
+    <iframe src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org" allowfullscreen></iframe>
+  </section>
+
+  <section id="news">
+    <h2>Latest News</h2>
+    <div class="news-carousel">
+      <div class="news-items" id="newsItems">
+        <div class="news-card">
+          <img src="https://via.placeholder.com/800x400" alt="New Player Signing">
+          <div class="news-content">
+            <h3>New Player Signing</h3>
+            <p>Exciting new talent joins Ronin Gaming roster. Stay tuned for updates!</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://via.placeholder.com/800x400" alt="Upcoming Tournament">
+          <div class="news-content">
+            <h3>Upcoming Tournament</h3>
+            <p>Our pro team will compete in the Fortnite Championship Series this weekend.</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="https://via.placeholder.com/800x400" alt="Content Collab">
+          <div class="news-content">
+            <h3>Content Collab</h3>
+            <p>Collaborating with top creators to bring new content to our audience.</p>
+            <a href="#" class="read-more">Read More</a>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn left" id="prevNews">&#10094;</button>
+      <button class="carousel-btn right" id="nextNews">&#10095;</button>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
+    <form action="https://formspree.io/f/inquiries@roningaming.org" method="POST">
+      <input type="text" name="_gotcha" style="display:none;">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required rows="6"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p style="margin-top:20px; color:#aaa; font-size:14px;">We’ll respond as soon as possible. Your email will remain private.</p>
+  </section>
+
+  <footer>
+    <div class="footer-socials">
+      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('nav.nav-links');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    const newsItems = document.getElementById('newsItems');
+    const totalNews = newsItems.children.length;
+    let currentIndex = 0;
+    function showNews(index) {
+      newsItems.style.transform = `translateX(-${index * 100}%)`;
+    }
+    document.getElementById('prevNews').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalNews) % totalNews;
+      showNews(currentIndex);
+    });
+    document.getElementById('nextNews').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalNews;
+      showNews(currentIndex);
+    });
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalNews;
+      showNews(currentIndex);
+    }, 10000);
+  </script>
+</body>
+</html>
