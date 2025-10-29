@@ -40,8 +40,18 @@
       border-bottom: 2px solid #C92828;
     }
     .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
+    .logo img {
+      height: 70px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .logo span {
+      font-size: 32px;
+      color: #C92828;
+      letter-spacing: 2px;
+      text-decoration: none;
+      vertical-align: middle;
+    }
 
     nav.nav-links {
       display: flex;
@@ -78,16 +88,21 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 100px 50px;
       gap: 40px;
       background: #000;
       border-top: 2px solid #C92828;
     }
-    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; color: #fff; }
-    #about h2 { color: #C92828; }
-    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
-    .about-logo img { max-width: 250px; }
+    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; color: #fff; max-width: 600px; }
+    #about h2 { color: #C92828; text-align: left; }
+    .about-logo {
+      flex: 1 1 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .about-logo img { max-width: 350px; width: 100%; height: auto; }
 
     /* WATCH LIVE (Twitch embed) */
     #watch-live {
@@ -99,7 +114,7 @@
     #watch-live h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
     #watch-live iframe { width: 100%; max-width: 800px; height: 450px; border: none; border-radius: 15px; }
 
-    /* LATEST NEWS (Carousel) */
+    /* LATEST NEWS */
     #news {
       background:#eeeeee;
       padding:80px 50px;
@@ -117,11 +132,7 @@
       border-radius: 15px;
       border: 2px solid #C92828;
     }
-    .news-items {
-      display: flex;
-      transition: transform 0.7s ease-in-out;
-      width: 100%;
-    }
+    .news-items { display: flex; transition: transform 0.7s ease-in-out; width: 100%; }
     .news-card {
       flex: 0 0 100%;
       background:#eeeeee;
@@ -132,11 +143,7 @@
       display: flex;
       flex-direction: column;
     }
-    .news-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+    .news-card img { width: 100%; height: 200px; object-fit: cover; }
     .news-content {
       padding: 20px;
       display: flex;
@@ -177,13 +184,12 @@
     .carousel-btn.left { left: 10px; }
     .carousel-btn.right { right: 10px; }
 
-    /* CONTACT US */
+    /* CONTACT */
     #contact {
-      background:#eeeeee; 
-      border-top:2px solid #C92828; 
-      padding:80px 50px; 
-      color:#000; 
-      font-family:'TheLastShuriken', sans-serif;
+      background:#eeeeee;
+      border-top:2px solid #C92828;
+      padding:80px 50px;
+      color:#000;
       text-align:center;
     }
     #contact h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
@@ -226,28 +232,25 @@
       margin-right:15px;
       color:#C92828;
       text-decoration:none;
-      font-size:20px;
+      font-size:24px;
+      transition: color 0.3s;
     }
+    .footer-socials a:hover { color:#ff3a3a; }
     .footer-socials a img { filter: invert(55%) sepia(95%) saturate(750%) hue-rotate(350deg); width:25px; height:25px; vertical-align:middle; }
-    .footer-socials a:hover img { filter: invert(100%); }
     .footer-legal { font-size:14px; color:#C92828; }
 
-    /* MOBILE RESPONSIVE */
+    /* MOBILE */
     @media (max-width: 768px) {
       header { padding: 15px 20px; position: relative; }
+      .logo img { height: 60px; }
       nav.nav-links { display: none; flex-direction: column; width: 100%; background: #eeeeee; position: absolute; top: 80px; left: 0; border-top: 2px solid #C92828; }
       nav.nav-links a { margin: 15px 0; padding: 15px 20px; border-bottom: 1px solid #C92828; }
       nav.nav-links.active { display: flex; }
       .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; }
       #about { flex-direction: column; padding: 50px 20px; }
-      .about-text, .about-logo { flex: 1 1 100%; text-align: center; }
-      .about-logo img { max-width: 200px; }
+      .about-logo img { max-width: 300px; }
       #hero h1 { font-size: 50px; }
       #hero p { font-size: 20px; }
-      #watch-live h2, #news h2, #contact h2 { font-size: 28px; }
-      #contact form { width: 90%; }
-      .news-carousel { max-width: 100%; }
-      .news-card img { height: 180px; }
     }
   </style>
 </head>
@@ -334,7 +337,7 @@
     </div>
   </section>
 
-  <!-- CONTACT US -->
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
@@ -351,10 +354,10 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+      <a href="https://x.com/Roninggs" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><i class="fab fa-twitch"></i></a>
     </div>
     <div class="footer-legal">
       <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
@@ -365,32 +368,16 @@
   <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('nav.nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
 
     // News carousel
     const newsItems = document.getElementById('newsItems');
     const totalNews = newsItems.children.length;
     let currentIndex = 0;
-
-    function showNews(index) {
-      newsItems.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    document.getElementById('prevNews').addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + totalNews) % totalNews;
-      showNews(currentIndex);
-    });
-    document.getElementById('nextNews').addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % totalNews;
-      showNews(currentIndex);
-    });
-
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % totalNews;
-      showNews(currentIndex);
-    }, 10000);
+    function showNews(index){ newsItems.style.transform = `translateX(-${index * 100}%)`; }
+    document.getElementById('prevNews').addEventListener('click',()=>{currentIndex=(currentIndex-1+totalNews)%totalNews;showNews(currentIndex);});
+    document.getElementById('nextNews').addEventListener('click',()=>{currentIndex=(currentIndex+1)%totalNews;showNews(currentIndex);});
+    setInterval(()=>{currentIndex=(currentIndex+1)%totalNews;showNews(currentIndex);},10000);
   </script>
 
 </body>
