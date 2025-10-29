@@ -17,14 +17,14 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'TheLastShuriken', sans-serif;
-      background-color: #eeeeee;
-      color: #000;
+      background-color: #000;
+      color: white;
       transition: opacity 1s ease;
     }
 
     /* SCROLLBAR */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #eeeeee; }
+    ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
 
     /* HEADER */
@@ -40,25 +40,15 @@
       border-bottom: 2px solid #C92828;
     }
     .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
-    .logo img {
-      height: 70px;
-      margin-right: 10px;
-      vertical-align: middle;
-    }
-    .logo span {
-      font-size: 32px;
-      color: #C92828;
-      letter-spacing: 2px;
-      text-decoration: none;
-      vertical-align: middle;
-    }
+    .logo img { height: 50px; margin-right: 10px; }
+    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
 
     nav.nav-links {
       display: flex;
       align-items: center;
     }
     nav.nav-links a {
-      color: #000;
+      color: #C92828;
       text-decoration: none;
       margin-left: 25px;
       font-size: 18px;
@@ -67,7 +57,7 @@
     nav.nav-links a:hover, nav.nav-links a.active { color: #C92828; }
 
     /* Hamburger menu */
-    .menu-toggle { display: none; font-size: 30px; color: #000; cursor: pointer; }
+    .menu-toggle { display: none; font-size: 30px; color: #C92828; cursor: pointer; }
 
     /* HERO */
     #hero {
@@ -77,36 +67,31 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(238,238,238,1) 100%);
+      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
       padding: 0 20px;
     }
-    #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px #000; }
-    #hero p { font-size: 26px; color: #fff; max-width: 800px; text-shadow: 1px 1px 3px #000; }
+    #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
+    #hero p { font-size: 26px; color: white; max-width: 800px; text-shadow: 1px 1px 3px black; }
 
     /* ABOUT */
     #about {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       padding: 100px 50px;
       gap: 40px;
-      background: #000;
+      background: #111;
       border-top: 2px solid #C92828;
     }
-    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; color: #fff; max-width: 600px; }
-    #about h2 { color: #C92828; text-align: left; }
-    .about-logo {
-      flex: 1 1 350px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .about-logo img { max-width: 350px; width: 100%; height: auto; }
+    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
+    #about h2 { color: #C92828; }
+    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
+    .about-logo img { max-width: 250px; }
 
     /* WATCH LIVE (Twitch embed) */
     #watch-live {
-      background:#eeeeee;
+      background:#111;
       border-top:2px solid #C92828;
       text-align:center;
       padding:80px 50px;
@@ -114,12 +99,12 @@
     #watch-live h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
     #watch-live iframe { width: 100%; max-width: 800px; height: 450px; border: none; border-radius: 15px; }
 
-    /* LATEST NEWS */
+    /* LATEST NEWS (Carousel) */
     #news {
-      background:#eeeeee;
+      background:#000;
       padding:80px 50px;
       border-top:2px solid #C92828;
-      color:#000;
+      color:white;
       text-align:center;
       position: relative;
     }
@@ -132,10 +117,14 @@
       border-radius: 15px;
       border: 2px solid #C92828;
     }
-    .news-items { display: flex; transition: transform 0.7s ease-in-out; width: 100%; }
+    .news-items {
+      display: flex;
+      transition: transform 0.7s ease-in-out;
+      width: 100%;
+    }
     .news-card {
       flex: 0 0 100%;
-      background:#eeeeee;
+      background:#111;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
@@ -143,7 +132,11 @@
       display: flex;
       flex-direction: column;
     }
-    .news-card img { width: 100%; height: 200px; object-fit: cover; }
+    .news-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
     .news-content {
       padding: 20px;
       display: flex;
@@ -152,10 +145,10 @@
       flex-grow: 1;
     }
     .news-content h3 { color:#C92828; margin-bottom:10px; font-size:22px; }
-    .news-content p { color:#333; font-size:16px; margin-bottom:15px; }
+    .news-content p { color:#ccc; font-size:16px; margin-bottom:15px; }
     .news-content .read-more {
       text-decoration: none;
-      color: #000;
+      color: #fff;
       background: #C92828;
       padding: 10px 15px;
       border-radius: 8px;
@@ -163,7 +156,7 @@
       width: fit-content;
       transition: 0.3s;
     }
-    .news-content .read-more:hover { background: #ff3a3a; color:#000; }
+    .news-content .read-more:hover { background: #ff3a3a; }
 
     /* Carousel arrows */
     .carousel-btn {
@@ -171,7 +164,7 @@
       top: 50%;
       transform: translateY(-50%);
       background: rgba(201,40,40,0.8);
-      color: #000;
+      color: #fff;
       border: none;
       padding: 10px 15px;
       cursor: pointer;
@@ -184,30 +177,31 @@
     .carousel-btn.left { left: 10px; }
     .carousel-btn.right { right: 10px; }
 
-    /* CONTACT */
+    /* CONTACT US */
     #contact {
-      background:#eeeeee;
-      border-top:2px solid #C92828;
-      padding:80px 50px;
-      color:#000;
+      background:#111; 
+      border-top:2px solid #C92828; 
+      padding:80px 50px; 
+      color:white; 
+      font-family:'TheLastShuriken', sans-serif;
       text-align:center;
     }
     #contact h2 { font-size:36px; color:#C92828; margin-bottom:20px; }
-    #contact p { color:#333; margin-bottom:50px; font-size:18px; }
+    #contact p { color:#ccc; margin-bottom:50px; font-size:18px; }
     #contact form { max-width:700px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
     #contact input, #contact textarea {
       padding:15px;
       border-radius:10px;
       border:2px solid #C92828;
-      background:#eeeeee;
-      color:#000;
+      background:#111;
+      color:white;
       font-size:16px;
       outline:none;
     }
     #contact button {
       padding:15px;
       background:#C92828;
-      color:#000;
+      color:white;
       font-size:18px;
       font-weight:bold;
       border:none;
@@ -219,7 +213,7 @@
 
     /* FOOTER */
     footer {
-      background:#000;
+      background:#eeeeee;
       color:#C92828;
       padding:40px 50px;
       display:flex;
@@ -232,25 +226,28 @@
       margin-right:15px;
       color:#C92828;
       text-decoration:none;
-      font-size:24px;
-      transition: color 0.3s;
+      font-size:20px;
     }
-    .footer-socials a:hover { color:#ff3a3a; }
     .footer-socials a img { filter: invert(55%) sepia(95%) saturate(750%) hue-rotate(350deg); width:25px; height:25px; vertical-align:middle; }
+    .footer-socials a:hover img { filter: invert(100%); }
     .footer-legal { font-size:14px; color:#C92828; }
 
-    /* MOBILE */
+    /* MOBILE RESPONSIVE */
     @media (max-width: 768px) {
       header { padding: 15px 20px; position: relative; }
-      .logo img { height: 60px; }
       nav.nav-links { display: none; flex-direction: column; width: 100%; background: #eeeeee; position: absolute; top: 80px; left: 0; border-top: 2px solid #C92828; }
       nav.nav-links a { margin: 15px 0; padding: 15px 20px; border-bottom: 1px solid #C92828; }
       nav.nav-links.active { display: flex; }
       .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; }
       #about { flex-direction: column; padding: 50px 20px; }
-      .about-logo img { max-width: 300px; }
+      .about-text, .about-logo { flex: 1 1 100%; text-align: center; }
+      .about-logo img { max-width: 200px; }
       #hero h1 { font-size: 50px; }
       #hero p { font-size: 20px; }
+      #watch-live h2, #news h2, #contact h2 { font-size: 28px; }
+      #contact form { width: 90%; }
+      .news-carousel { max-width: 100%; }
+      .news-card img { height: 180px; }
     }
   </style>
 </head>
@@ -277,7 +274,7 @@
   <!-- HERO -->
   <section id="hero">
     <h1>Ronin Gaming</h1>
-    <p>Own The Blade</p>
+    <p>Sharpening the Future of Gaming</p>
   </section>
 
   <!-- ABOUT -->
@@ -291,7 +288,7 @@
     </div>
   </section>
 
-  <!-- WATCH LIVE -->
+  <!-- WATCH LIVE (Twitch Embed) -->
   <section id="watch-live">
     <h2>Watch Live</h2>
     <iframe
@@ -300,7 +297,7 @@
     </iframe>
   </section>
 
-  <!-- LATEST NEWS -->
+  <!-- LATEST NEWS (Carousel) -->
   <section id="news">
     <h2>Latest News</h2>
     <div class="news-carousel">
@@ -337,7 +334,7 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- CONTACT US -->
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
@@ -348,36 +345,53 @@
       <textarea name="message" placeholder="Your Message" required rows="6"></textarea>
       <button type="submit">Send Message</button>
     </form>
-    <p style="margin-top:20px; color:#333; font-size:14px;">We’ll respond as soon as possible. Your email will remain private.</p>
+    <p style="margin-top:20px; color:#aaa; font-size:14px;">We’ll respond as soon as possible. Your email will remain private.</p>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><i class="fab fa-twitch"></i></a>
+      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
     </div>
     <div class="footer-legal">
       <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- MOBILE MENU & NEWS CAROUSEL SCRIPT -->
   <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('nav.nav-links');
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
 
     // News carousel
     const newsItems = document.getElementById('newsItems');
     const totalNews = newsItems.children.length;
     let currentIndex = 0;
-    function showNews(index){ newsItems.style.transform = `translateX(-${index * 100}%)`; }
-    document.getElementById('prevNews').addEventListener('click',()=>{currentIndex=(currentIndex-1+totalNews)%totalNews;showNews(currentIndex);});
-    document.getElementById('nextNews').addEventListener('click',()=>{currentIndex=(currentIndex+1)%totalNews;showNews(currentIndex);});
-    setInterval(()=>{currentIndex=(currentIndex+1)%totalNews;showNews(currentIndex);},10000);
+
+    function showNews(index) {
+      newsItems.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    document.getElementById('prevNews').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalNews) % totalNews;
+      showNews(currentIndex);
+    });
+    document.getElementById('nextNews').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalNews;
+      showNews(currentIndex);
+    });
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % totalNews;
+      showNews(currentIndex);
+    }, 10000);
   </script>
 
 </body>
