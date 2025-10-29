@@ -1,311 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RONIN</title>
-  <link rel="icon" type="image/png" href="RONIN_Logo.png" />
-
+  <link rel="stylesheet" href="style.css">
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
       src: url('TheLastShuriken-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
     }
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family:'Montserrat',sans-serif;
-      background-color:#141414;
-      color:white;
-      overflow-x:hidden;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #141414;
+      color: white;
+      transition: opacity 1s ease;
     }
 
-    /* Scrollbar */
-    ::-webkit-scrollbar{width:6px;}
-    ::-webkit-scrollbar-track{background:#141414;}
-    ::-webkit-scrollbar-thumb{background-color:#C92828;border-radius:5px;}
-
-    /* Header */
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:20px 50px;
-      background-color:#eeeeee;
-      border-bottom:2px solid #C92828;
-      background-image:url('https://i.imgur.com/yx9o2Xe.png');
-      background-repeat:no-repeat;
-      background-size:cover;
-      background-position:center;
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #eeeeee;
+      background-image: url('ink-brush-texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #C92828;
     }
-    .logo{
-      display:flex;
-      align-items:center;
-      text-decoration:none;
-      gap:6px;
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 10px;
     }
-    .logo img{height:45px;width:auto;}
-    .logo span{
-      font-family:'TheLastShuriken',sans-serif;
-      font-size:26px;
-      color:#C92828;
-      letter-spacing:2px;
+    .logo img {
+      height: 45px;
+      width: auto;
+      vertical-align: middle;
     }
-
-    nav.nav-links{
-      display:flex;
-      align-items:center;
-      gap:25px;
-    }
-    nav.nav-links a{
-      color:#C92828;
-      text-decoration:none;
-      font-size:18px;
-      font-weight:600;
-      transition:color 0.3s;
-    }
-    nav.nav-links a:hover{color:black;}
-    .menu-toggle{display:none;font-size:30px;color:#C92828;cursor:pointer;}
-
-    /* Hero */
-    #hero{
-      height:90vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:linear-gradient(180deg,rgba(20,20,20,0.8),rgba(20,20,20,1));
-      background-image:url('https://i.imgur.com/BuRZK9P.png');
-      background-size:cover;
-      background-position:center;
+    .logo span {
+      font-family: 'TheLastShuriken', sans-serif;
+      font-size: 30px;
+      color: #C92828;
+      letter-spacing: 2px;
     }
 
-    /* About */
-    #about{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      padding:100px 50px;
-      background-color:#eeeeee;
-      color:black;
-      position:relative;
-      border-top:2px solid #C92828;
-      background-image:url('https://i.imgur.com/yx9o2Xe.png');
-      background-repeat:no-repeat;
-      background-size:cover;
-      background-position:center;
+    nav.nav-links {
+      display: flex;
+      align-items: center;
     }
-    .about-text{
-      flex:1 1 500px;
-      font-size:18px;
-      line-height:1.8;
-      z-index:2;
+    nav.nav-links a {
+      color: #C92828;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
     }
-    .about-text h2{
-      font-family:'TheLastShuriken',sans-serif;
-      color:#C92828;
-      font-size:40px;
-      margin-bottom:20px;
-    }
-    .about-logo{
-      flex:1 1 300px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      z-index:2;
-    }
-    .about-logo img{
-      max-width:280px;
+    nav.nav-links a:hover { color: #000; }
+
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
+      color: #C92828;
+      cursor: pointer;
     }
 
-    /* Dignitas-style News / Brand Update */
-    #news-showcase{
-      background:#141414;
-      color:white;
-      text-align:center;
-      padding:100px 20px;
-      border-top:2px solid #C92828;
-      border-bottom:2px solid #C92828;
-      position:relative;
-      background-image:url('https://i.imgur.com/yx9o2Xe.png');
-      background-repeat:no-repeat;
-      background-size:cover;
-      background-position:center;
+    /* HERO */
+    #hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      padding: 80px 50px;
+      background: linear-gradient(0deg, rgba(201,40,40,0.25) 0%, #eeeeee 80%);
+      border-bottom: 2px solid #C92828;
+      flex-wrap: wrap;
     }
-    #news-showcase h2{
-      font-family:'TheLastShuriken',sans-serif;
-      font-size:44px;
-      color:#C92828;
-      margin-bottom:25px;
+    .hero-left {
+      flex: 1 1 60%;
+      background: #eeeeee;
+      border-radius: 15px;
+      box-shadow: 0 0 40px rgba(201,40,40,0.2);
     }
-    #news-showcase p{
-      max-width:800px;
-      margin:auto;
-      font-size:18px;
-      line-height:1.7;
-      color:#ddd;
+    .hero-right {
+      flex: 1 1 35%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      justify-content: space-between;
     }
-    .news-grid{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:40px;
-      margin-top:50px;
+    .news-card {
+      background: #f9f9f9;
+      border-left: 5px solid #C92828;
+      padding: 25px;
+      border-radius: 10px;
+      color: #141414;
+      transition: all 0.3s ease;
     }
-    .news-card{
-      background:#1a1a1a;
-      border:2px solid #C92828;
-      border-radius:15px;
-      overflow:hidden;
-      width:300px;
-      transition:transform 0.3s ease, box-shadow 0.3s ease;
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(201,40,40,0.2);
     }
-    .news-card:hover{
-      transform:scale(1.03);
-      box-shadow:0 0 20px #C92828;
+    .news-card h3 {
+      font-family: 'TheLastShuriken';
+      font-size: 22px;
+      color: #C92828;
+      margin-bottom: 10px;
     }
-    .news-card img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-    }
-    .news-card .content{
-      padding:20px;
-      text-align:left;
-    }
-    .news-card .content h3{
-      color:#C92828;
-      margin-bottom:10px;
-      font-family:'TheLastShuriken',sans-serif;
-    }
-    .news-card .content p{
-      font-size:15px;
-      color:#ccc;
-      line-height:1.6;
+    .news-card p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: #333;
     }
 
-    /* Watch Live */
-    #watch-live{
-      background:#141414;
-      border-top:2px solid #C92828;
-      text-align:center;
-      padding:80px 50px;
+    /* ABOUT */
+    #about {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 100px 50px;
+      gap: 40px;
+      background: #eeeeee url('ink-brush-texture.png') center/cover no-repeat;
+      color: #000;
+      border-top: 2px solid #C92828;
     }
-    #watch-live h2{
-      font-family:'TheLastShuriken',sans-serif;
-      font-size:36px;
-      color:#C92828;
-      margin-bottom:20px;
+    #about h2 {
+      font-family: 'TheLastShuriken';
+      color: #C92828;
+      margin-bottom: 20px;
     }
-    #watch-live iframe{
-      width:100%;
-      max-width:800px;
-      height:450px;
-      border:none;
-      border-radius:15px;
+    .about-text {
+      flex: 1 1 500px;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .about-logo {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .about-logo img {
+      max-width: 280px;
     }
 
-    /* Contact */
-    #contact{
-      background:#141414;
-      border-top:2px solid #C92828;
-      padding:80px 50px;
-      text-align:center;
+    /* WATCH LIVE */
+    #watch-live {
+      background: #141414;
+      border-top: 2px solid #C92828;
+      text-align: center;
+      padding: 80px 50px;
     }
-    #contact h2{
-      font-family:'TheLastShuriken',sans-serif;
-      color:#C92828;
-      font-size:36px;
-      margin-bottom:20px;
+    #watch-live h2 {
+      font-family: 'TheLastShuriken';
+      font-size: 36px;
+      color: #C92828;
+      margin-bottom: 20px;
     }
-    #contact p{color:#ccc;margin-bottom:50px;font-size:18px;}
-    #contact form{
-      max-width:700px;
-      margin:0 auto;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
+    #watch-live iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 15px;
     }
-    #contact input,#contact textarea{
-      padding:15px;
-      border-radius:10px;
-      border:2px solid #C92828;
-      background:#141414;
-      color:white;
-      font-size:16px;
-      outline:none;
-    }
-    #contact button{
-      padding:15px;
-      background:#C92828;
-      color:white;
-      font-size:18px;
-      font-weight:bold;
-      border:none;
-      border-radius:10px;
-      cursor:pointer;
-      transition:0.3s;
-    }
-    #contact button:hover{background:#ff3a3a;}
 
-    /* Footer */
-    footer{
-      background:#eeeeee;
-      color:#C92828;
-      padding:40px 50px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:20px;
-      border-top:2px solid #C92828;
-      background-image:url('https://i.imgur.com/yx9o2Xe.png');
-      background-repeat:no-repeat;
-      background-size:cover;
-      background-position:center;
+    /* FOOTER */
+    footer {
+      background: #eeeeee url('ink-brush-texture.png') center/cover no-repeat;
+      color: #C92828;
+      padding: 40px 50px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 2px solid #C92828;
     }
-    .footer-socials a{
-      margin-right:15px;
-      color:#C92828;
-      text-decoration:none;
-      font-size:22px;
-      transition:opacity 0.3s;
+    .footer-socials a {
+      margin-right: 15px;
+      color: #C92828;
+      text-decoration: none;
+      font-size: 20px;
     }
-    .footer-socials a:hover{opacity:0.6;}
-    .footer-legal{font-size:14px;color:#C92828;}
+    .footer-socials a img {
+      filter: invert(23%) sepia(92%) saturate(6458%) hue-rotate(351deg) brightness(91%) contrast(119%);
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+    }
+    .footer-legal {
+      font-size: 14px;
+      color: #C92828;
+    }
 
-    /* Mobile */
-    @media(max-width:768px){
-      header{padding:15px 25px;}
-      .menu-toggle{display:block;}
-      nav.nav-links{
-        display:none;
-        flex-direction:column;
-        position:absolute;
-        top:80px;
-        right:0;
-        background:#eeeeee;
-        width:200px;
-        padding:20px;
-        border-left:2px solid #C92828;
-      }
-      nav.nav-links.active{display:flex;}
-      #about{flex-direction:column;padding:50px 20px;}
-      .about-logo img{max-width:200px;}
-      .news-grid{flex-direction:column;align-items:center;}
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      #hero { flex-direction: column; }
+      .hero-left, .hero-right { flex: 1 1 100%; }
+      header { padding: 15px 25px; }
+      nav.nav-links { display: none; flex-direction: column; width: 100%; background: #eeeeee; position: absolute; top: 80px; left: 0; border-top: 2px solid #C92828; }
+      nav.nav-links.active { display: flex; }
+      nav.nav-links a { margin: 15px 0; padding: 10px 20px; }
+      .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; }
+      .about-logo img { max-width: 200px; }
     }
   </style>
 </head>
-
 <body>
+
   <!-- HEADER -->
   <header>
     <a href="/" class="logo">
-      <img src="RONIN_Logo.png" alt="Logo" />
+      <img src="RONIN_Logo.png" alt="Logo">
       <span>RONIN</span>
     </a>
+
     <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+
     <nav class="nav-links">
       <a href="/" class="active">Home</a>
       <a href="partners.html">Partners</a>
@@ -316,91 +237,59 @@
   </header>
 
   <!-- HERO -->
-  <section id="hero"></section>
+  <section id="hero">
+    <div class="hero-left"></div>
+    <div class="hero-right">
+      <div class="news-card">
+        <h3>Ronin Signs Rising Star</h3>
+        <p>Our new player joins the Ronin ranks ahead of the next FNCS season.</p>
+      </div>
+      <div class="news-card">
+        <h3>Partnership Spotlight</h3>
+        <p>Ronin announces a new brand collaboration launching this December.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
-      <p>
-        Ronin Gaming is an esports organization focused on Fortnite and competitive content creation.
-        Our mission is to build a sustainable organization that bridges competition, creativity, and
-        brand innovation — guided by the precision and honor of the samurai spirit.
-      </p>
+      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
     </div>
     <div class="about-logo">
-      <img src="RONIN_Logo.png" alt="About Logo" />
-    </div>
-  </section>
-
-  <!-- NEWS SHOWCASE -->
-  <section id="news-showcase">
-    <h2>Latest From The Dojo</h2>
-    <p>Discover the latest stories, signings, and highlights from the Ronin Gaming world.</p>
-    <div class="news-grid">
-      <div class="news-card">
-        <img src="https://via.placeholder.com/400x200" alt="News 1" />
-        <div class="content">
-          <h3>New Era of Ronin</h3>
-          <p>We’re redefining competitive gaming with discipline, loyalty, and focus — the Ronin way.</p>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="https://via.placeholder.com/400x200" alt="News 2" />
-        <div class="content">
-          <h3>Fortnite Season Begins</h3>
-          <p>Our players sharpen their blades as a new competitive season unfolds.</p>
-        </div>
-      </div>
-      <div class="news-card">
-        <img src="https://via.placeholder.com/400x200" alt="News 3" />
-        <div class="content">
-          <h3>Behind the Content</h3>
-          <p>Meet the creators shaping the future of Ronin through unique storytelling and media.</p>
-        </div>
-      </div>
+      <img src="RONIN_Logo.png" alt="About Logo">
     </div>
   </section>
 
   <!-- WATCH LIVE -->
   <section id="watch-live">
-    <h2>Watch Us Live</h2>
+    <h2>Watch Live</h2>
     <iframe
       src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org"
       allowfullscreen>
     </iframe>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
-    <form action="#" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><i class="fab fa-twitch"></i></a>
+      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
     </div>
     <div class="footer-legal">
       <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
     </div>
   </footer>
 
-  <script src="https://kit.fontawesome.com/2f3c8a0d3d.js" crossorigin="anonymous"></script>
+  <!-- SCRIPT -->
   <script>
-    const menuToggle=document.getElementById('mobile-menu');
-    const navLinks=document.querySelector('nav.nav-links');
-    menuToggle.addEventListener('click',()=>navLinks.classList.toggle('active'));
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('nav.nav-links');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
   </script>
+
 </body>
 </html>
