@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RONIN</title>
 
+  <!-- FONTS -->
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
@@ -78,36 +79,43 @@
 
     nav.nav-links a:hover { color: black; }
 
-    /* HERO SECTION */
+    /* HERO */
     #hero {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: stretch;
       padding: 80px 50px;
-      background: linear-gradient(to top, rgba(201,40,40,0.15), rgba(238,238,238,1)), url('DSC00017.JPG') center/cover no-repeat;
+      background: 
+        linear-gradient(to top, rgba(201,40,40,0.4), rgba(238,238,238,0.1)),
+        url('DSC00017.JPG') center/cover no-repeat;
       color: black;
       min-height: 85vh;
     }
 
-    .hero-content {
+    .hero-left {
       flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
       max-width: 50%;
+      padding-right: 40px;
     }
 
-    .hero-content h1 {
+    .hero-left h1 {
       font-family: 'TheLastShuriken';
       color: #C92828;
       font-size: 64px;
       margin-bottom: 15px;
     }
 
-    .hero-content p {
+    .hero-left p {
       font-size: 20px;
-      color: black;
+      color: #000;
       margin-bottom: 20px;
     }
 
-    .hero-content a {
+    .hero-left a {
       background-color: #C92828;
       color: white;
       padding: 12px 25px;
@@ -117,76 +125,94 @@
       transition: 0.3s;
     }
 
-    .hero-content a:hover { background-color: #a01e1e; }
+    .hero-left a:hover { background-color: #a01e1e; }
 
-    /* NEWS SECTION */
-    .news-section {
-      background-color: #eeeeee;
-      color: black;
-      padding: 80px 50px;
-      background-image: url('ink-texture.png');
-      background-size: cover;
-      background-blend-mode: multiply;
-    }
-
-    .news-section h2 {
-      font-family: 'TheLastShuriken';
-      color: #C92828;
-      text-align: center;
-      font-size: 42px;
-      margin-bottom: 40px;
+    /* HERO NEWS (RIGHT SIDE) */
+    .hero-right {
+      flex: 0 0 35%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      position: relative;
     }
 
     .news-container {
       display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-      transition: opacity 1s ease-in-out;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
     }
 
     .news-card {
-      background: white;
+      display: flex;
+      align-items: center;
+      background: #fff;
       border: 2px solid #C92828;
-      border-radius: 12px;
-      width: 300px;
+      border-radius: 10px;
       overflow: hidden;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(201,40,40,0.3);
+      color: black;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .news-card.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .news-card img {
-      width: 100%;
-      height: 160px;
+      width: 120px;
+      height: 100px;
       object-fit: cover;
+      transition: transform 0.3s ease;
     }
 
-    .news-card h3 {
-      color: #C92828;
+    .news-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .news-info {
+      padding: 15px;
+    }
+
+    .news-info h3 {
       font-family: 'TheLastShuriken';
-      font-size: 22px;
-      margin: 15px 0 5px 0;
+      color: #C92828;
+      font-size: 20px;
+      margin-bottom: 5px;
     }
 
-    .news-card p {
-      font-size: 15px;
+    .news-info p {
+      font-size: 14px;
       color: #333;
-      padding: 0 15px 20px;
+    }
+
+    .progress-bar {
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      height: 4px;
+      width: 0;
+      background-color: #C92828;
+      border-radius: 2px;
+      transition: width 7s linear;
     }
 
     /* WATCH LIVE */
     #watch-live {
-      background:#141414;
-      border-top:2px solid #C92828;
-      text-align:center;
-      padding:80px 50px;
+      background: #141414;
+      border-top: 2px solid #C92828;
+      text-align: center;
+      padding: 80px 50px;
     }
 
     #watch-live h2 {
       font-family: 'TheLastShuriken';
-      font-size:36px;
-      color:#C92828;
-      margin-bottom:20px;
+      font-size: 36px;
+      color: #C92828;
+      margin-bottom: 20px;
     }
 
     #watch-live iframe {
@@ -218,15 +244,13 @@
       font-size: 20px;
     }
 
-    .footer-legal { font-size:14px; color:#C92828; }
+    .footer-legal { font-size: 14px; color: #C92828; }
 
     /* MOBILE */
-    @media (max-width: 768px) {
-      header { padding: 15px 25px; }
+    @media (max-width: 900px) {
+      #hero { flex-direction: column; }
+      .hero-left, .hero-right { max-width: 100%; }
       .tagline { display: none; }
-      #hero { flex-direction: column; text-align: center; }
-      .hero-content { max-width: 100%; }
-      .news-container { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
@@ -252,21 +276,20 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-content">
+    <div class="hero-left">
       <h1>A New Ronin</h1>
       <p>Ronin Gaming steps into a new era — bold, disciplined, and ready to carve its legacy.</p>
-      <a href="#">Read More</a>
+      <a href="#">Read Article</a>
     </div>
-  </section>
 
-  <!-- NEWS -->
-  <section class="news-section">
-    <h2>Latest News</h2>
-    <div class="news-container" id="newsContainer">
-      <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Ronin Expansion</h3><p>New divisions and creators join the fold.</p></div>
-      <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Global Presence</h3><p>Ronin prepares to compete on an international stage.</p></div>
-      <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Player Spotlight</h3><p>Highlighting our top performers of the month.</p></div>
-      <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Behind the Brand</h3><p>Exploring the vision and discipline behind Ronin Gaming.</p></div>
+    <div class="hero-right">
+      <div class="news-container" id="newsContainer">
+        <div class="news-card"><img src="DSC00017.JPG"><div class="news-info"><h3>Ronin Expansion</h3><p>Oct 2025</p></div></div>
+        <div class="news-card"><img src="DSC00017.JPG"><div class="news-info"><h3>Global Presence</h3><p>Oct 2025</p></div></div>
+        <div class="news-card"><img src="DSC00017.JPG"><div class="news-info"><h3>Player Spotlight</h3><p>Oct 2025</p></div></div>
+        <div class="news-card"><img src="DSC00017.JPG"><div class="news-info"><h3>Behind The Brand</h3><p>Oct 2025</p></div></div>
+      </div>
+      <div class="progress-bar" id="progressBar"></div>
     </div>
   </section>
 
@@ -291,19 +314,23 @@
 
   <!-- SCRIPT -->
   <script>
-    const newsContainer = document.getElementById('newsContainer');
-    const newsCards = Array.from(newsContainer.children);
+    const cards = document.querySelectorAll('.news-card');
+    const progressBar = document.getElementById('progressBar');
     let startIndex = 0;
 
-    function showNews() {
-      newsCards.forEach((card, index) => {
-        card.style.display = (index >= startIndex && index < startIndex + 2) ? 'block' : 'none';
-      });
-      startIndex = (startIndex + 2) % newsCards.length;
+    function showCards() {
+      cards.forEach(card => card.classList.remove('show'));
+      for (let i = startIndex; i < startIndex + 2; i++) {
+        const index = i % cards.length;
+        cards[index].classList.add('show');
+      }
+      progressBar.style.width = '0';
+      setTimeout(() => { progressBar.style.width = '100%'; }, 10);
+      startIndex = (startIndex + 2) % cards.length;
     }
 
-    showNews();
-    setInterval(showNews, 7000);
+    showCards();
+    setInterval(showCards, 7000);
   </script>
 </body>
 </html>
