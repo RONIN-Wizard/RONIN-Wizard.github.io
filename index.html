@@ -39,9 +39,24 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-    .logo { display: flex; align-items: center; cursor: pointer; text-decoration: none; }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration:none; }
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 10px;
+    }
+    .logo img {
+      height: 55px;
+      width: auto;
+      vertical-align: middle;
+    }
+    .logo span {
+      font-size: 32px;
+      color: #C92828;
+      letter-spacing: 2px;
+      text-decoration: none;
+      vertical-align: middle;
+    }
 
     nav.nav-links {
       display: flex;
@@ -228,8 +243,14 @@
       text-decoration:none;
       font-size:20px;
     }
-    .footer-socials a img { filter: invert(55%) sepia(95%) saturate(750%) hue-rotate(350deg); width:25px; height:25px; vertical-align:middle; }
-    .footer-socials a:hover img { filter: invert(100%); }
+    .footer-socials a img {
+      filter: none;
+      fill: #C92828;
+      width:25px;
+      height:25px;
+      vertical-align:middle;
+    }
+    .footer-socials a:hover img { opacity: 0.7; }
     .footer-legal { font-size:14px; color:#C92828; }
 
     /* MOBILE RESPONSIVE */
@@ -274,7 +295,7 @@
   <!-- HERO -->
   <section id="hero">
     <h1>Ronin Gaming</h1>
-    <p>Sharpening the Future of Gaming</p>
+    <p>Own The Blade</p>
   </section>
 
   <!-- ABOUT -->
@@ -396,5 +417,3 @@
 
 </body>
 </html>
-
-
