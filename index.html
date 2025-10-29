@@ -16,7 +16,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
-    /* SCROLLBAR - your exact working version */
+    /* SCROLLBAR - restored exactly as you had it */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
@@ -91,8 +91,18 @@
       border-bottom: 2px solid #C92828;
       background: url('DSC00017.JPG') center center / cover no-repeat;
       position: relative;
-      opacity: 0.65; /* image only opacity */
     }
+
+    /* opacity applied only to background via overlay */
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      opacity: 0.65;
+      z-index: 1;
+    }
+
     #hero::after {
       content: "";
       position: absolute;
@@ -108,7 +118,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 140px 60px 80px 60px; /* lowered text */
+      padding: 140px 60px 80px 60px;
       color: white;
       text-shadow: 0 0 15px rgba(0,0,0,0.7);
     }
@@ -157,44 +167,45 @@
       position: absolute;
       width: 100%;
       opacity: 0;
-      transition: opacity 2.5s ease-in-out;
+      transition: opacity 3s ease-in-out;
     }
     .news-group.active { opacity: 1; }
 
     .news-card {
       background: #f9f9f9;
       border-left: 5px solid #C92828;
-      padding: 15px;
+      padding: 12px;
       border-radius: 10px;
       color: #141414;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+      transform: scale(0.98);
     }
     .news-card img {
       width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
     }
     .news-card h3 {
       font-family: 'TheLastShuriken';
-      font-size: 22px;
+      font-size: 20px;
       color: #C92828;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .news-card p {
       font-family: 'Montserrat';
-      font-size: 16px;
+      font-size: 15px;
       color: #333;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .news-card a {
       display: inline-block;
       font-family: 'Montserrat';
       background: #C92828;
       color: #fff;
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 5px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     /* ABOUT */
