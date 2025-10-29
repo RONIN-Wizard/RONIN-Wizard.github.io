@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RONIN</title>
-  <link rel="stylesheet" href="style.css">
+
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
@@ -27,194 +27,168 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 50px;
       background-color: #eeeeee;
-      background-image: url('ink-brush-texture.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
+      padding: 20px 50px;
       position: sticky;
       top: 0;
       z-index: 1000;
       border-bottom: 2px solid #C92828;
+      background-image: url('ink-texture.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-blend-mode: multiply;
     }
+
     .logo {
       display: flex;
       align-items: center;
+      gap: 10px;
       text-decoration: none;
-      gap: 8px;
     }
-    .logo img {
-      height: 45px;
-      width: auto;
-    }
+
+    .logo img { height: 50px; width: auto; }
     .logo span {
       font-family: 'TheLastShuriken';
       font-size: 28px;
       color: #C92828;
-      letter-spacing: 2px;
+    }
+
+    .tagline {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'TheLastShuriken';
+      color: #C92828;
+      font-size: 22px;
     }
 
     nav.nav-links {
       display: flex;
       align-items: center;
+      gap: 25px;
     }
+
     nav.nav-links a {
-      font-family: 'TheLastShuriken';
       color: #C92828;
       text-decoration: none;
-      margin-left: 25px;
       font-size: 18px;
       transition: color 0.3s;
+      font-family: 'TheLastShuriken';
     }
-    nav.nav-links a:hover { color: #000; }
 
-    .menu-toggle {
-      display: none;
-      font-size: 30px;
-      color: #C92828;
-      cursor: pointer;
-    }
+    nav.nav-links a:hover { color: black; }
 
     /* HERO SECTION */
     #hero {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      align-items: stretch;
-      padding: 0;
-      height: 90vh;
-      border-bottom: 2px solid #C92828;
-      background: url('DSC00017.JPG') center center / cover no-repeat;
-      position: relative;
+      align-items: center;
+      padding: 80px 50px;
+      background: linear-gradient(to top, rgba(201,40,40,0.15), rgba(238,238,238,1)), url('DSC00017.JPG') center/cover no-repeat;
+      color: black;
+      min-height: 85vh;
     }
 
-    #hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(20,20,20,0.6) 0%, rgba(201,40,40,0.2) 80%);
-      z-index: 1;
+    .hero-content {
+      flex: 1;
+      max-width: 50%;
     }
 
-    .hero-left {
-      position: relative;
-      z-index: 2;
-      flex: 1 1 55%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 100px 60px;
-      color: white;
-      text-shadow: 0 0 15px rgba(0,0,0,0.7);
-    }
-
-    .hero-left h1 {
+    .hero-content h1 {
       font-family: 'TheLastShuriken';
-      font-size: 60px;
       color: #C92828;
+      font-size: 64px;
       margin-bottom: 15px;
     }
-    .hero-left p {
-      font-family: 'Montserrat';
-      font-size: 18px;
-      color: #eee;
-      margin-bottom: 25px;
-      max-width: 600px;
-    }
-    .read-more {
-      display: inline-block;
-      background: #C92828;
-      color: white;
-      font-family: 'TheLastShuriken';
-      text-decoration: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-    .read-more:hover {
-      background: #a71e1e;
+
+    .hero-content p {
+      font-size: 20px;
+      color: black;
+      margin-bottom: 20px;
     }
 
-    .hero-right {
-      position: relative;
-      z-index: 2;
-      flex: 1 1 35%;
+    .hero-content a {
+      background-color: #C92828;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero-content a:hover { background-color: #a01e1e; }
+
+    /* NEWS SECTION */
+    .news-section {
+      background-color: #eeeeee;
+      color: black;
+      padding: 80px 50px;
+      background-image: url('ink-texture.png');
+      background-size: cover;
+      background-blend-mode: multiply;
+    }
+
+    .news-section h2 {
+      font-family: 'TheLastShuriken';
+      color: #C92828;
+      text-align: center;
+      font-size: 42px;
+      margin-bottom: 40px;
+    }
+
+    .news-container {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 20px;
-      padding: 60px;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      transition: opacity 1s ease-in-out;
     }
 
     .news-card {
-      background: #f9f9f9;
-      border-left: 5px solid #C92828;
-      padding: 25px;
-      border-radius: 10px;
-      color: #141414;
-      transition: all 0.3s ease;
-    }
-    .news-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(201,40,40,0.2);
-    }
-    .news-card h3 {
-      font-family: 'TheLastShuriken';
-      font-size: 22px;
-      color: #C92828;
-      margin-bottom: 10px;
-    }
-    .news-card p {
-      font-family: 'Montserrat';
-      font-size: 16px;
-      color: #333;
+      background: white;
+      border: 2px solid #C92828;
+      border-radius: 12px;
+      width: 300px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(201,40,40,0.3);
     }
 
-    /* ABOUT */
-    #about {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 100px 50px;
-      gap: 40px;
-      background: #eeeeee url('ink-brush-texture.png') center/cover no-repeat;
-      color: #000;
-      border-top: 2px solid #C92828;
+    .news-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
     }
-    #about h2 {
-      font-family: 'TheLastShuriken';
+
+    .news-card h3 {
       color: #C92828;
-      margin-bottom: 20px;
+      font-family: 'TheLastShuriken';
+      font-size: 22px;
+      margin: 15px 0 5px 0;
     }
-    .about-text {
-      flex: 1 1 500px;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-    .about-logo {
-      flex: 1 1 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .about-logo img {
-      max-width: 280px;
+
+    .news-card p {
+      font-size: 15px;
+      color: #333;
+      padding: 0 15px 20px;
     }
 
     /* WATCH LIVE */
     #watch-live {
-      background: #141414;
-      border-top: 2px solid #C92828;
-      text-align: center;
-      padding: 80px 50px;
+      background:#141414;
+      border-top:2px solid #C92828;
+      text-align:center;
+      padding:80px 50px;
     }
+
     #watch-live h2 {
       font-family: 'TheLastShuriken';
-      font-size: 36px;
-      color: #C92828;
-      margin-bottom: 20px;
+      font-size:36px;
+      color:#C92828;
+      margin-bottom:20px;
     }
+
     #watch-live iframe {
       width: 100%;
       max-width: 800px;
@@ -225,47 +199,39 @@
 
     /* FOOTER */
     footer {
-      background: #eeeeee url('ink-brush-texture.png') center/cover no-repeat;
+      background-color: #eeeeee;
       color: #C92828;
       padding: 40px 50px;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 20px;
+      background-image: url('ink-texture.png');
+      background-size: cover;
+      background-blend-mode: multiply;
       border-top: 2px solid #C92828;
     }
+
     .footer-socials a {
       margin-right: 15px;
       color: #C92828;
       text-decoration: none;
       font-size: 20px;
     }
-    .footer-socials a img {
-      filter: invert(23%) sepia(92%) saturate(6458%) hue-rotate(351deg) brightness(91%) contrast(119%);
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-    }
-    .footer-legal {
-      font-size: 14px;
-      color: #C92828;
-    }
 
-    /* RESPONSIVE */
-    @media (max-width: 950px) {
-      #hero { flex-direction: column; height: auto; }
-      .hero-left, .hero-right { flex: 1 1 100%; padding: 40px 30px; }
+    .footer-legal { font-size:14px; color:#C92828; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
       header { padding: 15px 25px; }
-      nav.nav-links { display: none; flex-direction: column; width: 100%; background: #eeeeee; position: absolute; top: 80px; left: 0; border-top: 2px solid #C92828; }
-      nav.nav-links.active { display: flex; }
-      nav.nav-links a { margin: 15px 0; padding: 10px 20px; }
-      .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; }
-      .about-logo img { max-width: 200px; }
+      .tagline { display: none; }
+      #hero { flex-direction: column; text-align: center; }
+      .hero-content { max-width: 100%; }
+      .news-container { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
-<body>
 
+<body>
   <!-- HEADER -->
   <header>
     <a href="/" class="logo">
@@ -273,7 +239,7 @@
       <span>RONIN</span>
     </a>
 
-    <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+    <span class="tagline">#OwnTheBlade</span>
 
     <nav class="nav-links">
       <a href="/" class="active">Home</a>
@@ -286,61 +252,58 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-left">
-      <h1>Ronin Expands</h1>
-      <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
-      <a href="#" class="read-more">Read More</a>
-    </div>
-    <div class="hero-right">
-      <div class="news-card">
-        <h3>New Signing</h3>
-        <p>Welcome the latest competitor joining Ronin’s elite roster.</p>
-      </div>
-      <div class="news-card">
-        <h3>Brand Collab</h3>
-        <p>Ronin partners with upcoming tech brand for exclusive launches.</p>
-      </div>
+    <div class="hero-content">
+      <h1>A New Ronin</h1>
+      <p>Ronin Gaming steps into a new era — bold, disciplined, and ready to carve its legacy.</p>
+      <a href="#">Read More</a>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-text">
-      <h2>About Us</h2>
-      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
-    </div>
-    <div class="about-logo">
-      <img src="RONIN_Logo.png" alt="About Logo">
+  <!-- NEWS -->
+  <section class="news-section">
+    <h2>Latest News</h2>
+    <div class="news-container" id="newsContainer">
+      <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Ronin Expansion</h3><p>New divisions and creators join the fold.</p></div>
+      <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Global Presence</h3><p>Ronin prepares to compete on an international stage.</p></div>
+      <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Player Spotlight</h3><p>Highlighting our top performers of the month.</p></div>
+      <div class="news-card"><img src="DSC00017.JPG" alt=""><h3>Behind the Brand</h3><p>Exploring the vision and discipline behind Ronin Gaming.</p></div>
     </div>
   </section>
 
   <!-- WATCH LIVE -->
   <section id="watch-live">
     <h2>Watch Live</h2>
-    <iframe
-      src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org"
-      allowfullscreen>
-    </iframe>
+    <iframe src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org" allowfullscreen></iframe>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+      <a href="https://x.com/Roninggs" target="_blank">Twitter</a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank">YouTube</a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank">TikTok</a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank">Twitch</a>
     </div>
     <div class="footer-legal">
       <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- SCRIPT -->
   <script>
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('nav.nav-links');
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-  </script>
+    const newsContainer = document.getElementById('newsContainer');
+    const newsCards = Array.from(newsContainer.children);
+    let startIndex = 0;
 
+    function showNews() {
+      newsCards.forEach((card, index) => {
+        card.style.display = (index >= startIndex && index < startIndex + 2) ? 'block' : 'none';
+      });
+      startIndex = (startIndex + 2) % newsCards.length;
+    }
+
+    showNews();
+    setInterval(showNews, 7000);
+  </script>
 </body>
 </html>
