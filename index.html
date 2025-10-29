@@ -17,14 +17,14 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: 'TheLastShuriken', sans-serif;
-      background-color: #000;
+      background-color: #141414;
       color: white;
       transition: opacity 1s ease;
     }
 
     /* SCROLLBAR */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-track { background: #141414; }
     ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
 
     /* HEADER */
@@ -82,7 +82,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(0,0,0,1) 100%);
+      background: linear-gradient(180deg, rgba(201,40,40,0.1) 0%, rgba(20,20,20,1) 100%);
       padding: 0 20px;
     }
     #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px black; }
@@ -96,7 +96,7 @@
       justify-content: space-between;
       padding: 100px 50px;
       gap: 40px;
-      background: #111;
+      background: #141414;
       border-top: 2px solid #C92828;
     }
     .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
@@ -106,7 +106,7 @@
 
     /* WATCH LIVE (Twitch embed) */
     #watch-live {
-      background:#111;
+      background:#141414;
       border-top:2px solid #C92828;
       text-align:center;
       padding:80px 50px;
@@ -116,7 +116,7 @@
 
     /* LATEST NEWS (Carousel) */
     #news {
-      background:#000;
+      background:#141414;
       padding:80px 50px;
       border-top:2px solid #C92828;
       color:white;
@@ -139,7 +139,7 @@
     }
     .news-card {
       flex: 0 0 100%;
-      background:#111;
+      background:#1b1b1b;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
@@ -194,7 +194,7 @@
 
     /* CONTACT US */
     #contact {
-      background:#111; 
+      background:#141414; 
       border-top:2px solid #C92828; 
       padding:80px 50px; 
       color:white; 
@@ -208,7 +208,7 @@
       padding:15px;
       border-radius:10px;
       border:2px solid #C92828;
-      background:#111;
+      background:#141414;
       color:white;
       font-size:16px;
       outline:none;
@@ -309,7 +309,7 @@
     </div>
   </section>
 
-  <!-- WATCH LIVE (Twitch Embed) -->
+  <!-- WATCH LIVE -->
   <section id="watch-live">
     <h2>Watch Live</h2>
     <iframe
@@ -318,7 +318,7 @@
     </iframe>
   </section>
 
-  <!-- LATEST NEWS (Carousel) -->
+  <!-- LATEST NEWS -->
   <section id="news">
     <h2>Latest News</h2>
     <div class="news-carousel">
@@ -355,7 +355,7 @@
     </div>
   </section>
 
-  <!-- CONTACT US -->
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Have questions or inquiries? Send us a message and we’ll get back to you.</p>
@@ -382,7 +382,7 @@
     </div>
   </footer>
 
-  <!-- MOBILE MENU & NEWS CAROUSEL SCRIPT -->
+  <!-- SCRIPT -->
   <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('nav.nav-links');
