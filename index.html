@@ -16,17 +16,18 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
+    /* SCROLLBAR - your exact working version */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+    html { scrollbar-width: thin; scrollbar-color: #C92828 #000; }
+
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #141414;
       color: white;
       transition: opacity 1s ease;
     }
-
-    /* SCROLLBAR - slim */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
 
     /* HEADER */
     header {
@@ -40,19 +41,8 @@
       z-index: 1000;
       border-bottom: 2px solid #C92828;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      gap: 8px;
-    }
-
-    .logo img {
-      height: 45px;
-      width: auto;
-    }
-
+    .logo { display: flex; align-items: center; text-decoration: none; gap: 8px; }
+    .logo img { height: 45px; width: auto; }
     .logo span {
       font-family: 'TheLastShuriken';
       font-size: 28px;
@@ -74,7 +64,6 @@
       display: flex;
       align-items: center;
     }
-
     nav.nav-links a {
       font-family: 'TheLastShuriken';
       color: #C92828;
@@ -83,9 +72,7 @@
       font-size: 18px;
       transition: color 0.3s;
     }
-
     nav.nav-links a:hover { color: #000; }
-
     .menu-toggle {
       display: none;
       font-size: 30px;
@@ -104,8 +91,8 @@
       border-bottom: 2px solid #C92828;
       background: url('DSC00017.JPG') center center / cover no-repeat;
       position: relative;
+      opacity: 0.65; /* image only opacity */
     }
-
     #hero::after {
       content: "";
       position: absolute;
@@ -120,28 +107,24 @@
       flex: 1 1 55%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: 70px 60px; /* raised text */
+      justify-content: flex-end;
+      padding: 140px 60px 80px 60px; /* lowered text */
       color: white;
       text-shadow: 0 0 15px rgba(0,0,0,0.7);
     }
-
     .hero-left h1 {
       font-family: 'TheLastShuriken';
       font-size: 60px;
       color: #C92828;
       margin-bottom: 15px;
     }
-
     .hero-left p {
       font-family: 'Montserrat';
       font-size: 18px;
       color: #eee;
       margin-bottom: 25px;
       max-width: 600px;
-      text-shadow: 0 0 10px rgba(0,0,0,0.7);
     }
-
     .read-more {
       display: inline-block;
       background: #C92828;
@@ -152,10 +135,7 @@
       border-radius: 8px;
       transition: background 0.3s;
     }
-
-    .read-more:hover {
-      background: #a71e1e;
-    }
+    .read-more:hover { background: #a71e1e; }
 
     .hero-right {
       position: relative;
@@ -168,48 +148,53 @@
       padding: 60px;
     }
 
+    .news-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .news-group {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 2.5s ease-in-out;
+    }
+    .news-group.active { opacity: 1; }
+
     .news-card {
       background: #f9f9f9;
       border-left: 5px solid #C92828;
-      padding: 25px;
+      padding: 15px;
       border-radius: 10px;
       color: #141414;
-      transition: all 0.3s ease;
+      margin-bottom: 15px;
     }
-
-    .news-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(201,40,40,0.2);
+    .news-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
-
     .news-card h3 {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       font-family: 'TheLastShuriken';
       font-size: 22px;
       color: #C92828;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-
-    .news-card h3 a {
-      font-family: 'TheLastShuriken';
-      font-size: 16px;
-      text-decoration: none;
-      color: #C92828;
-      background: #C92828;
-      color: white;
-      padding: 4px 10px;
-      border-radius: 5px;
-      transition: 0.3s;
-    }
-
-    .news-card h3 a:hover { background: #a71e1e; }
-
     .news-card p {
       font-family: 'Montserrat';
       font-size: 16px;
       color: #333;
+      margin-bottom: 10px;
+    }
+    .news-card a {
+      display: inline-block;
+      font-family: 'Montserrat';
+      background: #C92828;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
     }
 
     /* ABOUT */
@@ -223,29 +208,23 @@
       color: #000;
       border-top: 2px solid #C92828;
     }
-
     #about h2 {
       font-family: 'TheLastShuriken';
       color: #C92828;
       margin-bottom: 20px;
     }
-
     .about-text {
       flex: 1 1 500px;
       font-size: 18px;
       line-height: 1.8;
     }
-
     .about-logo {
       flex: 1 1 300px;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
-    .about-logo img {
-      max-width: 280px;
-    }
+    .about-logo img { max-width: 280px; }
 
     /* WATCH LIVE */
     #watch-live {
@@ -254,14 +233,12 @@
       text-align: center;
       padding: 80px 50px;
     }
-
     #watch-live h2 {
       font-family: 'TheLastShuriken';
       font-size: 36px;
       color: #C92828;
       margin-bottom: 20px;
     }
-
     #watch-live iframe {
       width: 100%;
       max-width: 800px;
@@ -281,27 +258,23 @@
       gap: 20px;
       border-top: 2px solid #C92828;
     }
-
     .footer-socials a {
       margin-right: 15px;
       color: #C92828;
       text-decoration: none;
       font-size: 20px;
     }
-
     .footer-socials a img {
       filter: invert(23%) sepia(92%) saturate(6458%) hue-rotate(351deg) brightness(91%) contrast(119%);
       width: 25px;
       height: 25px;
       vertical-align: middle;
     }
-
     .footer-legal {
       font-size: 14px;
       color: #C92828;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 950px) {
       #hero { flex-direction: column; height: auto; }
       .hero-left, .hero-right { flex: 1 1 100%; padding: 40px 30px; }
@@ -317,7 +290,6 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header>
     <a href="/" class="logo">
       <img src="RONIN_Logo.png" alt="Logo">
@@ -337,26 +309,48 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <section id="hero">
     <div class="hero-left">
       <h1>A New Ronin</h1>
       <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
       <a href="#" class="read-more">Read More</a>
     </div>
+
     <div class="hero-right">
-      <div class="news-card">
-        <h3>New Signing <a href="news.html">READ MORE</a></h3>
-        <p>Welcome the latest competitor joining Ronin’s elite roster.</p>
-      </div>
-      <div class="news-card">
-        <h3>Brand Collab <a href="news.html">READ MORE</a></h3>
-        <p>Ronin partners with upcoming tech brand for exclusive launches.</p>
+      <div class="news-container">
+        <div class="news-group active">
+          <div class="news-card">
+            <img src="DSC00017.JPG" alt="News">
+            <h3>Esports Expansion</h3>
+            <p>Ronin broadens its reach into new competitive scenes.</p>
+            <a href="news.html">Read More</a>
+          </div>
+          <div class="news-card">
+            <img src="DSC00017.JPG" alt="News">
+            <h3>New Partnership</h3>
+            <p>Collaboration with high-end apparel brand unveiled soon.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+
+        <div class="news-group">
+          <div class="news-card">
+            <img src="DSC00017.JPG" alt="News">
+            <h3>Roster Update</h3>
+            <p>Ronin announces roster changes ahead of the new season.</p>
+            <a href="news.html">Read More</a>
+          </div>
+          <div class="news-card">
+            <img src="DSC00017.JPG" alt="News">
+            <h3>Community Event</h3>
+            <p>Join Ronin’s community tournament this weekend.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
@@ -367,13 +361,11 @@
     </div>
   </section>
 
-  <!-- WATCH LIVE -->
   <section id="watch-live">
     <h2>Watch Live</h2>
     <iframe src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org" allowfullscreen></iframe>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
       <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
@@ -387,9 +379,13 @@
   </footer>
 
   <script>
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('nav.nav-links');
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    const newsGroups = document.querySelectorAll('.news-group');
+    let currentGroup = 0;
+    setInterval(() => {
+      newsGroups[currentGroup].classList.remove('active');
+      currentGroup = (currentGroup + 1) % newsGroups.length;
+      newsGroups[currentGroup].classList.add('active');
+    }, 8000);
   </script>
 
 </body>
