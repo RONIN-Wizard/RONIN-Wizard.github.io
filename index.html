@@ -71,7 +71,7 @@
       padding: 0 20px;
     }
     #hero h1 { font-size: 72px; color: #C92828; margin-bottom: 15px; text-shadow: 2px 2px 5px #000; }
-    #hero p { font-size: 26px; color: #000; max-width: 800px; text-shadow: 1px 1px 3px #000; }
+    #hero p { font-size: 26px; color: #fff; max-width: 800px; text-shadow: 1px 1px 3px #000; }
 
     /* ABOUT */
     #about {
@@ -81,10 +81,10 @@
       justify-content: space-between;
       padding: 100px 50px;
       gap: 40px;
-      background: #eeeeee;
+      background: #000;
       border-top: 2px solid #C92828;
     }
-    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; }
+    .about-text { flex: 1 1 500px; font-size: 18px; line-height: 1.8; color: #fff; }
     #about h2 { color: #C92828; }
     .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 250px; }
@@ -213,8 +213,8 @@
 
     /* FOOTER */
     footer {
-      background:#eeeeee;
-      color:#000;
+      background:#000;
+      color:#C92828;
       padding:40px 50px;
       display:flex;
       justify-content:space-between;
@@ -224,13 +224,13 @@
     }
     .footer-socials a {
       margin-right:15px;
-      color:#000;
+      color:#C92828;
       text-decoration:none;
       font-size:20px;
     }
-    .footer-socials a img { filter: invert(0%); width:25px; height:25px; vertical-align:middle; }
-    .footer-socials a:hover img { filter: invert(55%) sepia(95%) saturate(750%) hue-rotate(350deg); }
-    .footer-legal { font-size:14px; color:#333; }
+    .footer-socials a img { filter: invert(55%) sepia(95%) saturate(750%) hue-rotate(350deg); width:25px; height:25px; vertical-align:middle; }
+    .footer-socials a:hover img { filter: invert(100%); }
+    .footer-legal { font-size:14px; color:#C92828; }
 
     /* MOBILE RESPONSIVE */
     @media (max-width: 768px) {
@@ -256,7 +256,7 @@
   <!-- HEADER -->
   <header>
     <a href="/" class="logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Logo">
+      <img src="IMG_4219.PNG" alt="Logo">
       <span>RONIN</span>
     </a>
 
@@ -274,7 +274,7 @@
   <!-- HERO -->
   <section id="hero">
     <h1>Ronin Gaming</h1>
-    <p>Sharpening the Future of Gaming</p>
+    <p>Own The Blade</p>
   </section>
 
   <!-- ABOUT -->
@@ -284,11 +284,11 @@
       <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
     </div>
     <div class="about-logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="About Logo">
+      <img src="IMG_4219.PNG" alt="About Logo">
     </div>
   </section>
 
-  <!-- WATCH LIVE (Twitch Embed) -->
+  <!-- WATCH LIVE -->
   <section id="watch-live">
     <h2>Watch Live</h2>
     <iframe
@@ -297,7 +297,7 @@
     </iframe>
   </section>
 
-  <!-- LATEST NEWS (Carousel) -->
+  <!-- LATEST NEWS -->
   <section id="news">
     <h2>Latest News</h2>
     <div class="news-carousel">
@@ -361,11 +361,10 @@
     </div>
   </footer>
 
-  <!-- MOBILE MENU & NEWS CAROUSEL SCRIPT -->
+  <!-- SCRIPT -->
   <script>
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('nav.nav-links');
-
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
@@ -396,4 +395,5 @@
 
 </body>
 </html>
+
 
