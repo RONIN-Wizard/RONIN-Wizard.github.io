@@ -22,14 +22,10 @@
       transition: opacity 1s ease;
     }
 
-    /* CUSTOM RED SCROLLBAR */
+    /* SCROLLBAR */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #141414; }
-    ::-webkit-scrollbar-thumb {
-      background-color: #C92828;
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover { background-color: #a71e1e; }
+    ::-webkit-scrollbar-thumb { background-color: #C92828; }
     html { scrollbar-width: thin; scrollbar-color: #C92828 #141414; }
 
     /* HEADER */
@@ -39,37 +35,28 @@
       align-items: center;
       padding: 20px 50px;
       background-color: #eeeeee;
+      border-bottom: 2px solid #C92828;
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 2px solid #C92828;
     }
     .logo {
       display: flex;
       align-items: center;
-      text-decoration: none;
       gap: 8px;
+      text-decoration: none;
     }
     .logo img { height: 45px; width: auto; }
     .logo span {
       font-family: 'TheLastShuriken';
       font-size: 28px;
       color: #C92828;
-      letter-spacing: 2px;
     }
-    .center-header-text {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+    .center-text {
       font-family: 'TheLastShuriken';
-      font-size: 22px;
       color: #C92828;
-      letter-spacing: 2px;
-    }
-
-    nav.nav-links {
-      display: flex;
-      align-items: center;
+      font-size: 22px;
+      letter-spacing: 1px;
     }
     nav.nav-links a {
       font-family: 'TheLastShuriken';
@@ -81,51 +68,34 @@
     }
     nav.nav-links a:hover { color: #000; }
 
-    .menu-toggle {
-      display: none;
-      font-size: 30px;
-      color: #C92828;
-      cursor: pointer;
-    }
-
-    /* HERO SECTION */
+    /* HERO */
     #hero {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: stretch;
-      padding: 0;
       height: 90vh;
       border-bottom: 2px solid #C92828;
+      background: rgba(0, 0, 0, 0.7);
       position: relative;
-      overflow: hidden;
     }
+
     #hero::before {
       content: "";
-      position: absolute;
-      inset: 0;
       background: url('DSC00017.JPG') center center / cover no-repeat;
       opacity: 0.65;
-      z-index: 0;
-    }
-    #hero::after {
-      content: "";
       position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(20,20,20,0.6) 0%, rgba(201,40,40,0.2) 80%);
-      z-index: 1;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
     }
 
     .hero-left {
       position: relative;
-      z-index: 2;
+      z-index: 1;
       flex: 1 1 55%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 100px 60px;
-      color: white;
-      text-shadow: 0 0 15px rgba(0,0,0,0.7);
     }
     .hero-left h1 {
       font-family: 'TheLastShuriken';
@@ -152,31 +122,18 @@
     }
     .read-more:hover { background: #a71e1e; }
 
+    /* NEWS CAROUSEL */
     .hero-right {
       position: relative;
-      z-index: 2;
+      z-index: 1;
       flex: 1 1 35%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      gap: 20px;
       padding: 60px;
     }
-
-    .news-carousel {
-      position: relative;
-      width: 100%;
-      display: flex;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .news-set {
-      display: none;
-      width: 100%;
-      transition: opacity 0.5s ease-in-out;
-    }
-    .news-set.active { display: flex; flex-direction: column; gap: 20px; }
 
     .news-card {
       background: #f9f9f9;
@@ -184,26 +141,36 @@
       padding: 20px;
       border-radius: 10px;
       color: #141414;
-      transition: all 0.3s ease;
+      width: 95%;
+      max-width: 400px;
+      text-align: left;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      position: absolute;
     }
-    .news-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(201,40,40,0.2);
+
+    .news-card.active {
+      opacity: 1;
+      position: relative;
     }
+
     .news-card img {
       width: 100%;
-      border-radius: 8px;
-      margin-bottom: 10px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 15px;
     }
+
     .news-card h3 {
       font-family: 'TheLastShuriken';
       font-size: 22px;
       color: #C92828;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .news-card p {
       font-family: 'Montserrat';
-      font-size: 16px;
+      font-size: 15px;
       color: #333;
     }
 
@@ -285,20 +252,15 @@
       color: #C92828;
     }
 
-    /* RESPONSIVE */
+    /* MOBILE */
     @media (max-width: 950px) {
       #hero { flex-direction: column; height: auto; }
       .hero-left, .hero-right { flex: 1 1 100%; padding: 40px 30px; }
-      header { padding: 15px 25px; }
-      nav.nav-links { display: none; flex-direction: column; width: 100%; background: #eeeeee; position: absolute; top: 80px; left: 0; border-top: 2px solid #C92828; }
-      nav.nav-links.active { display: flex; }
-      nav.nav-links a { margin: 15px 0; padding: 10px 20px; }
-      .menu-toggle { display: block; position: absolute; top: 20px; right: 20px; }
-      .about-logo img { max-width: 200px; }
-      .center-header-text { display: none; }
+      .news-card { max-width: 100%; }
     }
   </style>
 </head>
+
 <body>
 
   <!-- HEADER -->
@@ -307,8 +269,7 @@
       <img src="RONIN_Logo.png" alt="Logo">
       <span>RONIN</span>
     </a>
-    <div class="center-header-text">#OwnTheBlade</div>
-    <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+    <div class="center-text">#OwnTheBlade</div>
     <nav class="nav-links">
       <a href="/" class="active">Home</a>
       <a href="partners.html">Partners</a>
@@ -325,34 +286,26 @@
       <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
       <a href="#" class="read-more">Read More</a>
     </div>
-
     <div class="hero-right">
-      <div class="news-carousel">
-        <div class="news-set active">
-          <div class="news-card">
-            <img src="DSC00017.JPG" alt="News Image">
-            <h3>New Signing</h3>
-            <p>Welcome the latest competitor joining Ronin’s elite roster.</p>
-          </div>
-          <div class="news-card">
-            <img src="DSC00017.JPG" alt="News Image">
-            <h3>Brand Collab</h3>
-            <p>Ronin partners with upcoming tech brand for exclusive launches.</p>
-          </div>
-        </div>
-
-        <div class="news-set">
-          <div class="news-card">
-            <img src="DSC00017.JPG" alt="News Image">
-            <h3>Event Recap</h3>
-            <p>Catch the highlights from Ronin’s latest Fortnite tournament.</p>
-          </div>
-          <div class="news-card">
-            <img src="DSC00017.JPG" alt="News Image">
-            <h3>New Partnership</h3>
-            <p>Ronin announces a strategic partnership for 2026 expansion.</p>
-          </div>
-        </div>
+      <div class="news-card active">
+        <img src="DSC00017.JPG" alt="News 1">
+        <h3>Event Recap</h3>
+        <p>Catch the highlights from Ronin’s latest Fortnite tournament.</p>
+      </div>
+      <div class="news-card">
+        <img src="DSC00017.JPG" alt="News 2">
+        <h3>New Player Joins</h3>
+        <p>Ronin welcomes its newest competitor to the roster.</p>
+      </div>
+      <div class="news-card">
+        <img src="DSC00017.JPG" alt="News 3">
+        <h3>Partnership Announcement</h3>
+        <p>Ronin teams up with a new sponsor for future events.</p>
+      </div>
+      <div class="news-card">
+        <img src="DSC00017.JPG" alt="News 4">
+        <h3>Behind The Scenes</h3>
+        <p>Exclusive look into the preparation behind our next major event.</p>
       </div>
     </div>
   </section>
@@ -388,18 +341,13 @@
   </footer>
 
   <script>
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('nav.nav-links');
-    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-
-    // NEWS CAROUSEL
-    const newsSets = document.querySelectorAll('.news-set');
-    let currentSet = 0;
+    const cards = document.querySelectorAll('.news-card');
+    let currentIndex = 0;
 
     setInterval(() => {
-      newsSets[currentSet].classList.remove('active');
-      currentSet = (currentSet + 1) % newsSets.length;
-      newsSets[currentSet].classList.add('active');
+      cards[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % cards.length;
+      cards[currentIndex].classList.add('active');
     }, 6000);
   </script>
 
