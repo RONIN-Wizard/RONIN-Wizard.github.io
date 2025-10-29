@@ -93,7 +93,7 @@
       position: absolute;
       inset: 0;
       background: rgba(0, 0, 0, 0.175);
-      opacity: 0.325; /* reduced by 50% */
+      opacity: 0.325;
       z-index: 1;
     }
 
@@ -149,80 +149,68 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
+      padding: 80px 70px 80px 0;
       gap: 25px;
-      padding: 70px 40px 100px 0; /* moved further right */
-      overflow: visible;
     }
 
-    .news-container {
-      position: relative;
-      width: 100%;
-      max-height: 100%;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      flex-direction: column;
-    }
     .news-group {
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 20px;
       opacity: 0;
       transition: opacity 1s ease-in-out;
       pointer-events: none;
     }
-    .news-group.active { opacity: 1; pointer-events: auto; }
+    .news-group.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
     .news-card {
       background: #ffffff;
       border: 2px solid #C92828;
-      padding: 0;
       border-radius: 12px;
-      color: #000;
-      margin-bottom: 18px;
       overflow: hidden;
-      position: relative;
-      max-width: 360px;
+      color: #000;
+      width: 340px;
+      box-shadow: 0 3px 10px rgba(201, 40, 40, 0.1);
     }
     .news-card img {
       width: 100%;
-      height: auto;
-      max-height: 160px;
+      height: 150px;
       object-fit: cover;
-      border-radius: 0;
-      margin-bottom: 0;
-      display: block;
     }
     .news-card-content {
-      padding: 10px 12px;
-      background: rgba(255, 255, 255, 0.95);
+      padding: 12px 15px;
+      background: rgba(255,255,255,0.95);
     }
     .news-card h3 {
       font-family: 'TheLastShuriken';
-      font-size: 16px;
+      font-size: 17px;
       color: #C92828;
       margin-bottom: 5px;
-      font-weight: normal;
     }
     .news-card .news-meta {
       font-family: 'Montserrat';
-      font-size: 10px;
-      color: #000;
-      margin-bottom: 6px;
-      text-transform: uppercase;
+      font-size: 11px;
       font-weight: 600;
+      color: #000;
+      margin-bottom: 5px;
+      text-transform: uppercase;
     }
     .news-card p {
       font-family: 'Montserrat';
       font-size: 12px;
       color: #000;
-      margin-bottom: 8px;
-      line-height: 1.3;
+      margin-bottom: 10px;
     }
     .news-card a {
       display: inline-block;
       font-family: 'Montserrat';
       background: #C92828;
       color: #fff;
-      padding: 5px 10px;
+      padding: 6px 12px;
       border-radius: 5px;
       text-decoration: none;
       font-size: 11px;
@@ -232,9 +220,9 @@
 
     .news-scroll-indicator {
       position: absolute;
-      bottom: -25px;
-      right: 50%;
-      transform: translateX(50%);
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 3;
       width: 45px;
       height: 45px;
@@ -250,7 +238,6 @@
     .news-scroll-indicator:hover { background: #a71e1e; }
     .news-scroll-indicator svg { width: 24px; height: 24px; fill: white; }
 
-    /* ABOUT */
     #about {
       display: flex;
       align-items: center;
@@ -279,7 +266,6 @@
     }
     .about-logo img { max-width: 280px; }
 
-    /* WATCH LIVE */
     #watch-live {
       background: #141414;
       border-top: 2px solid #C92828;
@@ -357,54 +343,31 @@
     </div>
 
     <div class="hero-right">
-      <div class="news-container">
-        <div class="news-group active">
-          <div class="news-card">
-            <img src="DSC00017.JPG" alt="News">
-            <div class="news-card-content">
-              <div class="news-meta">16 OCT 25</div>
-              <h3>Esports Expansion</h3>
-              <p>Ronin broadens its reach into new competitive scenes.</p>
-              <a href="news.html">Read More</a>
-            </div>
-          </div>
-          <div class="news-card">
-            <img src="DSC00017.JPG" alt="News">
-            <div class="news-card-content">
-              <div class="news-meta">11 OCT 25</div>
-              <h3>New Partnership</h3>
-              <p>Collaboration with high-end apparel brand unveiled soon.</p>
-              <a href="news.html">Read More</a>
-            </div>
+      <div class="news-group active">
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">16 OCT 25</div>
+            <h3>Esports Expansion</h3>
+            <p>Ronin broadens its reach into new competitive scenes.</p>
+            <a href="news.html">Read More</a>
           </div>
         </div>
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">11 OCT 25</div>
+            <h3>New Partnership</h3>
+            <p>Collaboration with high-end apparel brand unveiled soon.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+      </div>
 
-        <div class="news-group">
-          <div class="news-card">
-            <img src="DSC00017.JPG" alt="News">
-            <div class="news-card-content">
-              <div class="news-meta">3 OCT 25</div>
-              <h3>Roster Update</h3>
-              <p>Ronin announces roster changes ahead of the new season.</p>
-              <a href="news.html">Read More</a>
-            </div>
-          </div>
-          <div class="news-card">
-            <img src="DSC00017.JPG" alt="News">
-            <div class="news-card-content">
-              <div class="news-meta">28 SEP 25</div>
-              <h3>Community Event</h3>
-              <p>Join Ronin's community tournament this weekend.</p>
-              <a href="news.html">Read More</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="news-scroll-indicator" id="nextNewsBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M7 10l5 5 5-5z"/>
-          </svg>
-        </div>
+      <div class="news-scroll-indicator" id="nextNewsBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M7 10l5 5 5-5z"/>
+        </svg>
       </div>
     </div>
   </section>
