@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RONIN</title>
-  <link rel="stylesheet" href="style.css">
+
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
@@ -23,10 +23,23 @@
     }
 
     /* SCROLLBAR */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #141414; }
-    ::-webkit-scrollbar-thumb { background-color: #C92828; }
-    html { scrollbar-width: thin; scrollbar-color: #C92828 #141414; }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #141414;
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: #C92828;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #a71e1e;
+    }
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #C92828 #141414;
+    }
 
     /* HEADER */
     header {
@@ -35,28 +48,42 @@
       align-items: center;
       padding: 20px 50px;
       background-color: #eeeeee;
-      border-bottom: 2px solid #C92828;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 2px solid #C92828;
     }
+
     .logo {
       display: flex;
       align-items: center;
-      gap: 8px;
       text-decoration: none;
+      gap: 8px;
     }
-    .logo img { height: 45px; width: auto; }
+    .logo img {
+      height: 45px;
+      width: auto;
+    }
     .logo span {
       font-family: 'TheLastShuriken';
       font-size: 28px;
       color: #C92828;
+      letter-spacing: 2px;
     }
-    .center-text {
+
+    .center-header-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
       font-family: 'TheLastShuriken';
-      color: #C92828;
       font-size: 22px;
-      letter-spacing: 1px;
+      color: #C92828;
+      letter-spacing: 2px;
+    }
+
+    nav.nav-links {
+      display: flex;
+      align-items: center;
     }
     nav.nav-links a {
       font-family: 'TheLastShuriken';
@@ -73,36 +100,33 @@
       display: flex;
       justify-content: space-between;
       align-items: stretch;
+      padding: 0;
       height: 90vh;
       border-bottom: 2px solid #C92828;
-      background: rgba(0, 0, 0, 0.7);
-      position: relative;
-    }
-
-    #hero::before {
-      content: "";
       background: url('DSC00017.JPG') center center / cover no-repeat;
+      position: relative;
       opacity: 0.65;
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 0;
     }
 
     .hero-left {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       flex: 1 1 55%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       padding: 100px 60px;
+      color: white;
+      text-shadow: 0 0 15px rgba(0,0,0,0.7);
     }
+
     .hero-left h1 {
       font-family: 'TheLastShuriken';
       font-size: 60px;
       color: #C92828;
       margin-bottom: 15px;
     }
+
     .hero-left p {
       font-family: 'Montserrat';
       font-size: 18px;
@@ -110,6 +134,7 @@
       margin-bottom: 25px;
       max-width: 600px;
     }
+
     .read-more {
       display: inline-block;
       background: #C92828;
@@ -122,51 +147,57 @@
     }
     .read-more:hover { background: #a71e1e; }
 
-    /* NEWS CAROUSEL */
     .hero-right {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       flex: 1 1 35%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
+      justify-content: flex-end;
+      gap: 15px;
       padding: 60px;
+      overflow: hidden;
     }
+
+    .news-carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .news-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .news-slide.active { opacity: 1; }
 
     .news-card {
       background: #f9f9f9;
       border-left: 5px solid #C92828;
-      padding: 20px;
+      padding: 15px;
       border-radius: 10px;
       color: #141414;
-      width: 95%;
-      max-width: 400px;
-      text-align: left;
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-      position: absolute;
+      transition: all 0.3s ease;
+      margin-bottom: 10px;
     }
-
-    .news-card.active {
-      opacity: 1;
-      position: relative;
+    .news-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(201,40,40,0.2);
     }
-
     .news-card img {
       width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 15px;
+      border-radius: 8px;
+      margin-bottom: 8px;
     }
-
     .news-card h3 {
       font-family: 'TheLastShuriken';
-      font-size: 22px;
+      font-size: 20px;
       color: #C92828;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     .news-card p {
       font-family: 'Montserrat';
@@ -203,27 +234,6 @@
     }
     .about-logo img { max-width: 280px; }
 
-    /* WATCH LIVE */
-    #watch-live {
-      background: #141414;
-      border-top: 2px solid #C92828;
-      text-align: center;
-      padding: 80px 50px;
-    }
-    #watch-live h2 {
-      font-family: 'TheLastShuriken';
-      font-size: 36px;
-      color: #C92828;
-      margin-bottom: 20px;
-    }
-    #watch-live iframe {
-      width: 100%;
-      max-width: 800px;
-      height: 450px;
-      border: none;
-      border-radius: 15px;
-    }
-
     /* FOOTER */
     footer {
       background: #eeeeee;
@@ -235,43 +245,27 @@
       gap: 20px;
       border-top: 2px solid #C92828;
     }
-    .footer-socials a {
-      margin-right: 15px;
-      color: #C92828;
-      text-decoration: none;
-      font-size: 20px;
-    }
-    .footer-socials a img {
-      filter: invert(23%) sepia(92%) saturate(6458%) hue-rotate(351deg) brightness(91%) contrast(119%);
-      width: 25px;
-      height: 25px;
-      vertical-align: middle;
-    }
-    .footer-legal {
-      font-size: 14px;
-      color: #C92828;
-    }
 
-    /* MOBILE */
+    /* RESPONSIVE */
     @media (max-width: 950px) {
       #hero { flex-direction: column; height: auto; }
       .hero-left, .hero-right { flex: 1 1 100%; padding: 40px 30px; }
-      .news-card { max-width: 100%; }
+      header { padding: 15px 25px; }
+      .center-header-text { display: none; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
   <header>
     <a href="/" class="logo">
       <img src="RONIN_Logo.png" alt="Logo">
       <span>RONIN</span>
     </a>
-    <div class="center-text">#OwnTheBlade</div>
+    <div class="center-header-text">#OwnTheBlade</div>
     <nav class="nav-links">
-      <a href="/" class="active">Home</a>
+      <a href="/">Home</a>
       <a href="partners.html">Partners</a>
       <a href="team.html">Team</a>
       <a href="news.html">News</a>
@@ -286,68 +280,59 @@
       <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
       <a href="#" class="read-more">Read More</a>
     </div>
+
     <div class="hero-right">
-      <div class="news-card active">
-        <img src="DSC00017.JPG" alt="News 1">
-        <h3>Event Recap</h3>
-        <p>Catch the highlights from Ronin’s latest Fortnite tournament.</p>
-      </div>
-      <div class="news-card">
-        <img src="DSC00017.JPG" alt="News 2">
-        <h3>New Player Joins</h3>
-        <p>Ronin welcomes its newest competitor to the roster.</p>
-      </div>
-      <div class="news-card">
-        <img src="DSC00017.JPG" alt="News 3">
-        <h3>Partnership Announcement</h3>
-        <p>Ronin teams up with a new sponsor for future events.</p>
-      </div>
-      <div class="news-card">
-        <img src="DSC00017.JPG" alt="News 4">
-        <h3>Behind The Scenes</h3>
-        <p>Exclusive look into the preparation behind our next major event.</p>
+      <div class="news-carousel">
+        <div class="news-slide active">
+          <div class="news-card">
+            <img src="DSC00017.JPG" alt="News 1">
+            <h3>Event Recap</h3>
+            <p>Catch the highlights from Ronin’s latest Fortnite tournament.</p>
+          </div>
+          <div class="news-card">
+            <img src="DSC00017.JPG" alt="News 2">
+            <h3>Brand Collab</h3>
+            <p>Ronin partners with a new tech brand for exclusive launches.</p>
+          </div>
+        </div>
+
+        <div class="news-slide">
+          <div class="news-card">
+            <img src="DSC00017.JPG" alt="News 3">
+            <h3>New Signing</h3>
+            <p>Welcome the latest competitor joining Ronin’s elite roster.</p>
+          </div>
+          <div class="news-card">
+            <img src="DSC00017.JPG" alt="News 4">
+            <h3>Esports Growth</h3>
+            <p>Ronin expands its brand presence across new global scenes.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
-      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation. We provide players with professional representation to maximize their growth, exposure, and sponsorship opportunities while offering brands a reliable, streamlined method to connect with engaged gaming audiences.</p>
+      <p>Ronin Gaming is an esports organization focused on Fortnite and competitive content creation. Our mission is to create a sustainable, professional organization that bridges competitive gaming, content development, and brand innovation.</p>
     </div>
     <div class="about-logo">
       <img src="RONIN_Logo.png" alt="About Logo">
     </div>
   </section>
 
-  <!-- WATCH LIVE -->
-  <section id="watch-live">
-    <h2>Watch Live</h2>
-    <iframe src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org" allowfullscreen></iframe>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
-    </div>
-    <div class="footer-legal">
-      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
-    </div>
+    <div>&copy; 2025 Ronin Gaming. All rights reserved.</div>
   </footer>
 
   <script>
-    const cards = document.querySelectorAll('.news-card');
-    let currentIndex = 0;
-
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.news-slide');
     setInterval(() => {
-      cards[currentIndex].classList.remove('active');
-      currentIndex = (currentIndex + 1) % cards.length;
-      cards[currentIndex].classList.add('active');
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
     }, 6000);
   </script>
 
