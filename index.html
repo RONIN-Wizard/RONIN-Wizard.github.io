@@ -62,10 +62,7 @@
       z-index: 0;
     }
 
-    header * {
-      position: relative;
-      z-index: 1;
-    }
+    header * { position: relative; z-index: 1; }
 
     .logo { display: flex; align-items:flex-end; text-decoration: none; gap: 8px; }
     .logo img { height: 45px; width: auto; }
@@ -84,10 +81,7 @@
       color: #C92828;
       letter-spacing: 2px;
     }
-    nav.nav-links {
-      display: flex;
-      align-items: center;
-    }
+    nav.nav-links { display: flex; align-items: center; }
     nav.nav-links a {
       font-family: 'TheLastShuriken';
       color: #C92828;
@@ -99,21 +93,23 @@
     nav.nav-links a:hover { color: #000; }
 
     #hero {
-      position: relative;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: stretch;
       height: 90vh;
       border-bottom: 2px solid #C92828;
+      background: url('DSC00017.JPG') center center / cover no-repeat;
+      position: relative;
       overflow: hidden;
     }
 
-    /* Hero Background (Parallax) */
     .hero-bg {
       position: absolute;
       inset: 0;
       background: url('DSC00017.JPG') center center / cover no-repeat;
       transform-origin: center;
+      transform: scale(1);
       z-index: 0;
     }
 
@@ -191,10 +187,7 @@
       transition: opacity 1s ease-in-out;
       pointer-events: none;
     }
-    .news-group.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    .news-group.active { opacity: 1; pointer-events: auto; }
 
     .news-card {
       background: #ffffff;
@@ -206,21 +199,13 @@
       box-shadow: 0 3px 10px rgba(201, 40, 40, 0.1);
       transition: all 0.3s ease;
     }
-
     .news-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 0 18px rgba(201, 40, 40, 0.6);
     }
 
-    .news-card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-    .news-card-content {
-      padding: 12px 15px;
-      background: rgba(255,255,255,0.95);
-    }
+    .news-card img { width: 100%; height: 150px; object-fit: cover; }
+    .news-card-content { padding: 12px 15px; background: rgba(255,255,255,0.95); }
     .news-card h3 {
       font-family: 'TheLastShuriken';
       font-size: 17px;
@@ -254,6 +239,26 @@
     }
     .news-card a:hover { background: #a71e1e; }
 
+    .news-scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      width: 45px;
+      height: 45px;
+      background: #C92828;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: 0 4px 10px rgba(201, 40, 40, 0.4);
+    }
+    .news-scroll-indicator:hover { background: #a71e1e; }
+    .news-scroll-indicator svg { width: 24px; height: 24px; fill: white; }
+
     #about {
       display: flex;
       align-items: center;
@@ -280,10 +285,7 @@
       z-index: 0;
     }
 
-    #about * {
-      position: relative;
-      z-index: 1;
-    }
+    #about * { position: relative; z-index: 1; }
 
     #about h2 {
       font-family: 'TheLastShuriken';
@@ -295,12 +297,7 @@
       font-size: 18px;
       line-height: 1.8;
     }
-    .about-logo {
-      flex: 1 1 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    .about-logo { flex: 1 1 300px; display: flex; justify-content: center; align-items: center; }
     .about-logo img { max-width: 280px; }
 
     #watch-live {
@@ -324,13 +321,14 @@
     }
 
     footer {
-      background: #0b0b0b;
-      border-top: 2px solid #C92828;
-      padding: 90px 100px;
-      color: #fff;
+      background: #eeeeee;
+      color: #C92828;
+      padding: 60px 80px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      border-top: 2px solid #C92828;
       position: relative;
       overflow: hidden;
     }
@@ -348,53 +346,7 @@
       z-index: 0;
     }
 
-    footer * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .footer-inner {
-      width: 100%;
-      max-width: 1400px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 40px;
-    }
-
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 18px;
-    }
-
-    .footer-logo {
-      width: 70px;
-      height: auto;
-    }
-
-    .footer-left p {
-      font-size: 15px;
-      color: #aaa;
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-socials a img {
-      width: 25px;
-      height: 25px;
-      filter: invert(23%) sepia(92%) saturate(6458%) hue-rotate(351deg) brightness(91%) contrast(119%);
-      transition: opacity 0.2s;
-    }
-
-    .footer-socials a:hover img {
-      opacity: 0.7;
-    }
+    footer * { position: relative; z-index: 1; }
 
     .footer-nav {
       display: flex;
@@ -411,8 +363,13 @@
       letter-spacing: 1px;
     }
 
-    .footer-nav a:hover {
-      color: #fff;
+    .footer-nav a:hover { color: #000; }
+
+    .footer-socials a img {
+      filter: invert(23%) sepia(92%) saturate(6458%) hue-rotate(351deg) brightness(91%) contrast(119%);
+      width: 25px;
+      height: 25px;
+      margin-left: 15px;
     }
   </style>
 </head>
@@ -442,6 +399,56 @@
       <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
       <a href="#" class="read-more">Read More</a>
     </div>
+
+    <div class="hero-right">
+      <div class="news-group active">
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">16 OCT 25</div>
+            <h3>Esports Expansion</h3>
+            <p>Ronin broadens its reach into new competitive scenes.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">11 OCT 25</div>
+            <h3>New Partnership</h3>
+            <p>Collaboration with high-end apparel brand unveiled soon.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-group">
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">3 OCT 25</div>
+            <h3>Roster Update</h3>
+            <p>Ronin announces roster changes ahead of the new season.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">28 SEP 25</div>
+            <h3>Community Event</h3>
+            <p>Join Ronin's community tournament this weekend.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-scroll-indicator" id="nextNewsBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M7 10l5 5 5-5z"/>
+        </svg>
+      </div>
+    </div>
   </section>
 
   <section id="about">
@@ -463,41 +470,57 @@
   </section>
 
   <footer>
-    <div class="footer-inner">
-      <div class="footer-left">
-        <img src="RONIN_Logo.png" alt="Ronin Logo" class="footer-logo">
-        <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    <div class="footer-nav">
+      <a href="/">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="team.html">Team</a>
+      <a href="news.html">News</a>
+      <a href="shop.html">Shop</a>
+    </div>
 
-        <div class="footer-socials">
-          <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
-          <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-          <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
-          <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
-        </div>
-      </div>
-
-      <div class="footer-nav">
-        <a href="/">Home</a>
-        <a href="partners.html">Partners</a>
-        <a href="team.html">Team</a>
-        <a href="news.html">News</a>
-        <a href="shop.html">Shop</a>
-      </div>
+    <div class="footer-socials">
+      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
+      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
     </div>
   </footer>
 
   <script>
-    // Smooth parallax zoom
     const heroBg = document.querySelector('.hero-bg');
-    let lastScrollY = 0;
+    const newsGroups = document.querySelectorAll('.news-group');
+    let currentGroup = 0;
+    let interval;
+    let smoothScale = 1;
 
+    // Smooth cinematic zoom
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      const targetScale = 1 + scrollY / 3000;
-      const smoothScale = lastScrollY + (targetScale - lastScrollY) * 0.05;
+      const scrolled = window.scrollY;
+      const targetScale = 1 + scrolled / 3000;
+      smoothScale += (targetScale - smoothScale) * 0.08;
       heroBg.style.transform = `scale(${smoothScale})`;
-      lastScrollY = smoothScale;
+    });
+
+    function cycleNews() {
+      newsGroups[currentGroup].classList.remove('active');
+      currentGroup = (currentGroup + 1) % newsGroups.length;
+      newsGroups[currentGroup].classList.add('active');
+    }
+
+    function startAutoCycle() {
+      interval = setInterval(() => {
+        cycleNews();
+      }, 9000);
+    }
+
+    startAutoCycle();
+
+    document.getElementById('nextNewsBtn').addEventListener('click', () => {
+      clearInterval(interval);
+      cycleNews();
+      startAutoCycle();
     });
   </script>
 </body>
 </html>
+
