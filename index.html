@@ -30,6 +30,7 @@
       transition: opacity 1s ease;
     }
 
+    /* ========== HEADER ========== */
     header {
       display: flex;
       justify-content: space-between;
@@ -100,6 +101,7 @@
       cursor: pointer;
     }
 
+    /* ========== HERO SECTION ========== */
     #hero {
       display: flex;
       flex-wrap: wrap;
@@ -112,7 +114,6 @@
       position: relative;
     }
 
-    /* dark overlay for opacity */
     #hero::before {
       content: "";
       position: absolute;
@@ -121,7 +122,6 @@
       z-index: 1;
     }
 
-    /* red glow rising from bottom */
     #hero::after {
       content: "";
       position: absolute;
@@ -271,6 +271,7 @@
     .news-scroll-indicator:hover { background: #a71e1e; }
     .news-scroll-indicator svg { width: 24px; height: 24px; fill: white; }
 
+    /* ========== ABOUT US SECTION ========== */
     #about {
       display: flex;
       align-items: center;
@@ -280,7 +281,29 @@
       background: #eeeeee;
       color: #000;
       border-top: 2px solid #C92828;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* wave background for about section */
+    #about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('chinese-banner-wave-brush-stroke-260nw-1536993779.jpg.webp');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.08;
+      z-index: 0;
+    }
+
+    #about * {
+      position: relative;
+      z-index: 1;
+    }
+
     #about h2 {
       font-family: 'TheLastShuriken';
       color: #C92828;
@@ -299,6 +322,7 @@
     }
     .about-logo img { max-width: 280px; }
 
+    /* ========== WATCH LIVE SECTION ========== */
     #watch-live {
       background: #141414;
       border-top: 2px solid #C92828;
@@ -319,6 +343,7 @@
       border-radius: 15px;
     }
 
+    /* ========== FOOTER ========== */
     footer {
       background: #eeeeee;
       color: #C92828;
@@ -328,7 +353,29 @@
       flex-wrap: wrap;
       gap: 20px;
       border-top: 2px solid #C92828;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* wave background for footer */
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('chinese-banner-wave-brush-stroke-260nw-1536993779.jpg.webp');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.08;
+      z-index: 0;
+    }
+
+    footer * {
+      position: relative;
+      z-index: 1;
+    }
+
     .footer-socials a {
       margin-right: 15px;
       color: #C92828;
@@ -488,3 +535,4 @@
   </script>
 </body>
 </html>
+
