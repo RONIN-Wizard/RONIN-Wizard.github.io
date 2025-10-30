@@ -33,7 +33,6 @@
       font-family: 'Montserrat', sans-serif;
       background-color: #141414;
       color: white;
-      transition: opacity 1s ease;
     }
 
     header {
@@ -98,33 +97,23 @@
       transition: color 0.3s;
     }
     nav.nav-links a:hover { color: #000; }
-    .menu-toggle {
-      display: none;
-      font-size: 30px;
-      color: #C92828;
-      cursor: pointer;
-    }
 
     #hero {
+      position: relative;
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
       align-items: stretch;
-      padding: 0;
       height: 90vh;
       border-bottom: 2px solid #C92828;
-      position: relative;
       overflow: hidden;
     }
 
-    /* Hero Background for Parallax Zoom */
+    /* Hero Background (Parallax) */
     .hero-bg {
       position: absolute;
       inset: 0;
       background: url('DSC00017.JPG') center center / cover no-repeat;
       transform-origin: center;
-      transform: scale(1);
-      transition: transform 0.1s linear;
       z-index: 0;
     }
 
@@ -265,26 +254,6 @@
     }
     .news-card a:hover { background: #a71e1e; }
 
-    .news-scroll-indicator {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      width: 45px;
-      height: 45px;
-      background: #C92828;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: background 0.3s;
-      box-shadow: 0 4px 10px rgba(201, 40, 40, 0.4);
-    }
-    .news-scroll-indicator:hover { background: #a71e1e; }
-    .news-scroll-indicator svg { width: 24px; height: 24px; fill: white; }
-
     #about {
       display: flex;
       align-items: center;
@@ -355,14 +324,13 @@
     }
 
     footer {
-      background: #eeeeee;
-      color: #C92828;
-      padding: 40px 50px;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
+      background: #0b0b0b;
       border-top: 2px solid #C92828;
+      padding: 90px 100px;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
       overflow: hidden;
     }
@@ -385,21 +353,66 @@
       z-index: 1;
     }
 
-    .footer-socials a {
-      margin-right: 15px;
-      color: #C92828;
-      text-decoration: none;
-      font-size: 20px;
+    .footer-inner {
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
     }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .footer-logo {
+      width: 70px;
+      height: auto;
+    }
+
+    .footer-left p {
+      font-size: 15px;
+      color: #aaa;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 20px;
+    }
+
     .footer-socials a img {
-      filter: invert(23%) sepia(92%) saturate(6458%) hue-rotate(351deg) brightness(91%) contrast(119%);
       width: 25px;
       height: 25px;
-      vertical-align: middle;
+      filter: invert(23%) sepia(92%) saturate(6458%) hue-rotate(351deg) brightness(91%) contrast(119%);
+      transition: opacity 0.2s;
     }
-    .footer-legal {
-      font-size: 14px;
+
+    .footer-socials a:hover img {
+      opacity: 0.7;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-nav a {
+      font-family: 'TheLastShuriken';
+      text-decoration: none;
       color: #C92828;
+      font-size: 18px;
+      transition: color 0.3s;
+      letter-spacing: 1px;
+    }
+
+    .footer-nav a:hover {
+      color: #fff;
     }
   </style>
 </head>
@@ -412,8 +425,6 @@
     </a>
 
     <div class="center-header-text">#OwnTheBlade</div>
-
-    <div class="menu-toggle" id="mobile-menu">&#9776;</div>
 
     <nav class="nav-links">
       <a href="/" class="active">Home</a>
@@ -431,67 +442,15 @@
       <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
       <a href="#" class="read-more">Read More</a>
     </div>
-
-    <div class="hero-right">
-      <div class="news-group active">
-        <div class="news-card">
-          <img src="DSC00017.JPG" alt="News">
-          <div class="news-card-content">
-            <div class="news-meta">16 OCT 25</div>
-            <h3>Esports Expansion</h3>
-            <p>Ronin broadens its reach into new competitive scenes.</p>
-            <a href="news.html">Read More</a>
-          </div>
-        </div>
-        <div class="news-card">
-          <img src="DSC00017.JPG" alt="News">
-          <div class="news-card-content">
-            <div class="news-meta">11 OCT 25</div>
-            <h3>New Partnership</h3>
-            <p>Collaboration with high-end apparel brand unveiled soon.</p>
-            <a href="news.html">Read More</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="news-group">
-        <div class="news-card">
-          <img src="DSC00017.JPG" alt="News">
-          <div class="news-card-content">
-            <div class="news-meta">3 OCT 25</div>
-            <h3>Roster Update</h3>
-            <p>Ronin announces roster changes ahead of the new season.</p>
-            <a href="news.html">Read More</a>
-          </div>
-        </div>
-        <div class="news-card">
-          <img src="DSC00017.JPG" alt="News">
-          <div class="news-card-content">
-            <div class="news-meta">28 SEP 25</div>
-            <h3>Community Event</h3>
-            <p>Join Ronin's community tournament this weekend.</p>
-            <a href="news.html">Read More</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="news-scroll-indicator" id="nextNewsBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M7 10l5 5 5-5z"/>
-        </svg>
-      </div>
-    </div>
   </section>
 
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
-      <p>
-        <strong>Founded in January 2025</strong>, Ronin Gaming is a professional esports organization built on structure, consistency, and long term development.<br><br>
-        Focused primarily on competitive Fortnite, Ronin integrates performance and content to strengthen player brands and maximize partnership value.<br><br>
-        The organization operates with a clear framework that provides representation, financial transparency, and brand management designed to sustain growth over time.<br><br>
-        Every initiative reflects one goal: to establish Ronin as a reliable, results driven organization built for modern esports.
-      </p>
+      <p><strong>Founded in January 2025</strong>, Ronin Gaming is a professional esports organization built on structure, consistency, and long term development.<br><br>
+      Focused primarily on competitive Fortnite, Ronin integrates performance and content to strengthen player brands and maximize partnership value.<br><br>
+      The organization operates with a clear framework that provides representation, financial transparency, and brand management designed to sustain growth over time.<br><br>
+      Every initiative reflects one goal: to establish Ronin as a reliable, results driven organization built for modern esports.</p>
     </div>
     <div class="about-logo">
       <img src="RONIN_Logo.png" alt="About Logo">
@@ -504,58 +463,41 @@
   </section>
 
   <footer>
-    <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitter.svg" alt="Twitter"></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
-    </div>
-    <div class="footer-legal">
-      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="RONIN_Logo.png" alt="Ronin Logo" class="footer-logo">
+        <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+
+        <div class="footer-socials">
+          <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
+          <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+          <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+          <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <a href="/">Home</a>
+        <a href="partners.html">Partners</a>
+        <a href="team.html">Team</a>
+        <a href="news.html">News</a>
+        <a href="shop.html">Shop</a>
+      </div>
     </div>
   </footer>
 
   <script>
+    // Smooth parallax zoom
     const heroBg = document.querySelector('.hero-bg');
-    const newsGroups = document.querySelectorAll('.news-group');
-    let currentGroup = 0;
-    let interval;
+    let lastScrollY = 0;
 
-    // Cinematic parallax zoom on scroll
     window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      const zoom = 1 + scrolled / 2000; // smaller = stronger zoom
-      heroBg.style.transform = `scale(${zoom})`;
-    });
-
-    function cycleNews() {
-      newsGroups[currentGroup].classList.remove('active');
-      currentGroup = (currentGroup + 1) % newsGroups.length;
-      newsGroups[currentGroup].classList.add('active');
-    }
-
-    function startAutoCycle() {
-      interval = setInterval(() => {
-        cycleNews();
-      }, 9000);
-    }
-
-    startAutoCycle();
-
-    document.getElementById('nextNewsBtn').addEventListener('click', () => {
-      clearInterval(interval);
-      cycleNews();
-      startAutoCycle();
-    });
-
-    const hero = document.getElementById('hero');
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      const heroHeight = hero.offsetHeight;
-      const opacity = 1 - (scrolled / heroHeight);
-      if (opacity >= 0) hero.style.opacity = opacity;
+      const scrollY = window.scrollY;
+      const targetScale = 1 + scrollY / 3000;
+      const smoothScale = lastScrollY + (targetScale - lastScrollY) * 0.05;
+      heroBg.style.transform = `scale(${smoothScale})`;
+      lastScrollY = smoothScale;
     });
   </script>
 </body>
 </html>
-
