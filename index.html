@@ -322,13 +322,12 @@
 
     footer {
       background: #eeeeee;
-      color: #C92828;
-      padding: 60px 80px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      color: #000;
+      padding: 100px 100px 60px 100px;
       border-top: 2px solid #C92828;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
       position: relative;
       overflow: hidden;
     }
@@ -348,28 +347,69 @@
 
     footer * { position: relative; z-index: 1; }
 
-    .footer-nav {
+    .footer-top {
       display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 30px;
+      gap: 60px;
     }
 
-    .footer-nav a {
-      font-family: 'TheLastShuriken';
-      text-decoration: none;
+    .footer-left {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-left img {
+      width: 70px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .footer-left p {
       color: #C92828;
-      font-size: 18px;
-      transition: color 0.3s;
-      letter-spacing: 1px;
+      margin-bottom: 20px;
     }
 
-    .footer-nav a:hover { color: #000; }
+    .footer-socials {
+      display: flex;
+      gap: 18px;
+    }
 
     .footer-socials a img {
-      filter: invert(23%) sepia(92%) saturate(6458%) hue-rotate(351deg) brightness(91%) contrast(119%);
       width: 25px;
       height: 25px;
-      margin-left: 15px;
+      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
+      transition: opacity 0.3s;
+    }
+
+    .footer-socials a:hover img { opacity: 0.7; }
+
+    .footer-columns {
+      display: flex;
+      justify-content: flex-end;
+      flex: 3;
+      flex-wrap: wrap;
+      gap: 80px;
+    }
+
+    .footer-column h4 {
+      font-family: 'TheLastShuriken';
+      color: #C92828;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #000;
+      text-decoration: none;
+      margin-bottom: 8px;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: #C92828;
     }
   </style>
 </head>
@@ -396,7 +436,10 @@
     <div class="hero-bg"></div>
     <div class="hero-left">
       <h1>A New Ronin</h1>
-      <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
+      <p>Founded in January 2025, Ronin Gaming is a professional esports organization built on structure, consistency, and long term development.<br><br>
+      Focused primarily on competitive Fortnite, Ronin integrates performance and content to strengthen player brands and maximize partnership value.<br><br>
+      The organization operates with a clear framework that provides representation, financial transparency, and brand management designed to sustain growth over time.<br><br>
+      Every initiative reflects one goal: to establish Ronin as a reliable, results driven organization built for modern esports.</p>
       <a href="#" class="read-more">Read More</a>
     </div>
 
@@ -451,38 +494,55 @@
     </div>
   </section>
 
-  <section id="about">
-    <div class="about-text">
-      <h2>About Us</h2>
-      <p><strong>Founded in January 2025</strong>, Ronin Gaming is a professional esports organization built on structure, consistency, and long term development.<br><br>
-      Focused primarily on competitive Fortnite, Ronin integrates performance and content to strengthen player brands and maximize partnership value.<br><br>
-      The organization operates with a clear framework that provides representation, financial transparency, and brand management designed to sustain growth over time.<br><br>
-      Every initiative reflects one goal: to establish Ronin as a reliable, results driven organization built for modern esports.</p>
-    </div>
-    <div class="about-logo">
-      <img src="RONIN_Logo.png" alt="About Logo">
-    </div>
-  </section>
-
   <section id="watch-live">
     <h2>Watch Live</h2>
     <iframe src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org" allowfullscreen></iframe>
   </section>
 
   <footer>
-    <div class="footer-nav">
-      <a href="/">Home</a>
-      <a href="partners.html">Partners</a>
-      <a href="team.html">Team</a>
-      <a href="news.html">News</a>
-      <a href="shop.html">Shop</a>
-    </div>
+    <div class="footer-top">
+      <div class="footer-left">
+        <img src="RONIN_Logo.png" alt="Ronin Logo">
+        <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
+          <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+          <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+          <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+        </div>
+      </div>
 
-    <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>About</h4>
+          <a href="#">Who we are</a>
+          <a href="#">Championships</a>
+          <a href="partners.html">Partners</a>
+          <a href="#">Management Team</a>
+          <a href="#">Brand Toolkit</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="/">Home</a>
+          <a href="team.html">Team</a>
+          <a href="news.html">News</a>
+          <a href="partners.html">Partners</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Terms & Policies</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <a href="shop.html">Shop</a>
+          <a href="#">Returns Policy</a>
+          <a href="#">Shipping Policy</a>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -523,4 +583,3 @@
   </script>
 </body>
 </html>
-
