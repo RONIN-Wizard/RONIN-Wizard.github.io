@@ -450,7 +450,185 @@
     }
   </style>
 </head>
+
 <body>
-  <!-- keep your full body as is -->
+
+  <header>
+    <a href="/" class="logo">
+      <img src="RONIN_Logo.png" alt="Logo">
+      <span>RONIN</span>
+    </a>
+
+    <div class="center-header-text">#OwnTheBlade</div>
+
+    <nav class="nav-links">
+      <a href="/" class="active">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="team.html">Team</a>
+      <a href="news.html">News</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-left">
+      <h1>A New Ronin</h1>
+      <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+
+    <div class="hero-right">
+      <div class="news-group active">
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">16 OCT 25</div>
+            <h3>Esports Expansion</h3>
+            <p>Ronin broadens its reach into new competitive scenes.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">11 OCT 25</div>
+            <h3>New Partnership</h3>
+            <p>Collaboration with high-end apparel brand unveiled soon.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-group">
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">3 OCT 25</div>
+            <h3>Roster Update</h3>
+            <p>Ronin announces roster changes ahead of the new season.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+        <div class="news-card">
+          <img src="DSC00017.JPG" alt="News">
+          <div class="news-card-content">
+            <div class="news-meta">28 SEP 25</div>
+            <h3>Community Event</h3>
+            <p>Join Ronin's community tournament this weekend.</p>
+            <a href="news.html">Read More</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="news-scroll-indicator" id="nextNewsBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M7 10l5 5 5-5z"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="fade-up">
+    <div class="about-text">
+      <h2>About Us</h2>
+      <p>Founded in January 2025, Ronin Gaming is a professional esports organization built on structure, consistency, and long-term development.<br><br>
+      Focused primarily on competitive Fortnite, Ronin integrates performance and content to strengthen player brands and maximize partnership value.<br><br>
+      The organization operates with a clear framework that provides representation, financial transparency, and brand management designed to sustain growth over time.<br><br>
+      Every initiative reflects one goal: to establish Ronin as a reliable, results-driven organization built for modern esports.</p>
+    </div>
+    <div class="about-logo">
+      <img src="RONIN_Logo.png" alt="About Logo">
+    </div>
+  </section>
+
+  <section id="watch-live" class="fade-up">
+    <h2>Watch Live</h2>
+    <iframe src="https://player.twitch.tv/?channel=roningamingggs&parent=roningaming.org" allowfullscreen></iframe>
+  </section>
+
+  <footer class="fade-up">
+    <div class="footer-top">
+      <div class="footer-left">
+        <img src="RONIN_Logo.png" alt="Ronin Logo">
+        <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
+          <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+          <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+          <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>About</h4>
+          <a href="#">Who we are</a>
+          <a href="#">Championships</a>
+          <a href="partners.html">Partners</a>
+          <a href="#">Management Team</a>
+          <a href="#">Brand Toolkit</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="/">Home</a>
+          <a href="team.html">Team</a>
+          <a href="news.html">News</a>
+          <a href="partners.html">Partners</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Terms & Policies</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <a href="shop.html">Shop</a>
+          <a href="#">Returns Policy</a>
+          <a href="#">Shipping Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Fade-up animation trigger
+    const fadeUps = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+    fadeUps.forEach(el => observer.observe(el));
+
+    const newsGroups = document.querySelectorAll('.news-group');
+    let currentGroup = 0;
+    let interval;
+
+    function cycleNews() {
+      newsGroups[currentGroup].classList.remove('active');
+      currentGroup = (currentGroup + 1) % newsGroups.length;
+      newsGroups[currentGroup].classList.add('active');
+    }
+
+    function startAutoCycle() {
+      interval = setInterval(() => {
+        cycleNews();
+      }, 9000);
+    }
+
+    startAutoCycle();
+
+    document.getElementById('nextNewsBtn').addEventListener('click', () => {
+      clearInterval(interval);
+      cycleNews();
+      startAutoCycle();
+    });
+  </script>
 </body>
 </html>
