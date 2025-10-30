@@ -40,7 +40,30 @@
       top: 0;
       z-index: 1000;
       border-bottom: 2px solid #C92828;
+
+      /* new background */
+      background-image: url('chinese-banner-wave-brush-stroke-260nw-1536993779.jpg.webp');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      /* gray out and soften */
+      filter: grayscale(100%) brightness(0.7);
     }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.65);
+      z-index: 0;
+    }
+
+    header * {
+      position: relative;
+      z-index: 1;
+    }
+
     .logo { display: flex; align-items:flex-end;; text-decoration: none; gap: 8px; }
     .logo img { height: 45px; width: auto; }
     .logo span {
@@ -445,7 +468,7 @@
     function startAutoCycle() {
       interval = setInterval(() => {
         cycleNews();
-      }, 9000); // 5s visible + 4s fade pause
+      }, 9000);
     }
 
     startAutoCycle();
