@@ -110,7 +110,6 @@
       align-items: stretch;
       height: 90vh;
       border-bottom: 2px solid #C92828;
-      background: url('DSC00017.JPG') center center / cover no-repeat;
       position: relative;
       overflow: hidden;
     }
@@ -122,6 +121,8 @@
       transform-origin: center;
       transform: scale(1);
       z-index: 0;
+      will-change: transform;
+      transition: transform 0.2s ease-out;
     }
 
     #hero::before {
@@ -629,7 +630,15 @@
       cycleNews();
       startAutoCycle();
     });
+
+    // Smooth hero background zoom on scroll
+    const heroBg = document.querySelector('.hero-bg');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const maxZoom = 1.15;
+      const zoom = 1 + Math.min(scrollY / 1500, maxZoom - 1);
+      heroBg.style.transform = `scale(${zoom})`;
+    });
   </script>
 </body>
 </html>
-
