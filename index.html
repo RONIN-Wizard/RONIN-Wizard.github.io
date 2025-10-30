@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RONIN</title>
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
-<link rel="shortcut icon" href="favicon.ico?v=2">
-<link rel="apple-touch-icon" href="RONIN_Logo.png?v=2">
-<meta name="theme-color" content="#C92828">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+  <link rel="shortcut icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="RONIN_Logo.png?v=2">
+  <meta name="theme-color" content="#C92828">
+
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -34,7 +36,6 @@
       transition: opacity 1s ease;
     }
 
-    /* ========== HEADER ========== */
     header {
       display: flex;
       justify-content: space-between;
@@ -49,7 +50,6 @@
       overflow: hidden;
     }
 
-    /* wave background with 8% opacity */
     header::before {
       content: "";
       position: absolute;
@@ -68,7 +68,7 @@
       z-index: 1;
     }
 
-    .logo { display: flex; align-items:flex-end;; text-decoration: none; gap: 8px; }
+    .logo { display: flex; align-items:flex-end; text-decoration: none; gap: 8px; }
     .logo img { height: 45px; width: auto; }
     .logo span {
       font-family: 'TheLastShuriken';
@@ -105,7 +105,6 @@
       cursor: pointer;
     }
 
-    /* ========== HERO SECTION ========== */
     #hero {
       display: flex;
       flex-wrap: wrap;
@@ -114,8 +113,19 @@
       padding: 0;
       height: 90vh;
       border-bottom: 2px solid #C92828;
-      background: url('DSC00017.JPG') center center / cover no-repeat;
       position: relative;
+      overflow: hidden;
+    }
+
+    /* Hero Background for Parallax Zoom */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('DSC00017.JPG') center center / cover no-repeat;
+      transform-origin: center;
+      transform: scale(1);
+      transition: transform 0.1s linear;
+      z-index: 0;
     }
 
     #hero::before {
@@ -130,7 +140,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(201, 40, 40, 0.45) 0%, rgba(201, 40, 40, 0.1) 50%, rgba(201, 40, 40, 0) 100%);
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.15) 50%, rgba(0, 0, 0, 0) 100%);
       z-index: 2;
       pointer-events: none;
     }
@@ -275,7 +285,6 @@
     .news-scroll-indicator:hover { background: #a71e1e; }
     .news-scroll-indicator svg { width: 24px; height: 24px; fill: white; }
 
-    /* ========== ABOUT US SECTION ========== */
     #about {
       display: flex;
       align-items: center;
@@ -289,7 +298,6 @@
       overflow: hidden;
     }
 
-    /* wave background for about section */
     #about::before {
       content: "";
       position: absolute;
@@ -326,7 +334,6 @@
     }
     .about-logo img { max-width: 280px; }
 
-    /* ========== WATCH LIVE SECTION ========== */
     #watch-live {
       background: #141414;
       border-top: 2px solid #C92828;
@@ -347,7 +354,6 @@
       border-radius: 15px;
     }
 
-    /* ========== FOOTER ========== */
     footer {
       background: #eeeeee;
       color: #C92828;
@@ -361,7 +367,6 @@
       overflow: hidden;
     }
 
-    /* wave background for footer */
     footer::before {
       content: "";
       position: absolute;
@@ -420,6 +425,7 @@
   </header>
 
   <section id="hero">
+    <div class="hero-bg"></div>
     <div class="hero-left">
       <h1>A New Ronin</h1>
       <p>Ronin Gaming steps into a new era with an expanded competitive lineup and refined brand vision.</p>
@@ -480,10 +486,12 @@
   <section id="about">
     <div class="about-text">
       <h2>About Us</h2>
-      <p>Founded in January 2025, Ronin Gaming is a professional esports organization built on structure, consistency, and long term development.
-Focused primarily on competitive Fortnite, Ronin integrates performance and content to strengthen player brands and maximize partnership value.
-The organization operates with a clear framework that provides representation, financial transparency, and brand management designed to sustain growth over time.
-Every initiative reflects one goal: to establish Ronin as a reliable, results driven organization built for modern esports.</p>
+      <p>
+        <strong>Founded in January 2025</strong>, Ronin Gaming is a professional esports organization built on structure, consistency, and long term development.<br><br>
+        Focused primarily on competitive Fortnite, Ronin integrates performance and content to strengthen player brands and maximize partnership value.<br><br>
+        The organization operates with a clear framework that provides representation, financial transparency, and brand management designed to sustain growth over time.<br><br>
+        Every initiative reflects one goal: to establish Ronin as a reliable, results driven organization built for modern esports.
+      </p>
     </div>
     <div class="about-logo">
       <img src="RONIN_Logo.png" alt="About Logo">
@@ -508,9 +516,17 @@ Every initiative reflects one goal: to establish Ronin as a reliable, results dr
   </footer>
 
   <script>
+    const heroBg = document.querySelector('.hero-bg');
     const newsGroups = document.querySelectorAll('.news-group');
     let currentGroup = 0;
     let interval;
+
+    // Cinematic parallax zoom on scroll
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const zoom = 1 + scrolled / 2000; // smaller = stronger zoom
+      heroBg.style.transform = `scale(${zoom})`;
+    });
 
     function cycleNews() {
       newsGroups[currentGroup].classList.remove('active');
