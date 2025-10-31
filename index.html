@@ -454,65 +454,39 @@
       margin-right: 20px;
     }
 
-   #merch {
-  background: #141414;
+  #merch {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
   border-top: 2px solid #C92828;
-  padding: 100px 50px;
-  position: relative;
-  overflow: hidden;
+  background: #141414;
 }
 
-#merch h2 {
-  font-family: 'TheLastShuriken';
-  font-size: 48px;
-  color: #C92828;
-  text-align: center;
-  margin-bottom: 60px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.merch-carousel {
-  max-width: 1200px;
-  margin: 0 auto;
+.merch-full {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-}
-
-.merch-track {
-  flex: 1;
-  position: relative;
-  height: 520px;
-  overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 .merch-slide {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 120px;
   opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  pointer-events: none;
+  transition: opacity 0.8s ease;
 }
 
 .merch-slide.active {
   opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
 }
 
 .merch-info {
+  z-index: 2;
   flex: 1;
-  padding-left: 50px;
 }
 
 .merch-category {
@@ -521,20 +495,21 @@
   font-weight: 600;
   color: #C92828;
   text-transform: uppercase;
-  margin-bottom: 10px;
   letter-spacing: 2px;
+  margin-bottom: 12px;
 }
 
 .merch-info h3 {
   font-family: 'TheLastShuriken';
-  font-size: 48px;
+  font-size: 72px;
   color: #fff;
   margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
 .merch-price {
   font-family: 'Montserrat';
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
   color: #C92828;
   margin-bottom: 25px;
@@ -548,20 +523,18 @@
   color: #fff;
   font-family: 'Montserrat';
   font-weight: 600;
-  padding: 15px 35px;
+  padding: 15px 40px;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 18px;
   transition: background 0.3s;
 }
 
-.merch-btn:hover {
-  background: #a71e1e;
-}
+.merch-btn:hover { background: #a71e1e; }
 
 .merch-btn svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   fill: white;
 }
 
@@ -569,39 +542,48 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .merch-image img {
   width: 80%;
-  height: auto;
-  border-radius: 12px;
+  max-width: 700px;
+  border-radius: 14px;
   border: 2px solid #C92828;
 }
 
 .merch-nav {
-  width: 45px;
-  height: 45px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 55px;
+  height: 55px;
   background: #C92828;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s;
-  box-shadow: 0 4px 10px rgba(201, 40, 40, 0.4);
+  box-shadow: 0 4px 15px rgba(201, 40, 40, 0.4);
+  z-index: 3;
 }
+
+#merchPrev { left: 50px; }
+#merchNext { right: 50px; }
 
 .merch-nav:hover {
   background: #a71e1e;
-  transform: scale(1.05);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .merch-nav svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   fill: white;
 }
+
 
     #watch-live {
       background: #141414;
@@ -863,68 +845,63 @@
   </section>
 
   <section id="merch" class="fade-up">
-  <h2>Ronin Apparel</h2>
+  <div class="merch-full">
+    <div class="merch-slide active">
+      <div class="merch-info">
+        <div class="merch-category">JERSEYS</div>
+        <h3>Ronin 2026 Pro Jersey</h3>
+        <div class="merch-price">$49.99</div>
+        <a href="shop.html" class="merch-btn">
+          View Product
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="merch-image">
+        <img src="Coming soon.png" alt="Ronin 2026 Pro Jersey">
+      </div>
+    </div>
 
-  <div class="merch-carousel">
+    <div class="merch-slide">
+      <div class="merch-info">
+        <div class="merch-category">APPAREL</div>
+        <h3>Ronin Hoodie</h3>
+        <div class="merch-price">$59.99</div>
+        <a href="shop.html" class="merch-btn">
+          View Product
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="merch-image">
+        <img src="Coming soon.png" alt="Ronin Hoodie">
+      </div>
+    </div>
+
+    <div class="merch-slide">
+      <div class="merch-info">
+        <div class="merch-category">APPAREL</div>
+        <h3>Ronin Tee</h3>
+        <div class="merch-price">$24.99</div>
+        <a href="shop.html" class="merch-btn">
+          View Product
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+          </svg>
+        </a>
+      </div>
+      <div class="merch-image">
+        <img src="Coming soon.png" alt="Ronin Tee">
+      </div>
+    </div>
+
     <button class="merch-nav" id="merchPrev">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
       </svg>
     </button>
-
-    <div class="merch-track">
-      <div class="merch-slide active">
-        <div class="merch-info">
-          <div class="merch-category">Jerseys</div>
-          <h3>Ronin 2026 Pro Jersey</h3>
-          <div class="merch-price">$49.99</div>
-          <a href="shop.html" class="merch-btn">
-            View Product
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-            </svg>
-          </a>
-        </div>
-        <div class="merch-image">
-          <img src="Coming soon.png" alt="Ronin 2026 Pro Jersey">
-        </div>
-      </div>
-
-      <div class="merch-slide">
-        <div class="merch-info">
-          <div class="merch-category">Apparel</div>
-          <h3>Ronin Hoodie</h3>
-          <div class="merch-price">$59.99</div>
-          <a href="shop.html" class="merch-btn">
-            View Product
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-            </svg>
-          </a>
-        </div>
-        <div class="merch-image">
-          <img src="Coming soon.png" alt="Ronin Hoodie">
-        </div>
-      </div>
-
-      <div class="merch-slide">
-        <div class="merch-info">
-          <div class="merch-category">Apparel</div>
-          <h3>Ronin Tee</h3>
-          <div class="merch-price">$24.99</div>
-          <a href="shop.html" class="merch-btn">
-            View Product
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-            </svg>
-          </a>
-        </div>
-        <div class="merch-image">
-          <img src="Coming soon.png" alt="Ronin Tee">
-        </div>
-      </div>
-    </div>
-
     <button class="merch-nav" id="merchNext">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
@@ -932,6 +909,7 @@
     </button>
   </div>
 </section>
+
 
 
   <footer class="fade-up">
