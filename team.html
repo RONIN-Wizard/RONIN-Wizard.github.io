@@ -340,22 +340,6 @@
       overflow: hidden;
     }
 
-    .card-label {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      font-family: 'Montserrat';
-      font-size: 11px;
-      font-weight: 600;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      background: #C92828;
-      padding: 8px 15px;
-      z-index: 3;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
-    }
-
     .card-image {
       width: 100%;
       height: 100%;
@@ -375,32 +359,17 @@
       background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
       padding: 30px 25px 25px;
       z-index: 2;
-    }
-
-    .player-role {
-      font-family: 'Montserrat';
-      font-size: 11px;
-      color: #C92828;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 8px;
-      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .player-name-card {
       font-family: 'TheLastShuriken';
       font-size: 38px;
       color: #fff;
-      margin-bottom: 8px;
       text-transform: uppercase;
       letter-spacing: 2px;
-    }
-
-    .player-full-name-card {
-      font-family: 'Montserrat';
-      font-size: 13px;
-      color: rgba(255,255,255,0.8);
-      font-weight: 500;
     }
 
     .carousel-nav {
@@ -673,8 +642,8 @@
           BACK
         </a>
 
-        <div class="player-name-small" id="playerNameSmall">TAKESHI "KENJIN" YAMAMOTO</div>
-        <h1 class="player-name-large" id="playerNameLarge">KENJIN</h1>
+        <div class="player-name-small" id="playerNameSmall">DASEAN "DEYY" HEW</div>
+        <h1 class="player-name-large" id="playerNameLarge">DEYY</h1>
         <p class="player-bio" id="playerBio">Zenshin no kokoro de tatakau - fights with a forward spirit. Master strategist wielding the blade of leadership. Commands respect through decisive action and unwavering resolve on the battlefield.</p>
         
         <div class="player-socials">
@@ -791,12 +760,12 @@
   <script>
     const players = [
       {
-        fullName: 'Takeshi "KENJIN" Yamamoto',
-        ign: 'KENJIN',
+        fullName: 'Dasean "DEYY" Hew',
+        ign: 'DEYY',
         role: 'TEAM CAPTAIN',
         label: 'PRO PLAYER',
         bio: 'Zenshin no kokoro de tatakau - fights with a forward spirit. Master strategist wielding the blade of leadership. Commands respect through decisive action and unwavering resolve on the battlefield.',
-        image: 'Coming soon.png',
+        image: 'https://i.postimg.cc/Dwzw04v1/d71cb6a4-1458-4cd1-833d-6e3d65cfb48f.png',
         twitter: '#',
         twitch: '#',
         youtube: '#',
@@ -878,12 +847,9 @@
         
         card.innerHTML = `
           <div class="card-image-wrapper">
-            <div class="card-label">${player.label}</div>
             <img src="${player.image}" alt="${player.ign}" class="card-image">
             <div class="card-overlay">
-              <div class="player-role">${player.role}</div>
               <div class="player-name-card">${player.ign}</div>
-              <div class="player-full-name-card">${player.fullName}</div>
             </div>
           </div>
         `;
@@ -898,29 +864,4 @@
       document.getElementById('playerBio').textContent = player.bio;
       document.getElementById('socialX').href = player.twitter;
       document.getElementById('socialTwitch').href = player.twitch;
-      document.getElementById('socialYouTube').href = player.youtube;
-      document.getElementById('socialTikTok').href = player.tiktok;
-      document.getElementById('counterDisplay').textContent = currentIndex + 1;
-      
-      renderCards();
-    }
-
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + players.length) % players.length;
-      updateDisplay();
-    });
-
-    nextBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % players.length;
-      updateDisplay();
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') prevBtn.click();
-      if (e.key === 'ArrowRight') nextBtn.click();
-    });
-
-    updateDisplay();
-  </script>
-</body>
-</html>
+      document.getElementById('socialYouTube').
