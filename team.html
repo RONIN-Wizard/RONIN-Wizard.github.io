@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Team | RONIN</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RONIN — Team</title>
 
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+  <link rel="shortcut icon" href="favicon.ico?v=2">
   <link rel="apple-touch-icon" href="RONIN_Logo.png?v=2">
-  <meta name="theme-color" content="#C92828" />
+  <meta name="theme-color" content="#C92828">
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -17,404 +19,621 @@
       font-weight: normal;
       font-style: normal;
     }
-    * {margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+
     body {
-      font-family:'Montserrat',sans-serif;
-      background:#eeeeee;
-      color:#000;
-      overflow-x:hidden;
-    }
-    ::-webkit-scrollbar{width:6px;}
-    ::-webkit-scrollbar-track{background:#000;}
-    ::-webkit-scrollbar-thumb{background:#C92828;border-radius:5px;}
-
-    /* HEADER */
-    header{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:20px 50px;background:#eeeeee;
-      position:fixed;top:0;left:0;right:0;z-index:1000;
-      border-bottom:2px solid #C92828;overflow:hidden;
-    }
-    header::before{
-      content:"";position:absolute;inset:0;
-      background:url('roninbg.png') center/cover no-repeat;
-      filter:grayscale(100%) brightness(.7);
-      opacity:.03;z-index:0;
-    }
-    header *{position:relative;z-index:1;}
-    .logo{display:flex;align-items:flex-end;text-decoration:none;gap:8px;}
-    .logo img{height:45px;width:auto;}
-    .logo span{
-      font-family:'TheLastShuriken';
-      font-size:28px;color:#C92828;letter-spacing:2px;
-    }
-    .center-header-text{
-      position:absolute;left:50%;transform:translateX(-50%);
-      font-family:'TheLastShuriken';font-size:22px;
-      color:#C92828;letter-spacing:2px;
-    }
-    nav.nav-links{display:flex;align-items:center;}
-    nav.nav-links a{
-      font-family:'TheLastShuriken';
-      color:#C92828;text-decoration:none;
-      margin-left:25px;font-size:18px;
-      transition:color .3s;
-    }
-    nav.nav-links a:hover{color:#000;}
-
-    /* TEAM SECTION */
-    #team{
-      position:relative;
-      min-height:100vh;
-      padding:160px 50px 100px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      overflow:hidden;
-      background:#eeeeee;
-    }
-    #team::before{
-      content:"";position:absolute;inset:0;
-      background:url('roninbg.png') center/cover no-repeat;
-      opacity:.03;z-index:0;
-      transform:translateY(0);
-      transition:transform 1s ease;
-    }
-    body.scrolled #team::before{transform:translateY(-30px);}
-
-    /* Left Player Info */
-    .team-info{
-      flex:1;
-      max-width:38%;
-      padding-right:40px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      z-index:5;
-    }
-    .team-info small{
-      font-weight:600;font-size:14px;
-      color:#C92828;text-transform:uppercase;
-      margin-bottom:10px;
-      display:block;
-      animation:fadeIn .8s ease;
-    }
-    .team-info h2{
-      font-family:'TheLastShuriken';
-      font-size:56px;color:#C92828;
-      margin-bottom:10px;
-      animation:fadeIn .8s ease .1s both;
-    }
-    .team-info p{
-      font-size:17px;line-height:1.8;color:#000;
-      max-width:500px;margin-bottom:15px;
-      animation:fadeIn .8s ease .2s both;
-    }
-    .stats{
-      display:flex;gap:25px;font-size:14px;
-      font-weight:600;color:#C92828;
-      letter-spacing:1px;text-transform:uppercase;
-      animation:fadeIn .8s ease .3s both;
-    }
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(10px);}
-      to{opacity:1;transform:translateY(0);}
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
     }
 
-    /* Carousel Wrapper */
-    .carousel{
-      flex:1.5;
-      position:relative;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      overflow:hidden;
-    }
-    .own-blade-watermark{
-      position:absolute;
-      font-family:'TheLastShuriken';
-      font-size:180px;
-      color:#C92828;
-      opacity:.04;
-      z-index:0;
-      pointer-events:none;
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #222;
     }
 
-    /* Player Card */
-    .player{
-      position:absolute;
-      width:460px;height:540px;
-      border:3px solid #C92828;
-      border-radius:18px;
-      background:#fff;
-      overflow:hidden;
-      transition:transform 1.2s cubic-bezier(.75,0,.25,1),opacity 1.2s ease;
-      clip-path:polygon(15px 0,100% 0,100% calc(100% - 15px),calc(100% - 15px) 100%,0 100%,0 15px);
-      box-shadow:0 10px 40px rgba(201,40,40,.2);
-      opacity:0;
-      transform:translateX(120%);
+    .logo { display: flex; align-items:flex-end; text-decoration: none; gap: 8px; }
+    .logo img { height: 45px; width: auto; }
+    .logo span {
+      font-family: 'TheLastShuriken';
+      font-size: 28px;
+      color: #C92828;
+      letter-spacing: 2px;
     }
-    .player.active{opacity:1;transform:translateX(0);}
-    .player.prev{opacity:.6;transform:translateX(-60%) scale(.9);}
-    .player.next{opacity:.6;transform:translateX(60%) scale(.9);}
-    .player img{
-      width:100%;height:100%;object-fit:cover;
-      transition:transform .5s;
+    
+    nav.nav-links { display: flex; align-items: center; }
+    nav.nav-links a {
+      font-family: 'TheLastShuriken';
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
     }
-    .player:hover img{transform:scale(1.05);}
-    .player::after{
-      content:"";
-      position:absolute;inset:0;
-      background:linear-gradient(135deg,transparent 80%,rgba(201,40,40,.2) 100%);
-      pointer-events:none;
+    nav.nav-links a:hover { color: #C92828; }
+    nav.nav-links a.active { color: #C92828; font-weight: 600; }
+
+    .team-container {
+      min-height: 100vh;
+      padding: 100px 50px 50px;
+      display: flex;
+      align-items: center;
+      position: relative;
     }
 
-    /* Smoke/Particles */
-    .smoke{
-      position:absolute;
-      top:0;left:0;width:100%;height:100%;
-      overflow:hidden;z-index:0;
-      pointer-events:none;
-    }
-    .particle{
-      position:absolute;
-      width:60px;height:60px;
-      background:radial-gradient(rgba(201,40,40,.2),transparent 70%);
-      border-radius:50%;
-      animation:float 20s linear infinite;
-    }
-    @keyframes float{
-      0%{transform:translateY(600px) scale(0.8);}
-      50%{opacity:.7;}
-      100%{transform:translateY(-200px) scale(1.2);opacity:0;}
+    .back-button {
+      position: absolute;
+      top: 120px;
+      left: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #C92828;
+      font-family: 'Montserrat';
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: transform 0.3s;
     }
 
-    /* Navigation Arrows */
-    .team-nav{
-      position:absolute;bottom:-90px;left:50%;
-      transform:translateX(-50%);
-      display:flex;gap:40px;
-      z-index:10;
+    .back-button:hover {
+      transform: translateX(-5px);
     }
-    .team-nav button{
-      width:60px;height:60px;border-radius:50%;
-      border:none;background:#C92828;
-      box-shadow:0 4px 15px rgba(201,40,40,.4);
-      cursor:pointer;
-      transition:all .3s;
-    }
-    .team-nav button:hover{background:#a71e1e;transform:scale(1.1);}
-    .team-nav svg{width:26px;height:26px;fill:#fff;}
 
-    /* Footer Base */
-    footer{
-      background:#eeeeee;
-      color:#000;
-      padding:100px 100px 60px;
-      border-top:2px solid #C92828;
-      display:flex;
-      flex-direction:column;
-      gap:60px;
-      position:relative;
-      overflow:hidden;
+    .back-button svg {
+      width: 20px;
+      height: 20px;
+      fill: #C92828;
     }
-    footer::before{
-      content:"";position:absolute;inset:0;
-      background:url('roninbg.png') center/cover no-repeat;
-      filter:grayscale(100%) brightness(0.7);
-      opacity:.03;z-index:0;
+
+    .content-wrapper {
+      display: flex;
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      gap: 80px;
+      align-items: center;
     }
-    footer *{position:relative;z-index:1;}
+
+    .player-info-left {
+      flex: 0 0 400px;
+    }
+
+    .player-small-name {
+      font-family: 'Montserrat';
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .player-large-name {
+      font-family: 'TheLastShuriken';
+      font-size: 72px;
+      color: #C92828;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .player-bio {
+      font-family: 'Montserrat';
+      font-size: 15px;
+      color: #aaa;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .player-socials {
+      display: flex;
+      gap: 15px;
+    }
+
+    .player-socials a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 2px solid #C92828;
+      border-radius: 0;
+      transition: all 0.3s;
+    }
+
+    .player-socials a:hover {
+      background: #C92828;
+    }
+
+    .player-socials a img {
+      width: 20px;
+      height: 20px;
+      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
+    }
+
+    .player-socials a:hover img {
+      filter: invert(1);
+    }
+
+    .carousel-section {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      gap: 30px;
+    }
+
+    .player-card {
+      flex: 0 0 350px;
+      height: 500px;
+      position: relative;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0.3;
+      transform: scale(0.85);
+    }
+
+    .player-card.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .player-card.side {
+      opacity: 0.5;
+      transform: scale(0.9);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      background: #111;
+      border: 2px solid #C92828;
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
+      overflow: hidden;
+    }
+
+    .card-label {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-family: 'Montserrat';
+      font-size: 11px;
+      font-weight: 600;
+      color: #C92828;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 8px 15px;
+      z-index: 2;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .navigation-controls {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .page-counter {
+      font-family: 'TheLastShuriken';
+      font-size: 28px;
+      color: #C92828;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .nav-arrow {
+      width: 55px;
+      height: 55px;
+      background: #C92828;
+      border: none;
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .nav-arrow:hover {
+      background: #a71e1e;
+      transform: scale(1.1);
+    }
+
+    .nav-arrow:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .nav-arrow:disabled:hover {
+      transform: scale(1);
+      background: #C92828;
+    }
+
+    .nav-arrow svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 80px 100px 60px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      border-top: 1px solid #222;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+
+    .footer-left {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-left img {
+      width: 70px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .footer-left p {
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-socials a img {
+      width: 25px;
+      height: 25px;
+      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
+      transition: opacity 0.3s;
+    }
+
+    .footer-socials a:hover img { opacity: 0.7; }
+
+    .footer-columns {
+      display: flex;
+      justify-content: flex-end;
+      flex: 3;
+      flex-wrap: wrap;
+      gap: 80px;
+    }
+
+    .footer-column h4 {
+      font-family: 'TheLastShuriken';
+      color: #C92828;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #aaa;
+      text-decoration: none;
+      margin-bottom: 8px;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: #C92828;
+    }
+
+    @media (max-width: 1200px) {
+      .content-wrapper {
+        flex-direction: column;
+        gap: 50px;
+      }
+      .player-info-left {
+        flex: none;
+        width: 100%;
+        text-align: center;
+      }
+      .player-socials {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 
 <body>
-<header>
-  <a href="/" class="logo">
-    <img src="RONIN_Logo.png" alt="Logo"><span>RONIN</span>
-  </a>
-  <div class="center-header-text">#OwnTheBlade</div>
-  <nav class="nav-links">
-    <a href="/">Home</a>
-    <a href="partners.html">Partners</a>
-    <a href="team.html" class="active">Team</a>
-    <a href="news.html">News</a>
-    <a href="shop.html">Shop</a>
-  </nav>
-</header>
 
-<section id="team">
-  <div class="team-info" id="playerInfo">
-    <small>Desean "DEYY" Hew</small>
-    <h2>DEYY</h2>
-    <p>A fearless competitor and the embodiment of control under chaos. Desean “DEYY” Hew leads with instinct and precision — a perfect fit for the Ronin philosophy.</p>
-    <div class="stats"><span>Player</span><span>Age 20</span><span>Joined 2025</span></div>
-  </div>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="RONIN_Logo.png" alt="Logo">
+      <span>RONIN</span>
+    </a>
 
-  <div class="carousel">
-    <div class="own-blade-watermark">#OwnTheBlade</div>
-    <div class="smoke" id="smokeContainer"></div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="news.html">News</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
 
-    <div class="player active"><img src="Deyyron.webp" alt="Deyy"></div>
-    <div class="player next"><img src="Coming soon.png" alt="Player 2"></div>
-    <div class="player"><img src="Coming soon.png" alt="Player 3"></div>
-    <div class="player"><img src="Coming soon.png" alt="Player 4"></div>
-    <div class="player prev"><img src="Coming soon.png" alt="Player 5"></div>
+  <div class="team-container">
+    <a href="team.html" class="back-button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+      BACK
+    </a>
 
-    <div class="team-nav">
-      <button id="prevBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    <div class="content-wrapper">
+      <div class="player-info-left">
+        <div class="player-small-name" id="playerSmallName">MOUHAMED "JOHNQT" OUARID</div>
+        <h1 class="player-large-name" id="playerLargeName">JOHNQT</h1>
+        <p class="player-bio" id="playerBio">The brains behind the Sentinels Valorant team. On top of speaking 5 languages, he's an IGL who can frag out. This proved itself valuable this offseason as he crushed the competition with an undefeated record of 11-0. Also - mysteriously - his real name isn't John.</p>
+        <div class="player-socials">
+          <a href="#" target="_blank" id="socialX">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
+          </a>
+          <a href="#" target="_blank" id="socialTwitch">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch">
+          </a>
+        </div>
+      </div>
+
+      <div class="carousel-section">
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Cards will be dynamically generated -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigation-controls">
+      <button class="nav-arrow" id="prevBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
       </button>
-      <button id="nextBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+      <span class="page-counter" id="pageCounter">1 — 6</span>
+      <button class="nav-arrow" id="nextBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
       </button>
     </div>
   </div>
-</section>
-<footer>
-  <div class="footer-top">
-    <div class="footer-left">
-      <img src="RONIN_Logo.png" alt="Ronin Logo">
-      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
-      <div class="footer-socials">
-        <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg"></a>
-        <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg"></a>
-        <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg"></a>
-        <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg"></a>
-        <a href="https://discord.gg/qaTWR7PtHa" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg"></a>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <img src="RONIN_Logo.png" alt="Ronin Logo">
+        <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
+          <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+          <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+          <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+          <a href="https://discord.gg/qaTWR7PtHa" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord"></a>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>About</h4>
+          <a href="#">Who we are</a>
+          <a href="#">Championships</a>
+          <a href="partners.html">Partners</a>
+          <a href="#">Management Team</a>
+          <a href="#">Brand Toolkit</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="index.html">Home</a>
+          <a href="team.html">Team</a>
+          <a href="news.html">News</a>
+          <a href="partners.html">Partners</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Terms & Policies</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <a href="shop.html">Shop</a>
+          <a href="#">Returns Policy</a>
+          <a href="#">Shipping Policy</a>
+        </div>
       </div>
     </div>
+  </footer>
 
-    <div class="footer-columns">
-      <div class="footer-column">
-        <h4>About</h4>
-        <a href="#">Who we are</a>
-        <a href="#">Championships</a>
-        <a href="partners.html">Partners</a>
-        <a href="#">Management Team</a>
-        <a href="#">Brand Toolkit</a>
-      </div>
-      <div class="footer-column">
-        <h4>Company</h4>
-        <a href="/">Home</a>
-        <a href="team.html">Team</a>
-        <a href="news.html">News</a>
-        <a href="partners.html">Partners</a>
-      </div>
-      <div class="footer-column">
-        <h4>Terms & Policies</h4>
-        <a href="#">Privacy</a>
-        <a href="#">Terms & Conditions</a>
-      </div>
-      <div class="footer-column">
-        <h4>Shop</h4>
-        <a href="shop.html">Shop</a>
-        <a href="#">Returns Policy</a>
-        <a href="#">Shipping Policy</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  <script>
+    const players = [
+      {
+        smallName: 'MOUHAMED "JOHNQT" OUARID',
+        largeName: 'JOHNQT',
+        role: 'PROFILE // JOHNQT',
+        bio: 'The brains behind the RONIN Valorant team. On top of speaking 5 languages, he\'s an IGL who can frag out. This proved itself valuable this offseason as he crushed the competition with an undefeated record of 11-0.',
+        image: 'roninbg.png',
+        twitter: '#',
+        twitch: '#'
+      },
+      {
+        smallName: 'ZACHARY "ZEKKEN" PATRONE',
+        largeName: 'ZEKKEN',
+        role: 'PROFILE // ZEKKEN',
+        bio: 'A true prodigy in the Valorant scene. Zekken stunned the world by being one of the best players anyone had ever seen while simultaneously being in the 4th grade. His one weakness is peanuts, of which is deathly allergic.',
+        image: 'roninbg.png',
+        twitter: '#',
+        twitch: '#'
+      },
+      {
+        smallName: 'PLAYER "HANDLE" THREE',
+        largeName: 'HANDLE',
+        role: 'PROFILE // HANDLE',
+        bio: 'Professional player with exceptional skills and dedication to the game. Known for clutch plays and strategic gameplay that has helped secure numerous victories for the team.',
+        image: 'roninbg.png',
+        twitter: '#',
+        twitch: '#'
+      },
+      {
+        smallName: 'CONTENT "CREATOR" FOUR',
+        largeName: 'CREATOR',
+        role: 'PROFILE // CREATOR',
+        bio: 'Dynamic content creator bringing entertainment and insight to the RONIN community. Streaming daily and connecting with fans through engaging content and personality.',
+        image: 'roninbg.png',
+        twitter: '#',
+        twitch: '#'
+      },
+      {
+        smallName: 'PLAYER "FIVE" NAME',
+        largeName: 'FIVE',
+        role: 'PROFILE // FIVE',
+        bio: 'Rising star in competitive gaming with a passion for excellence. Consistently performs at the highest level and continues to push boundaries in professional play.',
+        image: 'roninbg.png',
+        twitter: '#',
+        twitch: '#'
+      },
+      {
+        smallName: 'PLAYER "SIX" SURNAME',
+        largeName: 'SIX',
+        role: 'PROFILE // SIX',
+        bio: 'Veteran player with years of experience competing at the top tier. Known for leadership qualities and mentoring younger players on the team.',
+        image: 'roninbg.png',
+        twitter: '#',
+        twitch: '#'
+      }
+    ];
 
-<script>
-/* === Player Data === */
-const players = [
-  {
-    name:'Desean "DEYY" Hew',
-    alias:'DEYY',
-    bio:'A fearless competitor and the embodiment of control under chaos. Desean “DEYY” Hew leads with instinct and precision — a perfect fit for the Ronin philosophy.',
-    stats:['Player','Age 20','Joined 2025'],
-    img:'Deyyron.webp'
-  },
-  {name:'Player Two',alias:'PLAYER TWO',bio:'Placeholder bio for Player Two.',stats:['Player','Age 21','Joined 2025'],img:'Coming soon.png'},
-  {name:'Player Three',alias:'PLAYER THREE',bio:'Placeholder bio for Player Three.',stats:['Player','Age 22','Joined 2025'],img:'Coming soon.png'},
-  {name:'Player Four',alias:'PLAYER FOUR',bio:'Placeholder bio for Player Four.',stats:['Player','Age 23','Joined 2025'],img:'Coming soon.png'},
-  {name:'Player Five',alias:'PLAYER FIVE',bio:'Placeholder bio for Player Five.',stats:['Player','Age 24','Joined 2025'],img:'Coming soon.png'}
-];
+    let currentIndex = 0;
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const counter = document.getElementById('pageCounter');
 
-const slides = document.querySelectorAll('.player');
-const info = document.getElementById('playerInfo');
-let current = 0;
+    // Generate cards
+    function generateCards() {
+      track.innerHTML = '';
+      players.forEach((player, i) => {
+        const card = document.createElement('div');
+        card.className = 'player-card';
+        if (i === currentIndex) card.classList.add('active');
+        if (i === currentIndex - 1 || i === currentIndex + 1) card.classList.add('side');
+        
+        card.innerHTML = `
+          <div class="card-inner">
+            <div class="card-label">${player.role}</div>
+            <img src="${player.image}" alt="${player.largeName}" class="card-image">
+          </div>
+        `;
+        track.appendChild(card);
+      });
+    }
 
-/* === Smoke / Particle Generator === */
-const smokeContainer = document.getElementById('smokeContainer');
-function createParticle(){
-  const p=document.createElement('div');
-  p.classList.add('particle');
-  p.style.left=Math.random()*100+'%';
-  p.style.animationDelay=Math.random()*5+'s';
-  smokeContainer.appendChild(p);
-  setTimeout(()=>p.remove(),20000);
-}
-for(let i=0;i<12;i++)createParticle();
-setInterval(createParticle,2500);
+    // Update display
+    function updateDisplay() {
+      const player = players[currentIndex];
+      document.getElementById('playerSmallName').textContent = player.smallName;
+      document.getElementById('playerLargeName').textContent = player.largeName;
+      document.getElementById('playerBio').textContent = player.bio;
+      document.getElementById('socialX').href = player.twitter;
+      document.getElementById('socialTwitch').href = player.twitch;
+      counter.textContent = `${currentIndex + 1} — ${players.length}`;
+      
+      // Update cards
+      const cards = document.querySelectorAll('.player-card');
+      cards.forEach((card, i) => {
+        card.classList.remove('active', 'side');
+        if (i === currentIndex) card.classList.add('active');
+        if (i === currentIndex - 1 || i === currentIndex + 1) card.classList.add('side');
+      });
 
-/* === Update Player Info === */
-function updateInfo(){
-  const p=players[current];
-  info.innerHTML=`
-    <small>${p.name}</small>
-    <h2>${p.alias}</h2>
-    <p>${p.bio}</p>
-    <div class="stats">${p.stats.map(s=>`<span>${s}</span>`).join('')}</div>
-  `;
-}
+      // Update buttons
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === players.length - 1;
+    }
 
-/* === Slide Logic === */
-function showSlide(index){
-  slides.forEach((s,i)=>{
-    s.classList.remove('active','next','prev');
-    if(i===index){s.classList.add('active');}
-    else if(i===(index+1)%slides.length){s.classList.add('next');}
-    else if(i===(index-1+slides.length)%slides.length){s.classList.add('prev');}
-  });
-  updateInfo();
-}
+    // Navigation
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateDisplay();
+      }
+    });
 
-/* === Buttons === */
-document.getElementById('nextBtn').addEventListener('click',()=>{
-  current=(current+1)%slides.length;
-  showSlide(current);
-  bladeTrail();
-});
-document.getElementById('prevBtn').addEventListener('click',()=>{
-  current=(current-1+slides.length)%slides.length;
-  showSlide(current);
-  bladeTrail();
-});
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < players.length - 1) {
+        currentIndex++;
+        updateDisplay();
+      }
+    });
 
-/* === Blade Trail Effect === */
-function bladeTrail(){
-  const trail=document.createElement('div');
-  trail.className='blade-trail';
-  trail.style.position='absolute';
-  trail.style.top='50%';
-  trail.style.left='-100%';
-  trail.style.width='100%';
-  trail.style.height='2px';
-  trail.style.background='linear-gradient(90deg,transparent,#C92828,transparent)';
-  trail.style.zIndex='9';
-  document.body.appendChild(trail);
-  trail.animate([
-    {left:'-100%',opacity:1},
-    {left:'100%',opacity:1},
-    {opacity:0}
-  ],{duration:800,easing:'ease'});
-  setTimeout(()=>trail.remove(),800);
-}
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
+    });
 
-/* === Parallax Scroll === */
-window.addEventListener('scroll',()=>{
-  const y=window.scrollY;
-  const team=document.getElementById('team');
-  team.style.backgroundPositionY=(y*0.3)+'px';
-});
+    // Initialize
+    generateCards();
+    updateDisplay();
+  </script>
 
-/* === Init === */
-showSlide(current);
-updateInfo();
-</script>
 </body>
 </html>
 
