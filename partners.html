@@ -5,8 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RONIN — Partners</title>
 
-  <!-- Font & Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+  <link rel="shortcut icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="RONIN_Logo.png?v=2">
+  <meta name="theme-color" content="#C92828">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
@@ -15,170 +20,289 @@
       font-style: normal;
     }
 
-    /* BASE */
-    * { margin:0; padding:0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'TheLastShuriken', sans-serif;
-      background: repeating-linear-gradient(
-        45deg,
-        #000,
-        #000 20px,
-        #0a0a0a 20px,
-        #0a0a0a 40px
-      );
-      color: white;
-    }
 
-    /* SCROLLBAR SLIM */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #000; }
     ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
 
-    /* HEADER */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #eeeeee;
+      color: #000;
+    }
+
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
-      background-color: #000;
-      position: sticky;
+      background-color: #eeeeee;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
-      border-bottom: 2px solid #C92828;
+      border-bottom: 3px solid #C92828;
+      overflow: hidden;
     }
-    .logo {
-      display: flex;
-      align-items: center;
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('roninbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.03;
+      z-index: 0;
+    }
+
+    header * { position: relative; z-index: 1; }
+
+    .logo { display: flex; align-items:flex-end; text-decoration: none; gap: 8px; }
+    .logo img { height: 45px; width: auto; }
+    .logo span {
+      font-family: 'TheLastShuriken';
+      font-size: 28px;
+      color: #C92828;
+      letter-spacing: 2px;
+    }
+    .center-header-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'TheLastShuriken';
+      font-size: 22px;
+      color: #C92828;
+      letter-spacing: 2px;
+    }
+    nav.nav-links { display: flex; align-items: center; }
+    nav.nav-links a {
+      font-family: 'TheLastShuriken';
+      color: #C92828;
       text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
     }
-    .logo img { height: 50px; margin-right: 10px; }
-    .logo span { font-size: 28px; color: #C92828; letter-spacing: 2px; text-decoration: none; }
+    nav.nav-links a:hover { color: #000; }
+    nav.nav-links a.active { color: #000; font-weight: 600; }
 
-    /* NAVIGATION */
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-    nav a { color: white; text-decoration: none; font-size: 18px; transition: color 0.3s; }
-    nav a:hover, nav a.active { color: #C92828; }
-
-    /* Hamburger (mobile) */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 28px;
-      height: 22px;
-      cursor: pointer;
-    }
-    .hamburger div {
-      width: 100%;
-      height: 3px;
-      background-color: white;
-      transition: all 0.3s ease;
-    }
-    .hamburger.active div:nth-child(1) { transform: rotate(45deg) translateY(8px); }
-    .hamburger.active div:nth-child(2) { opacity: 0; }
-    .hamburger.active div:nth-child(3) { transform: rotate(-45deg) translateY(-8px); }
-
-    /* MOBILE NAV */
-    @media (max-width: 768px) {
-      nav {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: #000;
-        flex-direction: column;
-        width: 200px;
-        padding: 20px;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        border-left: 2px solid #C92828;
-        border-bottom: 2px solid #C92828;
-      }
-      nav.show { transform: translateX(0); }
-      nav a { margin: 10px 0; }
-      .hamburger { display: flex; }
-    }
-
-    /* PAGE HEADER */
     .page-header {
-      padding: 80px 20px;
+      padding: 180px 50px 80px 50px;
       text-align: center;
+      background: #eeeeee;
+      position: relative;
+      overflow: hidden;
     }
-    .page-header h1 { font-size: 48px; color: #C92828; }
-    .page-header p { margin-top: 20px; color: #ccc; font-size: 20px; }
 
-    /* PARTNERS GRID */
+    .page-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('roninbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.03;
+      z-index: 0;
+    }
+
+    .page-header * { position: relative; z-index: 1; }
+
+    .page-header h1 { 
+      font-family: 'TheLastShuriken';
+      font-size: 64px; 
+      color: #C92828; 
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+    .page-header p { 
+      font-family: 'Montserrat';
+      color: #000; 
+      font-size: 20px;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .partners-section {
+      padding: 80px 50px;
+      background: #eeeeee;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .partners-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('roninbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.03;
+      z-index: 0;
+    }
+
+    .partners-section * { position: relative; z-index: 1; }
+
     .partners-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 40px;
-      padding: 40px 50px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
+
     .partner-card {
-      background: #111;
-      border: 2px solid #333;
-      border-radius: 10px;
-      padding: 30px;
+      background: #fff;
+      border: 2px solid #C92828;
+      border-radius: 15px;
+      padding: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: transform 0.3s, border-color 0.3s;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 3px 10px rgba(201, 40, 40, 0.1);
     }
+
     .partner-card:hover {
       transform: translateY(-10px);
-      border-color: #C92828;
+      box-shadow: 0 10px 30px rgba(201, 40, 40, 0.3);
+      background: #f9f9f9;
     }
+
     .partner-card img {
       max-width: 100%;
-      max-height: 100px;
+      max-height: 120px;
       object-fit: contain;
     }
 
-    /* FOOTER */
     footer {
-      background:#111;
-      color:white;
-      padding:40px 50px;
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:20px;
-      border-top:2px solid #C92828;
+      background: #eeeeee;
+      color: #000;
+      padding: 100px 100px 60px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      position: relative;
+      overflow: hidden;
+      border-top: 3px solid #C92828;
     }
-    .footer-socials a { margin-right:15px; color:white; font-size:20px; text-decoration:none; transition: color 0.3s; }
-    .footer-socials a:hover { color:#C92828; }
-    .footer-legal { font-size:14px; color:#aaa; }
 
-    /* MOBILE RESPONSIVENESS */
-    @media (max-width: 768px) {
-      .partners-grid { padding: 30px 20px; gap: 20px; }
-      .partner-card { padding: 20px; }
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('roninbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.03;
+      z-index: 0;
     }
-    @media (max-width: 480px) {
-      .page-header h1 { font-size: 36px; }
-      .page-header p { font-size: 16px; }
-      .partner-card img { max-height: 80px; }
+
+    footer * { position: relative; z-index: 1; }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+
+    .footer-left {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-left img {
+      width: 70px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .footer-left p {
+      color: #C92828;
+      margin-bottom: 20px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-socials a img {
+      width: 25px;
+      height: 25px;
+      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
+      transition: opacity 0.3s;
+    }
+
+    .footer-socials a:hover img { opacity: 0.7; }
+
+    .footer-columns {
+      display: flex;
+      justify-content: flex-end;
+      flex: 3;
+      flex-wrap: wrap;
+      gap: 80px;
+    }
+
+    .footer-column h4 {
+      font-family: 'TheLastShuriken';
+      color: #C92828;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #000;
+      text-decoration: none;
+      margin-bottom: 8px;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: #C92828;
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 48px; }
+      .partners-grid { 
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 30px; 
+        padding: 0 20px;
+      }
+      .partner-card { padding: 30px; }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
   <header>
     <a href="index.html" class="logo">
-      <img src="https://static1.squarespace.com/static/68c84983eaba89401f6407be/t/68c8529cca082172820cfb04/1757958813131/roni.png" alt="Ronin Logo">
+      <img src="RONIN_Logo.png" alt="Logo">
       <span>RONIN</span>
     </a>
-    <div class="hamburger" id="hamburger">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <nav id="nav">
+
+    <div class="center-header-text">#OwnTheBlade</div>
+
+    <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="partners.html" class="active">Partners</a>
       <a href="team.html">Team</a>
@@ -187,58 +311,75 @@
     </nav>
   </header>
 
-  <!-- PAGE HEADER -->
   <div class="page-header">
     <h1>Our Partners</h1>
+    <p>Building the future of esports together with industry-leading brands and innovators.</p>
   </div>
 
-  <!-- PARTNERS GRID -->
-  <div class="partners-grid">
-    <div class="partner-card">
-      <img src="https://via.placeholder.com/200x100?text=Partner+Logo" alt="Partner Name">
+  <section class="partners-section">
+    <div class="partners-grid">
+      <a href="#" class="partner-card">
+        <img src="Coming soon.png" alt="Partner">
+      </a>
+      <a href="#" class="partner-card">
+        <img src="Coming soon.png" alt="Partner">
+      </a>
+      <a href="#" class="partner-card">
+        <img src="Coming soon.png" alt="Partner">
+      </a>
+      <a href="#" class="partner-card">
+        <img src="Coming soon.png" alt="Partner">
+      </a>
     </div>
-    <div class="partner-card">
-      <img src="https://via.placeholder.com/200x100?text=Partner+Logo" alt="Partner Name">
-    </div>
-    <div class="partner-card">
-      <img src="https://via.placeholder.com/200x100?text=Partner+Logo" alt="Partner Name">
-    </div>
-    <div class="partner-card">
-      <img src="https://via.placeholder.com/200x100?text=Partner+Logo" alt="Partner Name">
-    </div>
-  </div>
+  </section>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-socials">
-      <a href="https://x.com/Roninggs" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://www.youtube.com/@RoninGGss" target="_blank"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.tiktok.com/@roninggs" target="_blank"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.twitch.tv/roningamingggs" target="_blank"><i class="fab fa-twitch"></i></a>
-    </div>
-    <div class="footer-legal">
-      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+    <div class="footer-top">
+      <div class="footer-left">
+        <img src="RONIN_Logo.png" alt="Ronin Logo">
+        <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
+          <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+          <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+          <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+          <a href="https://discord.gg/qaTWR7PtHa" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord"></a>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>About</h4>
+          <a href="#">Who we are</a>
+          <a href="#">Championships</a>
+          <a href="partners.html">Partners</a>
+          <a href="#">Management Team</a>
+          <a href="#">Brand Toolkit</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="index.html">Home</a>
+          <a href="team.html">Team</a>
+          <a href="news.html">News</a>
+          <a href="partners.html">Partners</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Terms & Policies</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <a href="shop.html">Shop</a>
+          <a href="#">Returns Policy</a>
+          <a href="#">Shipping Policy</a>
+        </div>
+      </div>
     </div>
   </footer>
-
-  <script>
-    // Hamburger menu functionality
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav');
-
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      nav.classList.toggle('show');
-    });
-
-    // Close menu when clicking a link
-    nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        nav.classList.remove('show');
-      });
-    });
-  </script>
 
 </body>
 </html>
