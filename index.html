@@ -281,7 +281,7 @@
       transition: background 0.3s;
       box-shadow: 0 4px 10px rgba(201, 40, 40, 0.4);
       animation: pulse 2s infinite;
-      margin-left: 162px;
+      margin-left: 158px;
     }
 
     @keyframes pulse {
@@ -500,26 +500,27 @@
       display: flex;
       overflow: hidden;
       flex: 1;
+      position: relative;
+      height: 500px;
     }
 
     .merch-slide {
-      min-width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
       gap: 60px;
       opacity: 0;
-      transform: translateX(100%);
-      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+      pointer-events: none;
+      transition: opacity 0.8s ease-in-out;
     }
 
     .merch-slide.active {
       opacity: 1;
-      transform: translateX(0);
-    }
-
-    .merch-slide.exit-left {
-      opacity: 0;
-      transform: translateX(-100%);
+      pointer-events: auto;
     }
 
     .merch-image {
@@ -1047,19 +1048,21 @@
     let currentMerchSlide = 0;
     let merchInterval;
 
-    function cycleMerch() {
-      merchSlides[currentMerchSlide].classList.add('exit-left');
-      
-      setTimeout(() => {
-        merchSlides[currentMerchSlide].classList.remove('active', 'exit-left');
-        currentMerchSlide = (currentMerchSlide + 1) % merchSlides.length;
-        merchSlides[currentMerchSlide].classList.add('active');
-      }, 800);
+    function cycleMerchForward() {
+      merchSlides[currentMerchSlide].classList.remove('active');
+      currentMerchSlide = (currentMerchSlide + 1) % merchSlides.length;
+      merchSlides[currentMerchSlide].classList.add('active');
+    }
+
+    function cycleMerchBackward() {
+      merchSlides[currentMerchSlide].classList.remove('active');
+      currentMerchSlide = (currentMerchSlide - 1 + merchSlides.length) % merchSlides.length;
+      merchSlides[currentMerchSlide].classList.add('active');
     }
 
     function startMerchAutoCycle() {
       merchInterval = setInterval(() => {
-        cycleMerch();
+        cycleMerchForward();
       }, 8000);
     }
 
@@ -1067,18 +1070,13 @@
 
     document.getElementById('merchPrev').addEventListener('click', () => {
       clearInterval(merchInterval);
-      merchSlides[currentMerchSlide].classList.add('exit-left');
-      setTimeout(() => {
-        merchSlides[currentMerchSlide].classList.remove('active', 'exit-left');
-        currentMerchSlide = (currentMerchSlide - 1 + merchSlides.length) % merchSlides.length;
-        merchSlides[currentMerchSlide].classList.add('active');
-      }, 800);
+      cycleMerchBackward();
       startMerchAutoCycle();
     });
 
     document.getElementById('merchNext').addEventListener('click', () => {
       clearInterval(merchInterval);
-      cycleMerch();
+      cycleMerchForward();
       startMerchAutoCycle();
     });
   </script>
