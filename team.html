@@ -24,14 +24,29 @@
     html { scroll-behavior: smooth; }
 
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-track { background: #eeeeee; }
     ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #000;
-      color: #fff;
+      background-color: #eeeeee;
+      color: #000;
       overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url('roninbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.03;
+      z-index: 0;
+      pointer-events: none;
     }
 
     header {
@@ -39,13 +54,13 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
-      background-color: #000;
+      background-color: #eeeeee;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      border-bottom: 1px solid #222;
+      border-bottom: 3px solid #C92828;
     }
 
     .logo { display: flex; align-items:flex-end; text-decoration: none; gap: 8px; }
@@ -56,18 +71,28 @@
       color: #C92828;
       letter-spacing: 2px;
     }
+
+    .center-header-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'TheLastShuriken';
+      font-size: 22px;
+      color: #C92828;
+      letter-spacing: 2px;
+    }
     
     nav.nav-links { display: flex; align-items: center; }
     nav.nav-links a {
       font-family: 'TheLastShuriken';
-      color: #fff;
+      color: #C92828;
       text-decoration: none;
       margin-left: 25px;
       font-size: 18px;
       transition: color 0.3s;
     }
-    nav.nav-links a:hover { color: #C92828; }
-    nav.nav-links a.active { color: #C92828; font-weight: 600; }
+    nav.nav-links a:hover { color: #000; }
+    nav.nav-links a.active { color: #000; font-weight: 600; }
 
     .team-container {
       min-height: 100vh;
@@ -75,6 +100,7 @@
       display: flex;
       align-items: center;
       position: relative;
+      z-index: 1;
     }
 
     .back-button {
@@ -85,10 +111,10 @@
       align-items: center;
       gap: 8px;
       color: #C92828;
-      font-family: 'Montserrat';
+      font-family: 'TheLastShuriken';
       font-weight: 600;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 18px;
       text-transform: uppercase;
       letter-spacing: 1px;
       transition: transform 0.3s;
@@ -120,7 +146,7 @@
     .player-small-name {
       font-family: 'Montserrat';
       font-size: 13px;
-      color: #888;
+      color: #666;
       margin-bottom: 15px;
       text-transform: uppercase;
       letter-spacing: 1.5px;
@@ -133,12 +159,13 @@
       margin-bottom: 30px;
       text-transform: uppercase;
       line-height: 1;
+      text-shadow: 2px 2px 0 rgba(201, 40, 40, 0.1);
     }
 
     .player-bio {
       font-family: 'Montserrat';
       font-size: 15px;
-      color: #aaa;
+      color: #333;
       line-height: 1.8;
       margin-bottom: 40px;
     }
@@ -156,8 +183,8 @@
       justify-content: center;
       background: transparent;
       border: 2px solid #C92828;
-      border-radius: 0;
       transition: all 0.3s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
     }
 
     .player-socials a:hover {
@@ -202,28 +229,81 @@
       height: 500px;
       position: relative;
       transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 0.3;
+      opacity: 0.15;
       transform: scale(0.85);
+      filter: blur(3px);
     }
 
     .player-card.active {
       opacity: 1;
       transform: scale(1);
+      filter: blur(0);
     }
 
     .player-card.side {
-      opacity: 0.5;
-      transform: scale(0.9);
+      opacity: 0.2;
+      transform: scale(0.88);
+      filter: blur(2px);
     }
 
     .card-inner {
       width: 100%;
       height: 100%;
-      background: #111;
-      border: 2px solid #C92828;
+      background: #fff;
+      border: 3px solid #C92828;
       position: relative;
-      clip-path: polygon(0 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%);
       overflow: hidden;
+      clip-path: polygon(
+        0 0, 
+        calc(100% - 40px) 0, 
+        100% 40px, 
+        100% calc(100% - 30px), 
+        calc(100% - 30px) 100%, 
+        0 100%
+      );
+    }
+
+    .card-inner::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #C92828 0%, #a71e1e 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+      z-index: 1;
+    }
+
+    .card-inner::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #C92828 0%, #a71e1e 100%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
+
+    .katana-slash {
+      position: absolute;
+      width: 150%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #C92828, transparent);
+      transform: rotate(-25deg);
+      top: 30%;
+      left: -25%;
+      opacity: 0.6;
+      z-index: 2;
+      box-shadow: 0 0 10px rgba(201, 40, 40, 0.5);
+    }
+
+    .katana-slash:nth-child(2) {
+      top: 60%;
+      transform: rotate(25deg);
+      animation-delay: 0.1s;
     }
 
     .card-label {
@@ -233,12 +313,13 @@
       font-family: 'Montserrat';
       font-size: 11px;
       font-weight: 600;
-      color: #C92828;
+      color: #fff;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      background: rgba(0, 0, 0, 0.8);
+      background: #C92828;
       padding: 8px 15px;
-      z-index: 2;
+      z-index: 3;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
     }
 
     .card-image {
@@ -269,12 +350,29 @@
       height: 55px;
       background: #C92828;
       border: none;
-      border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.3s;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-arrow::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .nav-arrow:hover::before {
+      left: 100%;
     }
 
     .nav-arrow:hover {
@@ -292,20 +390,28 @@
       background: #C92828;
     }
 
+    .nav-arrow:disabled::before {
+      display: none;
+    }
+
     .nav-arrow svg {
       width: 24px;
       height: 24px;
       fill: white;
+      position: relative;
+      z-index: 1;
     }
 
     footer {
-      background: #000;
-      color: #fff;
-      padding: 80px 100px 60px 100px;
+      background: #eeeeee;
+      color: #000;
+      padding: 100px 100px 60px 100px;
       display: flex;
       flex-direction: column;
       gap: 60px;
-      border-top: 1px solid #222;
+      border-top: 3px solid #C92828;
+      position: relative;
+      z-index: 1;
     }
 
     .footer-top {
@@ -327,7 +433,7 @@
     }
 
     .footer-left p {
-      color: #888;
+      color: #C92828;
       margin-bottom: 20px;
     }
 
@@ -362,7 +468,7 @@
 
     .footer-column a {
       display: block;
-      color: #aaa;
+      color: #000;
       text-decoration: none;
       margin-bottom: 8px;
       font-size: 15px;
@@ -398,6 +504,8 @@
       <span>RONIN</span>
     </a>
 
+    <div class="center-header-text">#OwnTheBlade</div>
+
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="partners.html">Partners</a>
@@ -417,15 +525,21 @@
 
     <div class="content-wrapper">
       <div class="player-info-left">
-        <div class="player-small-name" id="playerSmallName">MOUHAMED "JOHNQT" OUARID</div>
-        <h1 class="player-large-name" id="playerLargeName">JOHNQT</h1>
-        <p class="player-bio" id="playerBio">The brains behind the Sentinels Valorant team. On top of speaking 5 languages, he's an IGL who can frag out. This proved itself valuable this offseason as he crushed the competition with an undefeated record of 11-0. Also - mysteriously - his real name isn't John.</p>
+        <div class="player-small-name" id="playerSmallName">TAKESHI "BLADE" YAMAMOTO</div>
+        <h1 class="player-large-name" id="playerLargeName">BLADE</h1>
+        <p class="player-bio" id="playerBio">A master tactician with the precision of a samurai. Known for swift decisive plays that cut through enemy defenses. His leadership style embodies the way of the blade - disciplined, focused, and unrelenting.</p>
         <div class="player-socials">
           <a href="#" target="_blank" id="socialX">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
           </a>
           <a href="#" target="_blank" id="socialTwitch">
             <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch">
+          </a>
+          <a href="#" target="_blank" id="socialYouTube">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
+          </a>
+          <a href="#" target="_blank" id="socialTikTok">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok">
           </a>
         </div>
       </div>
@@ -505,58 +619,70 @@
   <script>
     const players = [
       {
-        smallName: 'MOUHAMED "JOHNQT" OUARID',
-        largeName: 'JOHNQT',
-        role: 'PROFILE // JOHNQT',
-        bio: 'The brains behind the RONIN Valorant team. On top of speaking 5 languages, he\'s an IGL who can frag out. This proved itself valuable this offseason as he crushed the competition with an undefeated record of 11-0.',
-        image: 'roninbg.png',
+        smallName: 'TAKESHI "BLADE" YAMAMOTO',
+        largeName: 'BLADE',
+        role: 'PROFILE // BLADE',
+        bio: 'A master tactician with the precision of a samurai. Known for swift decisive plays that cut through enemy defenses. His leadership style embodies the way of the blade - disciplined, focused, and unrelenting.',
+        image: 'Coming soon.png',
         twitter: '#',
-        twitch: '#'
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
       },
       {
-        smallName: 'ZACHARY "ZEKKEN" PATRONE',
-        largeName: 'ZEKKEN',
-        role: 'PROFILE // ZEKKEN',
-        bio: 'A true prodigy in the Valorant scene. Zekken stunned the world by being one of the best players anyone had ever seen while simultaneously being in the 4th grade. His one weakness is peanuts, of which is deathly allergic.',
-        image: 'roninbg.png',
+        smallName: 'KENJI "SHADOW" NAKAMURA',
+        largeName: 'SHADOW',
+        role: 'PROFILE // SHADOW',
+        bio: 'Moves like a ghost through the battlefield. His unpredictable playstyle keeps opponents guessing. A true ronin who follows his own path to victory with deadly efficiency.',
+        image: 'Coming soon.png',
         twitter: '#',
-        twitch: '#'
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
       },
       {
-        smallName: 'PLAYER "HANDLE" THREE',
-        largeName: 'HANDLE',
-        role: 'PROFILE // HANDLE',
-        bio: 'Professional player with exceptional skills and dedication to the game. Known for clutch plays and strategic gameplay that has helped secure numerous victories for the team.',
-        image: 'roninbg.png',
+        smallName: 'YUKI "FROST" TANAKA',
+        largeName: 'FROST',
+        role: 'PROFILE // FROST',
+        bio: 'Cool under pressure with ice-cold aim. Never misses the critical shot when it matters most. Combines traditional samurai discipline with modern gaming excellence.',
+        image: 'Coming soon.png',
         twitter: '#',
-        twitch: '#'
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
       },
       {
-        smallName: 'CONTENT "CREATOR" FOUR',
-        largeName: 'CREATOR',
-        role: 'PROFILE // CREATOR',
-        bio: 'Dynamic content creator bringing entertainment and insight to the RONIN community. Streaming daily and connecting with fans through engaging content and personality.',
-        image: 'roninbg.png',
+        smallName: 'HIRO "STORM" SATO',
+        largeName: 'STORM',
+        role: 'PROFILE // CONTENT',
+        bio: 'Dynamic content creator bringing the energy of a typhoon to every stream. Connects with fans through engaging personality while showcasing elite-level gameplay and samurai spirit.',
+        image: 'Coming soon.png',
         twitter: '#',
-        twitch: '#'
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
       },
       {
-        smallName: 'PLAYER "FIVE" NAME',
-        largeName: 'FIVE',
-        role: 'PROFILE // FIVE',
-        bio: 'Rising star in competitive gaming with a passion for excellence. Consistently performs at the highest level and continues to push boundaries in professional play.',
-        image: 'roninbg.png',
+        smallName: 'AKIRA "PHOENIX" WATANABE',
+        largeName: 'PHOENIX',
+        role: 'PROFILE // PHOENIX',
+        bio: 'Rising from setbacks stronger than before. Known for clutch plays in impossible situations. Embodies the ronin spirit of perseverance and unwavering determination.',
+        image: 'Coming soon.png',
         twitter: '#',
-        twitch: '#'
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
       },
       {
-        smallName: 'PLAYER "SIX" SURNAME',
-        largeName: 'SIX',
-        role: 'PROFILE // SIX',
-        bio: 'Veteran player with years of experience competing at the top tier. Known for leadership qualities and mentoring younger players on the team.',
-        image: 'roninbg.png',
+        smallName: 'REN "RONIN" KOBAYASHI',
+        largeName: 'RONIN',
+        role: 'PROFILE // RONIN',
+        bio: 'The heart and soul of the team. A masterless warrior who found his purpose leading RONIN to glory. Years of competitive experience forged into deadly expertise.',
+        image: 'Coming soon.png',
         twitter: '#',
-        twitch: '#'
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
       }
     ];
 
@@ -577,6 +703,8 @@
         
         card.innerHTML = `
           <div class="card-inner">
+            <div class="katana-slash"></div>
+            <div class="katana-slash"></div>
             <div class="card-label">${player.role}</div>
             <img src="${player.image}" alt="${player.largeName}" class="card-image">
           </div>
@@ -593,6 +721,8 @@
       document.getElementById('playerBio').textContent = player.bio;
       document.getElementById('socialX').href = player.twitter;
       document.getElementById('socialTwitch').href = player.twitch;
+      document.getElementById('socialYouTube').href = player.youtube;
+      document.getElementById('socialTikTok').href = player.tiktok;
       counter.textContent = `${currentIndex + 1} — ${players.length}`;
       
       // Update cards
@@ -636,5 +766,3 @@
 
 </body>
 </html>
-
-
