@@ -454,167 +454,154 @@
       margin-right: 20px;
     }
 
-    #merch {
-      background: #141414;
-      border-top: 2px solid #C92828;
-      padding: 100px 50px;
-      position: relative;
-      overflow: hidden;
-    }
+   #merch {
+  background: #141414;
+  border-top: 2px solid #C92828;
+  padding: 100px 50px;
+  position: relative;
+  overflow: hidden;
+}
 
-    #merch::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('roninbg.png');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      filter: grayscale(100%) brightness(0.7);
-      opacity: 0.03;
-      z-index: 0;
-    }
+#merch h2 {
+  font-family: 'TheLastShuriken';
+  font-size: 48px;
+  color: #C92828;
+  text-align: center;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
 
-    #merch * { position: relative; z-index: 1; }
+.merch-carousel {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
 
-    #merch h2 {
-      font-family: 'TheLastShuriken';
-      font-size: 48px;
-      color: #C92828;
-      margin-bottom: 60px;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    }
+.merch-track {
+  flex: 1;
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+}
 
-    .merch-carousel {
-      position: relative;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 40px;
-    }
+.merch-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
 
-    .merch-track {
-      display: flex;
-      overflow: hidden;
-      flex: 1;
-      position: relative;
-      height: 500px;
-    }
+.merch-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
 
-    .merch-slide {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      gap: 60px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.8s ease-in-out;
-    }
+.merch-info {
+  flex: 1;
+  padding-left: 50px;
+}
 
-    .merch-slide.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+.merch-category {
+  font-family: 'Montserrat';
+  font-size: 14px;
+  font-weight: 600;
+  color: #C92828;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
 
-    .merch-image {
-      flex: 1;
-      max-width: 50%;
-    }
+.merch-info h3 {
+  font-family: 'TheLastShuriken';
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 15px;
+}
 
-    .merch-image img {
-      width: 100%;
-      height: auto;
-      border-radius: 15px;
-      border: 2px solid #C92828;
-    }
+.merch-price {
+  font-family: 'Montserrat';
+  font-size: 28px;
+  font-weight: 600;
+  color: #C92828;
+  margin-bottom: 25px;
+}
 
-    .merch-details {
-      flex: 1;
-      text-align: left;
-    }
+.merch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #C92828;
+  color: #fff;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  padding: 15px 35px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background 0.3s;
+}
 
-    .merch-category {
-      font-family: 'Montserrat';
-      font-size: 14px;
-      font-weight: 600;
-      color: #C92828;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-    }
+.merch-btn:hover {
+  background: #a71e1e;
+}
 
-    .merch-details h3 {
-      font-family: 'TheLastShuriken';
-      font-size: 48px;
-      color: #fff;
-      margin-bottom: 15px;
-      line-height: 1.2;
-    }
+.merch-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
 
-    .merch-price {
-      font-family: 'Montserrat';
-      font-size: 28px;
-      font-weight: 600;
-      color: #C92828;
-      margin-bottom: 25px;
-    }
+.merch-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
-    .merch-details a {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #C92828;
-      color: #fff;
-      font-family: 'Montserrat';
-      font-weight: 600;
-      padding: 15px 35px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 16px;
-      transition: background 0.3s;
-    }
+.merch-image img {
+  width: 80%;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #C92828;
+}
 
-    .merch-details a:hover {
-      background: #a71e1e;
-    }
+.merch-nav {
+  width: 45px;
+  height: 45px;
+  background: #C92828;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(201, 40, 40, 0.4);
+}
 
-    .merch-details a svg {
-      width: 16px;
-      height: 16px;
-      fill: white;
-    }
+.merch-nav:hover {
+  background: #a71e1e;
+  transform: scale(1.05);
+}
 
-    .merch-nav {
-      width: 45px;
-      height: 45px;
-      background: #C92828;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-      box-shadow: 0 4px 10px rgba(201, 40, 40, 0.4);
-    }
-
-    .merch-nav:hover {
-      background: #a71e1e;
-      transform: scale(1.1);
-    }
-
-    .merch-nav svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
-    }
+.merch-nav svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
 
     #watch-live {
       background: #141414;
@@ -876,75 +863,76 @@
   </section>
 
   <section id="merch" class="fade-up">
-    <h2>Ronin Apparel</h2>
-    
-    <div class="merch-carousel">
-      <button class="merch-nav" id="merchPrev">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-        </svg>
-      </button>
+  <h2>Ronin Apparel</h2>
 
-      <div class="merch-track">
-        <div class="merch-slide active">
-          <div class="merch-image">
-            <img src="Coming soon.png" alt="Pro Jersey 2026">
-          </div>
-          <div class="merch-details">
-            <div class="merch-category">Jerseys</div>
-            <h3>Ronin 2026 Pro Jersey</h3>
-            <div class="merch-price">$49.99</div>
-            <a href="shop.html">
-              View Product
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-              </svg>
-            </a>
-          </div>
+  <div class="merch-carousel">
+    <button class="merch-nav" id="merchPrev">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+    </button>
+
+    <div class="merch-track">
+      <div class="merch-slide active">
+        <div class="merch-info">
+          <div class="merch-category">Jerseys</div>
+          <h3>Ronin 2026 Pro Jersey</h3>
+          <div class="merch-price">$49.99</div>
+          <a href="shop.html" class="merch-btn">
+            View Product
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </a>
         </div>
-
-        <div class="merch-slide">
-          <div class="merch-image">
-            <img src="Coming soon.png" alt="Ronin Hoodie">
-          </div>
-          <div class="merch-details">
-            <div class="merch-category">Apparel</div>
-            <h3>Ronin Hoodie</h3>
-            <div class="merch-price">$59.99</div>
-            <a href="shop.html">
-              View Product
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="merch-slide">
-          <div class="merch-image">
-            <img src="Coming soon.png" alt="Ronin Tee">
-          </div>
-          <div class="merch-details">
-            <div class="merch-category">Apparel</div>
-            <h3>Ronin Tee</h3>
-            <div class="merch-price">$24.99</div>
-            <a href="shop.html">
-              View Product
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-              </svg>
-            </a>
-          </div>
+        <div class="merch-image">
+          <img src="Coming soon.png" alt="Ronin 2026 Pro Jersey">
         </div>
       </div>
 
-      <button class="merch-nav" id="merchNext">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-        </svg>
-      </button>
+      <div class="merch-slide">
+        <div class="merch-info">
+          <div class="merch-category">Apparel</div>
+          <h3>Ronin Hoodie</h3>
+          <div class="merch-price">$59.99</div>
+          <a href="shop.html" class="merch-btn">
+            View Product
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="merch-image">
+          <img src="Coming soon.png" alt="Ronin Hoodie">
+        </div>
+      </div>
+
+      <div class="merch-slide">
+        <div class="merch-info">
+          <div class="merch-category">Apparel</div>
+          <h3>Ronin Tee</h3>
+          <div class="merch-price">$24.99</div>
+          <a href="shop.html" class="merch-btn">
+            View Product
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="merch-image">
+          <img src="Coming soon.png" alt="Ronin Tee">
+        </div>
+      </div>
     </div>
-  </section>
+
+    <button class="merch-nav" id="merchNext">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+      </svg>
+    </button>
+  </div>
+</section>
+
 
   <footer class="fade-up">
     <div class="footer-top">
@@ -1043,42 +1031,44 @@
       heroBg.style.transform = `scale(${zoom})`;
     });
 
-    // Merch carousel
-    const merchSlides = document.querySelectorAll('.merch-slide');
-    let currentMerchSlide = 0;
-    let merchInterval;
+  // Merch carousel (fade + infinite loop)
+const merchSlides = document.querySelectorAll('.merch-slide');
+let currentSlide = 0;
+const totalSlides = merchSlides.length;
+let merchTimer;
 
-    function cycleMerchForward() {
-      merchSlides[currentMerchSlide].classList.remove('active');
-      currentMerchSlide = (currentMerchSlide + 1) % merchSlides.length;
-      merchSlides[currentMerchSlide].classList.add('active');
-    }
+function showSlide(index) {
+  merchSlides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
 
-    function cycleMerchBackward() {
-      merchSlides[currentMerchSlide].classList.remove('active');
-      currentMerchSlide = (currentMerchSlide - 1 + merchSlides.length) % merchSlides.length;
-      merchSlides[currentMerchSlide].classList.add('active');
-    }
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % totalSlides;
+  showSlide(currentSlide);
+}
 
-    function startMerchAutoCycle() {
-      merchInterval = setInterval(() => {
-        cycleMerchForward();
-      }, 8000);
-    }
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  showSlide(currentSlide);
+}
 
-    startMerchAutoCycle();
+document.getElementById('merchNext').addEventListener('click', () => {
+  clearInterval(merchTimer);
+  nextSlide();
+  startMerchLoop();
+});
+document.getElementById('merchPrev').addEventListener('click', () => {
+  clearInterval(merchTimer);
+  prevSlide();
+  startMerchLoop();
+});
 
-    document.getElementById('merchPrev').addEventListener('click', () => {
-      clearInterval(merchInterval);
-      cycleMerchBackward();
-      startMerchAutoCycle();
-    });
+function startMerchLoop() {
+  merchTimer = setInterval(nextSlide, 5000); // changes every 5 seconds
+}
+startMerchLoop();
 
-    document.getElementById('merchNext').addEventListener('click', () => {
-      clearInterval(merchInterval);
-      cycleMerchForward();
-      startMerchAutoCycle();
-    });
   </script>
 </body>
 </html>
