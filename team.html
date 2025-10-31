@@ -231,35 +231,53 @@
       height: 600px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
+      overflow: visible;
+      max-width: 800px;
     }
 
     .carousel-track {
       display: flex;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       gap: 30px;
+      position: relative;
+      width: 100%;
+      height: 100%;
     }
 
     .player-card {
       flex: 0 0 350px;
       height: 500px;
-      position: relative;
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 0.15;
-      transform: scale(0.85);
-      filter: blur(3px);
+      position: absolute;
+      left: 0;
+      top: 50px;
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .player-card.active {
+      z-index: 10;
+      transform: translateX(0) scale(1);
+      filter: brightness(1);
       opacity: 1;
-      transform: scale(1);
-      filter: blur(0);
     }
 
-    .player-card.side {
-      opacity: 0.2;
-      transform: scale(0.88);
-      filter: blur(2px);
+    .player-card.prev {
+      z-index: 5;
+      transform: translateX(-100px) scale(0.9);
+      filter: brightness(0.5);
+      opacity: 1;
+    }
+
+    .player-card.next {
+      z-index: 5;
+      transform: translateX(380px) scale(0.9);
+      filter: brightness(0.5);
+      opacity: 1;
+    }
+
+    .player-card.far {
+      z-index: 1;
+      transform: translateX(760px) scale(0.8);
+      opacity: 0;
     }
 
     .card-inner {
@@ -428,7 +446,23 @@
       border-top: 3px solid #C92828;
       position: relative;
       z-index: 1;
+      overflow: hidden;
     }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('roninbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.03;
+      z-index: 0;
+    }
+
+    footer * { position: relative; z-index: 1; }
 
     .footer-top {
       display: flex;
@@ -714,8 +748,7 @@
       players.forEach((player, i) => {
         const card = document.createElement('div');
         card.className = 'player-card';
-        if (i === currentIndex) card.classList.add('active');
-        if (i === currentIndex - 1 || i === currentIndex + 1) card.classList.add('side');
+        updateCardPosition(card, i);
         
         card.innerHTML = `
           <div class="card-inner">
@@ -727,6 +760,21 @@
         `;
         track.appendChild(card);
       });
+    }
+
+    // Update card position based on current index
+    function updateCardPosition(card, cardIndex) {
+      card.classList.remove('active', 'prev', 'next', 'far');
+      
+      if (cardIndex === currentIndex) {
+        card.classList.add('active');
+      } else if (cardIndex === currentIndex - 1) {
+        card.classList.add('prev');
+      } else if (cardIndex === currentIndex + 1) {
+        card.classList.add('next');
+      } else {
+        card.classList.add('far');
+      }
     }
 
     // Update display
@@ -741,12 +789,10 @@
       document.getElementById('socialTikTok').href = player.tiktok;
       counter.textContent = `${currentIndex + 1} — ${players.length}`;
       
-      // Update cards
+      // Update all card positions
       const cards = document.querySelectorAll('.player-card');
       cards.forEach((card, i) => {
-        card.classList.remove('active', 'side');
-        if (i === currentIndex) card.classList.add('active');
-        if (i === currentIndex - 1 || i === currentIndex + 1) card.classList.add('side');
+        updateCardPosition(card, i);
       });
 
       // Update buttons
