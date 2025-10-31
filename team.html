@@ -112,159 +112,54 @@
 
     .team-container {
       min-height: 100vh;
-      padding: 100px 50px 50px;
-      display: flex;
-      align-items: center;
+      padding: 140px 50px 80px;
       position: relative;
       z-index: 1;
     }
 
-    .back-button {
-      position: absolute;
-      top: 120px;
-      left: 50px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #C92828;
-      font-family: 'TheLastShuriken';
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: transform 0.3s;
+    .team-header {
+      text-align: center;
+      margin-bottom: 80px;
     }
 
-    .back-button:hover {
-      transform: translateX(-5px);
-    }
-
-    .back-button svg {
-      width: 20px;
-      height: 20px;
-      fill: #C92828;
-    }
-
-    .content-wrapper {
-      display: flex;
-      width: 100%;
-      max-width: 1600px;
-      margin: 0 auto;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .player-info-left {
-      flex: 0 0 400px;
-    }
-
-    .player-small-name {
+    .team-subtitle {
       font-family: 'Montserrat';
-      font-size: 13px;
+      font-size: 14px;
       color: #666;
+      text-transform: uppercase;
+      letter-spacing: 3px;
       margin-bottom: 15px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
     }
 
-    .player-large-name {
+    .team-title {
       font-family: 'TheLastShuriken';
-      font-size: 72px;
+      font-size: 68px;
       color: #C92828;
-      margin-bottom: 30px;
       text-transform: uppercase;
-      line-height: 1;
-      text-shadow: 2px 2px 0 rgba(201, 40, 40, 0.1);
+      letter-spacing: 4px;
+      margin-bottom: 25px;
+      text-shadow: 3px 3px 0 rgba(201, 40, 40, 0.1);
     }
 
-    .player-bio {
+    .team-description {
       font-family: 'Montserrat';
-      font-size: 15px;
+      font-size: 16px;
       color: #333;
+      max-width: 700px;
+      margin: 0 auto;
       line-height: 1.8;
-      margin-bottom: 40px;
     }
 
-    .player-socials {
-      display: flex;
-      gap: 15px;
-    }
-
-    .player-socials a {
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: transparent;
-      border: 2px solid #C92828;
-      transition: all 0.3s;
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-    }
-
-    .player-socials a:hover {
-      background: #C92828;
-    }
-
-    .player-socials a img {
-      width: 20px;
-      height: 20px;
-      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
-    }
-
-    .player-socials a:hover img {
-      filter: invert(1);
-    }
-
-    .carousel-section {
-      flex: 1;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .carousel-wrapper {
-      position: relative;
-      width: 100%;
-      height: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      gap: 30px;
+    .players-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
     .player-card {
-      flex: 0 0 350px;
-      height: 500px;
-      position: relative;
-      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-      opacity: 0.15;
-      transform: scale(0.85);
-      filter: blur(3px);
-    }
-
-    .player-card.active {
-      opacity: 1;
-      transform: scale(1);
-      filter: blur(0);
-    }
-
-    .player-card.side {
-      opacity: 0.2;
-      transform: scale(0.88);
-      filter: blur(2px);
-    }
-
-    .card-inner {
-      width: 100%;
-      height: 100%;
       background: #fff;
       border: 3px solid #C92828;
       position: relative;
@@ -277,9 +172,16 @@
         calc(100% - 30px) 100%, 
         0 100%
       );
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
     }
 
-    .card-inner::before {
+    .player-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(201, 40, 40, 0.3);
+    }
+
+    .player-card::before {
       content: "";
       position: absolute;
       top: -2px;
@@ -291,7 +193,7 @@
       z-index: 1;
     }
 
-    .card-inner::after {
+    .player-card::after {
       content: "";
       position: absolute;
       bottom: -2px;
@@ -303,23 +205,22 @@
       z-index: 1;
     }
 
-    .katana-slash {
-      position: absolute;
-      width: 150%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #C92828, transparent);
-      transform: rotate(-25deg);
-      top: 30%;
-      left: -25%;
-      opacity: 0.6;
-      z-index: 2;
-      box-shadow: 0 0 10px rgba(201, 40, 40, 0.5);
+    .card-image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
     }
 
-    .katana-slash:nth-child(2) {
-      top: 60%;
-      transform: rotate(25deg);
-      animation-delay: 0.1s;
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .player-card:hover .card-image {
+      transform: scale(1.08);
     }
 
     .card-label {
@@ -338,84 +239,90 @@
       clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
     }
 
-    .card-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .navigation-controls {
+    .card-overlay {
       position: absolute;
-      bottom: 50px;
-      left: 50px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, transparent 100%);
+      padding: 30px 25px 25px;
+      z-index: 2;
     }
 
-    .page-counter {
-      font-family: 'TheLastShuriken';
-      font-size: 28px;
+    .player-role {
+      font-family: 'Montserrat';
+      font-size: 11px;
       color: #C92828;
-      min-width: 100px;
-      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      font-weight: 600;
     }
 
-    .nav-arrow {
-      width: 55px;
-      height: 55px;
-      background: #C92828;
-      border: none;
+    .player-name {
+      font-family: 'TheLastShuriken';
+      font-size: 32px;
+      color: #fff;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .player-full-name {
+      font-family: 'Montserrat';
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .card-content {
+      padding: 25px;
+      position: relative;
+      z-index: 2;
+      background: #fff;
+    }
+
+    .player-bio {
+      font-family: 'Montserrat';
+      font-size: 14px;
+      color: #333;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .player-socials {
+      display: flex;
+      gap: 12px;
+      padding-top: 15px;
+      border-top: 2px solid #f0f0f0;
+    }
+
+    .player-socials a {
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      background: transparent;
+      border: 2px solid #C92828;
       transition: all 0.3s;
-      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
-      position: relative;
-      overflow: hidden;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
     }
 
-    .nav-arrow::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.5s;
-    }
-
-    .nav-arrow:hover::before {
-      left: 100%;
-    }
-
-    .nav-arrow:hover {
-      background: #a71e1e;
-      transform: scale(1.1);
-    }
-
-    .nav-arrow:disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
-    }
-
-    .nav-arrow:disabled:hover {
-      transform: scale(1);
+    .player-socials a:hover {
       background: #C92828;
+      transform: translateY(-3px);
     }
 
-    .nav-arrow:disabled::before {
-      display: none;
+    .player-socials a img {
+      width: 16px;
+      height: 16px;
+      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
     }
 
-    .nav-arrow svg {
-      width: 24px;
-      height: 24px;
-      fill: white;
-      position: relative;
-      z-index: 1;
+    .player-socials a:hover img {
+      filter: invert(1);
     }
 
     footer {
@@ -428,6 +335,7 @@
       border-top: 3px solid #C92828;
       position: relative;
       z-index: 1;
+      margin-top: 80px;
     }
 
     .footer-top {
@@ -495,18 +403,22 @@
       color: #C92828;
     }
 
-    @media (max-width: 1200px) {
-      .content-wrapper {
-        flex-direction: column;
-        gap: 50px;
+    @media (max-width: 768px) {
+      .team-title {
+        font-size: 48px;
       }
-      .player-info-left {
-        flex: none;
-        width: 100%;
-        text-align: center;
+      
+      .players-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
       }
-      .player-socials {
-        justify-content: center;
+      
+      .team-container {
+        padding: 120px 30px 60px;
+      }
+      
+      footer {
+        padding: 60px 40px 40px;
       }
     }
   </style>
@@ -532,55 +444,17 @@
   </header>
 
   <div class="team-container">
-    <a href="team.html" class="back-button">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-      </svg>
-      BACK
-    </a>
-
-    <div class="content-wrapper">
-      <div class="player-info-left">
-        <div class="player-small-name" id="playerSmallName">TAKESHI "BLADE" YAMAMOTO</div>
-        <h1 class="player-large-name" id="playerLargeName">BLADE</h1>
-        <p class="player-bio" id="playerBio">A master tactician with the precision of a samurai. Known for swift decisive plays that cut through enemy defenses. His leadership style embodies the way of the blade - disciplined, focused, and unrelenting.</p>
-        <div class="player-socials">
-          <a href="#" target="_blank" id="socialX">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
-          </a>
-          <a href="#" target="_blank" id="socialTwitch">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch">
-          </a>
-          <a href="#" target="_blank" id="socialYouTube">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
-          </a>
-          <a href="#" target="_blank" id="socialTikTok">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok">
-          </a>
-        </div>
-      </div>
-
-      <div class="carousel-section">
-        <div class="carousel-wrapper">
-          <div class="carousel-track" id="carouselTrack">
-            <!-- Cards will be dynamically generated -->
-          </div>
-        </div>
-      </div>
+    <div class="team-header">
+      <div class="team-subtitle">Meet The Warriors</div>
+      <h1 class="team-title">THE RONIN ROSTER</h1>
+      <p class="team-description">
+        Bound by honor, driven by victory. Our warriors embody the spirit of the masterless samurai, 
+        forging their own path to greatness through discipline, skill, and unwavering determination.
+      </p>
     </div>
 
-    <div class="navigation-controls">
-      <button class="nav-arrow" id="prevBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-        </svg>
-      </button>
-      <span class="page-counter" id="pageCounter">1 — 6</span>
-      <button class="nav-arrow" id="nextBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
-        </svg>
-      </button>
+    <div class="players-grid" id="playersGrid">
+      <!-- Cards will be dynamically generated -->
     </div>
   </div>
 
@@ -635,10 +509,11 @@
   <script>
     const players = [
       {
-        smallName: 'TAKESHI "BLADE" YAMAMOTO',
-        largeName: 'BLADE',
-        role: 'PROFILE // BLADE',
-        bio: 'A master tactician with the precision of a samurai. Known for swift decisive plays that cut through enemy defenses. His leadership style embodies the way of the blade - disciplined, focused, and unrelenting.',
+        fullName: 'Takeshi "KENJIN" Yamamoto',
+        ign: 'KENJIN',
+        role: 'TEAM CAPTAIN',
+        label: 'PROFILE // CAPTAIN',
+        bio: 'Zenshin no kokoro de tatakau - fights with a forward spirit. Master strategist wielding the blade of leadership. Commands respect through decisive action and unwavering resolve on the battlefield.',
         image: 'Coming soon.png',
         twitter: '#',
         twitch: '#',
@@ -646,10 +521,11 @@
         tiktok: '#'
       },
       {
-        smallName: 'KENJI "SHADOW" NAKAMURA',
-        largeName: 'SHADOW',
-        role: 'PROFILE // SHADOW',
-        bio: 'Moves like a ghost through the battlefield. His unpredictable playstyle keeps opponents guessing. A true ronin who follows his own path to victory with deadly efficiency.',
+        fullName: 'Kenji "MUGEN" Nakamura',
+        ign: 'MUGEN',
+        role: 'FLEX PLAYER',
+        label: 'PROFILE // FLEX',
+        bio: 'Mugendai no kanōsei - infinite possibilities. Adapts like water, strikes like thunder. Unpredictable movements create chaos in enemy ranks while maintaining perfect control.',
         image: 'Coming soon.png',
         twitter: '#',
         twitch: '#',
@@ -657,10 +533,11 @@
         tiktok: '#'
       },
       {
-        smallName: 'YUKI "FROST" TANAKA',
-        largeName: 'FROST',
-        role: 'PROFILE // FROST',
-        bio: 'Cool under pressure with ice-cold aim. Never misses the critical shot when it matters most. Combines traditional samurai discipline with modern gaming excellence.',
+        fullName: 'Yuki "SHIROI" Tanaka',
+        ign: 'SHIROI',
+        role: 'SNIPER',
+        label: 'PROFILE // SNIPER',
+        bio: 'Reito no seido - precision of frost. Calculates every angle with mathematical perfection. Silent observer who eliminates targets before they know death approaches.',
         image: 'Coming soon.png',
         twitter: '#',
         twitch: '#',
@@ -668,10 +545,11 @@
         tiktok: '#'
       },
       {
-        smallName: 'HIRO "STORM" SATO',
-        largeName: 'STORM',
-        role: 'PROFILE // CONTENT',
-        bio: 'Dynamic content creator bringing the energy of a typhoon to every stream. Connects with fans through engaging personality while showcasing elite-level gameplay and samurai spirit.',
+        fullName: 'Hiro "RAIJIN" Sato',
+        ign: 'RAIJIN',
+        role: 'CONTENT CREATOR',
+        label: 'PROFILE // CONTENT',
+        bio: 'Kaminari no chikara - power of lightning. Electrifies audiences with explosive plays and magnetic personality. Bridges warrior tradition with modern entertainment mastery.',
         image: 'Coming soon.png',
         twitter: '#',
         twitch: '#',
@@ -679,21 +557,11 @@
         tiktok: '#'
       },
       {
-        smallName: 'AKIRA "PHOENIX" WATANABE',
-        largeName: 'PHOENIX',
-        role: 'PROFILE // PHOENIX',
-        bio: 'Rising from setbacks stronger than before. Known for clutch plays in impossible situations. Embodies the ronin spirit of perseverance and unwavering determination.',
-        image: 'Coming soon.png',
-        twitter: '#',
-        twitch: '#',
-        youtube: '#',
-        tiktok: '#'
-      },
-      {
-        smallName: 'REN "RONIN" KOBAYASHI',
-        largeName: 'RONIN',
-        role: 'PROFILE // RONIN',
-        bio: 'The heart and soul of the team. A masterless warrior who found his purpose leading RONIN to glory. Years of competitive experience forged into deadly expertise.',
+        fullName: 'Akira "KASAI" Watanabe',
+        ign: 'KASAI',
+        role: 'ENTRY FRAGGER',
+        label: 'PROFILE // ENTRY',
+        bio: 'Moeru tamashii - burning soul. First through every door, first to draw blood. Aggressive playstyle backed by years of honed reflexes and fearless determination.',
         image: 'Coming soon.png',
         twitter: '#',
         twitch: '#',
@@ -702,82 +570,47 @@
       }
     ];
 
-    let currentIndex = 0;
-    const track = document.getElementById('carouselTrack');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const counter = document.getElementById('pageCounter');
+    const grid = document.getElementById('playersGrid');
 
-    // Generate cards
     function generateCards() {
-      track.innerHTML = '';
-      players.forEach((player, i) => {
+      grid.innerHTML = '';
+      players.forEach(player => {
         const card = document.createElement('div');
         card.className = 'player-card';
-        if (i === currentIndex) card.classList.add('active');
-        if (i === currentIndex - 1 || i === currentIndex + 1) card.classList.add('side');
         
         card.innerHTML = `
-          <div class="card-inner">
-            <div class="katana-slash"></div>
-            <div class="katana-slash"></div>
-            <div class="card-label">${player.role}</div>
-            <img src="${player.image}" alt="${player.largeName}" class="card-image">
+          <div class="card-image-wrapper">
+            <div class="card-label">${player.label}</div>
+            <img src="${player.image}" alt="${player.ign}" class="card-image">
+            <div class="card-overlay">
+              <div class="player-role">${player.role}</div>
+              <div class="player-name">${player.ign}</div>
+              <div class="player-full-name">${player.fullName}</div>
+            </div>
+          </div>
+          <div class="card-content">
+            <p class="player-bio">${player.bio}</p>
+            <div class="player-socials">
+              <a href="${player.twitter}" target="_blank">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
+              </a>
+              <a href="${player.twitch}" target="_blank">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch">
+              </a>
+              <a href="${player.youtube}" target="_blank">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
+              </a>
+              <a href="${player.tiktok}" target="_blank">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok">
+              </a>
+            </div>
           </div>
         `;
-        track.appendChild(card);
+        grid.appendChild(card);
       });
     }
 
-    // Update display
-    function updateDisplay() {
-      const player = players[currentIndex];
-      document.getElementById('playerSmallName').textContent = player.smallName;
-      document.getElementById('playerLargeName').textContent = player.largeName;
-      document.getElementById('playerBio').textContent = player.bio;
-      document.getElementById('socialX').href = player.twitter;
-      document.getElementById('socialTwitch').href = player.twitch;
-      document.getElementById('socialYouTube').href = player.youtube;
-      document.getElementById('socialTikTok').href = player.tiktok;
-      counter.textContent = `${currentIndex + 1} — ${players.length}`;
-      
-      // Update cards
-      const cards = document.querySelectorAll('.player-card');
-      cards.forEach((card, i) => {
-        card.classList.remove('active', 'side');
-        if (i === currentIndex) card.classList.add('active');
-        if (i === currentIndex - 1 || i === currentIndex + 1) card.classList.add('side');
-      });
-
-      // Update buttons
-      prevBtn.disabled = currentIndex === 0;
-      nextBtn.disabled = currentIndex === players.length - 1;
-    }
-
-    // Navigation
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateDisplay();
-      }
-    });
-
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < players.length - 1) {
-        currentIndex++;
-        updateDisplay();
-      }
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') prevBtn.click();
-      if (e.key === 'ArrowRight') nextBtn.click();
-    });
-
-    // Initialize
     generateCards();
-    updateDisplay();
   </script>
 
 </body>
