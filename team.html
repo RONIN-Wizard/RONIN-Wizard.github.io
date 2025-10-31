@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ronin | Team</title>
 
-  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
   <meta name="theme-color" content="#C92828">
-
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -38,11 +36,8 @@
       background-color: #eeeeee;
       border-bottom: 2px solid #C92828;
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       z-index: 1000;
-      overflow: hidden;
     }
 
     header::before {
@@ -81,11 +76,9 @@
 
     /* ===== TEAM SECTION ===== */
     #team {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 100vh;
-      padding: 160px 80px 80px;
+      min-height: 100vh;
+      padding: 160px 80px 100px;
+      background: #eeeeee;
       position: relative;
       overflow: hidden;
     }
@@ -95,6 +88,7 @@
       position: absolute;
       inset: 0;
       background-image: url('roninbg.png');
+      background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
       opacity: 0.03;
@@ -103,19 +97,25 @@
 
     #team * { position: relative; z-index: 1; }
 
+    .team-layout {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 80px;
+    }
+
     .team-info {
       flex: 1;
-      max-width: 40%;
+      max-width: 35%;
     }
 
     .team-info h4 {
       color: #C92828;
-      font-family: 'Montserrat';
       font-weight: 700;
-      text-transform: uppercase;
       font-size: 14px;
-      letter-spacing: 1px;
+      text-transform: uppercase;
       margin-bottom: 10px;
+      letter-spacing: 1px;
     }
 
     .team-info h1 {
@@ -133,45 +133,82 @@
       max-width: 500px;
     }
 
-    /* ===== PLAYER SLIDES ===== */
-    .team-slideshow {
-      flex: 1;
+    /* ===== PLAYER CARDS ===== */
+    .player-cards {
+      flex: 1.5;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      gap: 40px;
+      overflow: hidden;
       position: relative;
-      max-width: 55%;
     }
 
-    .player-slide {
-      display: none;
-      text-align: center;
-      transition: opacity 0.5s ease;
-    }
-
-    .player-slide.active {
-      display: block;
-    }
-
-    .player-slide img {
-      width: 400px;
+    .player-card {
+      flex: 0 0 calc(33.333% - 26.6px);
+      background: #fff;
       border: 2px solid #C92828;
-      border-radius: 10px;
-      background-color: #fff;
+      border-radius: 12px;
+      position: relative;
+      text-align: center;
+      transition: transform 0.4s ease;
     }
 
-    .player-controls {
+    .player-card img {
+      width: 100%;
+      height: auto;
+      border-bottom: 2px solid #C92828;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .player-card h3 {
+      font-family: 'TheLastShuriken';
+      font-size: 24px;
+      color: #C92828;
+      margin-top: 15px;
+    }
+
+    .player-card p {
+      font-family: 'Montserrat';
+      font-size: 13px;
+      padding: 10px 20px 25px;
+      color: #000;
+    }
+
+    /* angled corner effect like SEN */
+    .player-card::before {
+      content: "";
       position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
+      top: -2px;
+      left: -2px;
+      width: 40px;
+      height: 40px;
+      border-top: 4px solid #C92828;
+      border-left: 4px solid #C92828;
+      border-radius: 10px 0 0 0;
+    }
+
+    .player-card::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 40px;
+      height: 40px;
+      border-bottom: 4px solid #C92828;
+      border-right: 4px solid #C92828;
+      border-radius: 0 0 10px 0;
+    }
+
+    /* ===== ARROWS ===== */
+    .team-controls {
       display: flex;
+      justify-content: center;
+      margin-top: 60px;
       gap: 20px;
     }
 
-    .player-btn {
-      width: 45px;
-      height: 45px;
+    .team-btn {
+      width: 50px;
+      height: 50px;
       background: #C92828;
       border: none;
       border-radius: 6px;
@@ -182,8 +219,8 @@
       transition: background 0.3s;
     }
 
-    .player-btn:hover { background: #a71e1e; }
-    .player-btn svg { width: 22px; height: 22px; fill: white; }
+    .team-btn:hover { background: #a71e1e; }
+    .team-btn svg { width: 24px; height: 24px; fill: white; }
 
     /* ===== FOOTER ===== */
     footer {
@@ -275,31 +312,39 @@
   </header>
 
   <section id="team">
-    <div class="team-info">
-      <h4>FORTNITE PLAYER</h4>
-      <h1>PLAYER NAME</h1>
-      <p>The next generation of warriors under Ronin Gaming. Representing the true spirit of the blade — discipline, precision, and excellence in every match.</p>
+    <div class="team-layout">
+      <div class="team-info">
+        <h4>FORTNITE DIVISION</h4>
+        <h1>THE RONIN SQUAD</h1>
+        <p>Masters of precision and discipline, these warriors carry the Ronin spirit into every battle. Their journey defines excellence through skill, mentality, and loyalty to the blade.</p>
+      </div>
+
+      <div class="player-cards" id="playerCards">
+        <div class="player-card">
+          <img src="Coming soon.png" alt="Player 1">
+          <h3>PLAYER ONE</h3>
+          <p>Offensive strategist and mechanical powerhouse.</p>
+        </div>
+        <div class="player-card">
+          <img src="Coming soon.png" alt="Player 2">
+          <h3>PLAYER TWO</h3>
+          <p>Anchor of consistency, turning pressure into dominance.</p>
+        </div>
+        <div class="player-card">
+          <img src="Coming soon.png" alt="Player 3">
+          <h3>PLAYER THREE</h3>
+          <p>Sharpest blade of the trio — the finisher and closer.</p>
+        </div>
+      </div>
     </div>
 
-    <div class="team-slideshow">
-      <div class="player-slide active">
-        <img src="Coming soon.png" alt="Player 1">
-      </div>
-      <div class="player-slide">
-        <img src="Coming soon.png" alt="Player 2">
-      </div>
-      <div class="player-slide">
-        <img src="Coming soon.png" alt="Player 3">
-      </div>
-
-      <div class="player-controls">
-        <button class="player-btn" id="prevBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-        </button>
-        <button class="player-btn" id="nextBtn">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
-        </button>
-      </div>
+    <div class="team-controls">
+      <button class="team-btn" id="prevBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+      </button>
+      <button class="team-btn" id="nextBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+      </button>
     </div>
   </section>
 
@@ -352,24 +397,19 @@
   </footer>
 
   <script>
-    const slides = document.querySelectorAll('.player-slide');
-    let current = 0;
-
-    function showSlide(index) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[index].classList.add('active');
-    }
+    const cards = document.querySelector('#playerCards');
+    let scrollPos = 0;
+    const scrollAmount = 400;
 
     document.getElementById('nextBtn').addEventListener('click', () => {
-      current = (current + 1) % slides.length;
-      showSlide(current);
+      cards.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
 
     document.getElementById('prevBtn').addEventListener('click', () => {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
+      cards.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
     });
   </script>
 </body>
 </html>
+
 
