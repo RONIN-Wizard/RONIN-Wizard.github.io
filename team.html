@@ -9,291 +9,161 @@
   <link rel="shortcut icon" href="favicon.ico?v=2">
   <link rel="apple-touch-icon" href="RONIN_Logo.png?v=2">
   <meta name="theme-color" content="#C92828" />
-
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     @font-face {
       font-family: 'TheLastShuriken';
       src: url('TheLastShuriken-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:#eeeeee;
+      color:#000;
+      overflow-x:hidden;
+    }
+    ::-webkit-scrollbar{width:6px;}
+    ::-webkit-scrollbar-track{background:#000;}
+    ::-webkit-scrollbar-thumb{background:#C92828;border-radius:5px;}
+
+    /* HEADER */
+    header{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:20px 50px;background:#eeeeee;position:fixed;top:0;left:0;right:0;
+      border-bottom:2px solid #C92828;z-index:1000;overflow:hidden;
+    }
+    header::before{
+      content:"";position:absolute;inset:0;background:url('roninbg.png') center/cover no-repeat;
+      filter:grayscale(100%) brightness(0.7);opacity:.03;z-index:0;
+    }
+    header *{position:relative;z-index:1;}
+    .logo{display:flex;align-items:flex-end;gap:8px;text-decoration:none;}
+    .logo img{height:45px;}
+    .logo span{font-family:'TheLastShuriken';font-size:28px;color:#C92828;letter-spacing:2px;}
+    .center-header-text{position:absolute;left:50%;transform:translateX(-50%);
+      font-family:'TheLastShuriken';font-size:22px;color:#C92828;letter-spacing:2px;}
+    nav.nav-links{display:flex;align-items:center;}
+    nav.nav-links a{
+      font-family:'TheLastShuriken';color:#C92828;text-decoration:none;
+      margin-left:25px;font-size:18px;transition:color .3s;
+    }
+    nav.nav-links a:hover{color:#000;}
+
+    /* TEAM SECTION */
+    #team{
+      position:relative;min-height:100vh;padding:160px 60px 100px;
+      display:flex;align-items:center;justify-content:space-between;
+      background:#eeeeee;overflow:hidden;
+    }
+    #team::before{
+      content:"";position:absolute;inset:0;
+      background:url('roninbg.png') center/cover no-repeat;
+      opacity:.03;z-index:0;
+    }
+    #team *{position:relative;z-index:1;}
+
+    .team-info{
+      flex:1;max-width:40%;padding-right:40px;transition:all .6s ease;
+    }
+    .team-info small{
+      font-weight:600;font-size:14px;color:#C92828;text-transform:uppercase;
+    }
+    .team-info h2{
+      font-family:'TheLastShuriken';font-size:52px;color:#C92828;margin:10px 0;
+    }
+    .team-info p{font-size:17px;line-height:1.8;color:#000;max-width:500px;}
+
+    .team-carousel{
+      flex:1.2;position:relative;display:flex;justify-content:center;align-items:center;overflow:hidden;
+    }
+    .watermark{
+      position:absolute;font-family:'TheLastShuriken';font-size:160px;
+      color:#C92828;opacity:.04;z-index:0;pointer-events:none;
+    }
+    .player-slide{
+      position:absolute;top:0;left:50%;transform:translateX(-50%) scale(0.9);
+      width:420px;height:500px;border:3px solid #C92828;
+      border-radius:18px;overflow:hidden;
+      background:#fff;box-shadow:0 10px 30px rgba(201,40,40,.2);
+      transition:all .8s cubic-bezier(.75,0,.25,1);
+      clip-path:polygon(10px 0,100% 0,100% calc(100% - 10px),calc(100% - 10px) 100%,0 100%,0 10px);
+      opacity:0;z-index:0;
+    }
+    .player-slide.active{
+      transform:translateX(-50%) scale(1);
+      opacity:1;z-index:5;
+    }
+    .player-slide img{
+      width:100%;height:100%;object-fit:cover;transition:transform .5s;
+    }
+    .player-slide:hover img{
+      transform:scale(1.05);
+      box-shadow:0 0 20px rgba(201,40,40,.5);
+    }
+    .blade-trail{
+      position:absolute;top:50%;left:-100%;
+      width:100%;height:2px;background:linear-gradient(90deg,transparent,#C92828,transparent);
+      opacity:0;z-index:9;
+    }
+    .blade-trail.active{
+      animation:slash .6s ease;
+    }
+    @keyframes slash{
+      0%{left:-100%;opacity:1;}
+      50%{left:100%;opacity:1;}
+      100%{opacity:0;}
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #eeeeee;
-      color: #000;
-      overflow-x: hidden;
+    .team-nav{
+      position:absolute;bottom:-70px;left:50%;transform:translateX(-50%);
+      display:flex;gap:30px;z-index:10;
     }
+    .team-nav button{
+      width:50px;height:50px;border-radius:50%;border:none;background:#C92828;
+      color:#fff;cursor:pointer;box-shadow:0 4px 10px rgba(201,40,40,.4);
+      transition:all .3s;
+    }
+    .team-nav button:hover{background:#a71e1e;transform:scale(1.1);}
+    .team-nav svg{width:22px;height:22px;fill:white;}
 
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #000; }
-    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background-color: #eeeeee;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1000;
-      border-bottom: 2px solid #C92828;
-      overflow: hidden;
+    /* FOOTER */
+    footer{
+      background:#eeeeee;color:#000;padding:100px 100px 60px;
+      border-top:2px solid #C92828;display:flex;flex-direction:column;gap:60px;
+      position:relative;overflow:hidden;
     }
-
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('roninbg.png');
-      background-size: cover;
-      background-position: center;
-      filter: grayscale(100%) brightness(0.7);
-      opacity: 0.03;
-      z-index: 0;
+    footer::before{
+      content:"";position:absolute;inset:0;
+      background:url('roninbg.png') center/cover no-repeat;
+      filter:grayscale(100%) brightness(0.7);opacity:.03;z-index:0;
     }
-    header * { position: relative; z-index: 1; }
-
-    .logo { display: flex; align-items:flex-end; text-decoration:none; gap:8px;}
-    .logo img { height:45px; width:auto; }
-    .logo span {
-      font-family:'TheLastShuriken';
-      font-size:28px;
-      color:#C92828;
-      letter-spacing:2px;
+    footer *{position:relative;z-index:1;}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:60px;}
+    .footer-left{flex:1;min-width:250px;}
+    .footer-left img{width:70px;margin-bottom:15px;}
+    .footer-left p{color:#C92828;margin-bottom:20px;}
+    .footer-socials{display:flex;gap:18px;}
+    .footer-socials a img{width:25px;height:25px;
+      filter:invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
+      transition:opacity .3s;}
+    .footer-socials a:hover img{opacity:.7;}
+    .footer-columns{display:flex;justify-content:flex-end;flex:3;flex-wrap:wrap;gap:80px;}
+    .footer-column h4{
+      font-family:'TheLastShuriken';color:#C92828;margin-bottom:15px;font-size:20px;
     }
-    .center-header-text {
-      position:absolute;
-      left:50%;
-      transform:translateX(-50%);
-      font-family:'TheLastShuriken';
-      font-size:22px;
-      color:#C92828;
-      letter-spacing:2px;
+    .footer-column a{
+      display:block;color:#000;text-decoration:none;margin-bottom:8px;font-size:15px;transition:color .3s;
     }
-    nav.nav-links { display:flex; align-items:center;}
-    nav.nav-links a {
-      font-family:'TheLastShuriken';
-      color:#C92828;
-      text-decoration:none;
-      margin-left:25px;
-      font-size:18px;
-      transition:color 0.3s;
-    }
-    nav.nav-links a:hover { color:#000; }
-
-    /* Team Section */
-    #team {
-      position: relative;
-      min-height: 100vh;
-      padding: 160px 60px 100px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: #eeeeee;
-      overflow: hidden;
-    }
-
-    #team::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: url('roninbg.png') center center / cover no-repeat;
-      opacity: 0.03;
-      z-index: 0;
-    }
-
-    #team * { position: relative; z-index: 1; }
-
-    .team-info {
-      flex: 1;
-      max-width: 40%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-right: 40px;
-      transition: all 0.6s ease;
-    }
-
-    .team-info small {
-      font-family: 'Montserrat';
-      font-weight: 600;
-      font-size: 14px;
-      color: #C92828;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-    }
-
-    .team-info h2 {
-      font-family: 'TheLastShuriken';
-      font-size: 52px;
-      color: #C92828;
-      margin-bottom: 15px;
-    }
-
-    .team-info p {
-      font-family: 'Montserrat';
-      font-size: 17px;
-      line-height: 1.8;
-      color: #000;
-      max-width: 500px;
-    }
-
-    .team-carousel {
-      flex: 1.5;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .player-track {
-      display: flex;
-      transition: transform 0.8s ease;
-      gap: 40px;
-    }
-
-    .player-card {
-      position: relative;
-      background: white;
-      border-radius: 20px;
-      min-width: 300px;
-      max-width: 320px;
-      height: 400px;
-      border: 2px solid #C92828;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(201,40,40,0.2);
-      transform: skewY(-2deg);
-    }
-
-    .player-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent 80%, #C92828 90%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .player-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.05);
-    }
-
-    .team-nav {
-      position: absolute;
-      bottom: -70px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 30px;
-    }
-
-    .team-nav button {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      border: none;
-      background: #C92828;
-      color: #fff;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(201,40,40,0.4);
-      transition: all 0.3s;
-    }
-
-    .team-nav button:hover {
-      background: #a71e1e;
-      transform: scale(1.1);
-    }
-
-    .team-nav svg {
-      width: 22px;
-      height: 22px;
-      fill: white;
-    }
-
-    /* Footer */
-    footer {
-      background: #eeeeee;
-      color: #000;
-      padding: 100px 100px 60px 100px;
-      border-top: 2px solid #C92828;
-      display: flex;
-      flex-direction: column;
-      gap: 60px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    footer::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url('roninbg.png');
-      background-size: cover;
-      background-position: center;
-      filter: grayscale(100%) brightness(0.7);
-      opacity: 0.03;
-      z-index: 0;
-    }
-
-    footer * { position: relative; z-index: 1; }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 60px;
-    }
-
-    .footer-left {
-      flex: 1;
-      min-width: 250px;
-    }
-    .footer-left img { width: 70px; height: auto; margin-bottom: 15px; }
-    .footer-left p { color: #C92828; margin-bottom: 20px; }
-    .footer-socials { display: flex; gap: 18px; }
-    .footer-socials a img {
-      width: 25px; height: 25px;
-      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
-      transition: opacity 0.3s;
-    }
-    .footer-socials a:hover img { opacity: 0.7; }
-    .footer-columns {
-      display: flex;
-      justify-content: flex-end;
-      flex: 3;
-      flex-wrap: wrap;
-      gap: 80px;
-    }
-    .footer-column h4 {
-      font-family: 'TheLastShuriken';
-      color: #C92828;
-      margin-bottom: 15px;
-      font-size: 20px;
-    }
-    .footer-column a {
-      display: block;
-      color: #000;
-      text-decoration: none;
-      margin-bottom: 8px;
-      font-size: 15px;
-      transition: color 0.3s;
-    }
-    .footer-column a:hover { color: #C92828; }
+    .footer-column a:hover{color:#C92828;}
   </style>
 </head>
 
 <body>
   <header>
     <a href="/" class="logo">
-      <img src="RONIN_Logo.png" alt="Logo">
-      <span>RONIN</span>
+      <img src="RONIN_Logo.png" alt="Logo"><span>RONIN</span>
     </a>
     <div class="center-header-text">#OwnTheBlade</div>
     <nav class="nav-links">
@@ -307,19 +177,21 @@
 
   <section id="team">
     <div class="team-info" id="playerInfo">
-      <small>RYAN "ARK" GARCIA</small>
-      <h2>ARK</h2>
-      <p>The youngest prodigy under Ronin Gaming. Known for calm precision and lightning-fast mechanics in every clutch moment.</p>
+      <small>Desean "DEYY" Hew</small>
+      <h2>DEYY</h2>
+      <p>A fearless competitor and the embodiment of control under chaos. Desean “DEYY” Hew leads with instinct and precision — a perfect fit for the Ronin philosophy.</p>
     </div>
 
     <div class="team-carousel">
-      <div class="player-track" id="playerTrack">
-        <div class="player-card"><img src="Coming soon.png" alt="ARK"></div>
-        <div class="player-card"><img src="Coming soon.png" alt="DEYY"></div>
-        <div class="player-card"><img src="Coming soon.png" alt="WAGERS"></div>
-        <div class="player-card"><img src="Coming soon.png" alt="SNOWY"></div>
-        <div class="player-card"><img src="Coming soon.png" alt="RICKSON"></div>
-      </div>
+      <div class="watermark">#OwnTheBlade</div>
+
+      <div class="player-slide active"><img src="Deyyron.webp" alt="DEYY"></div>
+      <div class="player-slide"><img src="Coming soon.png" alt="Player 2"></div>
+      <div class="player-slide"><img src="Coming soon.png" alt="Player 3"></div>
+      <div class="player-slide"><img src="Coming soon.png" alt="Player 4"></div>
+      <div class="player-slide"><img src="Coming soon.png" alt="Player 5"></div>
+
+      <div class="blade-trail" id="bladeTrail"></div>
 
       <div class="team-nav">
         <button id="prevBtn">
@@ -338,14 +210,13 @@
         <img src="RONIN_Logo.png" alt="Ronin Logo">
         <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
         <div class="footer-socials">
-          <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
-          <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
-          <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
-          <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
-          <a href="https://discord.gg/qaTWR7PtHa" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord"></a>
+          <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg"></a>
+          <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg"></a>
+          <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg"></a>
+          <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg"></a>
+          <a href="https://discord.gg/qaTWR7PtHa" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg"></a>
         </div>
       </div>
-
       <div class="footer-columns">
         <div class="footer-column">
           <h4>About</h4>
@@ -380,77 +251,43 @@
   <script>
     const players = [
       {
-        name: 'RYAN "ARK" GARCIA',
-        alias: 'ARK',
-        bio: 'The youngest prodigy under Ronin Gaming. Known for calm precision and lightning-fast mechanics in every clutch moment.'
+        name:'Desean "DEYY" Hew',
+        alias:'DEYY',
+        bio:'A fearless competitor and the embodiment of control under chaos. Desean “DEYY” Hew leads with instinct and precision — a perfect fit for the Ronin philosophy.',
+        img:'Deyyron.webp'
       },
-      {
-        name: 'DEYY "DEYY" JOHNSON',
-        alias: 'DEYY',
-        bio: 'A veteran of the scene. Consistent under pressure and a cornerstone of Ronin’s roster for leadership and experience.'
-      },
-      {
-        name: 'JAMES "WAGERS" TAYLOR',
-        alias: 'WAGERS',
-        bio: 'Fearless in 1v1s and known for explosive plays. His mechanical ceiling pushes the team’s limits every match.'
-      },
-      {
-        name: 'ETHAN "SNOWY" COLE',
-        alias: 'SNOWY',
-        bio: 'A strategic genius with icy composure. Always adapting, always a step ahead of opponents on rotation and timing.'
-      },
-      {
-        name: 'DANIEL "RICKSON" VALE',
-        alias: 'RICKSON',
-        bio: 'Brings raw energy and passion to the squad. The emotional heartbeat of Ronin, known for clutch late-game shots.'
-      }
+      {name:'Player Two',alias:'PLAYER TWO',bio:'Placeholder description for Player Two.',img:'Coming soon.png'},
+      {name:'Player Three',alias:'PLAYER THREE',bio:'Placeholder description for Player Three.',img:'Coming soon.png'},
+      {name:'Player Four',alias:'PLAYER FOUR',bio:'Placeholder description for Player Four.',img:'Coming soon.png'},
+      {name:'Player Five',alias:'PLAYER FIVE',bio:'Placeholder description for Player Five.',img:'Coming soon.png'},
     ];
 
-    const playerInfo = document.getElementById('playerInfo');
-    const playerTrack = document.getElementById('playerTrack');
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
+    let currentIndex=0;
+    const slides=document.querySelectorAll('.player-slide');
+    const playerInfo=document.getElementById('playerInfo');
+    const blade=document.getElementById('bladeTrail');
 
-    let currentIndex = 0;
-    const visibleCards = 3;
-
-    function updatePlayerInfo(index) {
-      const p = players[index];
-      playerInfo.innerHTML = `
+    function updateSlide(){
+      slides.forEach((s,i)=>{
+        s.classList.toggle('active',i===currentIndex);
+      });
+      const p=players[currentIndex];
+      playerInfo.innerHTML=`
         <small>${p.name}</small>
         <h2>${p.alias}</h2>
-        <p>${p.bio}</p>
-      `;
+        <p>${p.bio}</p>`;
+      blade.classList.add('active');
+      setTimeout(()=>blade.classList.remove('active'),600);
     }
 
-    function updateCarousel() {
-      const translateX = -(currentIndex * (320 + 40)); // card width + gap
-      playerTrack.style.transform = \`translateX(\${translateX}px)\`;
-      updatePlayerInfo(currentIndex);
-    }
-
-    nextBtn.addEventListener('click', () => {
-      if (currentIndex < players.length - visibleCards) {
-        currentIndex++;
-      } else {
-        currentIndex = 0;
-      }
-      updateCarousel();
+    document.getElementById('nextBtn').addEventListener('click',()=>{
+      currentIndex=(currentIndex+1)%players.length;
+      updateSlide();
     });
-
-    prevBtn.addEventListener('click', () => {
-      if (currentIndex > 0) {
-        currentIndex--;
-      } else {
-        currentIndex = players.length - visibleCards;
-      }
-      updateCarousel();
+    document.getElementById('prevBtn').addEventListener('click',()=>{
+      currentIndex=(currentIndex-1+players.length)%players.length;
+      updateSlide();
     });
-
-    updatePlayerInfo(currentIndex);
   </script>
 </body>
 </html>
-
-
-
