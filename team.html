@@ -110,60 +110,171 @@
     nav.nav-links a:hover { color: #000; }
     nav.nav-links a.active { color: #000; font-weight: 600; }
 
-    .team-container {
+    .team-section {
       min-height: 100vh;
-      padding: 140px 50px 80px;
+      padding-top: 100px;
       position: relative;
       z-index: 1;
+      display: flex;
+      align-items: center;
     }
 
-    .team-header {
-      text-align: center;
-      margin-bottom: 80px;
+    .team-container {
+      width: 100%;
+      max-width: 1800px;
+      margin: 0 auto;
+      padding: 0 100px;
+      display: flex;
+      gap: 100px;
+      align-items: center;
     }
 
-    .team-subtitle {
-      font-family: 'Montserrat';
-      font-size: 14px;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 15px;
+    .player-info {
+      flex: 0 0 400px;
     }
 
-    .team-title {
-      font-family: 'TheLastShuriken';
-      font-size: 68px;
+    .back-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       color: #C92828;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      margin-bottom: 25px;
-      text-shadow: 3px 3px 0 rgba(201, 40, 40, 0.1);
-    }
-
-    .team-description {
-      font-family: 'Montserrat';
+      font-family: 'TheLastShuriken';
+      font-weight: 600;
+      text-decoration: none;
       font-size: 16px;
-      color: #333;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 60px;
+      transition: transform 0.3s;
+      width: fit-content;
     }
 
-    .players-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 20px;
+    .back-button:hover {
+      transform: translateX(-5px);
+    }
+
+    .back-button svg {
+      width: 20px;
+      height: 20px;
+      fill: #C92828;
+    }
+
+    .player-name-small {
+      font-family: 'Montserrat';
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .player-name-large {
+      font-family: 'TheLastShuriken';
+      font-size: 72px;
+      color: #C92828;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      line-height: 1;
+      text-shadow: 2px 2px 0 rgba(201, 40, 40, 0.1);
+    }
+
+    .player-bio {
+      font-family: 'Montserrat';
+      font-size: 15px;
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .player-socials {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+
+    .player-socials a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 2px solid #C92828;
+      transition: all 0.3s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+    }
+
+    .player-socials a:hover {
+      background: #C92828;
+    }
+
+    .player-socials a img {
+      width: 20px;
+      height: 20px;
+      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
+    }
+
+    .player-socials a:hover img {
+      filter: invert(1);
+    }
+
+    .carousel-counter {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .counter-display {
+      font-family: 'TheLastShuriken';
+      font-size: 32px;
+      color: #C92828;
+      letter-spacing: 2px;
+    }
+
+    .counter-divider {
+      width: 100px;
+      height: 2px;
+      background: #C92828;
+    }
+
+    .carousel-section {
+      flex: 1;
+      position: relative;
+      height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      perspective: 2000px;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cards-container {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
     }
 
     .player-card {
+      width: 380px;
+      height: 520px;
       background: #fff;
       border: 3px solid #C92828;
-      position: relative;
+      position: absolute;
       overflow: hidden;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       clip-path: polygon(
         0 0, 
         calc(100% - 40px) 0, 
@@ -172,13 +283,30 @@
         calc(100% - 30px) 100%, 
         0 100%
       );
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
     }
 
-    .player-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 40px rgba(201, 40, 40, 0.3);
+    .player-card.left {
+      left: 0;
+      opacity: 0.3;
+      transform: scale(0.85) translateX(-50px);
+      filter: blur(2px);
+      z-index: 1;
+    }
+
+    .player-card.center {
+      left: 50%;
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+      z-index: 3;
+      box-shadow: 0 25px 50px rgba(201, 40, 40, 0.3);
+    }
+
+    .player-card.right {
+      right: 0;
+      opacity: 0.3;
+      transform: scale(0.85) translateX(50px);
+      filter: blur(2px);
+      z-index: 1;
     }
 
     .player-card::before {
@@ -190,7 +318,7 @@
       height: 60px;
       background: linear-gradient(135deg, #C92828 0%, #a71e1e 100%);
       clip-path: polygon(0 0, 100% 0, 100% 100%);
-      z-index: 1;
+      z-index: 2;
     }
 
     .player-card::after {
@@ -202,25 +330,14 @@
       height: 50px;
       background: linear-gradient(135deg, #C92828 0%, #a71e1e 100%);
       clip-path: polygon(100% 0, 100% 100%, 0 100%);
-      z-index: 1;
+      z-index: 2;
     }
 
     .card-image-wrapper {
       position: relative;
       width: 100%;
-      height: 400px;
-      overflow: hidden;
-    }
-
-    .card-image {
-      width: 100%;
       height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s ease;
-    }
-
-    .player-card:hover .card-image {
-      transform: scale(1.08);
+      overflow: hidden;
     }
 
     .card-label {
@@ -237,6 +354,17 @@
       padding: 8px 15px;
       z-index: 3;
       clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .player-card.center:hover .card-image {
+      transform: scale(1.05);
     }
 
     .card-overlay {
@@ -259,70 +387,142 @@
       font-weight: 600;
     }
 
-    .player-name {
+    .player-name-card {
       font-family: 'TheLastShuriken';
-      font-size: 32px;
+      font-size: 38px;
       color: #fff;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
 
-    .player-full-name {
+    .player-full-name-card {
       font-family: 'Montserrat';
       font-size: 13px;
       color: rgba(255,255,255,0.8);
-      margin-bottom: 15px;
       font-weight: 500;
     }
 
-    .card-content {
-      padding: 25px;
-      position: relative;
-      z-index: 2;
-      background: #fff;
-    }
-
-    .player-bio {
-      font-family: 'Montserrat';
-      font-size: 14px;
-      color: #333;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .player-socials {
-      display: flex;
-      gap: 12px;
-      padding-top: 15px;
-      border-top: 2px solid #f0f0f0;
-    }
-
-    .player-socials a {
-      width: 40px;
-      height: 40px;
+    .carousel-nav {
+      width: 50px;
+      height: 50px;
+      background: #C92828;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: transparent;
-      border: 2px solid #C92828;
-      transition: all 0.3s;
-      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
     }
 
-    .player-socials a:hover {
-      background: #C92828;
-      transform: translateY(-3px);
+    .carousel-nav:hover {
+      background: #a71e1e;
+      transform: scale(1.1);
     }
 
-    .player-socials a img {
-      width: 16px;
-      height: 16px;
-      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
+    .carousel-nav svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
     }
 
-    .player-socials a:hover img {
-      filter: invert(1);
+    .videos-section {
+      padding: 100px 50px;
+      position: relative;
+      z-index: 1;
+      background: #fff;
+      border-top: 3px solid #C92828;
+    }
+
+    .videos-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .videos-title {
+      font-family: 'TheLastShuriken';
+      font-size: 54px;
+      color: #C92828;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
+    }
+
+    .videos-subtitle {
+      font-family: 'Montserrat';
+      font-size: 15px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .video-card {
+      position: relative;
+      background: #eeeeee;
+      border: 3px solid #C92828;
+      overflow: hidden;
+      clip-path: polygon(
+        0 0, 
+        calc(100% - 30px) 0, 
+        100% 30px, 
+        100% calc(100% - 20px), 
+        calc(100% - 20px) 100%, 
+        0 100%
+      );
+      transition: all 0.4s;
+    }
+
+    .video-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(201, 40, 40, 0.2);
+    }
+
+    .video-card::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 45px;
+      height: 45px;
+      background: linear-gradient(135deg, #C92828 0%, #a71e1e 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+      z-index: 1;
+    }
+
+    .video-card::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 35px;
+      height: 35px;
+      background: linear-gradient(135deg, #C92828 0%, #a71e1e 100%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
 
     footer {
@@ -335,7 +535,6 @@
       border-top: 3px solid #C92828;
       position: relative;
       z-index: 1;
-      margin-top: 80px;
     }
 
     .footer-top {
@@ -403,22 +602,43 @@
       color: #C92828;
     }
 
+    @media (max-width: 1400px) {
+      .team-container {
+        flex-direction: column;
+        padding: 0 50px;
+        gap: 50px;
+      }
+
+      .player-info {
+        flex: none;
+        text-align: center;
+      }
+
+      .player-socials {
+        justify-content: center;
+      }
+
+      .carousel-counter {
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 768px) {
-      .team-title {
+      .videos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .player-name-large {
         font-size: 48px;
       }
-      
-      .players-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+
+      .videos-title {
+        font-size: 38px;
       }
-      
-      .team-container {
-        padding: 120px 30px 60px;
-      }
-      
-      footer {
-        padding: 60px 40px 40px;
+
+      .player-card {
+        width: 300px;
+        height: 420px;
       }
     }
   </style>
@@ -443,20 +663,82 @@
     </nav>
   </header>
 
-  <div class="team-container">
-    <div class="team-header">
-      <div class="team-subtitle">Meet The Warriors</div>
-      <h1 class="team-title">THE RONIN ROSTER</h1>
-      <p class="team-description">
-        Bound by honor, driven by victory. Our warriors embody the spirit of the masterless samurai, 
-        forging their own path to greatness through discipline, skill, and unwavering determination.
-      </p>
+  <section class="team-section">
+    <div class="team-container">
+      <div class="player-info">
+        <a href="team.html" class="back-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          </svg>
+          BACK
+        </a>
+
+        <div class="player-name-small" id="playerNameSmall">TAKESHI "KENJIN" YAMAMOTO</div>
+        <h1 class="player-name-large" id="playerNameLarge">KENJIN</h1>
+        <p class="player-bio" id="playerBio">Zenshin no kokoro de tatakau - fights with a forward spirit. Master strategist wielding the blade of leadership. Commands respect through decisive action and unwavering resolve on the battlefield.</p>
+        
+        <div class="player-socials">
+          <a href="#" target="_blank" id="socialX">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
+          </a>
+          <a href="#" target="_blank" id="socialTwitch">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch">
+          </a>
+          <a href="#" target="_blank" id="socialYouTube">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
+          </a>
+          <a href="#" target="_blank" id="socialTikTok">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok">
+          </a>
+        </div>
+
+        <div class="carousel-counter">
+          <span class="counter-display" id="counterDisplay">1</span>
+          <div class="counter-divider"></div>
+          <span class="counter-display">5</span>
+          <button class="carousel-nav" id="prevBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+          </button>
+          <button class="carousel-nav" id="nextBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="carousel-section">
+        <div class="carousel-wrapper">
+          <div class="cards-container" id="cardsContainer">
+            <!-- Cards generated by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="videos-section">
+    <div class="videos-header">
+      <h2 class="videos-title">RECENT CONTENT</h2>
+      <p class="videos-subtitle">Watch Our Warriors In Action</p>
     </div>
 
-    <div class="players-grid" id="playersGrid">
-      <!-- Cards will be dynamically generated -->
+    <div class="videos-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/lrWhW0ttvLE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/Lws64q0-38w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <footer>
     <div class="footer-top">
@@ -570,13 +852,29 @@
       }
     ];
 
-    const grid = document.getElementById('playersGrid');
+    let currentIndex = 0;
+    const container = document.getElementById('cardsContainer');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
-    function generateCards() {
-      grid.innerHTML = '';
-      players.forEach(player => {
+    function getVisibleCards() {
+      const prevIndex = (currentIndex - 1 + players.length) % players.length;
+      const nextIndex = (currentIndex + 1) % players.length;
+      
+      return [
+        { player: players[prevIndex], position: 'left' },
+        { player: players[currentIndex], position: 'center' },
+        { player: players[nextIndex], position: 'right' }
+      ];
+    }
+
+    function renderCards() {
+      const visibleCards = getVisibleCards();
+      container.innerHTML = '';
+      
+      visibleCards.forEach(({ player, position }) => {
         const card = document.createElement('div');
-        card.className = 'player-card';
+        card.className = `player-card ${position}`;
         
         card.innerHTML = `
           <div class="card-image-wrapper">
@@ -584,34 +882,45 @@
             <img src="${player.image}" alt="${player.ign}" class="card-image">
             <div class="card-overlay">
               <div class="player-role">${player.role}</div>
-              <div class="player-name">${player.ign}</div>
-              <div class="player-full-name">${player.fullName}</div>
-            </div>
-          </div>
-          <div class="card-content">
-            <p class="player-bio">${player.bio}</p>
-            <div class="player-socials">
-              <a href="${player.twitter}" target="_blank">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
-              </a>
-              <a href="${player.twitch}" target="_blank">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch">
-              </a>
-              <a href="${player.youtube}" target="_blank">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
-              </a>
-              <a href="${player.tiktok}" target="_blank">
-                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok">
-              </a>
+              <div class="player-name-card">${player.ign}</div>
+              <div class="player-full-name-card">${player.fullName}</div>
             </div>
           </div>
         `;
-        grid.appendChild(card);
+        container.appendChild(card);
       });
     }
 
-    generateCards();
-  </script>
+    function updateDisplay() {
+      const player = players[currentIndex];
+      document.getElementById('playerNameSmall').textContent = player.fullName.toUpperCase();
+      document.getElementById('playerNameLarge').textContent = player.ign;
+      document.getElementById('playerBio').textContent = player.bio;
+      document.getElementById('socialX').href = player.twitter;
+      document.getElementById('socialTwitch').href = player.twitch;
+      document.getElementById('socialYouTube').href = player.youtube;
+      document.getElementById('socialTikTok').href = player.tiktok;
+      document.getElementById('counterDisplay').textContent = currentIndex + 1;
+      
+      renderCards();
+    }
 
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + players.length) % players.length;
+      updateDisplay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % players.length;
+      updateDisplay();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
+    });
+
+    updateDisplay();
+  </script>
 </body>
 </html>
