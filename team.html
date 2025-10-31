@@ -1,310 +1,784 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RONIN — Team</title>
-<link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
-<link rel="shortcut icon" href="favicon.ico?v=2">
-<link rel="apple-touch-icon" href="RONIN_Logo.png?v=2">
-<meta name="theme-color" content="#C92828">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-@font-face {
-  font-family:'TheLastShuriken';
-  src:url('TheLastShuriken-Regular.woff') format('woff');
-  font-weight:normal;
-  font-style:normal;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-::-webkit-scrollbar{width:6px;}
-::-webkit-scrollbar-track{background:#eeeeee;}
-::-webkit-scrollbar-thumb{background-color:#C92828;border-radius:5px;}
-body{
-  font-family:'Montserrat',sans-serif;
-  background:#eeeeee;
-  color:#000;
-  overflow-x:hidden;
-  position:relative;
-}
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url('roninbg.png') center/cover no-repeat;
-  filter:grayscale(100%) brightness(0.7);
-  opacity:.03;
-  z-index:0;
-  pointer-events:none;
-}
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 50px;
-  background:#eeeeee;
-  position:fixed;
-  top:0;left:0;right:0;
-  z-index:1000;
-  border-bottom:3px solid #C92828;
-  overflow:hidden;
-}
-header::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url('roninbg.png') center/cover no-repeat;
-  filter:grayscale(100%) brightness(0.7);
-  opacity:.03;
-  z-index:0;
-}
-header *{position:relative;z-index:1;}
-.logo{display:flex;align-items:flex-end;text-decoration:none;gap:8px;}
-.logo img{height:45px;width:auto;}
-.logo span{font-family:'TheLastShuriken';font-size:28px;color:#C92828;letter-spacing:2px;}
-.center-header-text{
-  position:absolute;left:50%;transform:translateX(-50%);
-  font-family:'TheLastShuriken';font-size:22px;color:#C92828;letter-spacing:2px;
-}
-nav.nav-links{display:flex;align-items:center;}
-nav.nav-links a{
-  font-family:'TheLastShuriken';color:#C92828;text-decoration:none;
-  margin-left:25px;font-size:18px;transition:color .3s;
-}
-nav.nav-links a:hover{color:#000;}
-nav.nav-links a.active{color:#000;font-weight:600;}
-.team-container{
-  min-height:100vh;
-  padding:120px 50px 50px;
-  display:flex;align-items:center;position:relative;z-index:1;
-}
-.content-wrapper{
-  display:flex;width:100%;max-width:1600px;margin:0 auto;
-  gap:80px;align-items:center;justify-content:space-between;
-}
-.player-info-left{flex:0 0 400px;}
-.player-small-name{
-  font-family:'Montserrat';font-size:13px;color:#666;margin-bottom:15px;
-  text-transform:uppercase;letter-spacing:1.5px;
-}
-.player-large-name{
-  font-family:'TheLastShuriken';font-size:72px;color:#C92828;
-  margin-bottom:30px;text-transform:uppercase;line-height:1;
-}
-.player-bio{
-  font-family:'Montserrat';font-size:15px;color:#333;
-  line-height:1.8;margin-bottom:40px;max-width:400px;
-}
-.carousel-section{flex:1;position:relative;display:flex;align-items:center;justify-content:center;}
-.carousel-wrapper{position:relative;width:100%;height:600px;display:flex;align-items:center;justify-content:center;}
-.carousel-track{
-  display:flex;gap:30px;justify-content:center;align-items:center;
-  transition:transform 1s ease,opacity 1s ease;
-}
-.player-card{
-  flex:0 0 350px;height:500px;opacity:.1;transform:scale(.8);
-  transition:all 1s ease;position:relative;filter:blur(3px);
-}
-.player-card.active{
-  opacity:1;transform:scale(1);
-  filter:none;z-index:5;
-}
-.player-card.side{
-  opacity:.5;transform:scale(.9);
-  filter:blur(1px);
-}
-.card-inner{
-  width:100%;height:100%;
-  background:#fff;border:3px solid #C92828;overflow:hidden;
-  clip-path:polygon(0 0,calc(100% - 40px) 0,100% 40px,100% calc(100% - 30px),calc(100% - 30px) 100%,0 100%);
-}
-.card-label{
-  position:absolute;top:20px;left:20px;
-  font-family:'Montserrat';font-size:11px;font-weight:600;
-  color:#fff;text-transform:uppercase;background:#C92828;
-  padding:8px 15px;z-index:3;
-}
-.card-image{width:100%;height:100%;object-fit:cover;}
-.navigation-controls{
-  position:absolute;bottom:60px;left:50px;
-  display:flex;align-items:center;gap:20px;
-}
-.page-counter{
-  font-family:'TheLastShuriken';font-size:28px;
-  color:#C92828;min-width:100px;text-align:center;
-}
-.nav-arrow{
-  width:55px;height:55px;background:#C92828;border:none;
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;transition:all .3s;
-  clip-path:polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,0 100%);
-}
-.nav-arrow:hover{background:#a71e1e;transform:scale(1.1);}
-footer{
-  background:#eeeeee;color:#000;padding:100px 100px 60px 100px;
-  border-top:3px solid #C92828;display:flex;flex-direction:column;gap:60px;
-  position:relative;overflow:hidden;
-}
-footer::before{
-  content:"";position:absolute;inset:0;
-  background:url('roninbg.png') center/cover no-repeat;
-  filter:grayscale(100%) brightness(0.7);
-  opacity:.03;z-index:0;
-}
-footer *{position:relative;z-index:1;}
-.footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:60px;}
-.footer-left{flex:1;min-width:250px;}
-.footer-left img{width:70px;height:auto;margin-bottom:15px;}
-.footer-left p{color:#C92828;margin-bottom:20px;}
-.footer-socials{display:flex;gap:18px;}
-.footer-socials a img{
-  width:25px;height:25px;
-  filter:invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
-  transition:opacity .3s;
-}
-.footer-socials a:hover img{opacity:.7;}
-.footer-columns{
-  display:flex;justify-content:flex-end;flex:3;flex-wrap:wrap;gap:80px;
-}
-.footer-column h4{
-  font-family:'TheLastShuriken';color:#C92828;
-  margin-bottom:15px;font-size:20px;
-}
-.footer-column a{
-  display:block;color:#000;text-decoration:none;
-  margin-bottom:8px;font-size:15px;transition:color .3s;
-}
-.footer-column a:hover{color:#C92828;}
-</style>
-</head>
-<body>
-<header>
-  <a href="index.html" class="logo">
-    <img src="RONIN_Logo.png" alt="Logo"><span>RONIN</span>
-  </a>
-  <div class="center-header-text">#OwnTheBlade</div>
-  <nav class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="partners.html">Partners</a>
-    <a href="team.html" class="active">Team</a>
-    <a href="news.html">News</a>
-    <a href="shop.html">Shop</a>
-  </nav>
-</header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RONIN — Team</title>
 
-<div class="team-container">
-  <div class="content-wrapper">
-    <div class="player-info-left">
-      <div class="player-small-name" id="playerSmallName">Desean "DEYY" Hew</div>
-      <h1 class="player-large-name" id="playerLargeName">DEYY</h1>
-      <p class="player-bio" id="playerBio">
-        A fearless competitor and the embodiment of control under chaos. Desean “DEYY” Hew leads with instinct and precision — a perfect fit for the Ronin philosophy.
-      </p>
-    </div>
-    <div class="carousel-section">
-      <div class="carousel-wrapper">
-        <div class="carousel-track" id="carouselTrack"></div>
-      </div>
-    </div>
-  </div>
+  <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+  <link rel="shortcut icon" href="favicon.ico?v=2">
+  <link rel="apple-touch-icon" href="RONIN_Logo.png?v=2">
+  <meta name="theme-color" content="#C92828">
 
-  <div class="navigation-controls">
-    <button class="nav-arrow" id="prevBtn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-    </button>
-    <span class="page-counter" id="pageCounter">1 — 5</span>
-    <button class="nav-arrow" id="nextBtn">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </button>
-  </div>
-</div>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<footer>
-  <div class="footer-top">
-    <div class="footer-left">
-      <img src="RONIN_Logo.png" alt="Ronin Logo">
-      <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
-      <div class="footer-socials">
-        <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg"></a>
-        <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg"></a>
-        <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg"></a>
-        <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg"></a>
-        <a href="https://discord.gg/qaTWR7PtHa" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg"></a>
-      </div>
-    </div>
-    <div class="footer-columns">
-      <div class="footer-column">
-        <h4>About</h4>
-        <a href="#">Who we are</a><a href="#">Championships</a><a href="partners.html">Partners</a>
-        <a href="#">Management Team</a><a href="#">Brand Toolkit</a>
-      </div>
-      <div class="footer-column">
-        <h4>Company</h4>
-        <a href="index.html">Home</a><a href="team.html">Team</a><a href="news.html">News</a><a href="partners.html">Partners</a>
-      </div>
-      <div class="footer-column">
-        <h4>Terms & Policies</h4>
-        <a href="#">Privacy</a><a href="#">Terms & Conditions</a>
-      </div>
-      <div class="footer-column">
-        <h4>Shop</h4>
-        <a href="shop.html">Shop</a><a href="#">Returns Policy</a><a href="#">Shipping Policy</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-const players=[
- {smallName:'Desean "DEYY" Hew',largeName:'DEYY',bio:'A fearless competitor and the embodiment of control under chaos. Desean “DEYY” Hew leads with instinct and precision — a perfect fit for the Ronin philosophy.',image:'Deyyron.webp'},
- {smallName:'KENJI "SHADOW" NAKAMURA',largeName:'SHADOW',bio:'Moves like a ghost through the battlefield.',image:'Coming soon.png'},
- {smallName:'YUKI "FROST" TANAKA',largeName:'FROST',bio:'Cool under pressure with ice-cold aim.',image:'Coming soon.png'},
- {smallName:'HIRO "STORM" SATO',largeName:'STORM',bio:'Dynamic content creator bringing energy of a typhoon.',image:'Coming soon.png'},
- {smallName:'AKIRA "PHOENIX" WATANABE',largeName:'PHOENIX',bio:'Rising from setbacks stronger than before.',image:'Coming soon.png'}
-];
-let current=0;
-const track=document.getElementById("carouselTrack");
-const smallName=document.getElementById("playerSmallName");
-const largeName=document.getElementById("playerLargeName");
-const bio=document.getElementById("playerBio");
-const prevBtn=document.getElementById("prevBtn");
-const nextBtn=document.getElementById("nextBtn");
-const counter=document.getElementById("pageCounter");
-players.forEach(p=>{
-  const card=document.createElement("div");
-  card.className="player-card";
-  card.innerHTML=`<div class="card-inner"><div class="card-label">PROFILE</div><img src="${p.image}" alt="${p.largeName}" class="card-image"></div>`;
-  track.appendChild(card);
-});
-const cards=[...document.querySelectorAll(".player-card")];
-function update(){
-  cards.forEach((card,i)=>{
-    const diff=(i-current+players.length)%players.length;
-    card.style.transition="opacity 1s ease, transform 1s ease";
-    if(diff===0){
-      card.className="player-card active";
-      card.style.opacity="1";
-    }else if(diff===1||diff===players.length-1){
-      card.className="player-card side";
-      card.style.opacity=".5";
-    }else{
-      card.className="player-card";
-      card.style.opacity="0";
+  <style>
+    @font-face {
+      font-family: 'TheLastShuriken';
+      src: url('TheLastShuriken-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
     }
-  });
-  const p=players[current];
-  smallName.textContent=p.smallName;
-  largeName.textContent=p.largeName;
-  bio.textContent=p.bio;
-  counter.textContent=`${current+1} — ${players.length}`;
-}
-function next(){current=(current+1)%players.length;update();}
-function prev(){current=(current-1+players.length)%players.length;update();}
-nextBtn.onclick=next;
-prevBtn.onclick=prev;
-setInterval(next,15000);
-update();
-</script>
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #eeeeee; }
+    ::-webkit-scrollbar-thumb { background-color: #C92828; border-radius: 5px; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #eeeeee;
+      color: #000;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url('roninbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.03;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #eeeeee;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      border-bottom: 3px solid #C92828;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url('roninbg.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(100%) brightness(0.7);
+      opacity: 0.03;
+      z-index: 0;
+    }
+
+    header * { position: relative; z-index: 1; }
+
+    .logo { display: flex; align-items:flex-end; text-decoration: none; gap: 8px; }
+    .logo img { height: 45px; width: auto; }
+    .logo span {
+      font-family: 'TheLastShuriken';
+      font-size: 28px;
+      color: #C92828;
+      letter-spacing: 2px;
+    }
+
+    .center-header-text {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'TheLastShuriken';
+      font-size: 22px;
+      color: #C92828;
+      letter-spacing: 2px;
+    }
+    
+    nav.nav-links { display: flex; align-items: center; }
+    nav.nav-links a {
+      font-family: 'TheLastShuriken';
+      color: #C92828;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav.nav-links a:hover { color: #000; }
+    nav.nav-links a.active { color: #000; font-weight: 600; }
+
+    .team-container {
+      min-height: 100vh;
+      padding: 100px 50px 50px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 120px;
+      left: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #C92828;
+      font-family: 'TheLastShuriken';
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: transform 0.3s;
+    }
+
+    .back-button:hover {
+      transform: translateX(-5px);
+    }
+
+    .back-button svg {
+      width: 20px;
+      height: 20px;
+      fill: #C92828;
+    }
+
+    .content-wrapper {
+      display: flex;
+      width: 100%;
+      max-width: 1600px;
+      margin: 0 auto;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .player-info-left {
+      flex: 0 0 400px;
+    }
+
+    .player-small-name {
+      font-family: 'Montserrat';
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .player-large-name {
+      font-family: 'TheLastShuriken';
+      font-size: 72px;
+      color: #C92828;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      line-height: 1;
+      text-shadow: 2px 2px 0 rgba(201, 40, 40, 0.1);
+    }
+
+    .player-bio {
+      font-family: 'Montserrat';
+      font-size: 15px;
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .player-socials {
+      display: flex;
+      gap: 15px;
+    }
+
+    .player-socials a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 2px solid #C92828;
+      transition: all 0.3s;
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+    }
+
+    .player-socials a:hover {
+      background: #C92828;
+    }
+
+    .player-socials a img {
+      width: 20px;
+      height: 20px;
+      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
+    }
+
+    .player-socials a:hover img {
+      filter: invert(1);
+    }
+
+    .carousel-section {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      gap: 30px;
+    }
+
+    .player-card {
+      flex: 0 0 350px;
+      height: 500px;
+      position: relative;
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0.15;
+      transform: scale(0.85);
+      filter: blur(3px);
+    }
+
+    .player-card.active {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+
+    .player-card.side {
+      opacity: 0.2;
+      transform: scale(0.88);
+      filter: blur(2px);
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      border: 3px solid #C92828;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(
+        0 0, 
+        calc(100% - 40px) 0, 
+        100% 40px, 
+        100% calc(100% - 30px), 
+        calc(100% - 30px) 100%, 
+        0 100%
+      );
+    }
+
+    .card-inner::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #C92828 0%, #a71e1e 100%);
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+      z-index: 1;
+    }
+
+    .card-inner::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #C92828 0%, #a71e1e 100%);
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+      z-index: 1;
+    }
+
+    .katana-slash {
+      position: absolute;
+      width: 150%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #C92828, transparent);
+      transform: rotate(-25deg);
+      top: 30%;
+      left: -25%;
+      opacity: 0.6;
+      z-index: 2;
+      box-shadow: 0 0 10px rgba(201, 40, 40, 0.5);
+    }
+
+    .katana-slash:nth-child(2) {
+      top: 60%;
+      transform: rotate(25deg);
+      animation-delay: 0.1s;
+    }
+
+    .card-label {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-family: 'Montserrat';
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      background: #C92828;
+      padding: 8px 15px;
+      z-index: 3;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%);
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .navigation-controls {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .page-counter {
+      font-family: 'TheLastShuriken';
+      font-size: 28px;
+      color: #C92828;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .nav-arrow {
+      width: 55px;
+      height: 55px;
+      background: #C92828;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-arrow::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .nav-arrow:hover::before {
+      left: 100%;
+    }
+
+    .nav-arrow:hover {
+      background: #a71e1e;
+      transform: scale(1.1);
+    }
+
+    .nav-arrow:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .nav-arrow:disabled:hover {
+      transform: scale(1);
+      background: #C92828;
+    }
+
+    .nav-arrow:disabled::before {
+      display: none;
+    }
+
+    .nav-arrow svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer {
+      background: #eeeeee;
+      color: #000;
+      padding: 100px 100px 60px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      border-top: 3px solid #C92828;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 60px;
+    }
+
+    .footer-left {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .footer-left img {
+      width: 70px;
+      height: auto;
+      margin-bottom: 15px;
+    }
+
+    .footer-left p {
+      color: #C92828;
+      margin-bottom: 20px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 18px;
+    }
+
+    .footer-socials a img {
+      width: 25px;
+      height: 25px;
+      filter: invert(26%) sepia(88%) saturate(2946%) hue-rotate(348deg) brightness(97%) contrast(97%);
+      transition: opacity 0.3s;
+    }
+
+    .footer-socials a:hover img { opacity: 0.7; }
+
+    .footer-columns {
+      display: flex;
+      justify-content: flex-end;
+      flex: 3;
+      flex-wrap: wrap;
+      gap: 80px;
+    }
+
+    .footer-column h4 {
+      font-family: 'TheLastShuriken';
+      color: #C92828;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #000;
+      text-decoration: none;
+      margin-bottom: 8px;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: #C92828;
+    }
+
+    @media (max-width: 1200px) {
+      .content-wrapper {
+        flex-direction: column;
+        gap: 50px;
+      }
+      .player-info-left {
+        flex: none;
+        width: 100%;
+        text-align: center;
+      }
+      .player-socials {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html" class="logo">
+      <img src="RONIN_Logo.png" alt="Logo">
+      <span>RONIN</span>
+    </a>
+
+    <div class="center-header-text">#OwnTheBlade</div>
+
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="partners.html">Partners</a>
+      <a href="team.html" class="active">Team</a>
+      <a href="news.html">News</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+  </header>
+
+  <div class="team-container">
+    <a href="team.html" class="back-button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+      BACK
+    </a>
+
+    <div class="content-wrapper">
+      <div class="player-info-left">
+        <div class="player-small-name" id="playerSmallName">TAKESHI "BLADE" YAMAMOTO</div>
+        <h1 class="player-large-name" id="playerLargeName">BLADE</h1>
+        <p class="player-bio" id="playerBio">A master tactician with the precision of a samurai. Known for swift decisive plays that cut through enemy defenses. His leadership style embodies the way of the blade - disciplined, focused, and unrelenting.</p>
+        <div class="player-socials">
+          <a href="#" target="_blank" id="socialX">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X">
+          </a>
+          <a href="#" target="_blank" id="socialTwitch">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch">
+          </a>
+          <a href="#" target="_blank" id="socialYouTube">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube">
+          </a>
+          <a href="#" target="_blank" id="socialTikTok">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok">
+          </a>
+        </div>
+      </div>
+
+      <div class="carousel-section">
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Cards will be dynamically generated -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigation-controls">
+      <button class="nav-arrow" id="prevBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+        </svg>
+      </button>
+      <span class="page-counter" id="pageCounter">1 — 6</span>
+      <button class="nav-arrow" id="nextBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="footer-left">
+        <img src="RONIN_Logo.png" alt="Ronin Logo">
+        <p>&copy; 2025 Ronin Gaming. All rights reserved.</p>
+        <div class="footer-socials">
+          <a href="https://x.com/Roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" alt="X"></a>
+          <a href="https://www.youtube.com/@RoninGGss" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/youtube.svg" alt="YouTube"></a>
+          <a href="https://www.tiktok.com/@roninggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tiktok.svg" alt="TikTok"></a>
+          <a href="https://www.twitch.tv/roningamingggs" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/twitch.svg" alt="Twitch"></a>
+          <a href="https://discord.gg/qaTWR7PtHa" target="_blank"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" alt="Discord"></a>
+        </div>
+      </div>
+
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h4>About</h4>
+          <a href="#">Who we are</a>
+          <a href="#">Championships</a>
+          <a href="partners.html">Partners</a>
+          <a href="#">Management Team</a>
+          <a href="#">Brand Toolkit</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Company</h4>
+          <a href="index.html">Home</a>
+          <a href="team.html">Team</a>
+          <a href="news.html">News</a>
+          <a href="partners.html">Partners</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Terms & Policies</h4>
+          <a href="#">Privacy</a>
+          <a href="#">Terms & Conditions</a>
+        </div>
+
+        <div class="footer-column">
+          <h4>Shop</h4>
+          <a href="shop.html">Shop</a>
+          <a href="#">Returns Policy</a>
+          <a href="#">Shipping Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const players = [
+      {
+        smallName: 'TAKESHI "BLADE" YAMAMOTO',
+        largeName: 'BLADE',
+        role: 'PROFILE // BLADE',
+        bio: 'A master tactician with the precision of a samurai. Known for swift decisive plays that cut through enemy defenses. His leadership style embodies the way of the blade - disciplined, focused, and unrelenting.',
+        image: 'Coming soon.png',
+        twitter: '#',
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
+      },
+      {
+        smallName: 'KENJI "SHADOW" NAKAMURA',
+        largeName: 'SHADOW',
+        role: 'PROFILE // SHADOW',
+        bio: 'Moves like a ghost through the battlefield. His unpredictable playstyle keeps opponents guessing. A true ronin who follows his own path to victory with deadly efficiency.',
+        image: 'Coming soon.png',
+        twitter: '#',
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
+      },
+      {
+        smallName: 'YUKI "FROST" TANAKA',
+        largeName: 'FROST',
+        role: 'PROFILE // FROST',
+        bio: 'Cool under pressure with ice-cold aim. Never misses the critical shot when it matters most. Combines traditional samurai discipline with modern gaming excellence.',
+        image: 'Coming soon.png',
+        twitter: '#',
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
+      },
+      {
+        smallName: 'HIRO "STORM" SATO',
+        largeName: 'STORM',
+        role: 'PROFILE // CONTENT',
+        bio: 'Dynamic content creator bringing the energy of a typhoon to every stream. Connects with fans through engaging personality while showcasing elite-level gameplay and samurai spirit.',
+        image: 'Coming soon.png',
+        twitter: '#',
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
+      },
+      {
+        smallName: 'AKIRA "PHOENIX" WATANABE',
+        largeName: 'PHOENIX',
+        role: 'PROFILE // PHOENIX',
+        bio: 'Rising from setbacks stronger than before. Known for clutch plays in impossible situations. Embodies the ronin spirit of perseverance and unwavering determination.',
+        image: 'Coming soon.png',
+        twitter: '#',
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
+      },
+      {
+        smallName: 'REN "RONIN" KOBAYASHI',
+        largeName: 'RONIN',
+        role: 'PROFILE // RONIN',
+        bio: 'The heart and soul of the team. A masterless warrior who found his purpose leading RONIN to glory. Years of competitive experience forged into deadly expertise.',
+        image: 'Coming soon.png',
+        twitter: '#',
+        twitch: '#',
+        youtube: '#',
+        tiktok: '#'
+      }
+    ];
+
+    let currentIndex = 0;
+    const track = document.getElementById('carouselTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const counter = document.getElementById('pageCounter');
+
+    // Generate cards
+    function generateCards() {
+      track.innerHTML = '';
+      players.forEach((player, i) => {
+        const card = document.createElement('div');
+        card.className = 'player-card';
+        if (i === currentIndex) card.classList.add('active');
+        if (i === currentIndex - 1 || i === currentIndex + 1) card.classList.add('side');
+        
+        card.innerHTML = `
+          <div class="card-inner">
+            <div class="katana-slash"></div>
+            <div class="katana-slash"></div>
+            <div class="card-label">${player.role}</div>
+            <img src="${player.image}" alt="${player.largeName}" class="card-image">
+          </div>
+        `;
+        track.appendChild(card);
+      });
+    }
+
+    // Update display
+    function updateDisplay() {
+      const player = players[currentIndex];
+      document.getElementById('playerSmallName').textContent = player.smallName;
+      document.getElementById('playerLargeName').textContent = player.largeName;
+      document.getElementById('playerBio').textContent = player.bio;
+      document.getElementById('socialX').href = player.twitter;
+      document.getElementById('socialTwitch').href = player.twitch;
+      document.getElementById('socialYouTube').href = player.youtube;
+      document.getElementById('socialTikTok').href = player.tiktok;
+      counter.textContent = `${currentIndex + 1} — ${players.length}`;
+      
+      // Update cards
+      const cards = document.querySelectorAll('.player-card');
+      cards.forEach((card, i) => {
+        card.classList.remove('active', 'side');
+        if (i === currentIndex) card.classList.add('active');
+        if (i === currentIndex - 1 || i === currentIndex + 1) card.classList.add('side');
+      });
+
+      // Update buttons
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === players.length - 1;
+    }
+
+    // Navigation
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateDisplay();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < players.length - 1) {
+        currentIndex++;
+        updateDisplay();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'ArrowRight') nextBtn.click();
+    });
+
+    // Initialize
+    generateCards();
+    updateDisplay();
+  </script>
+
 </body>
 </html>
